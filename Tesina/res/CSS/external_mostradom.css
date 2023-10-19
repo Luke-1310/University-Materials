@@ -1,0 +1,38 @@
+.titoletto{
+  text-align: center;
+    
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.titolo-fumetto {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: #f0f0f0;
+
+  width: 30%;
+  border-radius: 20px;
+  
+  margin: 0 auto;
+  margin-bottom: 30px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.bottone input[type="submit"] {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  font-weight: bold;
+
+  color:#1a1a1a;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+  
+.bottone input[type="submit"]:hover{
+  color:#1e8fffc5;
+}

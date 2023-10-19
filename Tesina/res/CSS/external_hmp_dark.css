@@ -1,0 +1,82 @@
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 30px;
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  max-width: 300px;
+
+  position: relative;
+}
+
+.cell img{
+  width: 175px;
+  height: 275px;
+}
+
+.cell a{
+  margin-top: 10px;
+  text-decoration: none;
+  color: inherit; /* Usa il colore ereditato dall'elemento padre */
+}
+
+.cell a h5{
+  margin-top: 10px;
+  text-align: center; /* Allinea il testo orizzontalmente */
+}
+
+#prod_info{
+  padding: 0;
+  margin: 0;
+}
+
+#sell{
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.bottone input[type="submit"] {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  color:#ffffff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.bottone input[type="submit"]:hover{
+  color:gray;
+}
+
+.novita{
+  text-align: center;
+  cursor: pointer;
+
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.novita a{
+  text-decoration: none;
+  color:#ffffff;
+}
+
+  .novita :hover{
+    color: #1a1a1a;
+}  

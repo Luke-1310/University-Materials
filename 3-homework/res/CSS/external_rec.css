@@ -1,0 +1,75 @@
+html{
+    border-style: solid;
+}
+
+body{
+  background-color: rgb(239, 209, 179);
+}
+
+.titolo{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    list-style: none;
+    background-color: none;
+    margin:5px;
+    text-align: center;
+    color: black;
+}
+
+.home {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+h3 {
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    color: #ff0000;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+form label{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    margin-bottom: 10px;
+}
+
+input{
+    margin-bottom: 20px;
+}
+
+
+.main{
+    margin-left: 160px; /* Stessa larghezza della barra per evitare la barra*/
+    font-size: 20px; /* Aumento la dimensione del testo*/
+    padding: 0px 10px;
+}
+
+#testo{
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+h2{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+}
+
+.crediti{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    text-align: center;
+  }

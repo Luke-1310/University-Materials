@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manga xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="manga.xsd">
+  <fumetto isbn="9788418271236">
+    <titolo>SPY X FAMILY 1</titolo>
+    <autore>
+      <nome>Tastuya</nome>
+      <cognome>Endo</cognome>
+    </autore>
+    <sinossi>DAL GENIALE AUTORE DI TISTA E GEKKA BIJIN, L’ACTION-COMEDY DEL MOMENTO! ECCO IL MANGA CHE HA RIVOLUZIONATO IL GENERE DELLE SPY STORY! Nome in codice: Twilight. Può mutare il proprio volto in un secondo. Può sventare il lancio di un missile un attimo prima dell’irreparabile. Può portare a compimento imprese impossibili. Niente però l’ha preparato alla prossima missione: trovare moglie (e figlio!) in una settimana…</sinossi>
+    <lunghezza>216</lunghezza>
+    <prezzo>5.99</prezzo>
+    <data>2020-05-06</data>
+    <quantita>4</quantita>
+    <img>9788418271236</img>
+    <editore>Planet Manga</editore>
+    <sconto>
+      <X>4</X>
+      <N>124</N>
+      <R>1</R>
+    </sconto>
+    <bonus>2</bonus>
+  </fumetto>
+  <fumetto isbn="9788822632593">
+    <titolo>KAIJU NO.8 3</titolo>
+    <autore>
+      <nome>Naoya</nome>
+      <cognome>Mutamoto</cognome>
+    </autore>
+    <sinossi>Per salvare Ichikawa e Furuhashi, Kafka si trasforma in kaiju e si prepara ad affrontare l’inquietante mostro umanoide che aveva attaccato i suoi compagni. Lo scontro viene però interrotto dalle Forze di Difesa e il kaiju umanoide ne approfitta per fuggire. Kafka, a quel punto, vorrebbe fare lo stesso, ma... proprio in quel momento, viene raggiunto dal vicecomandante Hoshina, fortemente determinato a eliminarlo!!!</sinossi>
+    <lunghezza>193</lunghezza>
+    <prezzo>7.99</prezzo>
+    <data>2022-06-22</data>
+    <quantita>34</quantita>
+    <img>9788822632593</img>
+    <editore>Star Comics</editore>
+    <sconto>
+      <X>0</X>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+    <recensione>
+      <utenteID>4</utenteID>
+      <rec>Devo dire che mi sta piacendo moltissimo!</rec>
+      <dataRec>2023-09-24T23:11:38</dataRec>
+      <reputazionevotante/>
+    </recensione>
+  </fumetto>
+  <fumetto isbn="9788828720232">
+    <titolo>SPY X FAMILY 6</titolo>
+    <autore>
+      <nome>Tastuya</nome>
+      <cognome>Endo</cognome>
+    </autore>
+    <sinossi>UNA MISSIONE SEGRETA CHE PREVEDE… UN TORNEO CLANDESTINO DI TENNIS!! Twilight, la geniale spia, è in grado di leggere nella mente di qualsivoglia avversario. Non è però in grado di comprendere i sentimenti della collega Nightfall! Ciò che la ragazza nasconde nel cuore sta per scatenarsi…</sinossi>
+    <lunghezza>209</lunghezza>
+    <prezzo>5.99</prezzo>
+    <data>2021-09-09</data>
+    <quantita>10</quantita>
+    <img>9788828720232</img>
+    <editore>Planet Manga</editore>
+    <sconto>
+      <X>8</X>
+      <N>120</N>
+      <R>4</R>
+    </sconto>
+    <bonus>1</bonus>
+  </fumetto>
+  <fumetto isbn="9788834920992">
+    <titolo>TOKYO REVENGERS 28</titolo>
+    <autore>
+      <nome>Ken</nome>
+      <cognome>Wakui</cognome>
+    </autore>
+    <sinossi>Dopo essersi ripreso dalle ferite subite durante la guerra tra le tre squadre celesti, Takemichi fonda una nuova banda e progetta la sua vendetta contro Mikey! Per il nostro eroe inizia la battaglia finale, lo scontro all’ultimo sangue tra la Kanto Manji Gang e la seconda generazione della Toman!</sinossi>
+    <lunghezza>192</lunghezza>
+    <prezzo>6.99</prezzo>
+    <data>2022-06-26</data>
+    <quantita>2</quantita>
+    <img>9788834920992</img>
+    <editore>J-Pop</editore>
+    <sconto>
+      <X>0</X>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+    <recensione>
+      <utenteID>1</utenteID>
+      <rec>Esempio tipico di come rovinare una serie! Sono molto contrario alle scelte del protagonista...</rec>
+      <dataRec>2023-10-06T15:36:38</dataRec>
+      <reputazionevotante/>
+    </recensione>
+  </fumetto>
+  <fumetto isbn="9781634429405">
+    <titolo>HEAVENLY DELUSION 1</titolo>
+    <autore>
+      <nome>Masakazu</nome>
+      <cognome>Ishiguro</cognome>
+    </autore>
+    <sinossi>Dentro a una struttura dotata di un’area verde e completamente cinta da mura sono ospitati dei ragazzini. Durante una verifica, Tokio riceve un fugace messaggio che recita: “Vorresti andare all’esterno dell’esterno?”, e da quel momento comincia a chiedersi come sia quel mondo sconosciuto che inizia appena oltre i confini della struttura. Dall’altra parte, fuori, Maru e Kiruko, impegnati in una quotidiana lotta per la sopravvivenza in ciò che resta del Giappone, sono alla ricerca del “paradiso”. Tokio e Maru sono identici nell'aspetto, eppure sembrano non conoscersi affatto. Quale sarà il loro legame? I loro destini saranno destinati a incrociarsi?</sinossi>
+    <lunghezza>222</lunghezza>
+    <prezzo>5.99</prezzo>
+    <data>2020-01-13</data>
+    <quantita>2</quantita>
+    <img>9781634429405</img>
+    <editore>Star Comics</editore>
+    <sconto>
+      <X>2</X>
+      <N>131</N>
+      <R>3</R>
+    </sconto>
+    <bonus>5</bonus>
+    <recensione>
+      <utenteID>2</utenteID>
+      <rec>Un inizio davvero interessante!</rec>
+      <dataRec>2020-01-29T04:10:12</dataRec>
+      <reputazionevotante>12</reputazionevotante>
+    </recensione>
+    <recensione>
+      <utenteID>1</utenteID>
+      <rec>carino</rec>
+      <dataRec>2023-07-29T10:30:00</dataRec>
+      <reputazionevotante>12</reputazionevotante>
+    </recensione>
+  </fumetto>
+  <fumetto isbn="9783455000955">
+    <titolo>SPY X FAMILY 2</titolo>
+    <autore>
+      <nome>Tastuya </nome>
+      <cognome>Endo</cognome>
+    </autore>
+    <sinossi>IL SECONDO VOLUME DELLA SERIE DI GRANDE SUCCESSO CHE HA RISCRITTO LE REGOLE DELLA SPY STORY! Twilight è riuscito a portare a termine la prima, complicata fase della sua missione: mettere su famiglia in una settimana per infiltrarsi in un prestigioso istituto scolastico. Peccato che la figlia sia una telepate e la moglie… un pericoloso sicario?!</sinossi>
+    <lunghezza>200</lunghezza>
+    <prezzo>5.99</prezzo>
+    <data>2020-07-12</data>
+    <quantita>6</quantita>
+    <img>9783455000955</img>
+    <editore>Planet Manga</editore>
+    <sconto>
+      <X>0</X>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>5</bonus>
+  </fumetto>
+  <fumetto isbn="9788822632050">
+    <titolo>KAIJU NO. 8 2</titolo>
+    <autore>
+      <nome>Naoya</nome>
+      <cognome>Matsumoto</cognome>
+    </autore>
+    <sinossi>Nel secondo volume di Kaiju no. 8, Hibino viene ammesso con riserva nel Forze di Difesa e, prima di passare in secondo piano a favore di altri novellini, può mettere in mostra le competenze apprese sul campo come spazzino (prima di affrontare l'esame si occupava di ripulire la città dai resti organici dei Kaiju)....</sinossi>
+    <lunghezza>208</lunghezza>
+    <prezzo>5.50</prezzo>
+    <data>2022-04-21</data>
+    <quantita>9</quantita>
+    <img>9788822632050</img>
+    <editore>Star Comics</editore>
+    <sconto>
+      <X>0</X>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+  </fumetto>
+  <fumetto isbn="9785216892214">
+    <titolo>ONE PIECE 1</titolo>
+    <autore>
+      <nome>Eiichiro</nome>
+      <cognome>Oda</cognome>
+    </autore>
+    <sinossi>Presso il porto di un piccolo villaggio di mare è attraccata una nave dall'aspetto minaccioso. Le sue vele sono ammainate ma sull'albero maestro sventola fiero il vessillo dei pirati: il Jolly Roger! Un ragazzino del villaggio è disposto a tutto pur di salire a bordo e intraprendere l'appassionante carriera del bucaniere, ma ancora non sa cosa lo aspetta al largo delle coste familiari della sua isola...</sinossi>
+    <lunghezza>208</lunghezza>
+    <prezzo>6.50</prezzo>
+    <data>2008-02-20</data>
+    <quantita>90</quantita>
+    <img>9785216892214</img>
+    <editore>Star Comics</editore>
+    <sconto>
+      <X>0</X>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+    <recensione>
+      <utenteID>1</utenteID>
+      <rec>Questo manga è davvero un sempreverde! Iconico a dir poco!</rec>
+      <dataRec>2023-01-01T00:21:00</dataRec>
+      <reputazionevotante>12</reputazionevotante>
+    </recensione>
+  </fumetto>
+  <fumetto isbn="9786555129021">
+    <titolo>SPY X FAMILY 3</titolo>
+    <autore>
+      <nome>Tastuya </nome>
+      <cognome>Endo</cognome>
+    </autore>
+    <sinossi>DISINNESCARE UNA BOMBA? PUÒ ESSERE PIÙ COMPLICATO GESTIRE UNA MOGLIE E UNA FIGLIA… Twilight, impegnato in una missione da cui dipende la pace nel mondo, deve recitare il ruolo del padre di famiglia. Riuscirà a fare una buona impressione sul fratello della moglie… che fra l’altro custodisce un pericoloso segreto?</sinossi>
+    <lunghezza>200</lunghezza>
+    <prezzo>5.99</prezzo>
+    <data>2021-01-01</data>
+    <quantita>10</quantita>
+    <img>9786555129021</img>
+    <editore>Planet Manga</editore>
+    <sconto>
+      <X>0</X>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+  </fumetto>
+  <fumetto isbn="9788828766018">
+    <titolo>SPY X FAMILY 4</titolo>
+    <autore>
+      <nome>Tastuya </nome>
+      <cognome>Endo</cognome>
+    </autore>
+    <sinossi>IL MANGA CHE HA RISCRITTO LE REGOLE DELLA SPY STORYQual è il legame fra un gruppo terroristico che pianifica l’omicidio di un ministro e il desiderio di Anya di avere… un cane?! Proviamo a scoprirlo in una delle più turbolente missioni mai affrontate da Twilight, fra cani kamikaze, la minaccia di una guerra e una visita… al negozio di animali!</sinossi>
+    <lunghezza>192</lunghezza>
+    <prezzo>5.99</prezzo>
+    <data>2021-02-14</data>
+    <quantita>19</quantita>
+    <img>9788828766018</img>
+    <editore>Planet Manga</editore>
+    <sconto>
+      <X>0</X>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+  </fumetto>
+  <fumetto isbn="9788828720447">
+    <titolo>SPY X FAMILY 5</titolo>
+    <autore>
+      <nome>Tastuya </nome>
+      <cognome>Endo</cognome>
+    </autore>
+    <sinossi>LA MISSIONE DI TWILIGHT È APPESA A UN FILO… Disinnescare un ordigno nucleare in trenta secondi? Fermare un sanguinario serial killer? No, niente di tutto ciò. Il protagonista deve solo evitare che “sua figlia” Anya prenda un’insufficienza agli esami. Impresa impossibile?</sinossi>
+    <lunghezza>208</lunghezza>
+    <prezzo>5.99</prezzo>
+    <data>2021-04-12</data>
+    <quantita>8</quantita>
+    <img>9788828720447</img>
+    <editore>Planet Manga</editore>
+    <sconto>
+      <X>0</X>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+  </fumetto>
+  <fumetto isbn="9786559609284">
+    <titolo>SPY X FAMILY 7</titolo>
+    <autore>
+      <nome>Tastuya </nome>
+      <cognome>Endo</cognome>
+    </autore>
+    <sinossi>UN PIANO GENIALE! Per impedire l’esplosione di una guerra devastante è prioritario scoprire cosa c’è davvero nella mente di Donovan Desmond, l’imperscrutabile uomo politico. Twilight riesce ad avvicinarlo, ma il risultato dell’incontro è del tutto inaspettato…</sinossi>
+    <lunghezza>208</lunghezza>
+    <prezzo>5.99</prezzo>
+    <data>2021-11-04</data>
+    <quantita>44</quantita>
+    <img>9786559609284</img>
+    <editore>Planet Manga</editore>
+    <sconto>
+      <X>0</X>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+  </fumetto>
+  <fumetto isbn="9788891298362">
+    <titolo>JUJUTSU KAISEN 0</titolo>
+    <autore>
+      <nome>Gege</nome>
+      <cognome>Akutami</cognome>
+    </autore>
+    <sinossi>Il sentimento più nobile può diventare la maledizione più crudele. Il prequel degli eventi narrati nella serie principale di Jujutsu Kaisen la nuova hit di Shueisha. Un ragazzo segnato da un destino oscuro cerca il modo di fronteggiare i propri demoni scoprendo il fascino e le insidie del mondo dell'occulto…</sinossi>
+    <lunghezza>200</lunghezza>
+    <prezzo>4.66</prezzo>
+    <data>2021-02-25</data>
+    <quantita>23</quantita>
+    <img>9788891298362</img>
+    <editore>Planet Manga</editore>
+    <sconto>
+      <X>0</X>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+  </fumetto>
+</manga>

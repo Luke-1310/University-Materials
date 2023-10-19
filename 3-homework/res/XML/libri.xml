@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libri xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="libro.xsd">
+  <book isbn="9788418271236">
+    <titolo>Spy x Family 1</titolo>
+    <autore>
+      <nome>Tastuya </nome>
+      <cognome>Endo</cognome>
+    </autore>
+    <lunghezza>216</lunghezza>
+    <data>2020-05-06</data>
+    <img>9788418271236</img>
+    <recensione>
+      <utente>prova</utente>
+      <rec>carino</rec>
+      <rating>3.5</rating>
+    </recensione>
+  </book>
+  <book isbn="9788828720232">
+    <titolo>Spy x Family 6</titolo>
+    <autore>
+      <nome>Tastuya </nome>
+      <cognome>Endo</cognome>
+    </autore>
+    <lunghezza>208</lunghezza>
+    <data>2021-09-09</data>
+    <img>9788828720232</img>
+  </book>
+  <book isbn="9783455000955">
+    <titolo>Novecento</titolo>
+    <autore>
+      <nome>Alessandro</nome>
+      <cognome>Baricco</cognome>
+    </autore>
+    <lunghezza>62</lunghezza>
+    <data>1994-05-03</data>
+    <img>9783455000955</img>
+  </book>
+  <book isbn="9788868364601">
+    <titolo>Il fotocane</titolo>
+    <autore>
+      <nome>Stephen</nome>
+      <cognome>King</cognome>
+    </autore>
+    <lunghezza>211</lunghezza>
+    <data>2018-06-14</data>
+    <img>9788868364601</img>
+    <recensione>
+      <utente>AleColuz</utente>
+      <rec>Semplicemente il libro che mi ha ravvicinato al mondo della lettura. Questo libro racconta la storia di Kevin, il quale per il suo quindicesimo compleanno riceve in regalo una macchinetta fotografica, fino a qui tutto normale no? Beh, ecco, peccato che quella macchinetta in realtà invece di fotografare il soggetto che si vuole immortalare fotografa un cane a dir poco spaventoso che foto dopo foto si avvicina sempre di più e sembra quasi uscire dalla fotografia! Quindi come puoi immaginare è a dir poco spaventoso, da leggere rigorosamente dopo le quattro di notte come da titolo della collana di cui ne fa parte!</rec>
+      <rating>4</rating>
+    </recensione>
+  </book>
+  <book isbn="9788807900792">
+    <titolo>I fratelli Karamazov</titolo>
+    <autore>
+      <nome>Fedor</nome>
+      <cognome>Dostoevskij</cognome>
+    </autore>
+    <lunghezza>1114</lunghezza>
+    <data>1879-01-01</data>
+    <img>9788807900792</img>
+  </book>
+  <book isbn="9788822632593">
+    <titolo>Kaiju No.8 3</titolo>
+    <autore>
+      <nome>Naoya</nome>
+      <cognome>Mutamoto</cognome>
+    </autore>
+    <lunghezza>192</lunghezza>
+    <data>2022-06-22</data>
+    <img>9788822632593</img>
+  </book>
+  <book isbn="9788834920787">
+    <titolo>L'estate in cui Hikaru è morto 1</titolo>
+    <autore>
+      <nome>Mokumoku</nome>
+      <cognome>Ren</cognome>
+    </autore>
+    <lunghezza>192</lunghezza>
+    <data>2023-06-27</data>
+    <img>9788834920787</img>
+  </book>
+  <book isbn="9788834920992">
+    <titolo>Tokyo Revengers 28</titolo>
+    <autore>
+      <nome>Ken</nome>
+      <cognome>Wakui</cognome>
+    </autore>
+    <lunghezza>192</lunghezza>
+    <data>2022-06-27</data>
+    <img>9788834920992</img>
+    <recensione>
+      <utente>prova</utente>
+      <rec>Bello dai, ma neanche troppo!</rec>
+      <rating>2.5</rating>
+    </recensione>
+  </book>
+  <book isbn="9788809950528">
+    <titolo>Lo Strano Caso del Dr. Jekyll e Mr. Hide</titolo>
+    <autore>
+      <nome>Robert Luis</nome>
+      <cognome>Stevenson</cognome>
+    </autore>
+    <lunghezza>144</lunghezza>
+    <data>2022-05-01</data>
+    <img>9788809950528</img>
+  </book>
+  <book isbn="9788822632036">
+    <titolo>Demon Slayer 19</titolo>
+    <autore>
+      <nome>Koyoharu</nome>
+      <cognome>Gotouge</cognome>
+    </autore>
+    <lunghezza>192</lunghezza>
+    <data>2022-05-11</data>
+    <img>9788822632036</img>
+  </book>
+  <book isbn="9781634429405">
+    <titolo>Heavenly Delusion 1</titolo>
+    <autore>
+      <nome>Masakazu</nome>
+      <cognome>Ishiguro</cognome>
+    </autore>
+    <lunghezza>222</lunghezza>
+    <data>2020-01-13</data>
+    <img>9781634429405</img>
+  </book>
+  <book isbn="9788846733733">
+    <titolo>La Storia di Elsa Morante</titolo>
+    <autore>
+      <nome>Elsa</nome>
+      <cognome>Morante</cognome>
+    </autore>
+    <lunghezza>252</lunghezza>
+    <data>2012-09-01</data>
+    <img>9788846733733</img>
+  </book>
+  <book isbn="9788836806959">
+    <titolo>I versi del capitano</titolo>
+    <autore>
+      <nome>Pablo</nome>
+      <cognome>Neruda</cognome>
+    </autore>
+    <lunghezza>203</lunghezza>
+    <data>2001-09-28</data>
+    <img>9788836806959</img>
+  </book>
+</libri>

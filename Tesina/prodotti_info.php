@@ -1,0 +1,237 @@
+<?php
+session_start();
+
+if (isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro") {
+    echo "<link rel=\"stylesheet\" href=\"res/CSS/external_info_dark.css\" type=\"text/css\" />";
+} else {
+    echo "<link rel=\"stylesheet\" href=\"res/CSS/external_info.css\" type=\"text/css\" />";
+}
+?>
+
+<?php
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<head>
+    <title>Informazioni prodotto</title>
+</head>
+
+<?php
+$pagina_corrente = "prodotti_info";
+include('res/PHP/connection.php');
+include('res/PHP/navbar.php');
+include('res/PHP/funzioni.php');
+?>
+
+<body>
+
+    <?php
+    if (isset($_POST['titolo'])) {
+        $titolo = $_POST["titolo"];
+    }
+    //metto il titolo dentro una variabile di sessione perché se cambio il tema nella pagina delle info mi da errore
+    //preso il titolo stampo tutte le informazioni
+    // Verifica se $titolo non è vuoto prima di aggiornare la variabile di sessione
+    if (!empty($titolo)) {
+        $_SESSION['info_titolo'] = $titolo;
+    }
+
+    //prendo il percorso dell'immagine
+    $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
+
+    //Estensione dell'immagine la quale dovrebbe essere jpg
+    $ext = ".jpg";
+
+    //prendo il percorso del file xml
+    $pathXml = "res/XML/catalogo.xml";
+
+    $fumetti = getFumetti($pathXml);
+
+    //itero attraverso gli elementi 'fumetto'
+    foreach ($fumetti as $fumetto) {
+
+        if ($fumetto['titolo'] == $_SESSION['info_titolo']) {
+
+            //ci troviamo nel fumetto corretto, mi prendo tutti i dati
+            $autoreNome = $fumetto['nome_autore'];
+            $autoreCognome = $fumetto['cognome_autore'];
+            $sinossi = $fumetto['sinossi'];
+            $pagine = $fumetto['lunghezza'];
+            $prezzo = $fumetto['prezzo'];
+            $uscita = $fumetto['data'];
+            $editore = $fumetto['editore'];
+            $ISBN = $fumetto['isbn'];
+            $bonus = $fumetto['bonus'];
+            $recensioni = $fumetto['recensioni'];
+        }
+    }
+
+    //Compongo il nome completo dell'immagine da stampare
+    $nomeImg = $ISBN . $ext;
+    ?>
+
+    <div class="container">
+        <div class="img-text">
+            <?php echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\">";
+
+            $connessione = new mysqli($host, $user, $password, $db);
+
+            echo "<div class=\"button-row\">";
+
+                //faccio una query per controllare se l'utente è un GS o AM, se sì allora stampo il bottone
+                if (isset($_SESSION['nome'])) {
+                    $query = "SELECT um.ruolo FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}' AND (um.ruolo = 'AM' || um.ruolo = 'GS')";
+                    $ris = mysqli_query($connessione, $query);
+
+                    if (mysqli_num_rows($ris) == 1) {
+                        echo "<form id=\"modifica_prod\" action=\"modifica_prodotto.php\" method=\"POST\">";
+                        echo "<input type=\"hidden\" name=prodotto value='{$_SESSION['info_titolo']}'>";
+                        echo "<span class=\"bottone\"><button type=\"submit\" name=\"info\">MODIFICA PRODOTTO</button></span>";
+                        echo "</form>";
+                    }
+                }
+            echo"</div>";
+            ?>
+
+        </div>
+        <div class="info-libro">
+
+            <h4>INFORMAZIONI PRODOTTO</h4>
+
+            <div class="info-field">
+                <span class="field-label">TITOLO:</span>
+                <span class="field-value"><?php echo $_SESSION['info_titolo']; ?></span>
+            </div>
+
+            <div class="info-field">
+                <span class="field-label">ISBN:</span>
+                <span class="field-value"><?php echo $ISBN; ?></span>
+            </div>
+
+            <div class="info-field">
+                <span class="field-label">AUTORE:</span>
+                <span class="field-value"><?php echo $autoreNome . " " . $autoreCognome; ?></span>
+            </div>
+
+            <div class="info-field">
+                <span class="field-label">NUMERO DI PAGINE:</span>
+                <span class="field-value"><?php echo $pagine; ?></span>
+            </div>
+
+            <div class="info-field">
+                <span class="field-label">DATA DI USCITA:</span>
+                <span class="field-value"><?php echo $uscita; ?></span>
+            </div>
+
+            <div class="info-field">
+                <span class="field-label">CASA EDITRICE:</span>
+                <span class="field-value"><?php echo $editore; ?></span>
+            </div>
+
+            <div class="info-prezzo">
+
+                <div class="info-field">
+                    <span class="field-label">PREZZO:</span>
+                    <span class="field-value"><?php echo $prezzo . " CREDITI"; ?></span>
+                </div>
+
+                <?php
+                //se c'è il bonus, lo stampo
+                if ($bonus != "0") {
+                    echo "<div class=\"info-field\">";
+                    echo "<span class=\"field-label\">BONUS: </span>";
+                    echo "<span class=\"field-value\">" . $bonus . " CREDITI </span>";
+                    echo "</div>";
+                }
+                ?>
+
+            </div>
+
+            <div class="descrizione-libro">
+                <h4>SINOSSI</h4>
+                <p><?php echo $sinossi; ?></p>
+            </div>
+
+        </div>
+
+    </div>
+        
+    <?php 
+        
+        if(isset($_SESSION['loggato']) && $_SESSION['loggato']==true ){
+
+            echo "<p class=\"titolo-review\">INSERISCI UNA RECENSIONE!</p>";  
+
+            echo "<form id=\"review-form\" action=\"res/PHP/aggiungi_recensione.php\" method=\"POST\">";
+                echo "<textarea id=\"recensione\" name=\"recensione\" rows=\"15\" cols=\"60\" required>Scrivi qui la tua recensione...</textarea>";
+                echo "<span><button id=\"review-button\" type=\"submit\" name=\"info\">AGGIUNGI RECENSIONE</button></span>";
+            echo "</form>";
+        }
+        else{
+            echo "<p class=\"titolo-review\"><a href=\"login.php\">FAI L'ACCESSO PER RECENSIRE QUESTO PRODOTTO!</a></p>";
+        }
+
+
+            
+        //se è vuoto ovviamente non ci sono recensioni
+        if(!empty($recensioni)){
+
+            foreach($recensioni as $recensione){
+    
+                //bene, ora devo stampare i commenti sotto al prodotto se ci sono
+                echo "<div class=\"container-recensione\">";
+
+                    $query = "SELECT umn.username FROM utenteMangaNett umn WHERE umn.id= '{$recensione['utenteID']}'";
+                    $result = $connessione->query($query); 
+
+                    //Verifico se la query ha restituito risultati
+                    if ($result) {
+
+                        //Estraggo il risultato come un array associativo
+                        $row = $result->fetch_assoc();
+                    }
+
+                    //bene, ora devo scompattare la data in due campi => data e ora
+
+                    //ovviamente la data presentandosi come 2023-08-27T14:30:00 va formattata 
+                    //Divide la stringa in base al carattere "T"
+                    $parti = explode("T", $recensione['dataRec']);
+
+                    //$parti[0] conterrà la data (parte prima di T) e $parti[1] conterrà l'ora (parte dopo di T)
+                    $data = $parti[0];
+                    $ora = $parti[1];
+
+                    //al momento non stampo reputazionevotante
+                    echo "<div class=\"row\">";
+                        echo $row['username'];
+                    echo "</div>";
+
+                    echo "<div class=\"text-rec\">";
+                        echo $recensione['rec'];
+                    echo "</div>"; 
+
+                    echo "<div class=\"row\">";
+                        echo "SCRITTA IL: ". $data . "   ALLE ". $ora;
+                    echo "</div>";
+
+                echo "</div>";
+            }
+        }
+        else{
+            echo "<div class=\"container-recensione\">";
+                echo "<p id=\"no_response\">NON C'È NESSUNA RECENSIONE QUI... ^(-_-)^</p>";
+            echo "</div>";
+        }   
+    ?>
+
+</body>
+
+<?php include('res/PHP/footer.php') ?>
+
+</html>

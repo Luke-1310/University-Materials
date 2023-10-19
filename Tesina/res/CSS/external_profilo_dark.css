@@ -1,0 +1,39 @@
+.container-external{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 69vh;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    color:#ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.container h1 {
+    font-size: 24px;
+     margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color:#1a1a1a;
+}
+
+.field-label {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left; /* Allinea etichetta a sinistra */
+}
+
+.field-value {
+    font-size: 18px;
+    text-align: right; /* Allinea valore a destra */
+}

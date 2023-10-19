@@ -1,0 +1,56 @@
+.titolo_storico{
+    text-align: center;
+}
+
+.container-storico{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+    margin-top: 50px;
+    margin-bottom: 50px;
+  
+    background-color:#1a1a1a;
+}
+
+#no_response{
+
+    font-size: 25px;
+    font-weight: bold;
+    
+    text-align: center;
+
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+#conferma{
+    color:#1DB954 ;
+}
+
+#rifiuta{
+    color:red ;
+}
+
+.conferma{
+    display: flex;
+    flex-direction: column;
+}
+
+.conferma button{
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    background: none;
+    
+    margin-left: 10px;
+
+    justify-content: space-between;
+
+    border-radius: 20px;
+}

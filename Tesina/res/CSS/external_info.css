@@ -1,0 +1,218 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.container img {
+    width: 300px;
+    height: 425px;
+    margin: 30px 400px 30px 30px; /*margine: sopra destra sotto sinistra */
+}
+
+.button-row{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-recensione{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    width: 100%;
+
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+
+    text-align: left;
+    justify-content: left;
+
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.rep{
+    text-align: right;
+}
+
+.text-rec{
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.info-libro {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    flex: 1;
+
+    margin-right: 30px;
+}
+
+.info-prezzo{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    flex: 1;
+
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+
+.field-label {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left; /* Allinea etichetta a sinistra */
+}
+
+.field-value {
+    font-size: 18px;
+    text-align: left; /* Allinea valore a destra */
+}
+
+.descrizione-libro {
+    margin-top: 20px; /* Spazio sopra la descrizione */
+}
+
+.descrizione-libro h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.descrizione-libro p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.info-header button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+h4, #modifica_prod {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#modifica_prod{
+    font-size: 15px;
+}
+
+.img-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.img-text button{
+    height: auto;
+    margin-left: 90px;
+
+    background-color: #1e8fffc5;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 17px;
+    padding: 10px;
+
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    width: 120px; /* Regola la larghezza del bottone*/
+    margin-bottom: 20px;
+}
+
+#no_response{
+
+    font-size: 25px;
+    font-weight: bold;
+    
+    text-align: center;
+
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+#review-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#review-button{
+    height: auto;
+    margin-left: 90px;
+
+    background-color: #1e8fffc5;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 17px;
+    padding: 10px;
+
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    width: 120px; /* Regola la larghezza del bottone*/
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+textarea{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+
+    width: 75%;
+    
+    border: none;
+    resize: none; 
+}
+
+.titolo-review{
+    text-align: center;
+    cursor: pointer;
+
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.titolo-review a{
+
+    text-decoration: none;
+    color: #1a1a1a;
+}
+
+.titolo-review a:hover{
+    color:#1e8fffc5;
+}
+

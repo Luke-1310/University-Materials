@@ -1,0 +1,99 @@
+html{
+    border-style: solid;
+}
+
+body{
+    background-color: rgb(239, 209, 179);
+}
+
+.titolo{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    list-style: none;
+    background-color: none;
+    margin:5px;
+    text-align: center;
+    color: black;
+}
+
+.main{
+    margin-left: 160px; /* Stessa larghezza della barra per evitare la barra*/
+    font-size: 20px; /* Aumento la dimensione del testo*/
+    padding: 0px 10px;
+}
+
+h2{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+}
+
+h3{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    color:red;
+}
+
+.home{
+    position: absolute;
+    top:8px;
+    left:16px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.container_reg{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.rotating-figure {
+    position: absolute;
+    top: 80px;
+    left: 730px;
+    width: 80px;
+    animation: rotate 4s infinite linear;
+  }
+
+.rotating-figure img{
+    width: 80%;
+}  
+
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+form{
+    display:flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+form label{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    margin-bottom: 10px;
+}
+
+input{
+    margin-bottom: 20px;
+}
+
+.crediti{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    text-align: center;
+  }

@@ -1,0 +1,85 @@
+#info{
+  color: red;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+#shop{
+  color: #1DB954;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+#credit{
+  color: #F4B400;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+#status{
+  color: #0088CC;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+#product{
+  color: #FB7A24;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+#richiesta{
+  color: #FF6B9B;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+#question{
+  color: #87CEEB;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+#lista_utenti{
+  color: #7B4EA3;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.container-external{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 69vh;
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 30px;
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.cell {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cell a{
+  text-decoration: none;
+  color: inherit; /* Usa il colore ereditato dall'elemento padre */
+}
+
+.cell :hover{
+  color:gray;
+}

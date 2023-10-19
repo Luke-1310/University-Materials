@@ -1,0 +1,39 @@
+<?php
+
+session_start();
+
+include('connection.php');
+include('funzioni.php');
+
+$IDDom = $_POST['IDDom'];
+$dataDom = $_POST['dataDom'];
+
+//mi mancano l'id e di convertire il titolo con l'isbn corrispettivo
+
+$xmlpath = "../XML/Q&A.xml";
+$domande = getDomande($xmlpath);
+
+//ora che ho tutto mi preparo all'inserimento della domanda nel xml
+$document = new DOMDocument();
+$document->load($xmlpath);
+
+$domande_doc = $document->getElementsByTagName('domanda');
+
+foreach($domande_doc as $domanda_doc){
+
+    $domanda_IDDom = $domanda_doc->getElementsByTagName('IDDom')->item(0)->nodeValue;
+    $domanda_dataDom = $domanda_doc->getElementsByTagName('dataDom')->item(0)->nodeValue;
+
+    foreach($domande as $domanda){
+
+        if($domanda_IDDom == $domanda['IDDom'] && $dataDom == $domanda['dataDom']){
+            $domanda_doc->getElementsByTagName('FAQ')->item(0)->nodeValue = 1;
+            break;
+        }
+    }
+}
+
+$document->save($xmlpath);
+
+header('Location:../../FAQ.php');
+?>

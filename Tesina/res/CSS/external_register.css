@@ -1,0 +1,83 @@
+
+h2 {
+  margin-top: 10px;
+}
+
+h4 {
+  color: red;
+}
+
+.container_reg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: center;
+  margin: 200px auto 180px;
+}
+
+/* Login form styles */
+#loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#loginForm a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+#loginForm a:hover {
+  color: #1e8fffc5;
+}
+
+/* Form labels */
+form label {
+  margin-bottom: 10px;
+}
+
+/* Input styles */
+input {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 10px 15px; /* Add padding for better input appearance */
+  border: none; /* Remove border for cleaner look */
+}
+
+/* Form row layout */
+.form-row {
+  margin-right: 100px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-row label {
+  margin-left: 20px;
+  margin-right: 10px;
+  flex: 1;
+  text-align: right;
+}
+
+/* Submit button */
+input[type="submit"] {
+  background-color: #1e8fffc5;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  width: 120px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.login-text{
+  margin-bottom: 10px;
+}

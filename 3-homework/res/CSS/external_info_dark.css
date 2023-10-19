@@ -1,0 +1,74 @@
+html {
+    border-style: solid;
+    border-color: #000000;
+    border-width: 2px;
+  }
+  
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.titolo {
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    list-style: none;
+    background-color: transparent;
+    margin: 5px;
+    text-align: center;
+}
+  
+h2 {
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+}
+
+.home {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  ul li {
+    list-style: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+.grid {
+    margin-top: 40px;
+    font-size: 20px; /* Aumento la dimensione del testo*/
+    display: grid;
+    grid-template-columns:50% 50%;
+    grid-template-rows: 100px 300px;
+    padding-top: 10px;
+}
+
+.info-left{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    text-align: center;
+}
+
+.info-right img{
+    margin-left: 100px;
+    width: 25%;
+    
+}
+
+
+.crediti {
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    text-align: center;
+}

@@ -1,0 +1,63 @@
+h4{
+  color: red;
+}  
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  text-align: center;
+
+  margin-top: 100px;
+  margin-bottom: 80px;
+
+}
+
+.container img{
+  margin-bottom: 20px;
+}
+
+#loginForm{
+  display:flex;
+  flex-direction: column;  
+}
+
+form label{
+  margin-bottom: 10px;
+}
+
+/* margine tra input e nome ex. Passwrod e box psw */
+input {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border: none; 
+}
+
+.account a{
+  text-decoration: none;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.account a:hover{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+input[type="submit"]{ 
+  background-color: #ffffff;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  width: 120px; /* Regola la larghezza del bottone*/
+  margin: 0 auto; /* Centra il bottone orizzontalmente */
+  margin-bottom: 20px;
+}

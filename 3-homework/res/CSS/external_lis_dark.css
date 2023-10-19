@@ -1,0 +1,87 @@
+html {
+    border-style: solid;
+    border-color: #000000;
+    border-width: 2px;
+  }
+  
+body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.titolo {
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    list-style: none;
+    background-color: transparent;
+    margin: 5px;
+    text-align: center;
+}
+  
+h2 {
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+  }
+  
+.home {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.container {
+    color: #ffffff;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; 
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    border-style: solid;
+    border-radius: 25px;
+    margin: 22px;
+    text-decoration: none;
+  }
+
+.item {
+    font-family: 'Monaco', monospace;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    text-decoration: none;
+}
+  
+.item img {
+    width: 100px;
+}
+
+.bottone input[type="submit"] {
+    
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.crediti {
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    text-align: center;
+    color: #ffffff; 
+  }
+  

@@ -1,0 +1,26 @@
+footer {
+    background-color: #1a1a1a; /* Blu Dodger con trasparenza */
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+footer ul {
+    list-style: none; /* Rimuove i punti elenco predefiniti */
+    padding: 0;
+    display: flex;
+    justify-content: center; 
+}
+
+footer li {
+    margin: 0 15px; /* Aggiungi spazi tra le voci */
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+footer ul :hover{
+    color:gray;
+}

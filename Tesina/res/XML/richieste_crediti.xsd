@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <xsd:element name="storico">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="richiesta"  maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="richiesta">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="IDUtente"/>
+        <xsd:element ref="quantita"/>
+        <xsd:element ref="dataRichiesta"/>
+        <xsd:element ref="risposta"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="IDUtente" type="xsd:integer"/>
+  <xsd:element name="quantita" type="xsd:integer"/>
+  <xsd:element name="dataRichiesta" type="xsd:dateTime"/>
+  <xsd:element name="risposta" type="xsd:integer"/>
+</xsd:schema>

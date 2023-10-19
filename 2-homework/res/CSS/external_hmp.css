@@ -1,0 +1,99 @@
+html{
+    border-style: solid;
+}
+
+body{
+  background-color: rgb(239, 209, 179);
+}
+
+.titolo{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    list-style: none;
+    background-color: none;
+    margin:5px;
+    text-align: center;
+    color: black;
+}
+
+.main{
+    margin-left: 160px; /* Stessa larghezza della barra per evitare la barra*/
+    font-size: 20px; /* Aumento la dimensione del testo*/
+    padding: 0px 10px;
+}
+
+h2{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+}
+
+.menu {
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    position:fixed; 
+    height: 100%;
+    top:0;
+    left:0;
+    margin:0;
+    padding:0px; 
+    z-index:1;                                      /*La proprietà z-index specifica il layer di un elemento rispetto ad un altro (porta in primo piano).*/
+    width: 160px;
+    font-family: Arial, Verdana, sans-serif;         /*mostra le scritte nel font Arial, se esso non è presente nel browser dell'utente mostra Verdana e così via*/
+    list-style: none;
+    background-color: white;
+    border-style: solid;
+    text-align: center;
+  }
+  
+  .menu li {                                
+    display: inline-block;                  /*mostra sulla stessa linea gli elementi "li" */
+  }
+  
+  .menu li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;                   /*rimuove la sottolineatura dei link*/
+    color: black;
+  }
+  
+  .menu li a:hover {
+    background-color: #787878;                /*definisce il tipo di visualizzazione (colore di background) del link quando ci sta il cursore*/
+    color: #fff;                               /* colore del testo*/
+  }
+
+.lista{
+    text-align: center;
+}
+
+  .lista ul{
+    padding:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color: white;
+    display: inline-block;
+    border-style: solid;
+    border-radius: 25px;               /*serve per inserire bordi curvi*/
+    margin-inline-start: 150px;        /*distanza tra la fine della prima casella e l'inizio dell'altra*/
+    list-style: none;
+  }
+
+  .lista ul strong{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+  }
+
+  .lista li{
+    padding: 6px;
+    
+  }
+
+button{
+  margin-right: 10px;
+  width: 40px;
+}  
+
+.crediti{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    text-align: center;
+  }

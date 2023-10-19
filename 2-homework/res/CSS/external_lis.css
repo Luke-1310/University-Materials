@@ -1,0 +1,74 @@
+html{
+    border-style: solid;
+}
+
+body{
+    background-color: rgb(239, 209, 179);
+}
+
+.titolo{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    list-style: none;
+    background-color: none;
+    margin:5px;
+    text-align: center;
+    color: black;
+}
+
+h2{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+}
+
+
+
+.home{
+    position: absolute;
+    top:8px;
+    left:16px;
+}
+
+.container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-style: solid;
+    border-radius: 25px;
+    margin: 20px;
+  }
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+  
+.item img {
+    width: 100px;
+}
+  
+.item p {
+    margin-top: 10px;
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    font-size: 20px;
+    color: black;
+} 
+
+.crediti{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    text-align: center;
+  }
