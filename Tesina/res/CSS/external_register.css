@@ -121,8 +121,7 @@ input[type="submit"] {
 
   font-size: 15px;
 
-  width: 150px;
-  max-width: 300px; /* Imposta una larghezza massima per il tooltip */
+  width: 300px;
 }
 
 

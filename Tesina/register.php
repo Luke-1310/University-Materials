@@ -109,7 +109,24 @@
                        value="<?php  if(isset($_SESSION['form_civico'])) echo $_SESSION['form_civico']; ?>" required>
             </div>
             
-            <h2>CREDENZIALI DI ACCESSO:</h2>
+            <div class="titoletto">
+
+                <div class="tooltip">
+                    <span class="tooltiptext">LA PASSWORD DEVE SODDISFARE I SEGUENTI REQUISITI:
+                        <ul>
+                            <li>DEVE ESSERE LUNGA ALMENO 8 CARATTERI.</li>
+                            <li>DEVE CONTENERE ALMENO UNA LETTERA MAIUSCOLA E UNA MINUSCOLA</li>
+                            <li>DEVE CONTENERE ALMENO UN NUMERO.</li>
+                            <li>DEVE CONTENERE ALMENO UN SIMBOLO SPECIALE.</li>
+                        </ul>       
+                    </span>
+                    <i id="info" class="material-icons">info</i>
+                </div>
+
+                <h2>CREDENZIALI DI ACCESSO:</h2>
+                
+            </div>
+
             <div class="form-row">
                 <label for="username">USERNAME</label>
                 <input type="username" name="username" id="username" placeholder="MarioBros" 
@@ -117,14 +134,12 @@
             </div>
 
             <div class="form-row">
-                <label for="password">PASSWORD*</label>
+                <label for="password">PASSWORD</label>
                 <input type="password" name="password" id="password" placeholder="Password123!" required>
             
                 <label for="password">CONFERMA PASSWORD</label>
                 <input type="password" name="password2" id="password2" placeholder="Password123!" required>
             </div>
-            
-            <h5>*LA PASSWORD DEVE ESSERE LUNGA ALMENO 8 CARATTERI, CONTENERE UNA MAIUSCOLA, UN NUMERO, UNA MINUSCOLA ED UN SIMBOLO SPECIALE</h5>
 
             <span class ="bottone"><input type="submit" value="INVIA"></span>
             
