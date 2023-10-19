@@ -94,6 +94,11 @@
                     echo "<a href=\"lista_utenti.php\"><i id=\"lista_utenti\" class=\"material-icons\">list</i></a>";
                     echo "<a href=\"lista_utenti.php\">LISTA UTENTI</a>";
                     echo "</div>";
+
+                    echo "<div class=\"cell\">";
+                    echo "<a href=\"lista_utenti.php\"><i id=\"segnalazioni\" class=\"material-icons\">report</i></a>";
+                    echo "<a href=\"lista_utenti.php\">GESTIONE SEGNALAZIONI</a>";
+                    echo "</div>";
                 }
             ?>
         </div>
