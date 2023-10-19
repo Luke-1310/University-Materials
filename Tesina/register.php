@@ -66,8 +66,18 @@
                     unset($_SESSION['errore_utDati']);
                 }
             ?>
-            
-            <h2>DATI ANAGRAFICI:</h2>
+
+            <div class="titoletto">
+
+                <div class="tooltip">
+                    <span class="tooltiptext">SONO CONSENTITI SOLO NUMERI NEL CAMPO "NUMERO DI TELEFONO"</span>
+                    <i id="info" class="material-icons">info</i>
+                </div>
+
+                <h2>DATI ANAGRAFICI:</h2>
+                
+            </div>
+
             <div class="form-row">
                 <label for="nome">NOME</label>
                 <input type="text" id="nome" name="nome" placeholder="Mario" 
@@ -114,7 +124,7 @@
                 <input type="password" name="password2" id="password2" placeholder="Password123!" required>
             </div>
             
-            <h5>*LA PASSWORD DEVE ESSERE LUNGA ALMENO 8 CARATTERI, CONTENERE UNA MAIUSCOLA, UNA MINUSCOLA ED UN SIMBOLO SPECIALE</h5>
+            <h5>*LA PASSWORD DEVE ESSERE LUNGA ALMENO 8 CARATTERI, CONTENERE UNA MAIUSCOLA, UN NUMERO, UNA MINUSCOLA ED UN SIMBOLO SPECIALE</h5>
 
             <span class ="bottone"><input type="submit" value="INVIA"></span>
             
