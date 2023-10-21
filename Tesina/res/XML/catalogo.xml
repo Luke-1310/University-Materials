@@ -14,9 +14,9 @@
     <img>9788418271236</img>
     <editore>Planet Manga</editore>
     <sconto>
-      <X>4</X>
-      <N>124</N>
-      <R>1</R>
+      <X>1</X>
+      <N>50</N>
+      <R>4</R>
     </sconto>
     <bonus>2</bonus>
   </fumetto>
@@ -142,7 +142,7 @@
       <N>0</N>
       <R>0</R>
     </sconto>
-    <bonus>5</bonus>
+    <bonus>1</bonus>
   </fumetto>
   <fumetto isbn="9788822632050">
     <titolo>KAIJU NO. 8 2</titolo>
