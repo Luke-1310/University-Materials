@@ -100,6 +100,14 @@
         });
     }
 
+    if(isset($_SESSION['nuovoprodotto_ok']) && $_SESSION['nuovoprodotto_ok'] == 'true'){//isset verifica se errore è settata
+
+        echo "<div class=\"nuovoprodotto\">";
+            echo "<h3>IL PRODOTTO È STATO AGGIUNTO CORRETTAMENTE!</h3>";
+            unset($_SESSION['nuovoprodotto_ok']);
+        echo "</div>";
+    }
+
     echo "<div class=\"search-bar\">";
         echo "<input type=\"text\" class=\"search-input\" placeholder=\"Cerca il titolo...\">";
         echo "<button class=\"search-button\"><i id=\"search\" class=\"material-icons\">search</i></button>";

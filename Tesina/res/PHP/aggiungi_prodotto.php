@@ -191,6 +191,8 @@ $xml = $documento->saveXML();   //saveXML è un metodo che restituisce il docume
 
 file_put_contents($xmlfile, $xml);  //sovrascrive il contenuto del vecchio file XML con quello nuovo
 
+$_SESSION['nuovoprodotto_ok'] = 'true';
+
 header('Location:../../catalogo.php');
 
 ?>

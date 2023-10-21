@@ -1,3 +1,11 @@
+h3{
+  color: green;
+}
+
+.nuovoprodotto{
+  text-align: center;
+}
+
 .search-bar {
   display: flex;
   flex-direction: row;
