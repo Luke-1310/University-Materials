@@ -36,7 +36,7 @@
     <form id="loginForm" action="res/PHP/login.php" method="POST">
 
         <?php
-                if(isset($_SESSION['errore']) && $_SESSION['errore'] == 'true'){//isset verifica se errore è settata
+            if(isset($_SESSION['errore']) && $_SESSION['errore'] == 'true'){//isset verifica se errore è settata
                 echo "<h4>USERNAME O PASSWORD ERRATE!</h4>";
                 unset($_SESSION['errore']);//la unsetto altrimenti rimarrebbe la scritta
             }
@@ -44,6 +44,11 @@
             if(isset($_SESSION['errore_v']) && $_SESSION['errore_v'] == 'true'){//isset verifica se errore è settata
                 echo "<h4>ERRORE IN FASE DI LOGIN!</h4>";
                 unset($_SESSION['errore']);
+            }
+
+            if(isset($_SESSION['registrazione_ok']) && $_SESSION['registrazione_ok'] == 'true'){//isset verifica se errore è settata
+                echo "<h3>IL LOGIN È ANDATO A BUON FINE!</h3>";
+                unset($_SESSION['registrazione_ok']);
             }
         ?>
 

@@ -122,6 +122,8 @@ else {
     // Chiudi la connessione al database
     mysqli_close($connessione);
 
+    $_SESSION['registrazione_ok'] = 'true';
+
     header('Location:../../login.php');
 }
 
