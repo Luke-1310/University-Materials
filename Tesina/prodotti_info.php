@@ -69,7 +69,45 @@ include('res/PHP/funzioni.php');
             $ISBN = $fumetto['isbn'];
             $bonus = $fumetto['bonus'];
             $recensioni = $fumetto['recensioni'];
+                
+            $mesi = $fumetto['X'];
+            $crediti = $fumetto['N'];
+            $reputazione = $fumetto['R'];
+        
         }
+    }
+
+    //ora mi devo prendere anche i parametri dell'utente per vedere se rientra nello sconto
+    $connessione = new mysqli($host, $user, $password, $db);
+
+    if (isset($_SESSION['nome'])) {
+        $query = "SELECT um.reputazione FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}'";
+        $ris = mysqli_query($connessione, $query);
+
+        if (mysqli_num_rows($ris) == 1) {
+            $row = $ris->fetch_assoc();
+            $reputazione_utente = $row['reputazione'];
+        }
+
+        $query = "SELECT um.data_registrazione FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}'";
+        $ris = mysqli_query($connessione, $query);
+
+        if (mysqli_num_rows($ris) == 1) {
+            $row = $ris->fetch_assoc();
+            $dataregistrazione_utente = $row['data_registrazione'];
+
+            //ora mi devo fare la differenza
+            $data_corrente = date("Y-m-d");
+
+            $differenza_data = date_diff(date_create($dataregistrazione_utente), date_create($data_corrente));
+
+            //$differenza_data->y restituisce il numero di anni nella differenza tra le date.
+            //$differenza_data->m restituisce il numero di mesi nella differenza tra le date.
+            $mesi_trascorsi = $differenza_data->y * 12 + $differenza_data->m;
+        }
+
+        //mi devo controllare gli ordini e ricavarmi i crediti spesi, al momento lascio un valore standard di 100
+        $spesi_utente = 100;
     }
 
     //Compongo il nome completo dell'immagine da stampare
@@ -79,9 +117,7 @@ include('res/PHP/funzioni.php');
     <div class="container">
         <div class="img-text">
             <?php echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\">";
-
-            $connessione = new mysqli($host, $user, $password, $db);
-
+          
             echo "<div class=\"button-row\">";
 
                 //faccio una query per controllare se l'utente è un GS o AM, se sì allora stampo il bottone
@@ -140,17 +176,33 @@ include('res/PHP/funzioni.php');
                     <span class="field-label">PREZZO:</span>
                     <span class="field-value"><?php echo $prezzo . " CREDITI"; ?></span>
                 </div>
+            </div>
 
+            <div class="info-sconto">
                 <?php
                 //se c'è il bonus, lo stampo
                 if ($bonus != "0") {
                     echo "<div class=\"info-field\">";
-                    echo "<span class=\"field-label\">BONUS: </span>";
-                    echo "<span class=\"field-value\">" . $bonus . " CREDITI </span>";
+                        echo "<span class=\"field-label\">BONUS: </span>";
+                        echo "<span class=\"field-value\">" . $bonus . " CREDITI </span>";
                     echo "</div>";
                 }
-                ?>
 
+                // echo $mesi . "    " . $crediti . "    " . $reputazione . "    ";
+                // echo $mesi_trascorsi . "   " . $spesi_utente . "   " . $reputazione_utente . "   ";
+
+                //se TUTTI i parametri sono uguali a 0 allora questo prodotto non è soggetto a sconto
+                if($mesi != 0 || $crediti != 0 || $reputazione != 0){
+
+                    //se l'utente fa rientra nei parametri dello sconto allora glielo faccio sapere
+                    if($mesi < $mesi_trascorsi && $crediti < $spesi_utente && $reputazione < $reputazione_utente){
+                        echo "<div class=\"info-field\">";
+                            echo "<span class=\"field-label\">SCONTO: </span>";
+                            echo "<span class=\"field-value\">SEI ELEGIBILE PER UNO SCONTO ADDIZIONALE!!</span>";
+                        echo "</div>";
+                    }
+                }
+                ?>
             </div>
 
             <div class="descrizione-libro">
