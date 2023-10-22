@@ -187,9 +187,6 @@ include('res/PHP/funzioni.php');
                     echo "</div>";
                 }
 
-                // echo $mesi . "    " . $crediti . "    " . $reputazione . "    ";
-                // echo $mesi_trascorsi . "   " . $spesi_utente . "   " . $reputazione_utente . "   ";
-
                 //se TUTTI i parametri sono uguali a 0 allora questo prodotto non è soggetto a sconto
                 if($mesi != 0 || $crediti != 0 || $reputazione != 0){
 
@@ -220,10 +217,14 @@ include('res/PHP/funzioni.php');
     
     echo "<p class=\"titolo-review\">INSERISCI UNA DOMANDA SUL PRODOTTO!</p>";  
 
+    $isDomanda = false;
+
     foreach($domande as $domanda){
 
         if($domanda['ISBNProdotto'] == $ISBN){
             
+            $isDomanda = true;
+
             echo "<div class=\"container_sp\">";
 
                 //mi devo prendere il nome utente corrispettivo del domandante
@@ -411,6 +412,17 @@ include('res/PHP/funzioni.php');
 
             echo "</div>";
         }
+    }
+
+    if(!$isDomanda){
+        echo "<div class=\"container_sp\">";
+
+            echo"<div class=\"domanda\">";
+                echo"<p id=\"no_question\">NON SEMBRANO ESSERCI DOMANDE QUI!</p>";
+                echo"<p id=\"new_question\"><a href=\"aggiungi_domanda_prodotto.php\">CLICCAMI PER INSERIRE UNA NUOVA DOMANDA!</a></p>";
+            echo "</div>";
+
+        echo "</div>";
     }
 
     ?>

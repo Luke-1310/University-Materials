@@ -305,3 +305,21 @@ input[type="submit"] {
     
     text-align: center;
 }
+
+#no_question{
+    text-align: center;
+    font-weight: bold;
+}
+
+#new_question{
+    text-align: center;
+}
+
+#new_question  a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#new_question a:hover{
+    color:gray;
+}
