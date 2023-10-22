@@ -100,7 +100,7 @@ if ($count > 0) {
 
 // Aggiornamento della tabella utenteDati
 $sql_utenteDati = "UPDATE utenteDati 
-                   SET nome = '$nome', cognome = '$cognome', password = '$hashed_password', 
+                   SET nome = '$nome', cognome = '$cognome', 
                        email = '$email', via_di_residenza = '$residenza', civico = '$civico', 
                        numero_di_telefono = '$telefono'
                         WHERE id IN (SELECT id FROM utenteMangaNett WHERE username = '{$_SESSION['nome']}')";
