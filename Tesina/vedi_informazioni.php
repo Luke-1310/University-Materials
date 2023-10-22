@@ -64,7 +64,6 @@ if ($result->num_rows > 0) {
     $numero_di_telefono = $row['numero_di_telefono'];
 }
 
-
 $query_mangaNett = "SELECT um.* FROM utenteMangaNett um INNER JOIN utenteDati ud ON ud.id = um.id WHERE um.username = '{$_SESSION['nome_utente']}'";
 
 $result_mangaNett = $connessione->query($query_mangaNett);
@@ -76,7 +75,6 @@ if ($result_mangaNett->num_rows > 0) {
     $crediti = $row_mangaNett['crediti'];
     $ruolo = $row_mangaNett['ruolo'];
     $reputaizone = $row_mangaNett['reputazione'];
-    
 }
 
 ?>
@@ -137,9 +135,9 @@ if ($result_mangaNett->num_rows > 0) {
     </div>
 
 </div>
-
-<p id="modifica_dati">PER MODIFICARE I DATI DI QUESTO UTENTE CLICCA <a href="modifica_profilo.php">QUI</a></p>
-
+<?php
+echo "<p id=\"modifica_dati\">PER MODIFICARE I DATI DI QUESTO UTENTE CLICCA <a href=\"modifica_profilo_utente.php?nome_utente=" . $_SESSION['nome_utente'] ."\">QUI</a></p>";
+?>
 </body>
 
 <?php include('res/PHP/footer.php')?>

@@ -6,8 +6,26 @@
 
     $connessione = new mysqli($host, $user, $password, $db);
 
+    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_mod_profile_dark.css\" type=\"text/css\" />";
+    }
+    else{
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_mod_profile.css\" type=\"text/css\" />";
+    }
+
+    if (isset($_GET['nome_utente'])) {
+
+        $nick_utente = $_GET['nome_utente'];
+    } 
+    
+    //metto il nick utente dentro una variabile di sessione perché se cambio il tema nella pagina delle info mi da errore (giustamente)
+    if (!empty($nick_utente)) {
+
+        $_SESSION['nome_utente'] = $nick_utente;
+    }
+
     //ho incluso la connessione al db perché adesso mi prendo i valori dell'utente e gli compilo il form (per la password c'è da fare qualcosina in più)
-    $query = "SELECT ud.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome']}'";
+    $query = "SELECT ud.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome_utente']}'";
 
     $result = $connessione->query($query);
 
@@ -23,13 +41,6 @@
         $_SESSION['mod_civico'] = $row['civico'];
         $_SESSION['mod_telefono'] = $row['numero_di_telefono'];
     }
-
-    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_mod_profile_dark.css\" type=\"text/css\" />";
-    }
-    else{
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_mod_profile.css\" type=\"text/css\" />";
-    }
 ?>
 
 <?php 
@@ -42,11 +53,11 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <head>
-    <title>Modifica i tuoi dati</title>
+    <title>Modifica i dati dell'utente</title>
 </head>
 
 <?php 
-    $pagina_corrente = "modifica_profilo";
+    $pagina_corrente = "modifica_profilo_utente";
     include('res/PHP/navbar.php')
 ?>
 
@@ -128,7 +139,7 @@
             <div class="form-row">
                 <label for="username">USERNAME</label>
                 <input type="username" name="username" id="username" placeholder="MarioBros" 
-                       value="<?php  if(isset($_SESSION['nome'])) echo $_SESSION['nome']; ?>" required>
+                       value="<?php  if(isset($_SESSION['nome'])) echo $_SESSION['nome_utente']; ?>" required>
             </div>
 
             <div class="form-row">
