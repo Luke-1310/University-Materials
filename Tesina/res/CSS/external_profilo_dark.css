@@ -1,20 +1,17 @@
-.container-external{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 69vh;
-    margin: 0;
-}
-
 .container{
     display: flex;
     flex-direction: column;
+    width: 60%;
+
     background-color: #1a1a1a;
     color:#ffffff;
+    
+    text-align:left;
+
+    margin: 30px auto; /* Margine automatico orizzontale, il resto è mantenuto */
+
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .container h1 {
@@ -22,9 +19,18 @@
      margin-bottom: 20px;
 }
 
-a {
+#modifica_dati{
+    text-align: center;
+}
+
+#modifica_dati a{
     text-decoration: none;
-    color:#1a1a1a;
+    color: #ffffff
+}
+
+#modifica_dati :hover{
+    color: #1a1a1a;
+    cursor: pointer;
 }
 
 .field-label {

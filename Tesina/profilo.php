@@ -35,10 +35,10 @@
 
 <?php
 
-    //mi prendo i valori da stampare tramite l'username, il quale è univoco
-    $query = "SELECT ud.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome']}'";
+//mi prendo i valori da stampare tramite l'username, il quale è univoco
+$query = "SELECT ud.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome']}'";
 
-    $result = $connessione->query($query);
+$result = $connessione->query($query);
 
 if ($result->num_rows > 0) {
 
@@ -56,10 +56,26 @@ if ($result->num_rows > 0) {
 else{
     $_SESSION['errore_profilo'] = 'true';
 }
+
+
+$query_mangaNett = "SELECT um.* FROM utenteMangaNett um INNER JOIN utenteDati ud ON ud.id = um.id WHERE um.username = '{$_SESSION['nome']}'";
+
+$result_mangaNett = $connessione->query($query_mangaNett);
+
+if ($result_mangaNett->num_rows > 0) {
+
+    $row_mangaNett = $result_mangaNett->fetch_assoc();
+
+    $crediti = $row_mangaNett['crediti'];
+    $ruolo = $row_mangaNett['ruolo'];
+    $reputaizone = $row_mangaNett['reputazione'];
+    
+    }
+else{
+    $_SESSION['errore_profilo'] = 'true';
+}
+
 ?>
-
-
-<div class="container-external">
     <?php
         if(isset($_SESSION['errore_profilo']) && $_SESSION['errore_profilo'] == 'true'){//isset verifica se errore è settata
             echo "<h3>SI È VERIFICATO UN ERRORE!</h3>";
@@ -106,11 +122,26 @@ else{
             <span class="field-value"><?php echo $_SESSION['nome'];?></span>
         </div>
 
+        <div class="info-field">
+            <span class="field-label">CREDITI ATTUALI:</span>
+            <span class="field-value"><?php echo $crediti;?></span>
+        </div>
+
+        <div class="info-field">
+            <span class="field-label">RUOLO:</span>
+            <span class="field-value"><?php echo $ruolo;?></span>
+        </div>
+
+        <div class="info-field">
+            <span class="field-label">LIVELLO REPUTAZIONE:</span>
+            <span class="field-value"><?php echo $reputaizone;?></span>
+        </div>
+
+
+
     </div>
 
-    <p>PER MODIFICARE I TUOI DATI CLICCA <a href="inserisci_password.php">QUI</a></p>
-
-</div>
+    <p id="modifica_dati">PER MODIFICARE I TUOI DATI CLICCA <a href="inserisci_password.php">QUI</a></p>
 
 </body>
 
