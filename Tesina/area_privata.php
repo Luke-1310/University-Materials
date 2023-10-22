@@ -69,8 +69,8 @@
 
                 if(mysqli_num_rows($ris) == 1){
                     echo "<div class=\"cell\">";
-                    echo "<a href=\"aggiungi_prodotto.php\"><i id=\"product\" class=\"material-icons\">sell</i></a>";
-                    echo "<a href=\"aggiungi_prodotto.php\">AGGIUNGI PRODOTTO</a>";
+                        echo "<a href=\"aggiungi_prodotto.php\"><i id=\"product\" class=\"material-icons\">sell</i></a>";
+                        echo "<a href=\"aggiungi_prodotto.php\">AGGIUNGI PRODOTTO</a>";
                     echo "</div>";
                     
                 }
@@ -81,23 +81,27 @@
 
                 if(mysqli_num_rows($ris) == 1){
                     echo "<div class=\"cell\">";
-                    echo "<a href=\"aggiungi_prodotto.php\"><i id=\"product\" class=\"material-icons\">sell</i></a>";
-                    echo "<a href=\"aggiungi_prodotto.php\">AGGIUNGI PRODOTTO</a>";
+                        echo "<a href=\"aggiungi_prodotto.php\"><i id=\"product\" class=\"material-icons\">sell</i></a>";
+                        echo "<a href=\"aggiungi_prodotto.php\">AGGIUNGI PRODOTTO</a>";
                     echo "</div>";
 
                     echo "<div class=\"cell\">";
-                    echo "<a href=\"richiesta_crediti.php\"><i id=\"richiesta\" class=\"material-icons\">currency_exchange</i></a>";
-                    echo "<a href=\"richiesta_crediti.php\">RICHIESTE CREDITI</a>";
+                        echo "<a href=\"richiesta_crediti.php\"><i id=\"richiesta\" class=\"material-icons\">currency_exchange</i></a>";
+                        echo "<div class=\"row\"";
+                            echo "<a href=\"richiesta_crediti.php\">RICHIESTE CREDITI</a><i id=\"allert\" class=\"material-icons\">fiber_manual_record</i>";
+                        echo "</div>";
                     echo "</div>";
 
                     echo "<div class=\"cell\">";
-                    echo "<a href=\"lista_utenti.php\"><i id=\"lista_utenti\" class=\"material-icons\">list</i></a>";
-                    echo "<a href=\"lista_utenti.php\">LISTA UTENTI</a>";
+                        echo "<a href=\"lista_utenti.php\"><i id=\"lista_utenti\" class=\"material-icons\">list</i></a>";
+                        echo "<a href=\"lista_utenti.php\">LISTA UTENTI</a>";
                     echo "</div>";
 
                     echo "<div class=\"cell\">";
-                    echo "<a href=\"lista_utenti.php\"><i id=\"segnalazioni\" class=\"material-icons\">report</i></a>";
-                    echo "<a href=\"lista_utenti.php\">GESTIONE SEGNALAZIONI</a>";
+                        echo "<a href=\"lista_utenti.php\"><i id=\"segnalazioni\" class=\"material-icons\">report</i></a>";
+                        echo "<div class=\"row\"";
+                            echo "<a href=\"lista_utenti.php\">SEGNALAZIONI</a><i id=\"allert\" class=\"material-icons\">fiber_manual_record</i>";
+                        echo "</div>";
                     echo "</div>";
                 }
             ?>

@@ -1,3 +1,10 @@
+#allert{
+  color: red;
+  font-size: 17px;
+  margin-top: 4px;
+  margin-left: 2px;
+}
+
 #info{
   color: red;
   font-size: 40px;
@@ -88,4 +95,9 @@
 
 .cell :hover{
   color:gray;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
 }
