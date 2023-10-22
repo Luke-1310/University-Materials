@@ -68,7 +68,6 @@ include('res/PHP/funzioni.php');
             $editore = $fumetto['editore'];
             $ISBN = $fumetto['isbn'];
             $bonus = $fumetto['bonus'];
-            $recensioni = $fumetto['recensioni'];
                 
             $mesi = $fumetto['X'];
             $crediti = $fumetto['N'];
@@ -215,71 +214,205 @@ include('res/PHP/funzioni.php');
     </div>
         
     <?php 
-        
-        if(isset($_SESSION['loggato']) && $_SESSION['loggato']==true ){
-
-            echo "<p class=\"titolo-review\">INSERISCI UNA RECENSIONE!</p>";  
-
-            echo "<form id=\"review-form\" action=\"res/PHP/aggiungi_recensione.php\" method=\"POST\">";
-                echo "<textarea id=\"recensione\" name=\"recensione\" rows=\"15\" cols=\"60\" required>Scrivi qui la tua recensione...</textarea>";
-                echo "<span><button id=\"review-button\" type=\"submit\" name=\"info\">AGGIUNGI RECENSIONE</button></span>";
-            echo "</form>";
-        }
-        else{
-            echo "<p class=\"titolo-review\"><a href=\"login.php\">FAI L'ACCESSO PER RECENSIRE QUESTO PRODOTTO!</a></p>";
-        }
-
-
-            
-        //se è vuoto ovviamente non ci sono recensioni
-        if(!empty($recensioni)){
-
-            foreach($recensioni as $recensione){
     
-                //bene, ora devo stampare i commenti sotto al prodotto se ci sono
-                echo "<div class=\"container-recensione\">";
+    $xmlPath = "res/XML/Q&A.xml";
+    $domande = getDomande($xmlPath);
+    
+    echo "<p class=\"titolo-review\">INSERISCI UNA DOMANDA SUL PRODOTTO!</p>";  
 
-                    $query = "SELECT umn.username FROM utenteMangaNett umn WHERE umn.id= '{$recensione['utenteID']}'";
-                    $result = $connessione->query($query); 
+    foreach($domande as $domanda){
+
+        if($domanda['ISBNProdotto'] == $ISBN){
+            
+            echo "<div class=\"container_sp\">";
+
+                //mi devo prendere il nome utente corrispettivo del domandante
+                $query = "SELECT umn.username FROM utenteMangaNett umn WHERE umn.id = {$domanda['IDDom']}";
+
+                $ris = $connessione->query($query);
+
+                //Verifico se la query ha restituito risultati
+                if ($ris) {
+
+                    //Estraggo il risultato come un array associativo
+                    $row = $ris->fetch_assoc();
+                    $username = $row['username']; 
+                }
+                else{
+                    exit(1);
+                }
+
+                $parti = explode("T", $domanda['dataDom']);
+
+                //$parti[0] conterrà la data (parte prima di T) e $parti[1] conterrà l'ora (parte dopo di T)
+                $data = $parti[0];
+                $ora = $parti[1];
+
+
+                echo "<div class=\"domanda\">";
+
+                    echo"<div class=\"info-domanda\">";
+                        echo"<p class=\"utente\">$username</p>";
+                        echo"<p class=\"data\">" . $data . " ". $ora ."</p>";
+                    echo"</div>";
+
+                    echo"<p class=\"testo-domanda\">" . $domanda['testoDom'] . "</p>";
+
+                    //form AGGIUNGI RISPOSTA
+                    echo"<form id=\"rispostaForm\" action = \"res/PHP/mostra_domanda_specifica.php\" method=\"POST\" >";
+
+                        echo"<div class=\"form-row\">";
+                            echo"<label for=\"risposta\">AGGIUNGI UNA RISPOSTA...</label>";
+                            echo "<textarea id=\"risposta\" name=\"risposta\" rows=\"10\" cols=\"40\" placeholder=\"Inserisci qui la tua risposta....\" required></textarea>";
+                        echo"</div>";
+
+                        //mi invio la data della domanda
+                        echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
+
+                        //mi invio anche l'ISBN 
+                        echo"<input type=\"hidden\" name=\"isbn\" value=$ISBN>";
+
+                        echo "<span class =\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                    echo "</form>";
+
+                    //faccio questo controllo perché solo l'admin può elevare a FAQ una domanda
+                    $sql_am = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND u.ruolo = 'AM'";
+                    $ris_am = mysqli_query($connessione, $sql_am);
+
+                    if(mysqli_num_rows($ris_am) == 1){
+
+                        echo"<form id=\"rispostaForm\" action = \"res/PHP/eleva_a_FAQ.php\" method=\"POST\" >";
+
+                            //mi invio la  data della domanda
+                            echo"<input type=\"hidden\" name=\"dataDom\" value=". $domanda['dataDom'] . ">";
+
+                            //mi invio l'id della domanda
+                            echo"<input type=\"hidden\" name=\"IDDom\" value=". $domanda['IDDom'] . ">";
+                            echo "<span class =\"bottone\"><input type=\"submit\" value=\"ELEVA A FAQ\"></span>";
+                        
+                        echo "</form>";
+                    }
+                echo"</div>";
+
+                //ora devo stampare le risposte se ci sono
+                foreach($domanda['risposte'] as $risposta){
+                    
+                    //mi devo prendere il nome utente corrispettivo del domandante
+                    $query_r = "SELECT umn.username FROM utenteMangaNett umn WHERE umn.id = {$risposta['IDRisp']}";
+
+                    $ris_r = $connessione->query($query_r);
 
                     //Verifico se la query ha restituito risultati
-                    if ($result) {
+                    if ($ris_r) {
 
                         //Estraggo il risultato come un array associativo
-                        $row = $result->fetch_assoc();
+                        $row_r = $ris_r->fetch_assoc();
+                        $username_r = $row_r['username']; 
+                    }
+                    else{
+                        exit(1);
                     }
 
-                    //bene, ora devo scompattare la data in due campi => data e ora
+                    $parti_r = explode("T", $risposta['dataRisp']);
 
-                    //ovviamente la data presentandosi come 2023-08-27T14:30:00 va formattata 
-                    //Divide la stringa in base al carattere "T"
-                    $parti = explode("T", $recensione['dataRec']);
+                    $data_r = $parti_r[0];
+                    $ora_r = $parti_r[1];
 
-                    //$parti[0] conterrà la data (parte prima di T) e $parti[1] conterrà l'ora (parte dopo di T)
-                    $data = $parti[0];
-                    $ora = $parti[1];
+                    echo "<div class=\"risposta\">";
 
-                    //al momento non stampo reputazionevotante
-                    echo "<div class=\"row\">";
-                        echo $row['username'];
-                    echo "</div>";
+                        echo"<div class=\"info-risposta\">";
 
-                    echo "<div class=\"text-rec\">";
-                        echo $recensione['rec'];
-                    echo "</div>"; 
+                            echo "<p class=\"utente\">$username_r</p>";
+                            echo "<p class=\"data\">" . $data_r . " ". $ora_r . "</p>";
+                        
+                        echo "</div>";
+                        
+                        echo "<p class=\"testo-risposta\">" . $risposta['testoRisp'] . "</p>";
+                        
+                        //mi devo prendere il nome utente corrispettivo del domandante
+                        $query_v = "SELECT umn.id FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
 
-                    echo "<div class=\"row\">";
-                        echo "SCRITTA IL: ". $data . "   ALLE ". $ora;
-                    echo "</div>";
+                        $ris_v = $connessione->query($query_v);
 
-                echo "</div>";
-            }
-        }
-        else{
-            echo "<div class=\"container-recensione\">";
-                echo "<p id=\"no_response\">NON C'È NESSUNA RECENSIONE QUI... ^(-_-)^</p>";
+                        //Verifico se la query ha restituito risultati
+                        if ($ris_v) {
+
+                            //Estraggo il risultato come un array associativo
+                            $row_v = $ris_v->fetch_assoc();
+                            $id_valutante = $row_v['id']; 
+                        }
+                        else{
+                            exit(1);
+                        }
+                        
+                        $ha_votato = false;
+
+                        if (isset($risposta['votazioni'])) {
+
+                            foreach ($risposta['votazioni'] as $votazione) {
+
+                                if ($votazione['IDValutante'] == $id_valutante) {
+                                    $ha_votato = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        //se l'utente ha già votato allora devo impedirgli di votare ancora
+                        if($ha_votato){
+                            echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
+                        }
+
+                        else{
+                            //form valutazione UTILITÀ e SUPPORTO
+                            echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
+
+                                echo "<div class=\"form-row\">";
+                                    echo "<label for=\"utilita\">UTILITÀ:</label>";
+                                    echo "<select name=\"utilita\" id=\"utilita\">";
+                                
+                                        for ($i = 1; $i <= 5; $i++) {
+                                            echo "<option value=\"$i\">$i</option>";
+                                        }
+
+                                    echo "</select>";
+                                echo "</div>";
+
+                                echo "<div class=\"form-row\">";
+
+                                    echo "<label for=\"supporto\">SUPPORTO:</label>";
+                                    echo "<select name=\"supporto\" id=\"supporto\">";
+
+                                        for ($i = 1; $i <= 3; $i++) {
+                                            echo "<option value=\"$i\">$i</option>";
+                                        }
+                                        
+                                    echo "</select>";
+                                    
+                                    //mi invio l'id del valutante
+                                    echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
+
+                                    //mi invio l'id di chi ha fatto la risposta per fare dei controlli
+                                    echo"<input type=\"hidden\" name=\"IDRisp\" value=". $risposta['IDRisp'] .">";
+                                    
+                                    //mi invio la data del rispondente per fare dei controlli
+                                    echo"<input type=\"hidden\" name=\"dataRisp\" value=". $risposta['dataRisp'] .">";
+
+                                echo "</div>";
+                                
+                                echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                            echo "</form>";
+                        }
+
+                    echo "</div>";    
+                }
+
             echo "</div>";
-        }   
+        }
+    }
+
     ?>
 
 </body>
