@@ -28,7 +28,8 @@
     
 <?php 
     $pagina_corrente = "area_privata";
-    include('res/PHP/navbar.php')
+    include('res/PHP/navbar.php');
+    include('res/PHP/funzioni.php');
 ?>
 
 <body>
@@ -85,10 +86,25 @@
                         echo "<a href=\"aggiungi_prodotto.php\">AGGIUNGI PRODOTTO</a>";
                     echo "</div>";
 
+                    //controllo se ci sono richieste crediti pendenti, in caso affermativo stampo il "dot rosso"
+                    $xmlpath = "res/XML/richieste_crediti.xml";
+                    $richieste = getRichiesteCr($xmlpath);
+
+                    $isRichiesta = false;
+
+                    foreach($richieste as $richiesta){
+                        if($richiesta['risposta'] == 0){
+                            $isRichiesta = true;
+                        }
+                    }
+
                     echo "<div class=\"cell\">";
                         echo "<a href=\"richiesta_crediti.php\"><i id=\"richiesta\" class=\"material-icons\">currency_exchange</i></a>";
                         echo "<div class=\"row\"";
-                            echo "<a href=\"richiesta_crediti.php\">RICHIESTE CREDITI</a><i id=\"allert\" class=\"material-icons\">fiber_manual_record</i>";
+                            echo "<a href=\"richiesta_crediti.php\">RICHIESTE CREDITI</a>";
+                            if($isRichiesta){
+                                echo "<i id=\"allert\" class=\"material-icons\">fiber_manual_record</i>";
+                            }
                         echo "</div>";
                     echo "</div>";
 
