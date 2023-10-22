@@ -7,7 +7,7 @@ include('connection.php');
 $connessione = new mysqli($host, $user, $password, $db);
 
 //ho incluso la connessione al db perché adesso mi prendo i valori dell'utente e gli compilo il form (per la password c'è da fare qualcosina in più)
-$query = "SELECT ud.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome']}'";
+$query = "SELECT ud.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome_utente']}'";
 
 //mi prendo i dati inviati col form
 $nome = $connessione->real_escape_string($_POST['nome']);
@@ -21,9 +21,6 @@ $civico = $connessione->real_escape_string($_POST['civico']);
 $username = $connessione->real_escape_string($_POST['username']);
 
 $controllo_email = "SELECT COUNT(*) AS count FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE ud.email = '{$_SESSION['mod_email']}' AND umn.username != '{$_SESSION['nome_utente']}'";
-
-echo $_SESSION['mod_email'];
-echo $_SESSION['nome_utente'];
 
 $ris_e  = $connessione->query($controllo_email);
 
@@ -71,11 +68,23 @@ $sql_utenteDati = "UPDATE utenteDati
                    SET nome = '$nome', cognome = '$cognome', 
                        email = '$email', via_di_residenza = '$residenza', civico = '$civico', 
                        numero_di_telefono = '$telefono'
-                        WHERE id IN (SELECT id FROM utenteMangaNett WHERE username = '{$_SESSION['nome']}')";
+                        WHERE id IN (SELECT id FROM utenteMangaNett WHERE username = '{$_SESSION['nome_utente']}')";
 
-
-// Esegui le query di aggiornamento e gestisci gli eventuali errori
 if ($connessione->query($sql_utenteDati)) {} 
+else {
+    $_SESSION['errore_query'] = 'true';
+    header('Location:../../modifica_profilo_utente.php');
+    exit(1);
+}
+
+// Aggiornamento della tabella utenteMangaNett
+$sql_utenteMangaNett = "UPDATE utenteMangaNett 
+                    SET username = '$username'
+                    WHERE username = '{$_SESSION['nome_utente']}'";
+
+if ($connessione->query($sql_utenteMangaNett)) {
+    $_SESSION['nome_utente'] = $username;
+} 
 else {
     $_SESSION['errore_query'] = 'true';
     header('Location:../../modifica_profilo_utente.php');

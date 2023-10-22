@@ -1,46 +1,59 @@
 <?php
 
-    session_start();
+session_start();
 
-    include('res/PHP/connection.php');
+include('res/PHP/connection.php');
 
-    $connessione = new mysqli($host, $user, $password, $db);
+$connessione = new mysqli($host, $user, $password, $db);
 
-    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_mod_profile_dark.css\" type=\"text/css\" />";
-    }
-    else{
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_mod_profile.css\" type=\"text/css\" />";
-    }
+if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
+    echo "<link rel=\"stylesheet\" href=\"res/CSS/external_mod_profile_dark.css\" type=\"text/css\" />";
+}
+else{
+    echo "<link rel=\"stylesheet\" href=\"res/CSS/external_mod_profile.css\" type=\"text/css\" />";
+}
 
-    if (isset($_GET['nome_utente'])) {
+if (isset($_GET['nome_utente'])) {
 
-        $nick_utente = $_GET['nome_utente'];
-    } 
-    
-    //metto il nick utente dentro una variabile di sessione perché se cambio il tema nella pagina delle info mi da errore (giustamente)
-    if (!empty($nick_utente)) {
+    $nick_utente = $_GET['nome_utente'];
+} 
 
-        $_SESSION['nome_utente'] = $nick_utente;
-    }
+//metto il nick utente dentro una variabile di sessione perché se cambio il tema nella pagina delle info mi da errore (giustamente)
+if (!empty($nick_utente)) {
 
-    //ho incluso la connessione al db perché adesso mi prendo i valori dell'utente e gli compilo il form (per la password c'è da fare qualcosina in più)
-    $query = "SELECT ud.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome_utente']}'";
+    $_SESSION['nome_utente'] = $nick_utente;
+}
 
-    $result = $connessione->query($query);
+//ho incluso la connessione al db perché adesso mi prendo i valori dell'utente e gli compilo il form
+$query = "SELECT ud.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome_utente']}'";
 
-    if ($result->num_rows > 0) {
+$result = $connessione->query($query);
 
-        $row = $result->fetch_assoc();
+if ($result->num_rows > 0) {
 
-        // Ora puoi utilizzare i dati ottenuti da $row
-        $_SESSION['mod_nome'] = $row['nome'];
-        $_SESSION['mod_cognome'] = $row['cognome'];
-        $_SESSION['mod_email'] = $row['email'];
-        $_SESSION['mod_residenza'] = $row['via_di_residenza'];
-        $_SESSION['mod_civico'] = $row['civico'];
-        $_SESSION['mod_telefono'] = $row['numero_di_telefono'];
-    }
+    $row = $result->fetch_assoc();
+
+    // Ora puoi utilizzare i dati ottenuti da $row
+    $_SESSION['mod_nome'] = $row['nome'];
+    $_SESSION['mod_cognome'] = $row['cognome'];
+    $_SESSION['mod_email'] = $row['email'];
+    $_SESSION['mod_residenza'] = $row['via_di_residenza'];
+    $_SESSION['mod_civico'] = $row['civico'];
+    $_SESSION['mod_telefono'] = $row['numero_di_telefono'];
+}
+
+//ho incluso la connessione al db perché adesso mi prendo i valori dell'utente e gli compilo il form (per la password c'è da fare qualcosina in più)
+$query_umn = "SELECT umn.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome_utente']}'";
+
+$result_umn = $connessione->query($query_umn);
+
+if ($result_umn->num_rows > 0) {
+
+    $row = $result_umn->fetch_assoc();
+
+    // Ora puoi utilizzare i dati ottenuti da $row
+    $_SESSION['mod_username'] = $row['username'];
+}
 ?>
 
 <?php 
@@ -86,16 +99,6 @@
             unset($_SESSION['mod_username']);
         }
 
-        if(isset($_SESSION['errore_preg']) && $_SESSION['errore_preg'] == 'true'){
-            echo "<h4>LA PASSWORD NON RISPETTA I CRITERI DI SICUREZZA!</h4>";
-            unset($_SESSION['errore_preg']);
-        }
-
-        if(isset($_SESSION['errore_p']) && $_SESSION['errore_p'] == 'true'){
-        echo "<h3>LE PASSWORD NON SONO UGUALI!</h3>";
-        unset($_SESSION['errore_p']);
-        }
-
     ?>
 
     <div class="container_reg">
@@ -132,6 +135,13 @@
                 <label for="civico">NUMERO CIVICO</label>
                 <input type="text" name="civico" id="civico" placeholder="3" maxlength="4"
                        value="<?php  if(isset($_SESSION['mod_civico'])) echo $_SESSION['mod_civico']; ?>" required>
+            </div>
+
+            <h2>CRENDZIALI SITO:</h2>
+            <div class="form-row">
+                <label for="username">USERNAME</label>
+                <input type="text" name="username" id="username" placeholder="MarioBros"
+                       value="<?php  if(isset($_SESSION['mod_username'])) echo $_SESSION['mod_username']; ?>" required>
             </div>
 
             <span class ="bottone"><input type="submit" value="INVIA"></span>
