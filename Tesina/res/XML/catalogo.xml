@@ -39,12 +39,6 @@
       <R>0</R>
     </sconto>
     <bonus>0</bonus>
-    <recensione>
-      <utenteID>4</utenteID>
-      <rec>Devo dire che mi sta piacendo moltissimo!</rec>
-      <dataRec>2023-09-24T23:11:38</dataRec>
-      <reputazionevotante/>
-    </recensione>
   </fumetto>
   <fumetto isbn="9788828720232">
     <titolo>SPY X FAMILY 6</titolo>
@@ -85,12 +79,6 @@
       <R>0</R>
     </sconto>
     <bonus>0</bonus>
-    <recensione>
-      <utenteID>1</utenteID>
-      <rec>Esempio tipico di come rovinare una serie! Sono molto contrario alle scelte del protagonista...</rec>
-      <dataRec>2023-10-06T15:36:38</dataRec>
-      <reputazionevotante/>
-    </recensione>
   </fumetto>
   <fumetto isbn="9781634429405">
     <titolo>HEAVENLY DELUSION 1</titolo>
@@ -111,18 +99,6 @@
       <R>3</R>
     </sconto>
     <bonus>5</bonus>
-    <recensione>
-      <utenteID>2</utenteID>
-      <rec>Un inizio davvero interessante!</rec>
-      <dataRec>2020-01-29T04:10:12</dataRec>
-      <reputazionevotante>12</reputazionevotante>
-    </recensione>
-    <recensione>
-      <utenteID>1</utenteID>
-      <rec>carino</rec>
-      <dataRec>2023-07-29T10:30:00</dataRec>
-      <reputazionevotante>12</reputazionevotante>
-    </recensione>
   </fumetto>
   <fumetto isbn="9783455000955">
     <titolo>SPY X FAMILY 2</titolo>
@@ -183,12 +159,6 @@
       <R>0</R>
     </sconto>
     <bonus>0</bonus>
-    <recensione>
-      <utenteID>1</utenteID>
-      <rec>Questo manga è davvero un sempreverde! Iconico a dir poco!</rec>
-      <dataRec>2023-01-01T00:21:00</dataRec>
-      <reputazionevotante>12</reputazionevotante>
-    </recensione>
   </fumetto>
   <fumetto isbn="9786555129021">
     <titolo>SPY X FAMILY 3</titolo>
