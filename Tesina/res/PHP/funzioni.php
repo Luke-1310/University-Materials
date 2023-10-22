@@ -39,29 +39,6 @@
             $nome_autore = $autore->getElementsByTagName('nome')->item(0)->nodeValue;
             $cognome_autore = $autore->getElementsByTagName('cognome')->item(0)->nodeValue;
 
-            //qui metto le recensioni, visto che possono essere da 0 a n
-            $recensioni = [];
-            $recensioni_correnti = $fumetto->getElementsByTagName('recensione');
-
-            foreach ($recensioni_correnti as $recensione) {
-                $utenteIDNode = $recensione->getElementsByTagName('utenteID')->item(0);
-                $recNode = $recensione->getElementsByTagName('rec')->item(0);
-                $dataRecNode = $recensione->getElementsByTagName('dataRec')->item(0);
-                $repuVotNode = $recensione->getElementsByTagName('reputazionevotante')->item(0);
-
-                //devo gestire i casi in cui la recensione non c'è, se non c'è allora alla variabile corrispondente viene assegnato ''
-                $utenteID = $utenteIDNode ? $utenteIDNode->nodeValue : '';
-                $rec = $recNode ? $recNode->nodeValue : '';
-                $dataRec = $dataRecNode ? $dataRecNode->nodeValue : '';
-                $repuVot = $repuVotNode ? $repuVotNode->nodeValue : '';
-
-                $recensioni[] = [
-                    'utenteID' => $utenteID,
-                    'rec' => $rec,
-                    'dataRec' => $dataRec,
-                    'reputazionevotante' => $repuVot,
-                ];
-            }
             //mi prendo tutti i campi tranne le recensioni (al momento)
             $fumetti[] = [
                 'isbn' => $ISBN,
@@ -82,7 +59,6 @@
 
                 'nome_autore' => $nome_autore,
                 'cognome_autore' => $cognome_autore,
-                'recensioni' => $recensioni
             ];
         }
 
