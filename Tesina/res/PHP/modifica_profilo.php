@@ -33,7 +33,7 @@ $_SESSION['mod_username'] = $username;
 
 //controllo se la nuova email è già presente nel db, trascurando ovviamente l'utente corrente, poiché magari non l'ha modificata e così facendo darebbe errore riscontrando un uguaglianza
 //con la seguente query controllo se la nuova email inserita è già presente nel db, escludendo però i dati dell'username corrente poiché non rilevante ai finti della correttezza 
-$controllo_email = "SELECT COUNT(*) AS count FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE ud.email = '{$_SESSION['mod_email']}'  AND umn.username != '{$_SESSION['nome']}'";
+$controllo_email = "SELECT COUNT(*) AS count FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE ud.email = '{$_SESSION['mod_email']}' AND umn.username != '{$_SESSION['nome']}'";
 
 $ris_e  = $connessione->query($controllo_email);
 
@@ -50,7 +50,8 @@ else {
 
 if ($count > 0) {
     $_SESSION['errore_email_ex'] = 'true';
-    header('Location:../../modifica_profilo.php');
+    echo $count;
+    // header('Location:../../modifica_profilo.php');
     exit(1);
 }
 
