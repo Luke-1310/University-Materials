@@ -62,52 +62,51 @@
 ?>
 
 <body>
+    <?php
+        if(isset($_SESSION['errore_query']) && $_SESSION['errore_query'] == 'true'){
+            echo "<h3>ERRORE DURANTE LA RICHIESTA!</h3>";
+            unset($_SESSION['errore_query']);
+        }
+    
+        if(isset($_SESSION['errore_email_ex']) && $_SESSION['errore_email_ex'] == 'true'){//isset verifica se errore è settata
+            echo "<h3>EMAIL GIÀ IN USO!</h3>";
+            unset($_SESSION['errore_email_ex']);//la unsetto altrimenti rimarrebbe la scritta
+            unset($_SESSION['mod_mail']);//pulisco il form del campo email perché è errato
+        }
+    
+        if(isset($_SESSION['errore_tel_ex']) && $_SESSION['errore_tel_ex'] == 'true'){
+            echo "<h3>IL NUMERO DI TELEFONO GIÀ IN USO!</h3>";
+            unset($_SESSION['errore_tel_ex']);
+            unset($_SESSION['mod_telefono']);
+        }
+        
+        if(isset($_SESSION['errore_usr_ex']) && $_SESSION['errore_usr_ex'] == 'true'){
+            echo "<h3>USERNAME GIÀ IN USO !</h3>";
+            unset($_SESSION['errore_usr_ex']);
+            unset($_SESSION['mod_username']);
+        }
+
+        if(isset($_SESSION['errore_preg']) && $_SESSION['errore_preg'] == 'true'){
+            echo "<h4>LA PASSWORD NON RISPETTA I CRITERI DI SICUREZZA!</h4>";
+            unset($_SESSION['errore_preg']);
+        }
+
+        if(isset($_SESSION['errore_p']) && $_SESSION['errore_p'] == 'true'){
+        echo "<h3>LE PASSWORD NON SONO UGUALI!</h3>";
+        unset($_SESSION['errore_p']);
+        }
+
+    ?>
 
     <div class="container_reg">
 
-        <form id="loginForm" action = "res/PHP/modifica_profilo.php" method="POST">
-
-            <?php
-                if(isset($_SESSION['errore_query']) && $_SESSION['errore_query'] == 'true'){
-                    echo "<h3>ERRORE DURANTE LA RICHIESTA!</h3>";
-                    unset($_SESSION['errore_query']);
-                }
-            
-                if(isset($_SESSION['errore_email_ex']) && $_SESSION['errore_email_ex'] == 'true'){//isset verifica se errore è settata
-                    echo "<h3>EMAIL GIÀ IN USO!</h3>";
-                    unset($_SESSION['errore_email_ex']);//la unsetto altrimenti rimarrebbe la scritta
-                    unset($_SESSION['mod_mail']);//pulisco il form del campo email perché è errato
-                }
-            
-                if(isset($_SESSION['errore_tel_ex']) && $_SESSION['errore_tel_ex'] == 'true'){
-                    echo "<h3>IL NUMERO DI TELEFONO GIÀ IN USO!</h3>";
-                    unset($_SESSION['errore_tel_ex']);
-                    unset($_SESSION['mod_telefono']);
-                }
-                
-                if(isset($_SESSION['errore_usr_ex']) && $_SESSION['errore_usr_ex'] == 'true'){
-                    echo "<h3>USERNAME GIÀ IN USO !</h3>";
-                    unset($_SESSION['errore_usr_ex']);
-                    unset($_SESSION['mod_username']);
-                }
-
-                if(isset($_SESSION['errore_preg']) && $_SESSION['errore_preg'] == 'true'){
-                    echo "<h4>LA PASSWORD NON RISPETTA I CRITERI DI SICUREZZA!</h4>";
-                    unset($_SESSION['errore_preg']);
-                }
-
-                if(isset($_SESSION['errore_p']) && $_SESSION['errore_p'] == 'true'){
-                echo "<h3>LE PASSWORD NON SONO UGUALI!</h3>";
-                unset($_SESSION['errore_p']);
-                }
-
-            ?>
+        <form id="loginForm" action = "res/PHP/modifica_profilo_utente.php" method="POST">
             
             <h2>DATI ANAGRAFICI:</h2>
             <div class="form-row">
                 <label for="nome">NOME</label>
                 <input type="text" id="nome" name="nome" placeholder="Mario" 
-                       value="<?php  if(isset($_SESSION['mod_nome'])) echo $_SESSION['mod_nome']; ?>" required>   <!--Se settata (regist non corretta, la stampo)-->
+                       value="<?php  if(isset($_SESSION['mod_nome'])) echo $_SESSION['mod_nome']; ?>" required>
                 
                 <label for="cognome">COGNOME</label>
                 <input type="text" id="cognome" name="cognome" placeholder="Rossi"
@@ -133,21 +132,6 @@
                 <label for="civico">NUMERO CIVICO</label>
                 <input type="text" name="civico" id="civico" placeholder="3" maxlength="4"
                        value="<?php  if(isset($_SESSION['mod_civico'])) echo $_SESSION['mod_civico']; ?>" required>
-            </div>
-            
-            <h2>CREDENZIALI DI ACCESSO:</h2>
-            <div class="form-row">
-                <label for="username">USERNAME</label>
-                <input type="username" name="username" id="username" placeholder="MarioBros" 
-                       value="<?php  if(isset($_SESSION['nome'])) echo $_SESSION['nome_utente']; ?>" required>
-            </div>
-
-            <div class="form-row">
-                <label for="password">PASSWORD</label>
-                <input type="password" name="password" id="password" placeholder="Password123!" required>
-            
-                <label for="password">CONFERMA PASSWORD</label>
-                <input type="password" name="password2" id="password2" placeholder="Password123!" required>
             </div>
 
             <span class ="bottone"><input type="submit" value="INVIA"></span>
