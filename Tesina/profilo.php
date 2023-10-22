@@ -136,12 +136,10 @@ else{
             <span class="field-label">LIVELLO REPUTAZIONE:</span>
             <span class="field-value"><?php echo $reputaizone;?></span>
         </div>
-
-
-
     </div>
-
-    <p id="modifica_dati">PER MODIFICARE I TUOI DATI CLICCA <a href="inserisci_password.php">QUI</a></p>
+    
+    <p id="modifica_dati">PER MODIFICARE I TUOI DATI CLICCA <a href="inserisci_password.php?azione=dati">QUI</a></p>
+    <p id="modifica_dati">PER MODIFICARE LA TUA PASSWORD CLICCA <a href="inserisci_password.php?azione=psw">QUI</a></p>
 
 </body>
 

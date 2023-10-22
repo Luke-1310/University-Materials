@@ -40,6 +40,16 @@
                 echo "<h4>PASSWORD NON CORRETTA!</h4>";
                 unset($_SESSION['errore_mp']);//la unsetto altrimenti rimarrebbe la scritta
             }
+
+            if (isset($_GET['azione'])) {
+
+                $azione = $_GET['azione'];
+            } 
+            
+            //metto il nick utente dentro una variabile di sessione perché se cambio il tema nella pagina delle info mi da errore (giustamente)
+            if (!empty($azione)) {
+                $_SESSION['azione'] = $azione;
+            }
         ?>
 
         <label for="password">PASSWORD</label>

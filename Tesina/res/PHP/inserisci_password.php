@@ -24,8 +24,15 @@ if($ris = $connessione->query($controllo)){
         
         if(password_verify($psw, $row['password'])){
             
-            header('Location:../../modifica_profilo.php'); //header sono l'analogo degli href
-            exit(1);
+            if($_SESSION['azione'] == "dati"){
+                header('Location:../../modifica_profilo.php'); //header sono l'analogo degli href
+                exit(1);
+            }
+
+            if($_SESSION['azione'] == "psw"){
+                header('Location:../../modifica_password.php'); //header sono l'analogo degli href
+                exit(1);
+            }
         }
         else{
             $_SESSION['errore_mp'] = 'true';
