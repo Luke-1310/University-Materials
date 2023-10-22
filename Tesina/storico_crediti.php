@@ -108,16 +108,14 @@
     //Verifico se la query ha restituito risultati
     if ($result2) {
 
-        //Estraggo il risultato come un array associativo
         $row2 = $result2->fetch_assoc();
     }
 
-    //apro un nuovo container per stampare lo storico delle richieste
     echo "<div class=\"container-storico\">";
 
     $contatore = 0;
+
     //ora devo vedere se per caso non ci sono state richieste prima e per tale motivo faccio un controllo
-    //se il controllo mi da come risultato 0 allora non c'è stata nessuna richiesta
     foreach($richieste as $richiesta){
 
         if($richiesta['IDUtente'] == $row2['id']){
@@ -130,8 +128,30 @@
         echo "<p>NESSUNA RICHIESTA TROVATA!</p>";
     }
     else{   
-        //qui ci siamo presi le richieste corrette però alcune non sono ben formattate
+
+        $stampaTitoli = false;
+
         foreach($richieste as $richiesta){
+
+            if(!$stampaTitoli){
+                echo "<div class=\"column\">";
+                    echo "<h4>DATA:</h4>";
+                echo"</div>";
+
+                echo "<div class=\"column\">";
+                    echo "<h4>ORA:</h4>";
+                echo"</div>";
+
+                echo "<div class=\"column\">";
+                    echo "<h4>QUANTITÀ:</h4>";
+                echo"</div>";
+
+                echo "<div class=\"column\">";
+                    echo "<h4>ESITO:</h4>";;
+                echo"</div>";
+
+                $stampaTitoli = true;
+            }
 
             if($richiesta['IDUtente'] == $row2['id']){
                 $quantita = $richiesta['quantita'];
@@ -164,22 +184,18 @@
                 }
 
                 echo "<div class=\"column\">";
-                    echo "<h4>DATA:</h4>";
                     echo "<p>". $data ."</p>";
                 echo "</div>";
 
                 echo "<div class=\"column\">";
-                    echo "<h4>ORA:</h4>";
                     echo "<p>". $ora ."</p>";
                 echo "</div>";
 
                 echo "<div class=\"column\">";
-                    echo "<h4>QUANTITÀ:</h4>";
                     echo "<p>". $quantita." CR</p>";
                 echo "</div>";
 
                 echo "<div class=\"column\">";
-                    echo "<h4>ESITO:</h4>";
 
                     if ($esito == "NON ACCETTATA") {
                         echo '<strong><p style="color: red;">' . $esito . "</p></strong>";
