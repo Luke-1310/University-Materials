@@ -84,12 +84,6 @@
                     echo "<h4>LA PASSWORD NON RISPETTA I CRITERI DI SICUREZZA!</h4>";
                     unset($_SESSION['errore_preg']);
                 }
-
-                if(isset($_SESSION['errore_p']) && $_SESSION['errore_p'] == 'true'){
-                echo "<h3>LE PASSWORD NON SONO UGUALI!</h3>";
-                unset($_SESSION['errore_p']);
-                }
-
             ?>
             
             <h2>DATI ANAGRAFICI:</h2>
@@ -129,14 +123,6 @@
                 <label for="username">USERNAME</label>
                 <input type="username" name="username" id="username" placeholder="MarioBros" 
                        value="<?php  if(isset($_SESSION['nome'])) echo $_SESSION['nome']; ?>" required>
-            </div>
-
-            <div class="form-row">
-                <label for="password">PASSWORD</label>
-                <input type="password" name="password" id="password" placeholder="Password123!" required>
-            
-                <label for="password">CONFERMA PASSWORD</label>
-                <input type="password" name="password2" id="password2" placeholder="Password123!" required>
             </div>
 
             <span class ="bottone"><input type="submit" value="INVIA"></span>

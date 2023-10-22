@@ -9,7 +9,6 @@ $connessione = new mysqli($host, $user, $password, $db);
 //ho incluso la connessione al db perché adesso mi prendo i valori dell'utente e gli compilo il form (per la password c'è da fare qualcosina in più)
 $query = "SELECT ud.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome']}'";
 
-
 //mi prendo i dati inviati col form
 $nome = $connessione->real_escape_string($_POST['nome']);
 $cognome = $connessione->real_escape_string($_POST['cognome']);
@@ -20,11 +19,6 @@ $residenza = $connessione->real_escape_string($_POST['residenza']);
 $civico = $connessione->real_escape_string($_POST['civico']);
 
 $username = $connessione->real_escape_string($_POST['username']);
-$password = $connessione->real_escape_string($_POST['password']);
-$password2 = $connessione->real_escape_string($_POST['password2']);
-
-//hasho la password
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 //mi salvo in delle varibaili di sessione i campi da ricompilare nel form
 $_SESSION['mod_nome'] = $nome;
@@ -103,22 +97,6 @@ if ($count > 0) {
     header('Location:../../modifica_profilo.php');
     exit(1);
 } 
-
-//controllo se la password rispetta i parametri
-//~ è il carattere delimitatore dell'espressione regolare
-if (!preg_match('~^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$~', $password)){
-    $_SESSION['errore_preg'] = 'true';
-    header('Location:../../modifica_profilo.php');
-    exit(1);
-}
-
-
-//controllo se le password sono uguali
-if($password !== $password2){
-    $_SESSION['errore_p'] = 'true';
-    header('Location:../../modifica_profilo.php');
-    exit(1);
-}
 
 // Aggiornamento della tabella utenteDati
 $sql_utenteDati = "UPDATE utenteDati 
