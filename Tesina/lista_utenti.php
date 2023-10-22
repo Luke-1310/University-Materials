@@ -45,30 +45,57 @@ $ris = $connessione->query($query);
 //Verifico se la query ha restituito risultati
 if ($ris) {
 
-    //Estraggo il risultato come un array associativo
-    while($row = $ris->fetch_assoc()){
-        
-        // Dopo che il ciclo ha eseguito le istruzioni, PHP torna all'inizio del ciclo (while) e verifica se $ris->fetch_assoc() restituisce un altro record. 
-        // Se sì, il ciclo viene eseguito di nuovo con un nuovo set di dati in $row; altrimenti, il ciclo si interrompe.
+    $stampaUtenti = false;
 
-        echo "<div class=\"container\">";
+    echo "<div class=\"container\">";
 
-            echo "<div class=\"columns-container\">";
+        if(!$stampaUtenti){
+            echo "<div class=\"column\">";
+                echo "<h4>NOME UTENTE:</h4>";
+            echo"</div>";
+
+            echo "<div class=\"column\">";
+                echo "<h4>RUOLO:</h4>";
+            echo"</div>";
+
+            echo "<div class=\"column\">";
+                echo "<h4>PROMUOVI/RETROCEDI RUOLO:</h4>";
+            echo"</div>";
+
+            echo "<div class=\"column\">";
+                echo "<h4>È SEGNALATO:</h4>";;
+            echo"</div>";
+
+            echo "<div class=\"column\">";
+                echo "<h4>È BANNATO:</h4>";;
+            echo"</div>";
+
+            echo "<div class=\"column\">";
+                echo "<h4>VISUALIZZA INFORMAZIONI:</h4>";;
+            echo"</div>";
+
+            $stampaUtenti = true;
+        }
+
+        //Estraggo il risultato come un array associativo
+        while($row = $ris->fetch_assoc()){
+            
+            // Dopo che il ciclo ha eseguito le istruzioni, PHP torna all'inizio del ciclo (while) e verifica se $ris->fetch_assoc() restituisce un altro record. 
+            // Se sì, il ciclo viene eseguito di nuovo con un nuovo set di dati in $row; altrimenti, il ciclo si interrompe.
 
                 echo "<div class=\"column\">";
-                    echo "<h3>NOME UTENTE:</h3>";
                     echo "<p>". $row['username'] ."</p>";
                 echo "</div>";
 
+
                 echo "<div class=\"column\">";
-                    echo "<h3>RUOLO:</h3>";
                     echo "<p>" . $row['ruolo'] . "</p>";
                 echo "</div>";
+
 
                 echo "<div class=\"column\">";
 
                     echo "<div class=\"conferma\">";
-                        echo "<h3>PROMUOVI/RETROCEDI RUOLO:</h3>";
 
                         echo "<form action = \"res/PHP/promuovi_retrocedi.php\" method='POST'>";
 
@@ -90,19 +117,8 @@ if ($ris) {
 
                 echo "</div>";
 
-                echo "<div class=\"column\">";
-                    echo "<h3>È SEGNALATO:</h3>";
-                    
-                    if($row['segnalazione']){
-                        echo "<strong><p style=\"color: red;\">SI</p></strong>";
-                    }
-                    else{
-                        echo "<strong><p style=\"color: green;\">NO</p></strong>";
-                    }
-                echo "</div>";
 
                 echo "<div class=\"column\">";
-                    echo "<h3>È BANNATO:</h3>";
 
                     if($row['ban']){
                         echo "<strong><p style=\"color: red;\">SI</p></strong>";
@@ -113,28 +129,32 @@ if ($ris) {
                 echo "</div>";
 
                 echo "<div class=\"column\">";
-                    echo "<h3>VISUALIZZA INFORMAZIONI:</h3>";
+
+                    if($row['segnalazione']){
+                        echo "<strong><p style=\"color: red;\">SI</p></strong>";
+                    }
+                    else{
+                        echo "<strong><p style=\"color: green;\">NO</p></strong>";
+                    }
+                echo "</div>";
+
+                echo "<div class=\"column\">";
 
                     echo "<div class=\"conferma\">";
 
-                        echo "<form action = \"res/PHP/vedi_informazioni.php\" method='POST'>";
-                            echo "<button name=\"bottone_promuovi\" type=\"submit\">";
-                            echo "<i id=\"info\" class=\"material-icons\">info</i></button>";
-                        echo "</form>";
+                            echo "<form action = \"res/PHP/vedi_informazioni.php\" method='POST'>";
+                                echo "<button name=\"bottone_promuovi\" type=\"submit\">";
+                                echo "<i id=\"info\" class=\"material-icons\">info</i></button>";
+                            echo "</form>";
 
-                    echo "</div>";
+                        echo "</div>";
+
                 echo "</div>";
 
-            echo "</div>";
+            }
+        }
 
-        echo "</div>";
-
-
-    }
-}
-else{
-    exit(1);
-}
+    echo"</div>";    
 
 ?>
 </body>
