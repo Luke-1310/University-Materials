@@ -135,9 +135,15 @@ if ($result_mangaNett->num_rows > 0) {
     </div>
 
 </div>
+
 <?php
-echo "<p id=\"modifica_dati\">PER MODIFICARE I DATI DI QUESTO UTENTE CLICCA <a href=\"modifica_profilo_utente.php?nome_utente=" . $_SESSION['nome_utente'] ."\">QUI</a></p>";
+
+echo "<p id=\"modifica_dati\">PER MODIFICARE I DATI DI QUESTO UTENTE CLICCA <a href=\"modifica_profilo_utente.php\">QUI</a></p>";
+
+echo "<p id=\"modifica_dati\">PER MODIFICARE LA PASSWORD DI QUESTO UTENTE CLICCA <a href=\"modifica_profilo_utente_password.php\">QUI</a></p>";
+
 ?>
+
 </body>
 
 <?php include('res/PHP/footer.php')?>
