@@ -66,28 +66,6 @@ if ($ris) {
                 echo "</div>";
 
                 echo "<div class=\"column\">";
-                    echo "<h3>È SEGNALATO:</h3>";
-                    
-                    if($row['segnalazione']){
-                        echo "<strong><p style=\"color: red;\">SI</p></strong>";
-                    }
-                    else{
-                        echo "<strong><p style=\"color: green;\">NO</p></strong>";
-                    }
-                echo "</div>";
-
-                echo "<div class=\"column\">";
-                    echo "<h3>È BANNATO:</h3>";
-
-                    if($row['ban']){
-                        echo "<strong><p style=\"color: red;\">SI</p></strong>";
-                    }
-                    else{
-                        echo "<strong><p style=\"color: green;\">NO</p></strong>";
-                    }
-                echo "</div>";
-
-                echo "<div class=\"column\">";
 
                     echo "<div class=\"conferma\">";
                         echo "<h3>PROMUOVI/RETROCEDI RUOLO:</h3>";
@@ -111,9 +89,31 @@ if ($ris) {
                     echo "</div>";
 
                 echo "</div>";
-                
+
                 echo "<div class=\"column\">";
-                    echo "<h4>VISUALIZZA INFORMAZIONI:</h4>";
+                    echo "<h3>È SEGNALATO:</h3>";
+                    
+                    if($row['segnalazione']){
+                        echo "<strong><p style=\"color: red;\">SI</p></strong>";
+                    }
+                    else{
+                        echo "<strong><p style=\"color: green;\">NO</p></strong>";
+                    }
+                echo "</div>";
+
+                echo "<div class=\"column\">";
+                    echo "<h3>È BANNATO:</h3>";
+
+                    if($row['ban']){
+                        echo "<strong><p style=\"color: red;\">SI</p></strong>";
+                    }
+                    else{
+                        echo "<strong><p style=\"color: green;\">NO</p></strong>";
+                    }
+                echo "</div>";
+
+                echo "<div class=\"column\">";
+                    echo "<h3>VISUALIZZA INFORMAZIONI:</h3>";
 
                     echo "<div class=\"conferma\">";
 
