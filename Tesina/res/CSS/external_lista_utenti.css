@@ -46,14 +46,17 @@
 
 #promuovi{
     color:#1DB954 ;
+    margin-top: 20px;
 }
 
 #retrocedi{
     color:red ;
+    margin-top: 20px;
 }
 
 #info{
     color:#0088CC ;
+    margin-top: 20px;
 }
 
 .conferma button{
