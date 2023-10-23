@@ -1,4 +1,5 @@
 <?php
+
     //funzione per caricare i fumetti dal catalogo
     function getFumetti($xmlFile) {
 
@@ -156,4 +157,64 @@
         return $domande;
     }
     
+    //funzione per ricavare la reputazione dell'utente loggato
+    function getReputazioneCurr(){
+
+        include('connection.php');
+        $connessione = new mysqli($host, $user, $password, $db);
+
+        if (isset($_SESSION['nome'])) {
+            $query = "SELECT um.reputazione FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}'";
+            $ris = mysqli_query($connessione, $query);
+    
+            if (mysqli_num_rows($ris) == 1) {
+                $row = $ris->fetch_assoc();
+                $reputazione_utente = $row['reputazione'];
+            }
+
+            return $reputazione_utente;
+        }
+    }
+
+    function getDataRegistrazioneCurr(){
+
+        include('connection.php');
+        $connessione = new mysqli($host, $user, $password, $db);
+
+        if (isset($_SESSION['nome'])) {
+
+            $query = "SELECT um.data_registrazione FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}'";
+            $ris = mysqli_query($connessione, $query);
+    
+            if (mysqli_num_rows($ris) == 1) {
+                $row = $ris->fetch_assoc();
+                $dataregistrazione_utente = $row['data_registrazione'];
+    
+                //ora mi devo fare la differenza
+                $data_corrente = date("Y-m-d");
+    
+                $differenza_data = date_diff(date_create($dataregistrazione_utente), date_create($data_corrente));
+    
+                //$differenza_data->y restituisce il numero di anni nella differenza tra le date.
+                //$differenza_data->m restituisce il numero di mesi nella differenza tra le date.
+                $mesi_trascorsi = $differenza_data->y * 12 + $differenza_data->m;
+            }    
+
+            return $mesi_trascorsi;
+        }
+    }
+
+    function getCreditiSpesiCurr(){
+
+        if (isset($_SESSION['nome'])) {
+
+            //mi devo controllare gli ordini e ricavarmi i crediti spesi, al momento lascio un valore standard di 100
+            $spesi_utente = 100;
+            
+            return $spesi_utente;
+        }
+    }
+
+    
+
 ?>
