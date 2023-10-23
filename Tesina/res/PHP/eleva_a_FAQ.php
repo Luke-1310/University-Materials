@@ -19,6 +19,7 @@ $document->load($xmlpath);
 
 $domande_doc = $document->getElementsByTagName('domanda');
 
+//per ciascuna domanda del documento controllo se è la domanda giusta e la elevo a FAQ
 foreach($domande_doc as $domanda_doc){
 
     $domanda_IDDom = $domanda_doc->getElementsByTagName('IDDom')->item(0)->nodeValue;
