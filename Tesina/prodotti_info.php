@@ -79,35 +79,11 @@ include('res/PHP/funzioni.php');
     //ora mi devo prendere anche i parametri dell'utente per vedere se rientra nello sconto
     $connessione = new mysqli($host, $user, $password, $db);
 
-    if (isset($_SESSION['nome'])) {
-        $query = "SELECT um.reputazione FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}'";
-        $ris = mysqli_query($connessione, $query);
+    $reputazione_utente = getReputazioneCurr();
 
-        if (mysqli_num_rows($ris) == 1) {
-            $row = $ris->fetch_assoc();
-            $reputazione_utente = $row['reputazione'];
-        }
+    $mesi_trascorsi = getDataRegistrazioneCurr();
 
-        $query = "SELECT um.data_registrazione FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}'";
-        $ris = mysqli_query($connessione, $query);
-
-        if (mysqli_num_rows($ris) == 1) {
-            $row = $ris->fetch_assoc();
-            $dataregistrazione_utente = $row['data_registrazione'];
-
-            //ora mi devo fare la differenza
-            $data_corrente = date("Y-m-d");
-
-            $differenza_data = date_diff(date_create($dataregistrazione_utente), date_create($data_corrente));
-
-            //$differenza_data->y restituisce il numero di anni nella differenza tra le date.
-            //$differenza_data->m restituisce il numero di mesi nella differenza tra le date.
-            $mesi_trascorsi = $differenza_data->y * 12 + $differenza_data->m;
-        }
-
-        //mi devo controllare gli ordini e ricavarmi i crediti spesi, al momento lascio un valore standard di 100
-        $spesi_utente = 100;
-    }
+    $spesi_utente = getCreditiSpesiCurr();
 
     //Compongo il nome completo dell'immagine da stampare
     $nomeImg = $ISBN . $ext;
@@ -187,17 +163,21 @@ include('res/PHP/funzioni.php');
                     echo "</div>";
                 }
 
-                //se TUTTI i parametri sono uguali a 0 allora questo prodotto non è soggetto a sconto
-                if($mesi != 0 || $crediti != 0 || $reputazione != 0){
+                if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
 
-                    //se l'utente fa rientra nei parametri dello sconto allora glielo faccio sapere
-                    if($mesi < $mesi_trascorsi && $crediti < $spesi_utente && $reputazione < $reputazione_utente){
-                        echo "<div class=\"info-field\">";
-                            echo "<span class=\"field-label\">SCONTO: </span>";
-                            echo "<span class=\"field-value\">SEI ELEGIBILE PER UNO SCONTO ADDIZIONALE!!</span>";
-                        echo "</div>";
+                    //se TUTTI i parametri sono uguali a 0 allora questo prodotto non è soggetto a sconto
+                    if($mesi != 0 || $crediti != 0 || $reputazione != 0){
+
+                        //se l'utente fa rientra nei parametri dello sconto allora glielo faccio sapere
+                        if($mesi < $mesi_trascorsi && $crediti < $spesi_utente && $reputazione < $reputazione_utente){
+                            echo "<div class=\"info-field\">";
+                                echo "<span class=\"field-label\">SCONTO: </span>";
+                                echo "<span class=\"field-value\">SEI ELEGIBILE PER UNO SCONTO ADDIZIONALE!!</span>";
+                            echo "</div>";
+                        }
                     }
                 }
+                    
                 ?>
             </div>
 
