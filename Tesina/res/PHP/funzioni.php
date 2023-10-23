@@ -115,6 +115,7 @@
             
             foreach ($risposteNodes as $rispostaNode) {
                 $IDRisp = $rispostaNode->getElementsByTagName('IDRisp')->item(0)->nodeValue;
+                $FAQ_risposta = $rispostaNode->getElementsByTagName('FAQ')->item(0)->nodeValue;
                 $dataRisp = $rispostaNode->getElementsByTagName('dataRisp')->item(0)->nodeValue;
                 $testoRisp = $rispostaNode->getElementsByTagName('testoRisp')->item(0)->nodeValue;
 
@@ -138,6 +139,7 @@
 
                 $risposte[] = [
                     'IDRisp' => $IDRisp,
+                    'FAQ' => $FAQ_risposta,
                     'dataRisp' => $dataRisp,
                     'testoRisp' => $testoRisp,
                     'votazioni' => $votazioni,

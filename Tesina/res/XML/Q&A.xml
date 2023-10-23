@@ -8,6 +8,7 @@
     <dataDom>2023-10-06T12:00:00</dataDom>
     <risposta>
       <IDRisp>2</IDRisp>
+      <FAQ>-1</FAQ>
       <dataRisp>2023-10-06T12:30:00</dataRisp>
       <testoRisp>Ecco una risposta di esempio</testoRisp>
       <votazione>
@@ -25,6 +26,7 @@
     </risposta>
     <risposta>
       <IDRisp>4</IDRisp>
+      <FAQ>-1</FAQ>
       <dataRisp>2023-10-06T12:00:00</dataRisp>
       <testoRisp>Ecco un altra risposta di esempio</testoRisp>
       <votazione>
@@ -42,6 +44,7 @@
     </risposta>
     <risposta>
       <IDRisp>4</IDRisp>
+      <FAQ>-1</FAQ>
       <dataRisp>2023-10-16T13:42:47</dataRisp>
       <testoRisp>Prova</testoRisp>
       <votazione>
@@ -60,6 +63,7 @@
     <dataDom>2023-10-14T18:53:17</dataDom>
     <risposta>
       <IDRisp>1</IDRisp>
+      <FAQ>-1</FAQ>
       <dataRisp>2023-10-18T16:03:05</dataRisp>
       <testoRisp>No, non è l'ultimo! La homepage viene sempre aggiornata con le ultime novità, dacci un'occhiata!!! </testoRisp>
       <votazione>
@@ -71,6 +75,7 @@
     </risposta>
     <risposta>
       <IDRisp>1</IDRisp>
+      <FAQ>-1</FAQ>
       <dataRisp>2023-10-18T16:03:20</dataRisp>
       <testoRisp>Prova</testoRisp>
     </risposta>
@@ -90,6 +95,7 @@
     <dataDom>2023-10-16T10:18:35</dataDom>
     <risposta>
       <IDRisp>4</IDRisp>
+      <FAQ>-1</FAQ>
       <dataRisp>2023-10-16T13:46:55</dataRisp>
       <testoRisp>Prova </testoRisp>
     </risposta>
@@ -102,6 +108,7 @@
     <dataDom>2023-10-16T16:30:19</dataDom>
     <risposta>
       <IDRisp>1</IDRisp>
+      <FAQ>-1</FAQ>
       <dataRisp>2023-10-16T16:44:07</dataRisp>
       <testoRisp>Risposta definitiva 1&#13;</testoRisp>
     </risposta>
@@ -114,6 +121,7 @@
     <dataDom>2023-10-18T12:18:57</dataDom>
     <risposta>
       <IDRisp>2</IDRisp>
+      <FAQ>-1</FAQ>
       <dataRisp>2023-10-18T12:21:28</dataRisp>
       <testoRisp>Allora, per poter comprare un prodotto devi prima fare una richiesta crediti nella sezione "storico crediti" della tua area privata, poi, eventualmente, un admin te la accetterà e così potrai effettuare l'acquisto!</testoRisp>
       <votazione>
@@ -131,6 +139,7 @@
     </risposta>
     <risposta>
       <IDRisp>5</IDRisp>
+      <FAQ>-1</FAQ>
       <dataRisp>2023-10-18T13:55:12</dataRisp>
       <testoRisp>Beh, potresti cercare meglio prima di chiedere!</testoRisp>
       <votazione>

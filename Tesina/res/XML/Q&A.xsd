@@ -21,16 +21,11 @@
     </xsd:complexType>
   </xsd:element>
 
-  <xsd:element name="ISBNProdotto" type="xsd:string"/>
-  <xsd:element name="FAQ" type="xsd:integer"/>
-  <xsd:element name="IDDom" type="xsd:integer"/>
-  <xsd:element name="testoDom" type="xsd:string"/>
-  <xsd:element name="dataDom" type="xsd:dateTime"/> 
-  
   <xsd:element name="risposta">
     <xsd:complexType>
       <xsd:sequence>
         <xsd:element ref="IDRisp"/>
+        <xsd:element name="FAQ"/> 
         <xsd:element ref="dataRisp"/>
         <xsd:element ref="testoRisp"/>
         <xsd:element name="votazione" minOccurs="0" maxOccurs="unbounded">
@@ -46,6 +41,13 @@
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
+
+  <xsd:element name="ISBNProdotto" type="xsd:string"/>
+  <xsd:element name="FAQ" type="xsd:integer"/>
+  <xsd:element name="IDDom" type="xsd:integer"/>
+  <xsd:element name="testoDom" type="xsd:string"/>
+  <xsd:element name="dataDom" type="xsd:dateTime"/> 
+  
 
   <xsd:element name="IDRisp" type="xsd:integer"/>
   <xsd:element name="dataRisp" type="xsd:dateTime"/>
