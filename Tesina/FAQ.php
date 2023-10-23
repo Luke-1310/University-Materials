@@ -38,7 +38,8 @@ $domande = getDomande($xmlpath);
 
 $FAQ_exists = false;
 
-$numero = 0;
+$numero_dom = 0;
+
 
 echo "<p class=\"titolo\">ECCO LE DOMANDE PIÙ RICHIESTE!</p>";
 
@@ -46,62 +47,40 @@ echo "<p class=\"titolo\">ECCO LE DOMANDE PIÙ RICHIESTE!</p>";
 foreach($domande as $domanda){
 
     if($domanda['FAQ'] == 1){
-        
+
+        $numero_dom++;
+        $numero_risp = 0;
+
+        $FAQ_exists = true;
+
         echo "<div class=\"container\">";
-            $FAQ_exists = true;
-            
-            $numero++;
-
-            $contatore = 0; //mi serve per stampare la i-esima risposta, ovvero quella col punteggio migliore
-            $contatore_migliore = 0; //in questa variabile mi metto il numero della risposta migliore
-
-            $punteggio_migliore = 0;
-
-            //ora devo capire quale risposta stampare, quella col migliore punteggio
-            foreach($domanda['risposte'] as $risposta){
-    
-                $punteggio_corrente = 0; //qui abbiamo quindi il punteggio che prende una certa risposta
-                $contatore++; //trattiamo la risposta i-esima
-                
-                foreach($risposta['votazioni'] as $votazione){
-                    
-                    $punteggio_corrente = $punteggio_corrente + ($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione'];
-                }
-
-                //vediamo se la risposta corrente è la migliore, se una domanda 
-                if($punteggio_corrente > $punteggio_migliore){
-                    $punteggio_migliore = $punteggio_corrente;
-                    $contatore_migliore = $contatore;
-                }
-            }
 
             echo "<div class=\"domanda\">";
 
                 echo"<div class=\"info-domanda\">";
                     echo"<p class=\"text\">DOMANDA</p>";
-                    echo"<p class=\"numero\"> #". $numero ."</p>";
+                    echo"<p class=\"numero\"> #". $numero_dom ."</p>";
                 echo"</div>";
 
                 echo"<p class=\"testo-domanda\">" . $domanda['testoDom'] . "</p>";
                 
             echo "</div>";
 
-            $contatore_stampa = 0;
+            //ora devo capire quale risposta stampare, quella col migliore punteggio
+            foreach($domanda['risposte'] as $risposta){
 
-            foreach($domanda['risposte'] as $risposta_II){
-                
-                $contatore_stampa++;
+                $numero_risp++;
 
-                if($contatore_stampa == $contatore_migliore){
+                if($risposta['FAQ'] == 1){
 
                     echo "<div class=\"risposta\">";
                         
-                    echo"<div class=\"info-risposta\">";
-                        echo"<p class=\"text\">RISPOSTA</p>";
-                        echo"<p class=\"numero\"> #". $numero ."</p>";
-                    echo"</div>";
+                        echo"<div class=\"info-risposta\">";
+                            echo"<p class=\"text\">RISPOSTA</p>";
+                            echo"<p class=\"numero\"> #". $numero_risp ."</p>";
+                        echo"</div>";
 
-                    echo "<p class=\"testo-risposta\">" . $risposta_II['testoRisp'] . "</p>";
+                        echo "<p class=\"testo-risposta\">" . $risposta['testoRisp'] . "</p>";
                     echo "</div>";
                 }
             }

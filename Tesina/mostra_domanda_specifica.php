@@ -112,7 +112,7 @@
 
                         echo "</form>";
 
-                        //faccio questo controllo perché solo l'admin può elevare a FAQ una domanda
+                        //faccio questo controllo perché solo l'admin può elevare a FAQ una domanda/risposta
                         $sql_am = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND u.ruolo = 'AM'";
                         $ris_am = mysqli_query($connessione, $sql_am);
 
@@ -129,6 +129,7 @@
                             
                             echo "</form>";
                         }
+
                     echo"</div>";
 
                     //ora devo stampare le risposte se ci sono
@@ -165,7 +166,7 @@
                             echo "</div>";
                             
                             echo "<p class=\"testo-risposta\">" . $risposta['testoRisp'] . "</p>";
-                            
+
                             //mi devo prendere il nome utente corrispettivo del domandante
                             $query_v = "SELECT umn.id FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
 
@@ -242,9 +243,27 @@
                                 echo "</form>";
                             }
 
+                            //faccio questo controllo perché solo l'admin può elevare a FAQ una domanda/risposta
+                            $sql_am = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND u.ruolo = 'AM'";
+                            $ris_am = mysqli_query($connessione, $sql_am);
+
+                            if(mysqli_num_rows($ris_am) == 1){
+
+                                echo"<form id=\"rispostaForm\" action = \"res/PHP/eleva_a_rispostaFAQ.php\" method=\"POST\" >";
+
+                                    //mi invio la data della risposta
+                                    echo"<input type=\"hidden\" name=\"dataRisp\" value=". $risposta['dataRisp'] . ">";
+
+                                    //mi invio l'id della risposta
+                                    echo"<input type=\"hidden\" name=\"IDRisp\" value=". $risposta['IDRisp'] . ">";
+                                    echo "<span class =\"bottone\"><input type=\"submit\" value=\"ELEVA RISP.\"></span>";
+                                
+                                echo "</form>";
+                            }
+
                         echo "</div>";    
                     }
-
+                
                 echo "</div>";
             }
         }
