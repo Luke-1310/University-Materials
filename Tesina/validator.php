@@ -1,6 +1,6 @@
 <?php
-$xmlFile = 'res/XML/catalogo.xml';
-$xsdFile = 'res/XML/catalogo.xsd';
+$xmlFile = 'res/XML/Q&A.xml';
+$xsdFile = 'res/XML/Q&A.xsd';
 
 // Load XML file
 $xml = new DOMDocument();
