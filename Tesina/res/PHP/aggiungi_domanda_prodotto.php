@@ -69,8 +69,8 @@ $domanda->appendChild($isbn);
 $FAQ->nodeValue = $FAQ_e;
 $domanda->appendChild($FAQ);
 
-$segnalazione->nodeValue = -1;
-$domanda->appendChild($segnalazione);
+$valutazione->nodeValue = -1;
+$domanda->appendChild($valutazione);
 
 $id->nodeValue = $id_e;
 $domanda->appendChild($id);
