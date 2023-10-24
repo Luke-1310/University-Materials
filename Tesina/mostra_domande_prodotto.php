@@ -53,13 +53,8 @@
                     echo "</div>";
                     $contatore++;
                 }
-
-
             }
-
         }
-   
-
     ?>
 </body>
 
