@@ -79,14 +79,14 @@ else if(isset($_GET['from']) && $_GET['from'] == "risposta"){
     if(isset($_GET['departed_from']) && $_GET['departed_from'] == "prodotti_info"){
 
         $_SESSION['segnalazione_ok'] = true;
-        // header('Location:../../prodotti_info.php');
+        header('Location:../../prodotti_info.php');
         exit(1);
     }
 
     else if(isset($_GET['departed_from']) && $_GET['departed_from'] == "domanda_specifica"){
 
         $_SESSION['segnalazione_ok'] = true;
-        // header('Location:../../mostra_domanda_specifica.php');
+        header('Location:../../mostra_domanda_specifica.php');
         exit(1);
     }
 }
