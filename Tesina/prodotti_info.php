@@ -187,7 +187,6 @@ include('res/PHP/funzioni.php');
             </div>
 
         </div>
-
     </div>
         
     <?php 
@@ -286,6 +285,17 @@ include('res/PHP/funzioni.php');
                         
                         echo "</form>";
                     }
+
+                    echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=domanda\" method=\"POST\" >";
+
+                        // //mi invio la  data della domanda
+                        // echo"<input type=\"hidden\" name=\"dataDom\" value=". $domanda['dataDom'] . ">";
+
+                        // //mi invio l'id della domanda
+                        // echo"<input type=\"hidden\" name=\"IDDom\" value=". $domanda['IDDom'] . ">";
+                        echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
+                    
+                    echo "</form>";
                     
                 echo"</div>";
 
@@ -405,6 +415,18 @@ include('res/PHP/funzioni.php');
                         else{
                             echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER VALUTARE LA RISPOSTA!</a></p>";
                         }
+
+                        echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=risposta\" method=\"POST\" >";
+
+                            // //mi invio la  data della domanda
+                            // echo"<input type=\"hidden\" name=\"dataDom\" value=". $domanda['dataDom'] . ">";
+
+                            // //mi invio l'id della domanda
+                            // echo"<input type=\"hidden\" name=\"IDDom\" value=". $domanda['IDDom'] . ">";
+                            echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
+                        
+                        echo "</form>";
+                        
                     echo "</div>";    
                 }
 
