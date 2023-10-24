@@ -35,6 +35,8 @@
 $xmlpath = "res/XML/Q&A.xml";
 $domande = getDomande($xmlpath);
 
+$connessione = new mysqli($host, $user, $password, $db);
+
 $iSSegnalazioni = false;
 
 foreach($domande as $domanda){  
@@ -91,8 +93,22 @@ if($iSSegnalazioni){
                     echo $domanda['testoDom'];
                 echo"</div>"; 
 
+                $query_dom = "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$domanda['IDDom']}'";
+                $result_dom = $connessione->query($query_dom);
+        
+                //Verifico se la query ha restituito risultati
+                if ($result_dom) {
+        
+                    $row_dom = $result_dom->fetch_assoc();
+                    $usernameDom = $row_dom['username'];
+                } 
+                
+                else {
+                    echo "Errore nella query: " . $connessione->error;
+                }
+
                 echo "<div class=\"column\">";
-                    echo $domanda['IDDom'];
+                    echo $usernameDom;
                 echo"</div>"; 
 
                 echo "<div class=\"column\">";
@@ -130,8 +146,21 @@ if($iSSegnalazioni){
                         echo $risposta['testoRisp'];
                     echo"</div>"; 
 
+                    $query_ris = "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$risposta['IDRisp']}'";
+                    $result_ris = $connessione->query($query_ris);
+            
+                    //Verifico se la query ha restituito risultati
+                    if ($result_ris) {
+            
+                        $row_ris = $result_ris->fetch_assoc();
+                        $usernameRisp = $row_ris['username'];
+                    } 
+                    
+                    else {
+                        echo "Errore nella query: " . $connessione->error;
+                    }
                     echo "<div class=\"column\">";
-                        echo $risposta['IDRisp'];
+                        echo $usernameRisp;
                     echo"</div>"; 
 
                     echo "<div class=\"column\">";
