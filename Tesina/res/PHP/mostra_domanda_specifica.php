@@ -65,6 +65,10 @@ foreach($elenco as $domanda){
         $FAQElement = $document->createElement('FAQ', $FAQ);
         $rispostaElement->appendChild($FAQElement);
 
+        $segnalazione = "-1";
+        $segnalazioneElement = $document->createElement('segnalazione', $segnalazione);
+        $rispostaElement->appendChild($segnalazioneElement);
+
         $date_c = date('Y-m-d\TH:i:s');
         $dataElement = $document->createElement('dataRisp', $date_c);
         $rispostaElement->appendChild($dataElement);

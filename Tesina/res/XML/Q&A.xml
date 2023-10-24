@@ -66,6 +66,13 @@
         <supporto>3</supporto>
       </votazione>
     </risposta>
+    <risposta>
+      <IDRisp>7</IDRisp>
+      <FAQ>-1</FAQ>
+      <segnalazione>-1</segnalazione>
+      <dataRisp>2023-10-24T16:43:43</dataRisp>
+      <testoRisp>*********!!! **** ****** ******************** *****!</testoRisp>
+    </risposta>
   </domanda>
   <domanda>
     <ISBNProdotto>9788828720447</ISBNProdotto>
