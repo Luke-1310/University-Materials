@@ -113,7 +113,7 @@ input[type="submit"] {
     text-align: center;
     width: 120px;
     margin: 0 auto;
-    padding: 10px 0; 
+    padding: 10px 7px; 
     
     margin: 10px auto;
 }
@@ -125,3 +125,28 @@ input[type="submit"] {
     text-align: center;
 }
 
+.riga_bottoni{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#bottoniForm{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#new_question{
+    text-align: center;
+}
+
+#new_question  a{
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+#new_question a:hover{
+    color:#1e8fffc5;
+}
