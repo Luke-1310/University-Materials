@@ -51,7 +51,7 @@ foreach($domande as $domanda){
     }
 }
 
-if(!$iSSegnalazioni){
+if($iSSegnalazioni){
 
     echo"<div class=\"container-storico\">";
 
@@ -72,7 +72,6 @@ if(!$iSSegnalazioni){
                 }
             }
         }
-
     echo "</div>";
 }
 
