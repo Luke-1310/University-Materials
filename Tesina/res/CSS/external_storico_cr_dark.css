@@ -30,6 +30,17 @@
     color: red;
 }
 
+#no_response{
+
+    font-size: 25px;
+    font-weight: bold;
+    
+    text-align: center;
+
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
 .columns-container {
     display: flex;
     flex-direction: row; /* Allineare le colonne orizzontalmente */
