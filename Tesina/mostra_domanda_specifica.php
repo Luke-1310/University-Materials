@@ -108,7 +108,6 @@
 
                                 //mi invio anche l'ISBN 
                                 echo"<input type=\"hidden\" name=\"isbn\" value=$isbn>";
-
                                 echo "<span class =\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
 
                             echo "</form>";
@@ -135,15 +134,15 @@
                             echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER INSERIRE UNA NUOVA RISPOSTA!</a></p>";
                         }
 
-                        echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=domanda\" method=\"POST\" >";
+                        echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=domanda&departed_from=domanda_specifica\" method=\"POST\" >";
 
-                            // //mi invio la  data della domanda
-                            // echo"<input type=\"hidden\" name=\"dataDom\" value=". $domanda['dataDom'] . ">";
+                            //mi invio la  data della domanda
+                            echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
 
-                            // //mi invio l'id della domanda
-                            // echo"<input type=\"hidden\" name=\"IDDom\" value=". $domanda['IDDom'] . ">";
+                            //mi invio l'id del domandante
+                            echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] . ">";
                             echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
-                        
+                    
                         echo "</form>";
 
                     echo"</div>";
@@ -284,15 +283,15 @@
                                 echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER VALUTARE LA RISPOSTA!</a></p>";
                             }
 
-                            echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=risposta\" method=\"POST\" >";
+                            echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=risposta&departed_from=domanda_specifica\" method=\"POST\" >";
 
-                                // //mi invio la  data della domanda
-                                // echo"<input type=\"hidden\" name=\"dataDom\" value=". $domanda['dataDom'] . ">";
+                                //mi invio la data della risposta
+                                echo"<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] . ">";
 
-                                // //mi invio l'id della domanda
-                                // echo"<input type=\"hidden\" name=\"IDDom\" value=". $domanda['IDDom'] . ">";
+                                //mi invio l'id del rispondente
+                                echo"<input type=\"hidden\" name=\"ID\" value=". $risposta['IDRisp'] . ">";
                                 echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
-                            
+                        
                             echo "</form>";
                             
                         echo "</div>";    

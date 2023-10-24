@@ -177,4 +177,12 @@
       </votazione>
     </risposta>
   </domanda>
+  <domanda>
+    <ISBNProdotto>9788834920992</ISBNProdotto>
+    <FAQ>-1</FAQ>
+    <segnalazione>-1</segnalazione>
+    <IDDom>7</IDDom>
+    <testoDom>*********** ***** **********!!!! *****!!!!</testoDom>
+    <dataDom>2023-10-24T15:19:35</dataDom>
+  </domanda>
 </elenco>
