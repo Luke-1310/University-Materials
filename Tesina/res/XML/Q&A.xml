@@ -45,19 +45,6 @@
         <supporto>2</supporto>
       </votazione>
     </risposta>
-    <risposta>
-      <IDRisp>4</IDRisp>
-      <FAQ>-1</FAQ>
-      <segnalazione>-1</segnalazione>
-      <dataRisp>2023-10-16T13:42:47</dataRisp>
-      <testoRisp>Prova</testoRisp>
-      <votazione>
-        <IDValutante>1</IDValutante>
-        <reputazione>12</reputazione>
-        <utilita>2</utilita>
-        <supporto>1</supporto>
-      </votazione>
-    </risposta>
   </domanda>
   <domanda>
     <ISBNProdotto>9788828720447</ISBNProdotto>
@@ -78,13 +65,6 @@
         <utilita>4</utilita>
         <supporto>3</supporto>
       </votazione>
-    </risposta>
-    <risposta>
-      <IDRisp>1</IDRisp>
-      <FAQ>-1</FAQ>
-      <segnalazione>-1</segnalazione>
-      <dataRisp>2023-10-18T16:03:20</dataRisp>
-      <testoRisp>Prova</testoRisp>
     </risposta>
   </domanda>
   <domanda>
