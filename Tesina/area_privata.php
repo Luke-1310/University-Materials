@@ -137,9 +137,9 @@
                     }
 
                     echo "<div class=\"cell\">";
-                        echo "<a href=\"gestione_segnalazione.php\"><i id=\"segnalazioni\" class=\"material-icons\">report</i></a>";
+                        echo "<a href=\"gestione_segnalazioni.php\"><i id=\"segnalazioni\" class=\"material-icons\">report</i></a>";
                         echo "<div class=\"row\">";
-                            echo "<a href=\"gestione_segnalazione.php\">SEGNALAZIONI</a>";
+                            echo "<a href=\"gestione_segnalazioni.php\">SEGNALAZIONI</a>";
                             if($isSegnalazione){
                                 echo "<i id=\"allert\" class=\"material-icons\">fiber_manual_record</i>";
                             }
