@@ -33,7 +33,7 @@ $sql = "UPDATE utenteDati
 
 // Esegui le query di aggiornamento e gestisci gli eventuali errori
 if ($connessione->query($sql)) {
-    header('Location:../../profilo.php');
+    header('Location:../../lista_utenti.php');
 } else {
     $_SESSION['errore_query'] = 'true';
     header('Location:../../modifica_password.php');
