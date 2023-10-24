@@ -61,6 +61,10 @@ foreach($elenco as $domanda){
         $utenteIDElement = $document->createElement('IDRisp', $id);
         $rispostaElement->appendChild($utenteIDElement);
         
+        $FAQ = -1;
+        $FAQElement = $document->createElement('FAQ', $FAQ);
+        $rispostaElement->appendChild($FAQElement);
+
         $date_c = date('Y-m-d\TH:i:s');
         $dataElement = $document->createElement('dataRisp', $date_c);
         $rispostaElement->appendChild($dataElement);
