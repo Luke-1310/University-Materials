@@ -124,14 +124,6 @@ input[type="submit"] {
     text-align: center;
 }
 
-.riga_bottoni{
-    display: flex;
-    flex-direction: row;
-
-    align-items: center;
-    justify-content: center;
-}
-
 #bottoniForm{
     margin-left: 10px;
     margin-right: 10px;

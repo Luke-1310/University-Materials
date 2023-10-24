@@ -261,8 +261,6 @@ include('res/PHP/funzioni.php');
                         echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER INSERIRE UNA NUOVA RISPOSTA!</a></p>";
                     }
 
-                    
-
                     //l'utente è loggato? se la rispsota è no darebbe un messaggio di errore all'utente non registrato
                     if(isset($_SESSION['nome'])){
                         $nome = $_SESSION['nome'];
