@@ -61,7 +61,7 @@ foreach($elenco as $domanda){
         $utenteIDElement = $document->createElement('IDRisp', $id);
         $rispostaElement->appendChild($utenteIDElement);
         
-        $FAQ = -1;
+        $FAQ = "-1";
         $FAQElement = $document->createElement('FAQ', $FAQ);
         $rispostaElement->appendChild($FAQElement);
 
