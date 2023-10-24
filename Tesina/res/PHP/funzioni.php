@@ -105,6 +105,7 @@
         foreach ($elenco as $domanda) {
             $ISBNProdotto = $domanda->getElementsByTagName('ISBNProdotto')->item(0)->nodeValue;
             $FAQ = $domanda->getElementsByTagName('FAQ')->item(0)->nodeValue;
+            $segnalazione = $domanda->getElementsByTagName('segnalazione')->item(0)->nodeValue;
             $IDDom = $domanda->getElementsByTagName('IDDom')->item(0)->nodeValue;
             $testoDom = $domanda->getElementsByTagName('testoDom')->item(0)->nodeValue;
             $dataDom = $domanda->getElementsByTagName('dataDom')->item(0)->nodeValue;
@@ -116,6 +117,7 @@
             foreach ($risposteNodes as $rispostaNode) {
                 $IDRisp = $rispostaNode->getElementsByTagName('IDRisp')->item(0)->nodeValue;
                 $FAQ_risposta = $rispostaNode->getElementsByTagName('FAQ')->item(0)->nodeValue;
+                $segnalazione_risposta = $rispostaNode->getElementsByTagName('segnalazione')->item(0)->nodeValue;;
                 $dataRisp = $rispostaNode->getElementsByTagName('dataRisp')->item(0)->nodeValue;
                 $testoRisp = $rispostaNode->getElementsByTagName('testoRisp')->item(0)->nodeValue;
 
@@ -140,6 +142,7 @@
                 $risposte[] = [
                     'IDRisp' => $IDRisp,
                     'FAQ' => $FAQ_risposta,
+                    'segnalazione' => $segnalazione_risposta,
                     'dataRisp' => $dataRisp,
                     'testoRisp' => $testoRisp,
                     'votazioni' => $votazioni,
@@ -149,6 +152,7 @@
             $domande[] = [
                 'ISBNProdotto' => $ISBNProdotto,
                 'FAQ' => $FAQ,
+                'segnalazione' => $segnalazione,
                 'IDDom' => $IDDom,
                 'testoDom' => $testoDom,
                 'dataDom' => $dataDom,
