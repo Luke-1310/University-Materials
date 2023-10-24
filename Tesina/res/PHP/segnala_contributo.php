@@ -30,7 +30,7 @@ if(isset($_GET['from']) && $_GET['from'] == "domanda"){
     
             if($domanda_IDDom == $ID && $domanda_dataDom == $data){
 
-                $domanda_doc->getElementsByTagName('segnalazione')->item(0)->nodeValue = 0;
+                $domanda_doc->getElementsByTagName('segnalazione')->item(0)->nodeValue = 1;
                 break;
             }
         }
@@ -67,7 +67,7 @@ else if(isset($_GET['from']) && $_GET['from'] == "risposta"){
     
             if($IDRisp == $ID && $dataRisp == $data){
 
-                $rispostaNode->getElementsByTagName('segnalazione')->item(0)->nodeValue = 0;
+                $rispostaNode->getElementsByTagName('segnalazione')->item(0)->nodeValue = 1;
                 break;
             }
         }
