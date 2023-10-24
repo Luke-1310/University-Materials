@@ -1,0 +1,145 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.container h3 {
+    text-align: center;
+}
+
+.column {
+    flex: 1;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+#errore{
+    color: red;
+}
+
+#no_response{
+
+    font-size: 25px;
+    font-weight: bold;
+    
+    text-align: center;
+
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+.columns-container {
+    display: flex;
+    flex-direction: row; /* Allineare le colonne orizzontalmente */
+    justify-content: space-between; /* Spaziatura uniforme tra le colonne */
+    flex: 1; /* Le colonne occupano lo spazio disponibile in modo equo */
+    margin: 10px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+}
+
+.titolo-colonna {
+    text-align: center;
+}
+
+.richiesta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+}
+
+#richiestaForm {
+    margin: 0; /* Rimuove il margine predefinito */
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+}
+
+input {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border: none;
+}
+
+input[type="submit"] {
+    background-color: #1e8fffc5;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    width: 120px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.titolo_storico{
+    text-align: center;
+}
+
+.container-storico{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#check{
+    color:green ;
+}
+
+#block{
+    color:red ;
+}
+
+.conferma button{
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    background: none;
+
+    margin-left: 10px;
+}
+
+.column-text{
+    flex: 1;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+
+    height: 150px;
+    width: 200px;
+}

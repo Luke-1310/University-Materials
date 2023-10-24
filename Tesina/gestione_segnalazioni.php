@@ -2,10 +2,10 @@
    session_start();
 
    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
-       echo "<link rel=\"stylesheet\" href=\"res/CSS/external_storico_cr_dark.css\" type=\"text/css\" />";
+       echo "<link rel=\"stylesheet\" href=\"res/CSS/external_gestione_segnalazione_dark.css\" type=\"text/css\" />";
    }
    else{
-       echo "<link rel=\"stylesheet\" href=\"res/CSS/external_storico_cr.css\" type=\"text/css\" />";
+       echo "<link rel=\"stylesheet\" href=\"res/CSS/external_gestione_segnalazione.css\" type=\"text/css\" />";
    }
 ?>
 <?php 
@@ -55,23 +55,106 @@ if($iSSegnalazioni){
 
     echo"<div class=\"container-storico\">";
 
-        foreach($domande as $domanda){  
+        echo "<div class=\"column\">";
+            echo "<h4>TIPOLOGIA:</h4>";
+        echo"</div>";
+
+        echo "<div class=\"column\">";
+            echo "<h4>ISBN PRODOTTO:</h4>";
+        echo"</div>";
+
+        echo "<div class=\"column\">";
+            echo "<h4>TESTO CONTRIBUTO:</h4>";
+        echo"</div>";
+
+        echo "<div class=\"column\">";
+            echo "<h4>SCRITTO DA:</h4>";
+        echo"</div>";
+
+        echo "<div class=\"column\">";
+            echo "<h4>BAN:</h4>";;
+        echo"</div>";
+
+        foreach($domande as $domanda){
 
             if($domanda['segnalazione'] == 1){
+
                 echo "<div class=\"column\">";
+                    echo "DOMANDA";
+                echo"</div>"; 
+
+                echo "<div class=\"column\">";
+                    echo $domanda['ISBNProdotto'];
+                echo"</div>"; 
+
+                echo "<div class=\"column-text\">";
                     echo $domanda['testoDom'];
+                echo"</div>"; 
+
+                echo "<div class=\"column\">";
+                    echo $domanda['IDDom'];
+                echo"</div>"; 
+
+                echo "<div class=\"column\">";
+
+                    echo "<div class=\"conferma\">";
+
+                        echo "<a href=\"vedi_informazioni.php\">";
+                        echo "<button name=\"bottone_promuovi\" type=\"submit\">";
+                        echo "<i id=\"check\" class=\"material-icons\">check</i></button>";
+                        echo "</a>";
+
+                        echo "<a href=\"vedi_informazioni.php\">";
+                        echo "<button name=\"bottone_promuovi\" type=\"submit\">";
+                        echo "<i id=\"block\" class=\"material-icons\">block</i></button>";
+                        echo "</a>";
+
+                    echo "</div>";
+
                 echo"</div>"; 
             }
         
             foreach($domanda['risposte'] as $risposta){
         
                 if($risposta['segnalazione'] == 1){
+
                     echo "<div class=\"column\">";
+                        echo "RISPOSTA";
+                    echo"</div>";
+
+                    echo "<div class=\"column\">";
+                        echo $domanda['ISBNProdotto'];
+                    echo"</div>"; 
+
+                    echo "<div class=\"column-text\">";
                         echo $risposta['testoRisp'];
+                    echo"</div>"; 
+
+                    echo "<div class=\"column\">";
+                        echo $risposta['IDRisp'];
+                    echo"</div>"; 
+
+                    echo "<div class=\"column\">";
+
+                        echo "<div class=\"conferma\">";
+
+                            echo "<a href=\"vedi_informazioni.php\">";
+                            echo "<button name=\"bottone_promuovi\" type=\"submit\">";
+                            echo "<i id=\"check\" class=\"material-icons\">check</i></button>";
+                            echo "</a>";
+
+                            echo "<a href=\"vedi_informazioni.php\">";
+                            echo "<button name=\"bottone_promuovi\" type=\"submit\">";
+                            echo "<i id=\"block\" class=\"material-icons\">block</i></button>";
+                            echo "</a>";
+                            
+                        echo "</div>";
+
                     echo"</div>"; 
                 }
             }
         }
+
     echo "</div>";
 }
 
