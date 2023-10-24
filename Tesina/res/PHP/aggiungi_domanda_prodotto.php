@@ -58,6 +58,7 @@ $domanda = $documento->createElement('domanda');
 
 $isbn = $documento->createElement('ISBNProdotto');
 $FAQ = $documento->createElement('FAQ');
+$valutazione = $documento->createElement('segnalazione');
 $id = $documento->createElement('IDDom');
 $testo = $documento->createElement('testoDom');
 $data = $documento->createElement('dataDom');
@@ -67,6 +68,9 @@ $domanda->appendChild($isbn);
 
 $FAQ->nodeValue = $FAQ_e;
 $domanda->appendChild($FAQ);
+
+$segnalazione->nodeValue = -1;
+$domanda->appendChild($segnalazione);
 
 $id->nodeValue = $id_e;
 $domanda->appendChild($id);
