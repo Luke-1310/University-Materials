@@ -115,14 +115,14 @@ if($iSSegnalazioni){
 
                     echo "<div class=\"conferma\">";
 
-                        echo "<a href=\"vedi_informazioni.php\">";
+                        echo "<a href=\"res/PHP/gestione_segnalazioni.php\">";
                         echo "<button name=\"bottone_promuovi\" type=\"submit\">";
                         echo "<i id=\"check\" class=\"material-icons\">check</i></button>";
                         echo "</a>";
 
-                        echo "<a href=\"vedi_informazioni.php\">";
+                        echo "<a href=\"res/PHP/gestione_segnalazioni.php\">";
                         echo "<button name=\"bottone_promuovi\" type=\"submit\">";
-                        echo "<i id=\"block\" class=\"material-icons\">block</i></button>";
+                        echo "<i id=\"block\" class=\"material-icons\">close</i></button>";
                         echo "</a>";
 
                     echo "</div>";
@@ -167,14 +167,14 @@ if($iSSegnalazioni){
 
                         echo "<div class=\"conferma\">";
 
-                            echo "<a href=\"vedi_informazioni.php\">";
+                            echo "<a href=\"res/PHP/gestione_segnalazioni.php\">";
                             echo "<button name=\"bottone_promuovi\" type=\"submit\">";
                             echo "<i id=\"check\" class=\"material-icons\">check</i></button>";
                             echo "</a>";
 
-                            echo "<a href=\"vedi_informazioni.php\">";
+                            echo "<a href=\"res/PHP/gestione_segnalazioni.php\">";
                             echo "<button name=\"bottone_promuovi\" type=\"submit\">";
-                            echo "<i id=\"block\" class=\"material-icons\">block</i></button>";
+                            echo "<i id=\"block\" class=\"material-icons\">close</i></button>";
                             echo "</a>";
                             
                         echo "</div>";
