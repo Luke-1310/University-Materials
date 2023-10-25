@@ -51,14 +51,21 @@
                 $contatore ++;
             }
         }
+
+        echo "<h3 class=\"titolo_storico\">RICHIESTE CREDITI</h3>"; 
+        
+        if(isset($_SESSION['richiesta_ok']) && $_SESSION['richiesta_ok'] = true){
+            echo "<h4 id=\"esito_positivo\">L'OPERAZIONE È ANDATA A BUON FINE!</h4>";
+            unset($_SESSION['richiesta_ok']);
+        }
     
         if($contatore == 0)
         {
-            echo "<p id=\"no_response\">NESSUNA RICHIESTA DA ACCETTARE TROVATA... ¯\_(ツ)_/¯</p>";
+            echo "<div class\"contianer-storico\">";
+                echo "<p id=\"no_response\">NESSUNA RICHIESTA DA ACCETTARE TROVATA... ¯\_(ツ)_/¯</p>";
+            echo "</div>";
         }
         else{
-            
-            echo "<h3 class=\"titolo_storico\">RICHIESTE DA ACCETTARE</h3>";
 
             //apro un nuovo container per stampare lo storico delle richieste  che devono essere
             echo "<div class=\"container-storico\">";

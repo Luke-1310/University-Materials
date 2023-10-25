@@ -139,6 +139,8 @@
     // Salva il documento XML aggiornato nel file
     $document->save($pathXml);
 
+    $_SESSION['richiesta_ok'] = true;
+
     mysqli_close($connessione);
 
     header('Location:../../richiesta_crediti.php');

@@ -28,6 +28,11 @@
     margin-bottom: 90px;
 }
 
+#esito_positivo{
+    color: #1DB954;
+    text-align: center;
+}
+
 #conferma{
     color:#1DB954 ;
 }
