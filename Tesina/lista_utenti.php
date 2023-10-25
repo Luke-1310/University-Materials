@@ -62,9 +62,9 @@ if ($ris) {
             echo "<h4>PROMUOVI/RETROCEDI RUOLO:</h4>";
         echo"</div>";
 
-        echo "<div class=\"column\">";
-            echo "<h4>È SEGNALATO:</h4>";;
-        echo"</div>";
+        // echo "<div class=\"column\">";
+        //     echo "<h4>È SEGNALATO:</h4>";;
+        // echo"</div>";
 
         echo "<div class=\"column\">";
             echo "<h4>È BANNATO:</h4>";;
@@ -118,19 +118,19 @@ if ($ris) {
             echo "</div>";
 
 
+            // echo "<div class=\"column\">";
+
+            //     if($row['segnalazione']){
+            //         echo "<strong><p style=\"color: red;\">SI</p></strong>";
+            //     }
+            //     else{
+            //         echo "<strong><p style=\"color: green;\">NO</p></strong>";
+            //     }
+            // echo "</div>";
+
             echo "<div class=\"column\">";
 
                 if($row['ban']){
-                    echo "<strong><p style=\"color: red;\">SI</p></strong>";
-                }
-                else{
-                    echo "<strong><p style=\"color: green;\">NO</p></strong>";
-                }
-            echo "</div>";
-
-            echo "<div class=\"column\">";
-
-                if($row['segnalazione']){
                     echo "<strong><p style=\"color: red;\">SI</p></strong>";
                 }
                 else{
