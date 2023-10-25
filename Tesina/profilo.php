@@ -81,6 +81,11 @@ else{
             echo "<h3>SI È VERIFICATO UN ERRORE!</h3>";
             unset($_SESSION['errore_profilo']);//la unsetto altrimenti rimarrebbe la scritta
         }
+
+        if(isset($_SESSION['richiesta_ok']) && $_SESSION['richiesta_ok'] = true){
+            echo "<h4 id=\"esito_positivo\">L'OPERAZIONE È ANDATA A BUON FINE!</h4>";
+            unset($_SESSION['richiesta_ok']);
+        }
     ?>
     <div class="container">
 

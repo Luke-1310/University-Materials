@@ -121,6 +121,8 @@ if ($connessione->query($sql_utenteDati) && $connessione->query($sql_utenteManga
     exit(1);
 }
 
+$_SESSION['richiesta_ok'] = true;
+
 header('Location:../../profilo.php');
 
 
