@@ -49,36 +49,36 @@ if ($ris) {
 
     echo "<div class=\"container\">";
 
-    if(!$stampaUtenti){
-        echo "<div class=\"column\">";
-            echo "<h4>NOME UTENTE:</h4>";
-        echo"</div>";
+        if(!$stampaUtenti){
+            echo "<div class=\"column\">";
+                echo "<h4>NOME UTENTE:</h4>";
+            echo"</div>";
 
-        echo "<div class=\"column\">";
-            echo "<h4>RUOLO:</h4>";
-        echo"</div>";
+            echo "<div class=\"column\">";
+                echo "<h4>RUOLO:</h4>";
+            echo"</div>";
 
-        echo "<div class=\"column\">";
-            echo "<h4>PROMUOVI/RETROCEDI RUOLO:</h4>";
-        echo"</div>";
+            echo "<div class=\"column\">";
+                echo "<h4>PROMUOVI/RETROCEDI RUOLO:</h4>";
+            echo"</div>";
 
-        // echo "<div class=\"column\">";
-        //     echo "<h4>È SEGNALATO:</h4>";;
-        // echo"</div>";
+            // echo "<div class=\"column\">";
+            //     echo "<h4>È SEGNALATO:</h4>";;
+            // echo"</div>";
 
-        echo "<div class=\"column\">";
-            echo "<h4>È BANNATO:</h4>";;
-        echo"</div>";
+            echo "<div class=\"column\">";
+                echo "<h4>È BANNATO:</h4>";;
+            echo"</div>";
 
-        echo "<div class=\"column\">";
-            echo "<h4>VISUALIZZA INFORMAZIONI:</h4>";;
-        echo"</div>";
+            echo "<div class=\"column\">";
+                echo "<h4>VISUALIZZA INFORMAZIONI:</h4>";;
+            echo"</div>";
 
-        $stampaUtenti = true;
-    }
+            $stampaUtenti = true;
+        }
 
-    //Estraggo il risultato come un array associativo
-    while($row = $ris->fetch_assoc()){
+        //Estraggo il risultato come un array associativo
+        while($row = $ris->fetch_assoc()){
         
         // Dopo che il ciclo ha eseguito le istruzioni, PHP torna all'inizio del ciclo (while) e verifica se $ris->fetch_assoc() restituisce un altro record. 
         // Se sì, il ciclo viene eseguito di nuovo con un nuovo set di dati in $row; altrimenti, il ciclo si interrompe.
