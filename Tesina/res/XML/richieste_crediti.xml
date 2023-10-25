@@ -138,4 +138,10 @@
     <dataRichiesta>2023-10-25T17:19:11</dataRichiesta>
     <risposta>1</risposta>
   </richiesta>
+  <richiesta>
+    <IDUtente>1</IDUtente>
+    <quantita>2</quantita>
+    <dataRichiesta>2023-10-25T17:34:26</dataRichiesta>
+    <risposta>0</risposta>
+  </richiesta>
 </storico>
