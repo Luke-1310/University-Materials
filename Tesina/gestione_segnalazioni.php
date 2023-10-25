@@ -39,6 +39,17 @@ $connessione = new mysqli($host, $user, $password, $db);
 
 $iSSegnalazioni = false;
 
+//controllo errori
+if(isset($_SESSION['errore_query']) && $_SESSION['errore_query'] == 'true'){
+    echo "<h4>ERRORE NELL'ESECUZIONE DELLA QUERY!</h4>";
+    unset($_SESSION['errore_query']);
+}
+
+if(isset($_SESSION['ban_ok']) && $_SESSION['ban_ok'] == 'true'){
+    echo "<h4>L'UTENTE È STATO BANNATO E IL COMMENTO NON È PIÙ VISIBILE!</h4>";
+    unset($_SESSION['ban_ok']);
+}
+
 foreach($domande as $domanda){  
 
     if($domanda['segnalazione'] == 1){
@@ -115,15 +126,23 @@ if($iSSegnalazioni){
 
                     echo "<div class=\"conferma\">";
 
-                        echo "<a href=\"res/PHP/gestione_segnalazioni.php\">";
-                        echo "<button name=\"bottone_ban_ok\" type=\"submit\">";
-                        echo "<i id=\"check\" class=\"material-icons\">check</i></button>";
-                        echo "</a>";
+                        echo "<form action = \"res/PHP/gestione_segnalazioni.php?from=domanda\" method='POST'>";
 
-                        echo "<a href=\"res/PHP/gestione_segnalazioni.php\">";
-                        echo "<button name=\"bottone_ban_ko\" type=\"submit\">";
-                        echo "<i id=\"block\" class=\"material-icons\">close</i></button>";
-                        echo "</a>";
+                            echo "<input type=\"hidden\" name=\"username\" value=". $usernameDom .">";
+                            echo "<input type=\"hidden\" name=\"id\" value=". $domanda['IDDom'] .">";
+                            echo "<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] .">";
+
+                            echo "<button name=\"bottone_ban_ok\" type=\"submit\">";
+                            echo "<i id=\"check\" class=\"material-icons\">check</i></button>";
+
+                            echo "<input type=\"hidden\" name=\"username\" value=". $usernameDom .">";
+                            echo "<input type=\"hidden\" name=\"id\" value=". $domanda['IDDom'] .">";
+                            echo "<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] .">";
+
+                            echo "<button name=\"bottone_ban_ko\" type=\"submit\">";
+                            echo "<i id=\"block\" class=\"material-icons\">close</i></button>";
+
+                        echo "</form>";
 
                     echo "</div>";
 
@@ -167,15 +186,23 @@ if($iSSegnalazioni){
 
                         echo "<div class=\"conferma\">";
 
-                            echo "<a href=\"res/PHP/gestione_segnalazioni.php\">";
-                            echo "<button name=\"bottone_ban_ok\" type=\"submit\">";
-                            echo "<i id=\"check\" class=\"material-icons\">check</i></button>";
-                            echo "</a>";
+                            echo "<form action = \"res/PHP/gestione_segnalazioni.php?from=risposta\" method='POST'>";
 
-                            echo "<a href=\"res/PHP/gestione_segnalazioni.php\">";
-                            echo "<button name=\"bottone_ban_ko\" type=\"submit\">";
-                            echo "<i id=\"block\" class=\"material-icons\">close</i></button>";
-                            echo "</a>";
+                                echo "<input type=\"hidden\" name=\"username\" value=". $usernameRisp .">";
+                                echo "<input type=\"hidden\" name=\"id\" value=". $risposta['IDRisp'] .">";
+                                echo "<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] .">";
+
+                                echo "<button name=\"bottone_ban_ok\" type=\"submit\">";
+                                echo "<i id=\"check\" class=\"material-icons\">check</i></button>";
+                        
+                                echo "<input type=\"hidden\" name=\"username\" value=". $usernameRisp .">";
+                                echo "<input type=\"hidden\" name=\"id\" value=". $risposta['IDRisp'] .">";
+                                echo "<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] .">";
+
+                                echo "<button name=\"bottone_ban_ko\" type=\"submit\">";
+                                echo "<i id=\"block\" class=\"material-icons\">close</i></button>";
+
+                            echo"</form>";
                             
                         echo "</div>";
 
