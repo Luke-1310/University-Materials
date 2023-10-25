@@ -50,6 +50,11 @@ if(isset($_SESSION['ban_ok']) && $_SESSION['ban_ok'] == 'true'){
     unset($_SESSION['ban_ok']);
 }
 
+if(isset($_SESSION['noban_ok']) && $_SESSION['noban_ok'] == 'true'){
+    echo "<h4>LA SEGNALAZIONE ERRONEA È STATA RIMOSSA!</h4>";
+    unset($_SESSION['ban_ok']);
+}
+
 foreach($domande as $domanda){  
 
     if($domanda['segnalazione'] == 1){

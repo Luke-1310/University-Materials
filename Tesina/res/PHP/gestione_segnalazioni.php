@@ -15,9 +15,8 @@ $connessione = new mysqli($host, $user, $password, $db);
 if (isset($_POST['bottone_ban_ok'])) {
 
     //1° STEP metto il record SQL bannato dell'utente su 'true'
-
     $sql = "UPDATE utenteMangaNett 
-    SET ban = 'true'
+    SET ban = 1
     WHERE username = '$username'";
 
     // Esegui le query di aggiornamento e gestisci gli eventuali errori
@@ -58,20 +57,94 @@ if (isset($_POST['bottone_ban_ok'])) {
             }
         }
     }
+
+    //ci troviamo nel caso di segnalazione di una risposta
+    else if(isset($_GET['from']) && $_GET['from'] == "risposta"){
+
+        foreach($domande_doc as $domanda_doc){
+
+            $risposteNodes = $domanda_doc->getElementsByTagName('risposta');
+                    
+            foreach ($risposteNodes as $rispostaNode) {
+        
+                $IDRisp = $rispostaNode->getElementsByTagName('IDRisp')->item(0)->nodeValue;
+                $dataRisp = $rispostaNode->getElementsByTagName('dataRisp')->item(0)->nodeValue;
+        
+                if($IDRisp == $ID && $dataRisp == $data){
+
+                    $rispostaNode->getElementsByTagName('segnalazione')->item(0)->nodeValue = 0;
+                    break;
+                }
+            }
+        }
+    }
+
     $document->save($xmlpath);
 
     $_SESSION['ban_ok'] = true;
-    header('Location:../../gestione_segnalazione.php');
+    header('Location:../../gestione_segnalazioni.php');
     exit(1);
 } 
   
 //in questo caso NON devo bannare l'utente e rimuovere la segnalazione
+//quindi devo fare solo il 2° step del caso precedente
 if (isset($_POST['bottone_ban_ko'])) {
     
-    echo $username;
+    $xmlpath = "../XML/Q&A.xml";
+    $domande = getDomande($xmlpath);
 
-    // header('Location:../../lista_utenti.php');
-    // exit(1);
+    //devo caricarmi anche il file originale in modo tale da sovrascriverlo successivamente
+    $document = new DOMDocument();
+    $document->load($xmlpath);
+
+    $domande_doc = $document->getElementsByTagName('domanda');
+
+    //controllo da dove è partito il collegamento tramite GET
+    //ci troviamo nel caso di segnalazione di una domanda
+    if(isset($_GET['from']) && $_GET['from'] == "domanda"){
+    
+        foreach($domande_doc as $domanda_doc){
+
+            $domanda_IDDom = $domanda_doc->getElementsByTagName('IDDom')->item(0)->nodeValue;
+            $domanda_dataDom = $domanda_doc->getElementsByTagName('dataDom')->item(0)->nodeValue;
+        
+            foreach($domande as $domanda){
+        
+                if($domanda_IDDom == $ID && $domanda_dataDom == $data){
+
+                    $domanda_doc->getElementsByTagName('segnalazione')->item(0)->nodeValue = -1;
+                    break;
+                }
+            }
+        }
+    }
+
+    //ci troviamo nel caso di segnalazione di una risposta
+    else if(isset($_GET['from']) && $_GET['from'] == "risposta"){
+
+        foreach($domande_doc as $domanda_doc){
+
+            $risposteNodes = $domanda_doc->getElementsByTagName('risposta');
+                    
+            foreach ($risposteNodes as $rispostaNode) {
+        
+                $IDRisp = $rispostaNode->getElementsByTagName('IDRisp')->item(0)->nodeValue;
+                $dataRisp = $rispostaNode->getElementsByTagName('dataRisp')->item(0)->nodeValue;
+        
+                if($IDRisp == $ID && $dataRisp == $data){
+
+                    $rispostaNode->getElementsByTagName('segnalazione')->item(0)->nodeValue = -1;
+                    break;
+                }
+            }
+        }
+    }
+
+    $document->save($xmlpath);
+
+    $_SESSION['noban_ok'] = true;
+    header('Location:../../gestione_segnalazioni.php');
+    exit(1);
 }
 
 ?>
