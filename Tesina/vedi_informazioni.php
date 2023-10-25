@@ -35,9 +35,9 @@
 
 <?php
 
-if (isset($_GET['nome_utente'])) {
+if (isset($_POST['username'])) {
 
-    $nick_utente = $_GET['nome_utente'];
+    $nick_utente = $_POST['username'];
 } 
 
 //metto il nick utente dentro una variabile di sessione perché se cambio il tema nella pagina delle info mi da errore (giustamente)

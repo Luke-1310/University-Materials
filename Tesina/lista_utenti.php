@@ -142,11 +142,13 @@ if ($ris) {
 
                 echo "<div class=\"conferma\">";
 
-                    //uso il GET
-                    echo "<a href=\"vedi_informazioni.php?nome_utente=" . $row['username'] . "\">";
-                    echo "<button name=\"bottone_promuovi\" type=\"submit\">";
-                    echo "<i id=\"info\" class=\"material-icons\">info</i></button>";
-                    echo "</a>";
+                    echo "<form action = \"vedi_informazioni.php\" method='POST'>";
+
+                        echo "<input type=\"hidden\" name=\"username\" value=\"". $row['username'] ."\">";
+
+                        echo "<button name=\"bottone_promuovi\" type=\"submit\">";
+                        echo "<i id=\"info\" class=\"material-icons\">info</i></button>";
+                    echo "</form>";
 
                 echo "</div>";
 
