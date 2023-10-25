@@ -35,3 +35,8 @@
 .bottone input[type="submit"]:hover{
   color:gray;
 }
+
+#esito_positivo{
+  color: #1DB954;
+  text-align: center;
+}

@@ -88,5 +88,7 @@ $xml = $documento->saveXML();
 
 file_put_contents($xmlfile, $xml); 
 
+$_SESSION['richiesta_ok'] = true;
+
 header('Location:../../mostra_domande_prodotto.php');
 ?>
