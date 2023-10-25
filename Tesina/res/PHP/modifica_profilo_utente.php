@@ -91,6 +91,8 @@ else {
     exit(1);
 }
 
+$_SESSION['richiesta_ok'] = true;
+
 header('Location:../../vedi_informazioni.php');
 
 // Chiudi la connessione al database

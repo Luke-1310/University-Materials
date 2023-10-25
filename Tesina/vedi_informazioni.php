@@ -45,6 +45,11 @@ if (!empty($nick_utente)) {
     $_SESSION['nome_utente'] = $nick_utente;
 }
 
+if(isset($_SESSION['richiesta_ok']) && $_SESSION['richiesta_ok'] = true){
+    echo "<h4 id=\"esito_positivo\">L'OPERAZIONE È ANDATA A BUON FINE!</h4>";
+    unset($_SESSION['richiesta_ok']);
+}
+
 //mi prendo i valori da stampare tramite l'username, il quale è univoco
 $query = "SELECT ud.* FROM utenteDati ud INNER JOIN utenteMangaNett umn ON ud.id = umn.id WHERE umn.username = '{$_SESSION['nome_utente']}'";
 

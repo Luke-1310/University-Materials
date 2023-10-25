@@ -40,6 +40,8 @@ if ($connessione->query($sql)) {
     exit(1);
 }
 
+$_SESSION['richiesta_ok'] = true;
+
 // Chiudi la connessione al database
 mysqli_close($connessione);
 
