@@ -26,6 +26,11 @@
     text-align: left;
 }
 
+#esito_positivo{
+    color: #1DB954;
+    text-align: center;
+}
+
 #errore{
     color: red;
 }

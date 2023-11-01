@@ -46,13 +46,13 @@ if(isset($_SESSION['errore_query']) && $_SESSION['errore_query'] == 'true'){
 }
 
 if(isset($_SESSION['ban_ok']) && $_SESSION['ban_ok'] == 'true'){
-    echo "<h4>L'UTENTE È STATO BANNATO E IL COMMENTO NON È PIÙ VISIBILE!</h4>";
+    echo "<h4 id=\"esito_positivo\">L'UTENTE È STATO BANNATO E IL COMMENTO NON È PIÙ VISIBILE!</h4>";
     unset($_SESSION['ban_ok']);
 }
 
 if(isset($_SESSION['noban_ok']) && $_SESSION['noban_ok'] == 'true'){
-    echo "<h4>LA SEGNALAZIONE ERRONEA È STATA RIMOSSA!</h4>";
-    unset($_SESSION['ban_ok']);
+    echo "<h4 id=\"esito_positivo\">LA SEGNALAZIONE ERRONEA È STATA RIMOSSA!</h4>";
+    unset($_SESSION['noban_ok']);
 }
 
 foreach($domande as $domanda){  
