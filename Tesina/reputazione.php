@@ -76,7 +76,7 @@
         $isAMorGS = false;
 
         //nel caso in cui l'utente loggato sia un GS o AM, la reputazione è fissata a 12!
-        $sql = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND (u.ruolo = 'GS' OR u.ruolo = 'AM')";
+        $sql = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND (u.ruolo = 'GS' OR u.ruolo = 'AM' OR u.ruolo = 'SA')";
 
         $ris_r = mysqli_query($connessione, $sql);
 
