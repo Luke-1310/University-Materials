@@ -325,3 +325,8 @@ input[type="submit"] {
 #new_question a:hover{
     color:#1e8fffc5;
 }
+
+#esito_positivo{
+    color: #1DB954;
+    text-align: center;
+}

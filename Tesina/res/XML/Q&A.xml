@@ -3,7 +3,7 @@
   <domanda>
     <ISBNProdotto>9788418271236</ISBNProdotto>
     <FAQ>-1</FAQ>
-    <segnalazione>-1</segnalazione>
+    <segnalazione>1</segnalazione>
     <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Questa è una domanda di esempio</testoDom>
@@ -52,7 +52,7 @@
   <domanda>
     <ISBNProdotto>9788828720447</ISBNProdotto>
     <FAQ>1</FAQ>
-    <segnalazione>-1</segnalazione>
+    <segnalazione>1</segnalazione>
     <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Ma questo volume è l'ultimo della serie?</testoDom>
@@ -92,7 +92,7 @@
   <domanda>
     <ISBNProdotto>9788822632593</ISBNProdotto>
     <FAQ>-1</FAQ>
-    <segnalazione>-1</segnalazione>
+    <segnalazione>1</segnalazione>
     <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Prova con nuovo campo "FAQ"</testoDom>

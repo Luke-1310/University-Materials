@@ -323,3 +323,8 @@ input[type="submit"] {
 #new_question a:hover{
     color:gray;
 }
+
+#esito_positivo{
+    color: #1DB954;
+    text-align: center;
+}
