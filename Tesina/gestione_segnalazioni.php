@@ -90,6 +90,10 @@ if($iSSegnalazioni){
         echo"</div>";
 
         echo "<div class=\"column\">";
+            echo "<h4>SEGNALATO DA:</h4>";
+        echo"</div>";
+
+        echo "<div class=\"column\">";
             echo "<h4>BAN:</h4>";;
         echo"</div>";
 
@@ -125,6 +129,25 @@ if($iSSegnalazioni){
 
                 echo "<div class=\"column\">";
                     echo $usernameDom;
+                echo"</div>"; 
+
+                //mi prendo l'ID del segnalatore
+                $query = "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$domanda['IDSegnalatore']}'";
+                $result = $connessione->query($query);
+        
+                //Verifico se la query ha restituito risultati
+                if ($result) {
+        
+                    $row = $result->fetch_assoc();
+                    $usernameSign_Dom = $row['username'];
+                } 
+                
+                else {
+                    echo "Errore nella query: " . $connessione->error;
+                }
+
+                echo "<div class=\"column\">";
+                    echo $usernameSign_Dom;
                 echo"</div>"; 
 
                 echo "<div class=\"column\">";
@@ -179,12 +202,30 @@ if($iSSegnalazioni){
                         $row_ris = $result_ris->fetch_assoc();
                         $usernameRisp = $row_ris['username'];
                     } 
-                    
                     else {
                         echo "Errore nella query: " . $connessione->error;
                     }
+
                     echo "<div class=\"column\">";
                         echo $usernameRisp;
+                    echo"</div>"; 
+
+                    //mi prendo il nick dell'utente segnalatore
+                    $query_ris = "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$risposta['IDSegnalatore']}'";
+                    $result_ris = $connessione->query($query_ris);
+            
+                    //Verifico se la query ha restituito risultati
+                    if ($result_ris) {
+            
+                        $row_ris = $result_ris->fetch_assoc();
+                        $usernameSign_Risp = $row_ris['username'];
+                    } 
+                    else {
+                        echo "Errore nella query: " . $connessione->error;
+                    }
+
+                    echo "<div class=\"column\">";
+                        echo $usernameSign_Risp;
                     echo"</div>"; 
 
                     echo "<div class=\"column\">";
