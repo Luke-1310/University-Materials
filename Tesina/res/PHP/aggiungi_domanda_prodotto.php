@@ -10,7 +10,6 @@ $text = $_POST['testo'];
 $date = $_POST['data'];
 
 //mi mancano l'id e di convertire il titolo con l'isbn corrispettivo
-
 $xmlpath = "../XML/catalogo.xml";
 $fumetti = getFumetti($xmlpath);
 
@@ -46,9 +45,6 @@ foreach(file($xmlfile) as $nodo){   //Leggo il contenuto del file XML
     $xmlstring.= trim($nodo); 
 }
 
-//valore di default di FAQ
-$FAQ_e = -1;
-
 $documento = new DOMDocument();
 $documento->loadXML($xmlstring);
 
@@ -59,6 +55,7 @@ $domanda = $documento->createElement('domanda');
 $isbn = $documento->createElement('ISBNProdotto');
 $FAQ = $documento->createElement('FAQ');
 $valutazione = $documento->createElement('segnalazione');
+$IDSegnalatore = $documento->createElement('IDSegnalatore');
 $id = $documento->createElement('IDDom');
 $testo = $documento->createElement('testoDom');
 $data = $documento->createElement('dataDom');
@@ -66,11 +63,14 @@ $data = $documento->createElement('dataDom');
 $isbn->nodeValue = $isbn_e;
 $domanda->appendChild($isbn);
 
-$FAQ->nodeValue = $FAQ_e;
+$FAQ->nodeValue = -1;
 $domanda->appendChild($FAQ);
 
 $valutazione->nodeValue = -1;
 $domanda->appendChild($valutazione);
+
+$IDSegnalatore->nodeValue = -1;
+$domanda->appendChild($IDSegnalatore);
 
 $id->nodeValue = $id_e;
 $domanda->appendChild($id);
