@@ -45,7 +45,7 @@ if(isset($_GET['from']) && $_GET['from'] == "domanda"){
         header('Location:../../prodotti_info.php');
         exit(1);
     }
-    else if(isset($_GET['departed_from']) && $_GET['departed_from'] == "domanda_specifica"){
+    else if(isset($_GET['departed_from']) && $_GET['departed_from'] == "mostra_domanda_specifica"){
 
         $_SESSION['segnalazione_ok'] = true;
         header('Location:../../mostra_domanda_specifica.php');
@@ -83,7 +83,7 @@ else if(isset($_GET['from']) && $_GET['from'] == "risposta"){
         exit(1);
     }
 
-    else if(isset($_GET['departed_from']) && $_GET['departed_from'] == "domanda_specifica"){
+    else if(isset($_GET['departed_from']) && $_GET['departed_from'] == "mostra_domanda_specifica"){
 
         $_SESSION['segnalazione_ok'] = true;
         header('Location:../../mostra_domanda_specifica.php');

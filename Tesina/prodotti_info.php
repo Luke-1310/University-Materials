@@ -42,6 +42,12 @@ include('res/PHP/funzioni.php');
         $_SESSION['info_titolo'] = $titolo;
     }
 
+    //controllo errori
+    if(isset($_SESSION['segnalazione_ok']) && $_SESSION['segnalazione_ok'] == true){
+        echo "<h4 id=\"esito_positivo\">LA SEGNALAZIONE È ANDATA A BUON FINE!</h4>";
+        unset($_SESSION['segnalazione_ok']);
+    }
+
     //prendo il percorso dell'immagine
     $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
 

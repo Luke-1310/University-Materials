@@ -27,9 +27,7 @@
 </head>
 
 <body>
-    
     <?php
-
         // Percorso del file XML
         $xmlFile = "res/XML/Q&A.xml";
         $xmlFile2 = "res/XML/catalogo.xml";
@@ -42,8 +40,14 @@
 
             $_SESSION['titolo_dom_sp'] = $_POST["titolo"];
         }
-        
+
         echo "<p class=\"titoletto\">DOMANDE RELATIVE A ". $_SESSION['titolo_dom_sp'] ."!</p>";
+
+        //controllo errori
+        if(isset($_SESSION['segnalazione_ok']) && $_SESSION['segnalazione_ok'] == true){
+            echo "<h4 id=\"esito_positivo\">LA SEGNALAZIONE È ANDATA A BUON FINE!</h4>";
+            unset($_SESSION['segnalazione_ok']);
+        }
 
         //mi prendo l'isbn
         foreach($fumetti as $fumetto){
@@ -150,7 +154,7 @@
                                     echo "</form>";
                                 }
     
-                                echo"<form id=\"bottoniForm\" action=\"res/PHP/segnala_contributo.php?from=domanda&departed_from=prodotti_info\" method=\"POST\" >";
+                                echo"<form id=\"bottoniForm\" action=\"res/PHP/segnala_contributo.php?from=domanda&departed_from=mostra_domanda_specifica\" method=\"POST\" >";
     
                                     //mi invio la  data della domanda
                                     echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
@@ -288,7 +292,7 @@
                                         echo "</form>";
                                     }
     
-                                    echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=risposta&departed_from=prodotti_info\" method=\"POST\" >";
+                                    echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=risposta&departed_from=mostra_domanda_specifica\" method=\"POST\" >";
     
                                         //mi invio la data della risposta
                                         echo"<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] . ">";
