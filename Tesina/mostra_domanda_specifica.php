@@ -150,7 +150,7 @@
                                     echo "</form>";
                                 }
     
-                                echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=domanda&departed_from=prodotti_info\" method=\"POST\" >";
+                                echo"<form id=\"bottoniForm\" action=\"res/PHP/segnala_contributo.php?from=domanda&departed_from=prodotti_info\" method=\"POST\" >";
     
                                     //mi invio la  data della domanda
                                     echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
