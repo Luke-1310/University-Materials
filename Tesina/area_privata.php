@@ -76,8 +76,8 @@
                     
                 }
 
-                //se l'utente è un amministratore allora ha tutte le funzionalità
-                $sql = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND u.ruolo = 'AM'";
+                //se l'utente è un amministratore/superamministratore allora ha tutte le funzionalità
+                $sql = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND u.ruolo = 'AM' OR u.ruolo = 'SA'";
                 $ris = mysqli_query($connessione, $sql);
 
                 if(mysqli_num_rows($ris) == 1){
