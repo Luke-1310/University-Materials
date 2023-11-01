@@ -100,7 +100,7 @@
 
                     echo "<div class=\"cell\">";
                         echo "<a href=\"richiesta_crediti.php\"><i id=\"richiesta\" class=\"material-icons\">currency_exchange</i></a>";
-                        echo "<div class=\"row\"";
+                        echo "<div class=\"row\">";
                             echo "<a href=\"richiesta_crediti.php\">RICHIESTE CREDITI</a>";
                             if($isRichiesta){
                                 echo "<i id=\"allert\" class=\"material-icons\">fiber_manual_record</i>";
