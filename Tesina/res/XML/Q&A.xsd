@@ -14,6 +14,7 @@
         <xsd:element ref="ISBNProdotto"/>
         <xsd:element ref="FAQ"/>
         <xsd:element ref="segnalazione"/>
+        <xsd:element ref="IDSegnalatore"/>
         <xsd:element ref="IDDom"/>
         <xsd:element ref="testoDom"/>
         <xsd:element ref="dataDom"/>
@@ -28,6 +29,7 @@
         <xsd:element ref="IDRisp"/>
         <xsd:element name="FAQ"/> 
         <xsd:element ref="segnalazione"/>
+        <xsd:element ref="IDSegnalatore"/>
         <xsd:element ref="dataRisp"/>
         <xsd:element ref="testoRisp"/>
         <xsd:element name="votazione" minOccurs="0" maxOccurs="unbounded">
@@ -47,6 +49,7 @@
   <xsd:element name="ISBNProdotto" type="xsd:string"/>
   <xsd:element name="FAQ" type="xsd:integer"/>
   <xsd:element name="segnalazione" type="xsd:integer"/>
+  <xsd:element name="IDSegnalatore" type="xsd:integer"/>
   <xsd:element name="IDDom" type="xsd:integer"/>
   <xsd:element name="testoDom" type="xsd:string"/>
   <xsd:element name="dataDom" type="xsd:dateTime"/> 

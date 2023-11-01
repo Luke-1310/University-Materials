@@ -4,6 +4,7 @@
     <ISBNProdotto>9788418271236</ISBNProdotto>
     <FAQ>-1</FAQ>
     <segnalazione>-1</segnalazione>
+    <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Questa è una domanda di esempio</testoDom>
     <dataDom>2023-10-06T12:00:00</dataDom>
@@ -11,6 +12,7 @@
       <IDRisp>2</IDRisp>
       <FAQ>-1</FAQ>
       <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-06T12:30:00</dataRisp>
       <testoRisp>Ecco una risposta di esempio</testoRisp>
       <votazione>
@@ -30,6 +32,7 @@
       <IDRisp>4</IDRisp>
       <FAQ>-1</FAQ>
       <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-06T12:31:00</dataRisp>
       <testoRisp>Ecco un altra risposta di esempio</testoRisp>
       <votazione>
@@ -50,6 +53,7 @@
     <ISBNProdotto>9788828720447</ISBNProdotto>
     <FAQ>1</FAQ>
     <segnalazione>-1</segnalazione>
+    <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Ma questo volume è l'ultimo della serie?</testoDom>
     <dataDom>2023-10-14T18:53:17</dataDom>
@@ -57,6 +61,7 @@
       <IDRisp>1</IDRisp>
       <FAQ>1</FAQ>
       <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-18T16:03:05</dataRisp>
       <testoRisp>No, non è l'ultimo! La homepage viene sempre aggiornata con le ultime novità, dacci un'occhiata!!! </testoRisp>
       <votazione>
@@ -69,7 +74,8 @@
     <risposta>
       <IDRisp>7</IDRisp>
       <FAQ>-1</FAQ>
-      <segnalazione>0</segnalazione>
+      <segnalazione>1</segnalazione>
+      <IDSegnalatore>4</IDSegnalatore>
       <dataRisp>2023-10-24T16:43:43</dataRisp>
       <testoRisp>*********!!! **** ****** *************** *****!</testoRisp>
     </risposta>
@@ -78,6 +84,7 @@
     <ISBNProdotto>9788828720447</ISBNProdotto>
     <FAQ>-1</FAQ>
     <segnalazione>-1</segnalazione>
+    <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Ma questo prodotto, che voi sappiate, ha una cartolina?</testoDom>
     <dataDom>2023-10-14T21:43:53</dataDom>
@@ -86,6 +93,7 @@
     <ISBNProdotto>9788822632593</ISBNProdotto>
     <FAQ>-1</FAQ>
     <segnalazione>-1</segnalazione>
+    <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Prova con nuovo campo "FAQ"</testoDom>
     <dataDom>2023-10-16T10:18:35</dataDom>
@@ -93,6 +101,7 @@
       <IDRisp>4</IDRisp>
       <FAQ>-1</FAQ>
       <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-16T13:46:55</dataRisp>
       <testoRisp>Prova </testoRisp>
     </risposta>
@@ -101,6 +110,7 @@
     <ISBNProdotto>9785216892214</ISBNProdotto>
     <FAQ>-1</FAQ>
     <segnalazione>-1</segnalazione>
+    <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>4</IDDom>
     <testoDom>Prova definitva 1</testoDom>
     <dataDom>2023-10-16T16:30:19</dataDom>
@@ -108,6 +118,7 @@
       <IDRisp>1</IDRisp>
       <FAQ>-1</FAQ>
       <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-16T16:44:07</dataRisp>
       <testoRisp>Risposta definitiva 1&#13;</testoRisp>
     </risposta>
@@ -116,6 +127,7 @@
     <ISBNProdotto>9788891298362</ISBNProdotto>
     <FAQ>1</FAQ>
     <segnalazione>-1</segnalazione>
+    <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>4</IDDom>
     <testoDom>Vorrei tanto leggere questo manga, ma non so come si acquista un prodotto, qualcuno potrebbe spiegarmelo? </testoDom>
     <dataDom>2023-10-18T12:18:57</dataDom>
@@ -123,6 +135,7 @@
       <IDRisp>2</IDRisp>
       <FAQ>1</FAQ>
       <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-18T12:21:28</dataRisp>
       <testoRisp>Allora, per poter comprare un prodotto devi prima fare una richiesta crediti nella sezione "storico crediti" della tua area privata, poi, eventualmente, un admin te la accetterà e così potrai effettuare l'acquisto!</testoRisp>
       <votazione>
@@ -142,6 +155,7 @@
       <IDRisp>5</IDRisp>
       <FAQ>-1</FAQ>
       <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-18T13:55:12</dataRisp>
       <testoRisp>Beh, potresti cercare meglio prima di chiedere!</testoRisp>
       <votazione>
@@ -167,7 +181,8 @@
   <domanda>
     <ISBNProdotto>9788834920992</ISBNProdotto>
     <FAQ>-1</FAQ>
-    <segnalazione>0</segnalazione>
+    <segnalazione>1</segnalazione>
+    <IDSegnalatore>2</IDSegnalatore>
     <IDDom>7</IDDom>
     <testoDom>*********** ***** **********!!!! *****!!!!</testoDom>
     <dataDom>2023-10-24T15:19:35</dataDom>
