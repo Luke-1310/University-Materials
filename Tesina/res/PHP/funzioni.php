@@ -106,6 +106,7 @@
             $ISBNProdotto = $domanda->getElementsByTagName('ISBNProdotto')->item(0)->nodeValue;
             $FAQ = $domanda->getElementsByTagName('FAQ')->item(0)->nodeValue;
             $segnalazione = $domanda->getElementsByTagName('segnalazione')->item(0)->nodeValue;
+            $IDSegnalatore_dom = $domanda->getElementsByTagName('IDSegnalatore')->item(0)->nodeValue;
             $IDDom = $domanda->getElementsByTagName('IDDom')->item(0)->nodeValue;
             $testoDom = $domanda->getElementsByTagName('testoDom')->item(0)->nodeValue;
             $dataDom = $domanda->getElementsByTagName('dataDom')->item(0)->nodeValue;
@@ -117,7 +118,8 @@
             foreach ($risposteNodes as $rispostaNode) {
                 $IDRisp = $rispostaNode->getElementsByTagName('IDRisp')->item(0)->nodeValue;
                 $FAQ_risposta = $rispostaNode->getElementsByTagName('FAQ')->item(0)->nodeValue;
-                $segnalazione_risposta = $rispostaNode->getElementsByTagName('segnalazione')->item(0)->nodeValue;;
+                $segnalazione_risposta = $rispostaNode->getElementsByTagName('segnalazione')->item(0)->nodeValue;
+                $IDSegnalatore_ris = $rispostaNode->getElementsByTagName('IDSegnalatore')->item(0)->nodeValue;
                 $dataRisp = $rispostaNode->getElementsByTagName('dataRisp')->item(0)->nodeValue;
                 $testoRisp = $rispostaNode->getElementsByTagName('testoRisp')->item(0)->nodeValue;
 
@@ -143,6 +145,7 @@
                     'IDRisp' => $IDRisp,
                     'FAQ' => $FAQ_risposta,
                     'segnalazione' => $segnalazione_risposta,
+                    'IDSegnalatore' => $IDSegnalatore_ris,
                     'dataRisp' => $dataRisp,
                     'testoRisp' => $testoRisp,
                     'votazioni' => $votazioni,
@@ -153,6 +156,7 @@
                 'ISBNProdotto' => $ISBNProdotto,
                 'FAQ' => $FAQ,
                 'segnalazione' => $segnalazione,
+                'IDSegnalatore' => $IDSegnalatore_dom,
                 'IDDom' => $IDDom,
                 'testoDom' => $testoDom,
                 'dataDom' => $dataDom,
@@ -182,6 +186,7 @@
         }
     }
 
+    //funzione per ricavare la data di registrazione dell'utente loggato
     function getDataRegistrazioneCurr(){
 
         include('connection.php');
@@ -210,6 +215,7 @@
         }
     }
 
+    //funzione per ricavare la somma spesa dell'utente loggato
     function getCreditiSpesiCurr(){
 
         if (isset($_SESSION['nome'])) {
