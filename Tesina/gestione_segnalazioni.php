@@ -113,14 +113,14 @@ if($iSSegnalazioni){
                     echo $domanda['testoDom'];
                 echo"</div>"; 
 
-                $query_dom = "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$domanda['IDDom']}'";
-                $result_dom = $connessione->query($query_dom);
+                $query= "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$domanda['IDDom']}'";
+                $result = $connessione->query($query);
         
                 //Verifico se la query ha restituito risultati
-                if ($result_dom) {
+                if ($result){
         
-                    $row_dom = $result_dom->fetch_assoc();
-                    $usernameDom = $row_dom['username'];
+                    $row = $result->fetch_assoc();
+                    $usernameDom = $row['username'];
                 } 
                 
                 else {
@@ -193,14 +193,14 @@ if($iSSegnalazioni){
                         echo $risposta['testoRisp'];
                     echo"</div>"; 
 
-                    $query_ris = "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$risposta['IDRisp']}'";
-                    $result_ris = $connessione->query($query_ris);
+                    $query = "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$risposta['IDRisp']}'";
+                    $result = $connessione->query($query);
             
                     //Verifico se la query ha restituito risultati
-                    if ($result_ris) {
+                    if ($result){
             
-                        $row_ris = $result_ris->fetch_assoc();
-                        $usernameRisp = $row_ris['username'];
+                        $row = $result->fetch_assoc();
+                        $usernameRisp = $row['username'];
                     } 
                     else {
                         echo "Errore nella query: " . $connessione->error;
@@ -211,14 +211,14 @@ if($iSSegnalazioni){
                     echo"</div>"; 
 
                     //mi prendo il nick dell'utente segnalatore
-                    $query_ris = "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$risposta['IDSegnalatore']}'";
-                    $result_ris = $connessione->query($query_ris);
+                    $query = "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$risposta['IDSegnalatore']}'";
+                    $result = $connessione->query($query);
             
                     //Verifico se la query ha restituito risultati
-                    if ($result_ris) {
+                    if ($result) {
             
-                        $row_ris = $result_ris->fetch_assoc();
-                        $usernameSign_Risp = $row_ris['username'];
+                        $row = $result->fetch_assoc();
+                        $usernameSign_Risp = $row['username'];
                     } 
                     else {
                         echo "Errore nella query: " . $connessione->error;
