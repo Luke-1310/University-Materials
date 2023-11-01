@@ -80,53 +80,55 @@ if ($ris) {
         //Estraggo il risultato come un array associativo
         while($row = $ris->fetch_assoc()){
         
-        // Dopo che il ciclo ha eseguito le istruzioni, PHP torna all'inizio del ciclo (while) e verifica se $ris->fetch_assoc() restituisce un altro record. 
-        // Se sì, il ciclo viene eseguito di nuovo con un nuovo set di dati in $row; altrimenti, il ciclo si interrompe.
+            // Dopo che il ciclo ha eseguito le istruzioni, si torna all'inizio del ciclo (while) e si verifica se $ris->fetch_assoc() restituisce un altro record. 
+            // Se sì, il ciclo viene eseguito di nuovo con un nuovo set di dati in $row; altrimenti, il ciclo si interrompe.
 
             echo "<div class=\"column\">";
                 echo "<p>". $row['username'] ."</p>";
             echo "</div>";
 
-
             echo "<div class=\"column\">";
                 echo "<p>" . $row['ruolo'] . "</p>";
             echo "</div>";
-
 
             echo "<div class=\"column\">";
 
                 echo "<div class=\"conferma\">";
 
-                    echo "<form action = \"res/PHP/promuovi_retrocedi.php\" method='POST'>";
+                    if($row['ruolo'] != "SA"){
 
-                        //mi invio anche l'id
-                        echo "<input type=\"hidden\" name=\"id\" value=" . $row['id'] . ">";
+                        if($row['username'] != $_SESSION['nome']){
+                            echo "<form action = \"res/PHP/promuovi_retrocedi.php\" method='POST'>";
 
-                        //mi invio anche il ruolo attuale prima di, eventualmente, cambiarlo
-                        echo "<input type=\"hidden\" name=\"ruolo\" value=" . $row['ruolo'] . ">";
+                                //mi invio anche l'id
+                                echo "<input type=\"hidden\" name=\"id\" value=" . $row['id'] . ">";
 
-                        echo "<button name=\"bottone_promuovi\" type=\"submit\">";
-                        echo "<i id=\"promuovi\" class=\"material-icons\">keyboard_double_arrow_up</i></button>";
+                                //mi invio anche il ruolo attuale prima di, eventualmente, cambiarlo
+                                echo "<input type=\"hidden\" name=\"ruolo\" value=" . $row['ruolo'] . ">";
+                                
+                                if($row['ruolo'] != "AM"){
+                                    echo "<button name=\"bottone_promuovi\" type=\"submit\">";
+                                    echo "<i id=\"promuovi\" class=\"material-icons\">keyboard_double_arrow_up</i></button>";
+                                }
 
-                        echo "<button name=\"bottone_retrocedi\" type=\"submit\">";
-                        echo "<i id=\"retrocedi\" class=\"material-icons\">keyboard_double_arrow_down</i></button>";
+                                if($row['ruolo'] != "CL"){
+                                    echo "<button name=\"bottone_retrocedi\" type=\"submit\">";
+                                    echo "<i id=\"retrocedi\" class=\"material-icons\">keyboard_double_arrow_down</i></button>";
+                                }
 
-                    echo "</form>";
+                            echo "</form>";
+                        }
+                        else{
+                            echo "NON PUOI MODIFICARE IL TUO RUOLO!";
+                        }
+                    }
+                    else{
+                        echo"UTENTE SUPERAMMINISTRATORE!";
+                    }
 
                 echo "</div>";
 
             echo "</div>";
-
-
-            // echo "<div class=\"column\">";
-
-            //     if($row['segnalazione']){
-            //         echo "<strong><p style=\"color: red;\">SI</p></strong>";
-            //     }
-            //     else{
-            //         echo "<strong><p style=\"color: green;\">NO</p></strong>";
-            //     }
-            // echo "</div>";
 
             echo "<div class=\"column\">";
 
