@@ -130,7 +130,7 @@
     <IDUtente>7</IDUtente>
     <quantita>1</quantita>
     <dataRichiesta>2023-10-25T17:18:31</dataRichiesta>
-    <risposta>0</risposta>
+    <risposta>1</risposta>
   </richiesta>
   <richiesta>
     <IDUtente>7</IDUtente>
@@ -142,18 +142,18 @@
     <IDUtente>1</IDUtente>
     <quantita>2</quantita>
     <dataRichiesta>2023-10-25T17:34:26</dataRichiesta>
-    <risposta>0</risposta>
+    <risposta>1</risposta>
   </richiesta>
   <richiesta>
     <IDUtente>1</IDUtente>
     <quantita>3</quantita>
     <dataRichiesta>2023-10-25T17:36:46</dataRichiesta>
-    <risposta>0</risposta>
+    <risposta>1</risposta>
   </richiesta>
   <richiesta>
     <IDUtente>1</IDUtente>
     <quantita>5</quantita>
     <dataRichiesta>2023-10-25T17:37:16</dataRichiesta>
-    <risposta>0</risposta>
+    <risposta>1</risposta>
   </richiesta>
 </storico>
