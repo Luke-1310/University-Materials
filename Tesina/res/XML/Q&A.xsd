@@ -19,6 +19,16 @@
         <xsd:element ref="testoDom"/>
         <xsd:element ref="dataDom"/>
         <xsd:element ref="risposta" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element name="votazione" minOccurs="0" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element ref="IDValutante"/>
+              <xsd:element ref="reputazione"/>
+              <xsd:element ref="utilita"/>
+              <xsd:element ref="supporto"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
