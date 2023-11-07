@@ -69,6 +69,10 @@ foreach($elenco as $domanda){
         $segnalazioneElement = $document->createElement('segnalazione', $segnalazione);
         $rispostaElement->appendChild($segnalazioneElement);
 
+        $IDSegnalatore = "-1";
+        $IDSegnalatoreElement = $document->createElement('IDSegnalatore', $IDSegnalatore);
+        $rispostaElement->appendChild($IDSegnalatoreElement);
+
         $date_c = date('Y-m-d\TH:i:s');
         $dataElement = $document->createElement('dataRisp', $date_c);
         $rispostaElement->appendChild($dataElement);
