@@ -92,8 +92,8 @@
   <domanda>
     <ISBNProdotto>9788822632593</ISBNProdotto>
     <FAQ>-1</FAQ>
-    <segnalazione>1</segnalazione>
-    <IDSegnalatore>4</IDSegnalatore>
+    <segnalazione>0</segnalazione>
+    <IDSegnalatore>1</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Prova con nuovo campo "FAQ"</testoDom>
     <dataDom>2023-10-16T10:18:35</dataDom>
