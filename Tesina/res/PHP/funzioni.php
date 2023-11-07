@@ -372,7 +372,7 @@
                                 echo "</form>";
 
                                 //form AGGIUNGI RISPOSTA
-                                echo"<form id=\"rispostaForm\" action = \"res/PHP/mostra_domanda_specifica.php\" method=\"POST\" >";
+                                echo"<form id=\"rispostaForm\" action=\"res/PHP/mostra_domanda_specifica.php\" method=\"POST\" >";
 
                                     echo"<div class=\"form-row\">";
                                         echo"<label for=\"risposta\">AGGIUNGI UNA RISPOSTA...</label>";
