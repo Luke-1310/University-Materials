@@ -3,8 +3,9 @@
 session_start();
 
 $IDValutante = $_POST['IDValutante'];
-$IDRisp = $_POST['IDRisp'];
-$dataRisp = $_POST['dataRisp'];
+$ID = $_POST['ID'];
+$data = $_POST['data'];
+$tipologia = $_POST['tipo'];
 $utilita = $_POST['utilita'];
 $supporto = $_POST['supporto'];
 
@@ -40,15 +41,13 @@ $elenco = $document->getElementsByTagName('domanda');
 
 foreach($elenco as $domanda){
 
-    $risposte = $domanda->getElementsByTagName('risposta');
+    if($tipologia == "domanda"){
 
-    foreach($risposte as $risposta){
-        
-        $IDRisp_current = $risposta->getElementsByTagName('IDRisp')->item(0)->nodeValue;
-        $date_current = $risposta->getElementsByTagName('dataRisp')->item(0)->nodeValue;
+        $ID_current = $domanda->getElementsByTagName('IDDom')->item(0)->nodeValue;
+        $date_current = $domanda->getElementsByTagName('dataDom')->item(0)->nodeValue;
 
-        //condizione per trovare la giusta risposta nella quale mettere la valutazione
-        if($IDRisp_current == $IDRisp && $date_current == $dataRisp){
+        //condizione per trovare la giusta domanda nella quale mettere la valutazione
+        if($ID_current == $ID && $date_current == $data){
 
             $votazione = $document->createElement('votazione');
 
@@ -69,7 +68,43 @@ foreach($elenco as $domanda){
             $sup->nodeValue = $supporto;
             $votazione->appendChild($sup);
 
-            $risposta->appendChild($votazione);
+            $domanda->appendChild($votazione);
+        }
+    }
+
+    $risposte = $domanda->getElementsByTagName('risposta');
+
+    if($tipologia == "risposta"){
+
+        foreach($risposte as $risposta){
+            
+            $ID_current = $risposta->getElementsByTagName('IDRisp')->item(0)->nodeValue;
+            $date_current = $risposta->getElementsByTagName('dataRisp')->item(0)->nodeValue;
+
+            //condizione per trovare la giusta risposta nella quale mettere la valutazione
+            if($ID_current == $ID && $date_current == $data){
+
+                $votazione = $document->createElement('votazione');
+
+                $IDV = $document->createElement('IDValutante');
+                $rep = $document->createElement('reputazione');
+                $uti = $document->createElement('utilita');
+                $sup = $document->createElement('supporto');
+
+                $IDV->nodeValue = $IDValutante;
+                $votazione->appendChild($IDV);
+
+                $rep->nodeValue = $reputazione;
+                $votazione->appendChild($rep);
+
+                $uti->nodeValue = $utilita;
+                $votazione->appendChild($uti);
+
+                $sup->nodeValue = $supporto;
+                $votazione->appendChild($sup);
+
+                $risposta->appendChild($votazione);
+            }
         }
     }
 }
