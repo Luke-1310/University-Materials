@@ -56,8 +56,6 @@
             header('Location:../../homepage.php');
         }
 
-        echo "<p id=\"titolo\"> IL TUO LIVELLO È: " . $reputazione. "</p>";
-
         //mi prendo anche l'ID che poi mi invio in res/PHP/reputazione.php
         $sql_id = "SELECT u.id FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}'";
 
@@ -89,19 +87,10 @@
         }
         
         else{
-            echo "<form id=\"reputazioneForm\" action=\"res/PHP/reputazione.php\" method=\"POST\">";
-
-                echo "<div class=\"form-row\">";
-                
-                    echo "<label for=\"utilita\">HAI COMMENTATO DI RECENTE? MAGARI DEVI AGGIORNARE LA TUA REPUTAZIONE! ¯\_(ツ)_/¯</label>";
-                    echo "<input type=\"hidden\" name=\"reputazione\" value=" . $reputazione . ">";
-                    echo "<input type=\"hidden\" name=\"id\" value=" . $id . ">";
-
-                echo "</div>";
-                
-                echo "<span class=\"bottone\"><input type=\"submit\" value=\"AGGIORNA\"></span>";
-
-            echo "</form>";
+            $xmlpath= "res/XML/Q&A.xml";
+            calcolaReputazione($id, $xmlpath, $reputazione);
+            
+            echo "<p id=\"titolo\"> IL TUO LIVELLO È: " . $reputazione. "</p>";
         }
 
         echo "<img src=\"res/WEBSITE_MEDIA/military-salute.gif\" alt=\"reputation_GIF\" width=\"18%\" id=\"military_salute\">";
