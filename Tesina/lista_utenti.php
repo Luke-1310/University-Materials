@@ -62,10 +62,6 @@ if ($ris) {
                 echo "<h4>PROMUOVI/RETROCEDI RUOLO:</h4>";
             echo"</div>";
 
-            // echo "<div class=\"column\">";
-            //     echo "<h4>È SEGNALATO:</h4>";;
-            // echo"</div>";
-
             echo "<div class=\"column\">";
                 echo "<h4>È BANNATO:</h4>";;
             echo"</div>";
