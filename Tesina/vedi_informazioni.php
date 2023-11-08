@@ -147,6 +147,26 @@ echo "<p id=\"modifica_dati\">PER MODIFICARE I DATI DI QUESTO UTENTE CLICCA <a h
 
 echo "<p id=\"modifica_dati\">PER MODIFICARE LA PASSWORD DI QUESTO UTENTE CLICCA <a href=\"modifica_profilo_utente_password.php\">QUI</a></p>";
 
+//controllo per vedere se l'utente è bannato ed in caso sbannarlo
+$query = "SELECT umn.ban FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.username = '{$_SESSION['nome_utente']}'";
+$result = $connessione->query($query);
+
+if ($result) {
+    $row = $result->fetch_assoc();
+    $isBan = $row['ban'];
+} 
+else {
+    echo "Errore nella query: " . $connessione->error;
+}
+
+if($isBan == 1){
+    
+    echo "<form id=\"banForm\" action=\"res/PHP/riabilita_utente.php\" method=\"POST\">";
+        echo "<span class=\"bottone\"><input type=\"submit\" value=\"RIMUOVI BAN\"></span>";
+    echo "</form>";
+}
+
+
 ?>
 
 </body>
