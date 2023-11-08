@@ -407,7 +407,7 @@
                                 echo "</form>";
 
                                 //faccio questo controllo perché solo l'admin può elevare a FAQ una domanda
-                                $sql_am = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND u.ruolo = 'AM'";
+                                $sql_am = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND (u.ruolo = 'AM' OR u.ruolo = 'SA')";
                                 $ris_am = mysqli_query($connessione, $sql_am);
 
                                 if(mysqli_num_rows($ris_am) == 1){
@@ -426,10 +426,7 @@
 
                                 echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=domanda&departed_from=prodotti_info\" method=\"POST\" >";
 
-                                    //mi invio la  data della domanda
                                     echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
-
-                                    //mi invio l'id del domandante
                                     echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] . ">";
                                     echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
                                 
@@ -542,6 +539,20 @@
                                             
                                             echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
 
+                                        echo "</form>";
+                                    }
+
+                                    $sql_am = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND (u.ruolo = 'AM' OR u.ruolo = 'SA')";
+                                    $ris_am = mysqli_query($connessione, $sql_am);
+
+                                    if(mysqli_num_rows($ris_am) == 1){
+
+                                        echo"<form id=\"rispostaForm\" action = \"res/PHP/eleva_a_rispostaFAQ.php\" method=\"POST\" >";
+
+                                            echo"<input type=\"hidden\" name=\"dataRisp\" value=". $risposta['dataRisp'] . ">";
+                                            echo"<input type=\"hidden\" name=\"IDRisp\" value=". $risposta['IDRisp'] . ">";
+                                            echo "<span class =\"bottone\"><input type=\"submit\" value=\"ELEVA A FAQ\"></span>";
+                                        
                                         echo "</form>";
                                     }
 

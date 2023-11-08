@@ -11,7 +11,6 @@ $dataDom = $_POST['dataDom'];
 //mi mancano l'id e di convertire il titolo con l'isbn corrispettivo
 
 $xmlpath = "../XML/Q&A.xml";
-$domande = getDomande($xmlpath);
 
 //ora che ho tutto mi preparo all'inserimento della domanda nel xml
 $document = new DOMDocument();
@@ -25,12 +24,9 @@ foreach($domande_doc as $domanda_doc){
     $domanda_IDDom = $domanda_doc->getElementsByTagName('IDDom')->item(0)->nodeValue;
     $domanda_dataDom = $domanda_doc->getElementsByTagName('dataDom')->item(0)->nodeValue;
 
-    foreach($domande as $domanda){
-
-        if($domanda_IDDom == $domanda['IDDom'] && $dataDom == $domanda['dataDom']){
-            $domanda_doc->getElementsByTagName('FAQ')->item(0)->nodeValue = 1;
-            break;
-        }
+    if($domanda_IDDom == $IDDom && $domanda_dataDom == $dataDom){
+        $domanda_doc->getElementsByTagName('FAQ')->item(0)->nodeValue = 1;
+        break;
     }
 }
 
