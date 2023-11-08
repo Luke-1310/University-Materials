@@ -110,7 +110,19 @@
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-16T13:46:55</dataRisp>
       <testoRisp>Prova </testoRisp>
+      <votazione_risposta>
+        <IDValutante>4</IDValutante>
+        <reputazione>5</reputazione>
+        <utilita>4</utilita>
+        <supporto>1</supporto>
+      </votazione_risposta>
     </risposta>
+    <votazione_domanda>
+      <IDValutante>4</IDValutante>
+      <reputazione>5</reputazione>
+      <utilita>3</utilita>
+      <supporto>2</supporto>
+    </votazione_domanda>
   </domanda>
   <domanda>
     <ISBNProdotto>9785216892214</ISBNProdotto>

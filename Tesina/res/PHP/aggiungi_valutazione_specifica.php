@@ -49,7 +49,7 @@ foreach($elenco as $domanda){
         //condizione per trovare la giusta domanda nella quale mettere la valutazione
         if($ID_current == $ID && $date_current == $data){
 
-            $votazione = $document->createElement('votazione');
+            $votazione = $document->createElement('votazione_domanda');
 
             $IDV = $document->createElement('IDValutante');
             $rep = $document->createElement('reputazione');
@@ -84,7 +84,7 @@ foreach($elenco as $domanda){
             //condizione per trovare la giusta risposta nella quale mettere la valutazione
             if($ID_current == $ID && $date_current == $data){
 
-                $votazione = $document->createElement('votazione');
+                $votazione = $document->createElement('votazione_risposta');
 
                 $IDV = $document->createElement('IDValutante');
                 $rep = $document->createElement('reputazione');
@@ -116,6 +116,6 @@ file_put_contents($xmlpath, $xml);
 
 $_SESSION['richiesta_ok'] = true;
 
-header('Location: ../../mostra_domanda_specifica.php');
+// header('Location: ../../mostra_domanda_specifica.php');
 
 ?>
