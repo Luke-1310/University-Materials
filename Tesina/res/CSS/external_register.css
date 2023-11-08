@@ -1,4 +1,3 @@
-
 h2 {
   margin-top: 10px;
 }
@@ -17,7 +16,6 @@ h4 {
   margin: 200px auto 180px;
 }
 
-/* Login form styles */
 #loginForm {
   display: flex;
   flex-direction: column;
@@ -32,21 +30,18 @@ h4 {
   color: #1e8fffc5;
 }
 
-/* Form labels */
 form label {
   margin-bottom: 10px;
 }
 
-/* Input styles */
 input {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   margin-bottom: 20px;
-  padding: 10px 15px; /* Add padding for better input appearance */
-  border: none; /* Remove border for cleaner look */
+  padding: 10px 15px; 
+  border: none; 
 }
 
-/* Form row layout */
 .form-row {
   margin-right: 100px;
   margin-bottom: 20px;
@@ -62,7 +57,6 @@ input {
   text-align: right;
 }
 
-/* Submit button */
 input[type="submit"] {
   background-color: #1e8fffc5;
   font-family: 'Roboto Mono', monospace;

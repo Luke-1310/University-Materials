@@ -86,7 +86,6 @@ $data = date("Y-m-d");
 $ruolo = "CL";
 $crediti = 0;
 $reputazione = 1;
-$segnalazione = 0;
 $ban = 0;
 
 // Esegui l'istruzione di inserimento in utenteDati
@@ -100,7 +99,7 @@ else {
     $utenteID = mysqli_insert_id($connessione);
 
     // Ora puoi usare $utenteID per inserire un record in utenteMangaNett
-    $sqlinsert = "INSERT INTO utenteMangaNett (id, username, data_registrazione, ruolo, crediti, reputazione, segnalazione, ban) VALUES ('$utenteID','$username', '$data', '$ruolo', '$crediti', '$reputazione', '$segnalazione', '$ban')";
+    $sqlinsert = "INSERT INTO utenteMangaNett (id, username, data_registrazione, ruolo, crediti, reputazione, ban) VALUES ('$utenteID','$username', '$data', '$ruolo', '$crediti', '$reputazione', '$ban')";
 
     if ($connessione->query($sqlinsert) === FALSE) {
         $_SESSION['errore_utDati'] = 'true';

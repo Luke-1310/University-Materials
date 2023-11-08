@@ -65,3 +65,51 @@ input[type="submit"]{
   margin: 0 auto; /* Centra il bottone orizzontalmente */
   margin-bottom: 20px;
 }
+
+.titoletto{
+  display: flex;
+  flex-direction: row;
+
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#info{
+  color: #1a1a1a;
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-bottom: 13px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 100%; 
+  left: 50%;
+  margin-left: -60px; /* Regola la posizione del tooltip in base alla larghezza desiderata */
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  font-size: 15px;
+
+  width: 300px;
+}
+
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
