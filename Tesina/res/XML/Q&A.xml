@@ -3,7 +3,7 @@
   <domanda>
     <ISBNProdotto>9788418271236</ISBNProdotto>
     <FAQ>-1</FAQ>
-    <segnalazione>1</segnalazione>
+    <segnalazione>-1</segnalazione>
     <IDSegnalatore>3</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Questa è una domanda di esempio</testoDom>
@@ -206,7 +206,7 @@
     <ISBNProdotto>9788834920992</ISBNProdotto>
     <FAQ>-1</FAQ>
     <segnalazione>1</segnalazione>
-    <IDSegnalatore>3</IDSegnalatore>
+    <IDSegnalatore>1</IDSegnalatore>
     <IDDom>7</IDDom>
     <testoDom>*********** ***** **********!!!! *****!!!!</testoDom>
     <dataDom>2023-10-24T15:19:35</dataDom>
