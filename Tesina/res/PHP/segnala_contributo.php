@@ -57,19 +57,9 @@ if(isset($_GET['from']) && $_GET['from'] == "domanda"){
     
     $document->save($xmlpath);
     
-    //bene ora devo capire dove reinderizzare l'utente in base alla pagina di partenza
-    if(isset($_GET['departed_from']) && $_GET['departed_from'] == "prodotti_info"){
-
-        $_SESSION['segnalazione_ok'] = true;
-        header('Location:../../prodotti_info.php');
-        exit(1);
-    }
-    else if(isset($_GET['departed_from']) && $_GET['departed_from'] == "mostra_domanda_specifica"){
-
-        $_SESSION['segnalazione_ok'] = true;
-        header('Location:../../mostra_domanda_specifica.php');
-        exit(1);
-    }
+    $_SESSION['segnalazione_ok'] = true;
+    header('Location:../../mostra_domande_prodotto.php');
+    exit(1);
 }
 
 //ci troviamo nel caso di segnalazione di una risposta
@@ -95,20 +85,9 @@ else if(isset($_GET['from']) && $_GET['from'] == "risposta"){
 
     $document->save($xmlpath);
     
-    //bene ora devo capire dove reinderizzare l'utente in base alla pagina di partenza
-    if(isset($_GET['departed_from']) && $_GET['departed_from'] == "prodotti_info"){
-
-        $_SESSION['segnalazione_ok'] = true;
-        header('Location:../../prodotti_info.php');
-        exit(1);
-    }
-
-    else if(isset($_GET['departed_from']) && $_GET['departed_from'] == "mostra_domanda_specifica"){
-
-        $_SESSION['segnalazione_ok'] = true;
-        header('Location:../../mostra_domanda_specifica.php');
-        exit(1);
-    }
+    $_SESSION['segnalazione_ok'] = true;
+    header('Location:../../mostra_domande_prodotto.php');
+    exit(1);
 }
 
 

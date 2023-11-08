@@ -3,8 +3,8 @@
   <domanda>
     <ISBNProdotto>9788418271236</ISBNProdotto>
     <FAQ>-1</FAQ>
-    <segnalazione>-1</segnalazione>
-    <IDSegnalatore>1</IDSegnalatore>
+    <segnalazione>1</segnalazione>
+    <IDSegnalatore>3</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Questa è una domanda di esempio</testoDom>
     <dataDom>2023-10-06T12:00:00</dataDom>
@@ -98,8 +98,8 @@
   <domanda>
     <ISBNProdotto>9788822632593</ISBNProdotto>
     <FAQ>-1</FAQ>
-    <segnalazione>0</segnalazione>
-    <IDSegnalatore>1</IDSegnalatore>
+    <segnalazione>1</segnalazione>
+    <IDSegnalatore>3</IDSegnalatore>
     <IDDom>1</IDDom>
     <testoDom>Prova con nuovo campo "FAQ"</testoDom>
     <dataDom>2023-10-16T10:18:35</dataDom>
@@ -206,7 +206,7 @@
     <ISBNProdotto>9788834920992</ISBNProdotto>
     <FAQ>-1</FAQ>
     <segnalazione>1</segnalazione>
-    <IDSegnalatore>1</IDSegnalatore>
+    <IDSegnalatore>3</IDSegnalatore>
     <IDDom>7</IDDom>
     <testoDom>*********** ***** **********!!!! *****!!!!</testoDom>
     <dataDom>2023-10-24T15:19:35</dataDom>

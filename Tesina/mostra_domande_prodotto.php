@@ -34,6 +34,11 @@
             unset($_SESSION['richiesta_ok']);
         }
 
+        if(isset($_SESSION['segnalazione_ok']) && $_SESSION['segnalazione_ok'] == true){
+            echo "<h4 id=\"esito_positivo\">LA SEGNALAZIONE È ANDATA A BUON FINE!</h4>";
+            unset($_SESSION['segnalazione_ok']);
+        }
+
         // Percorso del file XML
         $xmlFile = "res/XML/Q&A.xml";
         $xmlFile2 = "res/XML/catalogo.xml";

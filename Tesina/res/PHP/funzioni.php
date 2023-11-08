@@ -398,10 +398,7 @@
                                         echo "<textarea id=\"risposta\" name=\"risposta\" rows=\"10\" cols=\"40\" placeholder=\"Inserisci qui la tua risposta....\" required></textarea>";
                                     echo"</div>";
 
-                                    //mi invio la data della domanda
                                     echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
-
-                                    //mi invio anche l'ISBN 
                                     echo"<input type=\"hidden\" name=\"isbn\" value=$ISBN>";
                                     echo "<span class =\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
 
@@ -425,7 +422,7 @@
                                     echo "</form>";
                                 }
 
-                                echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=domanda&departed_from=prodotti_info\" method=\"POST\" >";
+                                echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=domanda\" method=\"POST\" >";
 
                                     echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
                                     echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] . ">";
@@ -558,7 +555,7 @@
                                         echo "</form>";
                                     }
 
-                                    echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=risposta&departed_from=prodotti_info\" method=\"POST\" >";
+                                    echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=risposta\" method=\"POST\" >";
 
                                         //mi invio la data della risposta
                                         echo"<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] . ">";
@@ -635,9 +632,6 @@
             }
         }
 
-        // echo "STAMPO NUMERATORE DOM " . $temp_num . " ";
-        // echo "STAMPO DENOMINATORE DOM " . $temp_den . " ";
-
         //poi le valutazioni delle risposte
         foreach($domande as $domanda){
 
@@ -655,10 +649,14 @@
             }
         }
 
-        // echo "STAMPO NUMERATORE RISP " . $temp_num . " ";
-        // echo "STAMPO DENOMINATORE RISP " . $temp_den . " ";
-
-        $reputazione_def = ($temp_norm * $temp_num)/$temp_den; //calcolo finale per la reputazione
+        //devo controllare se $temp_den è diverso da 0 altrimenti darebbe errore in quanto si farebbe una divisone per 0
+        if($temp_den == 0){
+            $reputazione_def = 1;
+        }
+        else{
+            $reputazione_def = ($temp_norm * $temp_num)/$temp_den; //calcolo finale per la reputazione
+        }
+            
 
         //faccio un controllo, se la reputazione supera 10 allora deve essere arrotondato a 10
         if($reputazione_def > 10){
@@ -680,29 +678,6 @@
             echo "Errore nella query: " . $connessione->error;
             exit(1);
         }
-
-        // echo "-----------------------------------------------";
-
-        // foreach($domande as $domanda){
-
-        //     foreach($domanda['votazioni'] as $votazione){
-        //         echo "   " . $votazione['IDValutante'];
-        //     }
-
-        // }
-
-        // echo "-------------";
-
-        // foreach($domande as $domanda){
-
-        //     foreach($domanda['risposte'] as $risposta){
-                
-        //         foreach($risposta['votazioni'] as $votazione){
-        //             echo "  " .  $votazione['IDValutante'];
-        //         }
-        //     }
-
-        // }
 
         return $reputazione_difetto_def;
     }
