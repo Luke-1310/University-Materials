@@ -53,7 +53,7 @@
             echo "<h4 id=\"esito_positivo\">L'OPERAZIONE È ANDATA A BUON FINE!</h4>";
             unset($_SESSION['richiesta_ok']);
         }
-        
+
         //mi prendo l'isbn
         foreach($fumetti as $fumetto){
 
@@ -66,6 +66,8 @@
         $connessione = new mysqli($host, $user, $password, $db);
         
         $xmlPath = "res/XML/Q&A.xml";
+
+        $_SESSION['provenienza_valutazione'] = "mostra_domanda_specifica.php";
         mostraDomande($ISBN, $xmlPath);
     ?>
 </body>

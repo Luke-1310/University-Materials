@@ -376,9 +376,7 @@
                                                 
                                             echo "</select>";
                                             
-                                            //mi invio l'id del valutante
                                             echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
-
                                             echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] .">";
                                             echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] .">";
                                             echo"<input type=\"hidden\" name=\"tipo\" value=\"domanda\">";

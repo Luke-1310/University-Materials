@@ -116,6 +116,12 @@ file_put_contents($xmlpath, $xml);
 
 $_SESSION['richiesta_ok'] = true;
 
-// header('Location: ../../mostra_domanda_specifica.php');
+if(isset($_SESSION['provenienza_valutazione']) && $_SESSION['provenienza_valutazione'] == "prodotti_info.php"){
+    header('Location: ../../prodotti_info.php');
+}
+else if(isset($_SESSION['provenienza_valutazione']) && $_SESSION['provenienza_valutazione'] == "mostra_domanda_specifica.php"){
+    header('Location: ../../mostra_domanda_specifica.php');
+}
+
 
 ?>

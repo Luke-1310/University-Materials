@@ -48,6 +48,11 @@ include('res/PHP/funzioni.php');
         unset($_SESSION['segnalazione_ok']);
     }
 
+    if(isset($_SESSION['richiesta_ok']) && $_SESSION['richiesta_ok'] = true){
+        echo "<h4 id=\"esito_positivo\">L'OPERAZIONE È ANDATA A BUON FINE!</h4>";
+        unset($_SESSION['richiesta_ok']);
+    }
+
     //prendo il percorso dell'immagine
     $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
 
@@ -200,6 +205,9 @@ include('res/PHP/funzioni.php');
     <?php
 
         $xmlPath = "res/XML/Q&A.xml";
+
+        //variabile di sessione col fine di capire da dove proviene la richiesta
+        $_SESSION['provenienza_valutazione'] = "prodotti_info.php";
         mostraDomande($ISBN, $xmlPath);
     ?>
 
