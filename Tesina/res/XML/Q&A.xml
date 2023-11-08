@@ -66,7 +66,7 @@
     <risposta>
       <IDRisp>1</IDRisp>
       <FAQ>1</FAQ>
-      <segnalazione>-1</segnalazione>
+      <segnalazione>1</segnalazione>
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-18T16:03:05</dataRisp>
       <testoRisp>No, non è l'ultimo! La homepage viene sempre aggiornata con le ultime novità, dacci un'occhiata!!! </testoRisp>
@@ -80,7 +80,7 @@
     <risposta>
       <IDRisp>7</IDRisp>
       <FAQ>-1</FAQ>
-      <segnalazione>1</segnalazione>
+      <segnalazione>-1</segnalazione>
       <IDSegnalatore>4</IDSegnalatore>
       <dataRisp>2023-10-24T16:43:43</dataRisp>
       <testoRisp>*********!!! **** ****** *************** *****!</testoRisp>
@@ -151,7 +151,7 @@
     <ISBNProdotto>9788891298362</ISBNProdotto>
     <FAQ>1</FAQ>
     <segnalazione>-1</segnalazione>
-    <IDSegnalatore>-1</IDSegnalatore>
+    <IDSegnalatore>1</IDSegnalatore>
     <IDDom>4</IDDom>
     <testoDom>Vorrei tanto leggere questo manga, ma non so come si acquista un prodotto, qualcuno potrebbe spiegarmelo? </testoDom>
     <dataDom>2023-10-18T12:18:57</dataDom>
