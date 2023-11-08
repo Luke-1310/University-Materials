@@ -113,7 +113,7 @@
     
             $votazioni_domanda = [];
 
-            $votazioniNodes = $domanda->getElementsByTagName('votazione');
+            $votazioniNodes = $domanda->getElementsByTagName('votazione_domanda');
 
             foreach($votazioniNodes as $votazioneNode){
                 $IDValutante = $votazioneNode->getElementsByTagName('IDValutante')->item(0)->nodeValue;
@@ -142,9 +142,9 @@
                 $dataRisp = $rispostaNode->getElementsByTagName('dataRisp')->item(0)->nodeValue;
                 $testoRisp = $rispostaNode->getElementsByTagName('testoRisp')->item(0)->nodeValue;
 
-                $votazioni = [];
+                $votazioni_risposta = [];
 
-                $votazioniNodes = $rispostaNode->getElementsByTagName('votazione');
+                $votazioniNodes = $rispostaNode->getElementsByTagName('votazione_risposta');
 
                 foreach($votazioniNodes as $votazioneNode){
                     $IDValutante = $votazioneNode->getElementsByTagName('IDValutante')->item(0)->nodeValue;
@@ -152,7 +152,7 @@
                     $utilita = $votazioneNode->getElementsByTagName('utilita')->item(0)->nodeValue;
                     $supporto = $votazioneNode->getElementsByTagName('supporto')->item(0)->nodeValue;
 
-                    $votazioni[] = [
+                    $votazioni_risposta[] = [
                         'IDValutante' =>$IDValutante,
                         'reputazione' =>$reputazione,
                         'utilita' =>$utilita,
@@ -167,7 +167,7 @@
                     'IDSegnalatore' => $IDSegnalatore_ris,
                     'dataRisp' => $dataRisp,
                     'testoRisp' => $testoRisp,
-                    'votazioni' => $votazioni,
+                    'votazioni' => $votazioni_risposta,
                 ];
             }
     
@@ -577,7 +577,7 @@
     }    
 
     //funzione utile per calcolare la reputazione
-    function calcolaReputazione($id, $xmlpath, $reputazione){
+    function calcolaReputazione($id, $xmlpath){
 
         include("connection.php");
         $connessione = new mysqli($host, $user, $password, $db);
@@ -591,29 +591,41 @@
 
         $reputazione_def = 0;
 
+        //prima controllo le valutazioni delle domande
         foreach ($domande as $domanda) {
 
             if($domanda['IDDom'] == $id){
 
-                $temp_num += ($votazione['supporto'] + $votazione['utilita']) * $reputazione;
+                foreach($domanda['votazioni'] as $votazione){
 
-                $temp_den = $temp_den + $reputazione;
+                    $temp_num = $temp_num + (($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione']);
+                    $temp_den = $temp_den + $votazione['reputazione'];
+                }
             }
+        }
+
+        // echo "STAMPO NUMERATORE DOM " . $temp_num . " ";
+        // echo "STAMPO DENOMINATORE DOM " . $temp_den . " ";
+
+        //poi le valutazioni delle risposte
+        foreach($domande as $domanda){
 
             foreach ($domanda['risposte'] as $risposta) {
 
                 if ($risposta['IDRisp'] == $id) {
-
+    
                     foreach ($risposta['votazioni'] as $votazione) {
-
+    
                         // Calcola la reputazione per questa risposta e la aggiunge al totale
-                        $temp_num += ($votazione['supporto'] + $votazione['utilita']) * $reputazione;
-
-                        $temp_den = $temp_den + $reputazione;
+                        $temp_num = $temp_num + (($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione']);
+                        $temp_den = $temp_den + $votazione['reputazione'];
                     }
                 }
             }
         }
+
+        // echo "STAMPO NUMERATORE RISP " . $temp_num . " ";
+        // echo "STAMPO DENOMINATORE RISP " . $temp_den . " ";
 
         $reputazione_def = ($temp_norm * $temp_num)/$temp_den; //calcolo finale per la reputazione
 
@@ -637,5 +649,30 @@
             echo "Errore nella query: " . $connessione->error;
             exit(1);
         }
+
+        // echo "-----------------------------------------------";
+
+        // foreach($domande as $domanda){
+
+        //     foreach($domanda['votazioni'] as $votazione){
+        //         echo "   " . $votazione['IDValutante'];
+        //     }
+
+        // }
+
+        // echo "-------------";
+
+        // foreach($domande as $domanda){
+
+        //     foreach($domanda['risposte'] as $risposta){
+                
+        //         foreach($risposta['votazioni'] as $votazione){
+        //             echo "  " .  $votazione['IDValutante'];
+        //         }
+        //     }
+
+        // }
+
+        return $reputazione_difetto_def;
     }
 ?>

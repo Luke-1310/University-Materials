@@ -39,22 +39,7 @@
 <?php
     echo "<div class=\"container\">";
 
-        echo "<p id=\"titolo\">VEDIAMO LA TUA REPUTAZIONE...</p>";
-
-        //mi prendo la reputazione dell'utente loggato
-        $connessione = new mysqli($host, $user, $password, $db);
-
-        $query ="SELECT umn.reputazione FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
-
-        $ris = $connessione->query($query);
-
-        if(mysqli_num_rows($ris) == 1){
-            $row = $ris->fetch_assoc();
-            $reputazione = $row['reputazione'];
-        }
-        else{
-            header('Location:../../homepage.php');
-        }
+        echo "<p id=\"titolo\">VEDIAMO LA TUA REPUTAZIONE!</p>";
 
         //mi prendo anche l'ID che poi mi invio in res/PHP/reputazione.php
         $sql_id = "SELECT u.id FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}'";
@@ -88,7 +73,7 @@
         
         else{
             $xmlpath= "res/XML/Q&A.xml";
-            calcolaReputazione($id, $xmlpath, $reputazione);
+            $reputazione = calcolaReputazione($id, $xmlpath);
             
             echo "<p id=\"titolo\"> IL TUO LIVELLO È: " . $reputazione. "</p>";
         }
