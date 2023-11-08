@@ -64,7 +64,6 @@ $tab_utenteMangaNett = "CREATE TABLE IF NOT EXISTS `utenteMangaNett` (
     `ruolo` varchar(2) NOT NULL,
     `crediti` float(10) NOT NULL,
     `reputazione` int(2) NOT NULL,
-    `segnalazione` tinyint(1) NOT NULL,
     `ban` tinyint(1) NOT NULL,
 
     PRIMARY KEY (id),
