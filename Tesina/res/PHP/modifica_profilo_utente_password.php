@@ -33,14 +33,16 @@ $sql = "UPDATE utenteDati
 
 // Esegui le query di aggiornamento e gestisci gli eventuali errori
 if ($connessione->query($sql)) {
-    header('Location:../../lista_utenti.php');
-} else {
+
+    $_SESSION['richiesta_ok'] = true;
+    header('Location:../../vedi_informazioni.php');
+} 
+else {
+
     $_SESSION['errore_query'] = 'true';
     header('Location:../../modifica_password.php');
     exit(1);
 }
-
-$_SESSION['richiesta_ok'] = true;
 
 // Chiudi la connessione al database
 mysqli_close($connessione);
