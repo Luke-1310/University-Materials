@@ -15,14 +15,14 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 //~ è il carattere delimitatore dell'espressione regolare
 if (!preg_match('~^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$~', $password)){
     $_SESSION['errore_preg'] = 'true';
-    header('Location: ../../modifica_password.php');
+    header('Location: ../../modifica_profilo_utente_password.php');
     exit(1);
 }
 
 //controllo se le password sono uguali
 if($password !== $password2){
     $_SESSION['errore_p'] = 'true';
-    header('Location: ../../modifica_password.php');
+    header('Location: ../../modifica_profilo_utente_password.php');
     exit(1);
 }
 
@@ -40,7 +40,7 @@ if ($connessione->query($sql)) {
 else {
 
     $_SESSION['errore_query'] = 'true';
-    header('Location:../../modifica_password.php');
+    header('Location:../../modifica_profilo_utente_password.php');
     exit(1);
 }
 

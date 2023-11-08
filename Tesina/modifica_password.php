@@ -31,7 +31,7 @@
 
 <div class="container">
 
-    <img src="res/WEBSITE_MEDIA/pokemon-detective-pikachu.gif" alt="login_GIF" width="17%">
+    <img src="res/WEBSITE_MEDIA/pokemon-detective-pikachu.gif" alt="login_GIF" width="13.5%">
 
     <form id="loginForm" action="res/PHP/modifica_password.php" method="POST">
 
@@ -47,6 +47,24 @@
             }
 
         ?>
+
+        <div class="titoletto">
+
+            <div class="tooltip">
+                <span class="tooltiptext">LA PASSWORD DEVE SODDISFARE I SEGUENTI REQUISITI:
+                    <ul>
+                        <li>DEVE ESSERE LUNGA ALMENO 8 CARATTERI.</li>
+                        <li>DEVE CONTENERE ALMENO UNA LETTERA MAIUSCOLA E UNA MINUSCOLA</li>
+                        <li>DEVE CONTENERE ALMENO UN NUMERO.</li>
+                        <li>DEVE CONTENERE ALMENO UN SIMBOLO SPECIALE.</li>
+                    </ul>       
+                </span>
+                <i id="info" class="material-icons">info</i>
+        </div>
+
+        <h3>CREDENZIALI DI ACCESSO:</h3>
+
+        </div>
 
         <label for="password">PASSWORD</label>
         <input type="password" name="password" id="password" placeholder="Password123!" required>

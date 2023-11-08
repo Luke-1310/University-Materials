@@ -31,7 +31,7 @@
 
 <div class="container">
 
-    <img src="res/WEBSITE_MEDIA/pokemon-detective-pikachu.gif" alt="login_GIF" width="17%">
+    <img src="res/WEBSITE_MEDIA/pokemon-detective-pikachu.gif" alt="login_GIF" width="13.5%">
 
     <form id="loginForm" action="res/PHP/modifica_profilo_utente_password.php" method="POST">
 
