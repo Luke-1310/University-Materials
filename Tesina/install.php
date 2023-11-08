@@ -42,7 +42,12 @@ if ($conn->query($tab_utente) === FALSE) {
 
 $ins_ut = "INSERT INTO `utenteDati` (`nome`, `cognome`, `password`, `email`, `via_di_residenza`, `civico`, `numero_di_telefono`) VALUES
 ('Luca', 'Privitera', '" . password_hash('123', PASSWORD_DEFAULT) . "', 'privitera@gmail.com', 'Andrea Doria', '3', '3490201244'),
-('Alex', 'Di Maggio', '" . password_hash('123', PASSWORD_DEFAULT) . "', 'dimaggio@gmail.com', 'Andrea Doria', '3', '3482201634')";
+('Alex', 'Di Maggio', '" . password_hash('123', PASSWORD_DEFAULT) . "', 'dimaggio@gmail.com', 'Andrea Doria', '3', '3482201634'),
+('Wario', 'Bianchi', '". password_hash('Password123!', PASSWORD_DEFAULT) ."', 'exampleWario@gmail.com', 'Andrea Doria', '5', '1234567808'),
+('Mario', 'Rossi', '". password_hash('Password123!', PASSWORD_DEFAULT) ."', 'example221212@gmail.com', 'Andrea Doria', '5', '1234567809'),
+('Luigis', 'Rossi', '". password_hash('Password123!', PASSWORD_DEFAULT) ."', 'luigirossi@gmail.com', 'Andrea Doria', '3', '1234567858'),
+('Luca', 'Rossi', '". password_hash('Password123!', PASSWORD_DEFAULT) ."', 'gioeri@gmail.com', 'Andrea Doria', '3', '2222222227'),
+('Utente', 'Ambiguo', '". password_hash('Password123!', PASSWORD_DEFAULT) ."', 'prova_post@gmail.com', 'Andrea Doria', '4', '1212121212')";
 
 if ($conn->query($ins_ut) === FALSE) {
     echo "Errore nell'inserimento degli utenti " . $conn->error;
@@ -69,11 +74,16 @@ $tab_utenteMangaNett = "CREATE TABLE IF NOT EXISTS `utenteMangaNett` (
 if ($conn->query($tab_utenteMangaNett) === FALSE) {
     echo "Errore nella creazione della tabella utente " . $conn->error;
 }
-// date("Y-m-d")
 
-$ins_utManga = "INSERT INTO `utenteMangaNett` (`id`, `username`, `data_registrazione`, `ruolo`, `crediti`, `reputazione`, `segnalazione`, `ban`) VALUES
-('1', 'Luke88', '2023-08-08', 'SA', '5', '12', '0', '0'),
-('2', 'alexdm02192', '2023-08-08', 'GS', '0', '12', '0', '0')";
+
+$ins_utManga = "INSERT INTO `utenteMangaNett` (`id`, `username`, `data_registrazione`, `ruolo`, `crediti`, `reputazione`, `ban`) VALUES
+('1', 'Luke88', '2023-08-08', 'SA', '5', '12', '0'),
+('2', 'alexdm02192', '2023-08-08', 'GS', '0', '12', '0'),
+('3', 'WarioBros', '2023-08-09', 'CL', '0', '1', '0'),
+('4', 'MarioBros', '2023-08-29', 'CL', '20', '5',  '0'),
+('5', 'LuigiBros', '2023-10-18', 'CL', '0', '1',  '0'),
+('6', 'Luca_88', '2023-10-19', 'CL', '0', '1',  '0'),
+('7', 'utente_gentile', '2023-10-21', 'CL', '6', '1',  '0')";
 
 if ($conn->query($ins_utManga) === FALSE) {
     echo "Errore nell'inserimento degli utenti " . $conn->error;
