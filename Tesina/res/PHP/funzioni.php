@@ -293,6 +293,7 @@
                         echo"<div class=\"info-domanda\">";
                             echo"<p class=\"utente\">$username</p>";
                             echo"<p class=\"data\">" . $data . " ". $ora ."</p>";
+                            echo "<p class=\"data\">DOMANDA</p>";
                         echo"</div>";
 
                         echo"<p class=\"testo-domanda\">" . $domanda['testoDom'] . "</p>";
@@ -474,6 +475,7 @@
 
                                 echo "<p class=\"utente\">$username_r</p>";
                                 echo "<p class=\"data\">" . $data_r . " ". $ora_r . "</p>";
+                                echo "<p class=\"data\">RISPOSTA</p>";
                             
                             echo "</div>";
                             

@@ -200,7 +200,7 @@ include('res/PHP/funzioni.php');
         </div>
     </div>
 
-    <p class="titolo-review">INSERISCI UNA DOMANDA SUL PRODOTTO!</p>
+    <p class="titolo-review">ECCO LE DOMANDE RELATIVE A QUESTO PRODOTTO!</p>
 
     <?php
 
