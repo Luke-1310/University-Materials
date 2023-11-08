@@ -114,6 +114,8 @@ $xml = $document->saveXML();
 
 file_put_contents($xmlpath, $xml); 
 
+$_SESSION['richiesta_ok'] = true;
+
 header('Location: ../../mostra_domanda_specifica.php');
 
 ?>

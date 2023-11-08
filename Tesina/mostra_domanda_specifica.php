@@ -49,6 +49,11 @@
             unset($_SESSION['segnalazione_ok']);
         }
 
+        if(isset($_SESSION['richiesta_ok']) && $_SESSION['richiesta_ok'] = true){
+            echo "<h4 id=\"esito_positivo\">L'OPERAZIONE È ANDATA A BUON FINE!</h4>";
+            unset($_SESSION['richiesta_ok']);
+        }
+        
         //mi prendo l'isbn
         foreach($fumetti as $fumetto){
 
