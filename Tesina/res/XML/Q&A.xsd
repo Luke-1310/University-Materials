@@ -19,7 +19,7 @@
         <xsd:element ref="testoDom"/>
         <xsd:element ref="dataDom"/>
         <xsd:element ref="risposta" minOccurs="0" maxOccurs="unbounded"/>
-        <xsd:element name="votazione" minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="votazione_domanda" minOccurs="0" maxOccurs="unbounded">
           <xsd:complexType>
             <xsd:sequence>
               <xsd:element ref="IDValutante"/>
@@ -42,7 +42,7 @@
         <xsd:element ref="IDSegnalatore"/>
         <xsd:element ref="dataRisp"/>
         <xsd:element ref="testoRisp"/>
-        <xsd:element name="votazione" minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="votazione_risposta" minOccurs="0" maxOccurs="unbounded">
           <xsd:complexType>
             <xsd:sequence>
               <xsd:element ref="IDValutante"/>

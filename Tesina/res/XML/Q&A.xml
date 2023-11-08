@@ -15,18 +15,18 @@
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-06T12:30:00</dataRisp>
       <testoRisp>Ecco una risposta di esempio</testoRisp>
-      <votazione>
+      <votazione_risposta>
         <IDValutante>1</IDValutante>
         <reputazione>1</reputazione>
         <utilita>2</utilita>
         <supporto>4</supporto>
-      </votazione>
-      <votazione>
+      </votazione_risposta>
+      <votazione_risposta>
         <IDValutante>4</IDValutante>
         <reputazione>1</reputazione>
         <utilita>1</utilita>
         <supporto>1</supporto>
-      </votazione>
+      </votazione_risposta>
     </risposta>
     <risposta>
       <IDRisp>4</IDRisp>
@@ -35,18 +35,24 @@
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-06T12:31:00</dataRisp>
       <testoRisp>Ecco un altra risposta di esempio</testoRisp>
-      <votazione>
+      <votazione_risposta>
         <IDValutante>4</IDValutante>
         <reputazione>1</reputazione>
         <utilita>5</utilita>
         <supporto>3</supporto>
-      </votazione>
-      <votazione>
+      </votazione_risposta>
+      <votazione_risposta>
         <IDValutante>1</IDValutante>
         <reputazione>12</reputazione>
         <utilita>1</utilita>
         <supporto>2</supporto>
-      </votazione>
+      </votazione_risposta>
+      <votazione_risposta>
+        <IDValutante>2</IDValutante>
+        <reputazione>12</reputazione>
+        <utilita>3</utilita>
+        <supporto>2</supporto>
+      </votazione_risposta>
     </risposta>
   </domanda>
   <domanda>
@@ -64,12 +70,12 @@
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-18T16:03:05</dataRisp>
       <testoRisp>No, non è l'ultimo! La homepage viene sempre aggiornata con le ultime novità, dacci un'occhiata!!! </testoRisp>
-      <votazione>
+      <votazione_risposta>
         <IDValutante>1</IDValutante>
         <reputazione>12</reputazione>
         <utilita>4</utilita>
         <supporto>3</supporto>
-      </votazione>
+      </votazione_risposta>
     </risposta>
     <risposta>
       <IDRisp>7</IDRisp>
@@ -122,6 +128,12 @@
       <dataRisp>2023-10-16T16:44:07</dataRisp>
       <testoRisp>Risposta definitiva</testoRisp>
     </risposta>
+    <votazione_domanda>
+      <IDValutante>2</IDValutante>
+      <reputazione>12</reputazione>
+      <utilita>3</utilita>
+      <supporto>2</supporto>
+    </votazione_domanda>
   </domanda>
   <domanda>
     <ISBNProdotto>9788891298362</ISBNProdotto>
@@ -138,18 +150,18 @@
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-18T12:21:28</dataRisp>
       <testoRisp>Allora, per poter comprare un prodotto devi prima fare una richiesta crediti nella sezione "storico crediti" della tua area privata, poi, eventualmente, un admin te la accetterà e così potrai effettuare l'acquisto!</testoRisp>
-      <votazione>
+      <votazione_risposta>
         <IDValutante>1</IDValutante>
         <reputazione>12</reputazione>
         <utilita>5</utilita>
         <supporto>3</supporto>
-      </votazione>
-      <votazione>
+      </votazione_risposta>
+      <votazione_risposta>
         <IDValutante>5</IDValutante>
         <reputazione>1</reputazione>
         <utilita>4</utilita>
         <supporto>2</supporto>
-      </votazione>
+      </votazione_risposta>
     </risposta>
     <risposta>
       <IDRisp>5</IDRisp>
@@ -158,24 +170,24 @@
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-18T13:55:12</dataRisp>
       <testoRisp>Beh, potresti cercare meglio prima di chiedere!</testoRisp>
-      <votazione>
+      <votazione_risposta>
         <IDValutante>5</IDValutante>
         <reputazione>1</reputazione>
         <utilita>1</utilita>
         <supporto>1</supporto>
-      </votazione>
-      <votazione>
+      </votazione_risposta>
+      <votazione_risposta>
         <IDValutante>6</IDValutante>
         <reputazione>1</reputazione>
         <utilita>1</utilita>
         <supporto>1</supporto>
-      </votazione>
-      <votazione>
+      </votazione_risposta>
+      <votazione_risposta>
         <IDValutante>1</IDValutante>
         <reputazione>12</reputazione>
         <utilita>1</utilita>
         <supporto>1</supporto>
-      </votazione>
+      </votazione_risposta>
     </risposta>
   </domanda>
   <domanda>
