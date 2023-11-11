@@ -22,9 +22,7 @@
             $prezzo = $fumetto->getElementsByTagName('prezzo')->item(0)->nodeValue;
             $dataUscita = $fumetto->getElementsByTagName('data')->item(0)->nodeValue;
             $quantita = $fumetto->getElementsByTagName('quantita')->item(0)->nodeValue;
-            $casaEditrice = $fumetto->getElementsByTagName('editore')->item(0)->nodeValue;
-
-            
+            $casaEditrice = $fumetto->getElementsByTagName('editore')->item(0)->nodeValue;            
             $bonus = $fumetto->getElementsByTagName('bonus')->item(0)->nodeValue;
             
             //mi prendo i parametri dello sconto
@@ -40,7 +38,47 @@
             $nome_autore = $autore->getElementsByTagName('nome')->item(0)->nodeValue;
             $cognome_autore = $autore->getElementsByTagName('cognome')->item(0)->nodeValue;
 
-            //mi prendo tutti i campi tranne le recensioni (al momento)
+            //mi prendo le recensioni
+            $recensioni = [];
+            $recensioneNodes = $fumetto->getElementsByTagName('recensione');
+
+            foreach($recensioneNodes as $recensioneNode){
+
+                $IDRecensore = $recensioneNode->getElementsByTagName('IDRecensore')->item(0)->nodeValue;
+                $testoRecensione = $recensioneNode->getElementsByTagName('testoRecensione')->item(0)->nodeValue;
+                $reputazioneRecensore = $recensioneNode->getElementsByTagName('reputazioneRecensore')->item(0)->nodeValue;
+                $segnalazione_rec = $recensioneNode->getElementsByTagName('segnalazione')->item(0)->nodeValue;
+                $IDSegnalatore_rec = $recensioneNode->getElementsByTagName('IDSegnalatore')->item(0)->nodeValue;
+
+                $votazioni_recensione = [];
+
+                $votazioniNodes = $recensioneNode->getElementsByTagName('votazione_recensore');
+
+                foreach($votazioniNodes as $votazioneNode){
+                    
+                    $IDValutante = $votazioneNode->getElementsByTagName('IDValutante')->item(0)->nodeValue;
+                    $reputazione = $votazioneNode->getElementsByTagName('reputazione')->item(0)->nodeValue;
+                    $utilita = $votazioneNode->getElementsByTagName('utilita')->item(0)->nodeValue;
+                    $supporto = $votazioneNode->getElementsByTagName('supporto')->item(0)->nodeValue;
+
+                    $votazioni_recensione[] = [
+                        'IDValutante' =>$IDValutante,
+                        'reputazione' =>$reputazione,
+                        'utilita' =>$utilita,
+                        'supporto' =>$supporto,
+                    ];
+                }
+
+                $recensioni[] =[
+                    'IDRecensore' => $IDRecensore,
+                    'testoRecensione' => $testoRecensione,
+                    'reputazioneRecensore' => $reputazioneRecensore,
+                    'segnalazione' => $segnalazione_rec,
+                    'IDSegnalatore' => $IDSegnalatore_rec,
+                    'votazioni' => $votazioni_recensione,
+                ];
+            }
+
             $fumetti[] = [
                 'isbn' => $ISBN,
                 'titolo' => $titolo,
@@ -60,7 +98,9 @@
 
                 'nome_autore' => $nome_autore,
                 'cognome_autore' => $cognome_autore,
-            ];
+
+                'recensione' => $recensioni,
+            ]; 
         }
 
         return $fumetti;
