@@ -78,10 +78,20 @@
             echo "<p id=\"titolo\"> IL TUO LIVELLO È: " . $reputazione. "</p>";
         }
 
+        echo "<button onclick=\"aggiornaPagina()\" id=\"aggiorna_rep\">AGGIORNA REPUTAZIONE</button>";
+
         echo "<img src=\"res/WEBSITE_MEDIA/military-salute.gif\" alt=\"reputation_GIF\" width=\"18%\" id=\"military_salute\">";
 
    echo"</div>";
 ?>
+
+<script>
+
+    function aggiornaPagina() {
+        location.reload(); // Ricarica la pagina
+    }
+
+</script>
 
 </body>
 
