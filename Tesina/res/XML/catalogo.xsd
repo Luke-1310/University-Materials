@@ -21,9 +21,9 @@
         <xsd:element ref="quantita"/>
         <xsd:element ref="img"/>
         <xsd:element ref="editore"/>
-        <xsd:element ref="recensione" minOccurs="0" maxOccurs="unbounded"/>
         <xsd:element ref="sconto" minOccurs="0" maxOccurs="1"/>
         <xsd:element ref="bonus" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="recensione" minOccurs="0" maxOccurs="unbounded"/>
       </xsd:sequence>
       <xsd:attribute name="isbn" type="xsd:string" use="required"/>
     </xsd:complexType>
@@ -64,22 +64,19 @@
       <xsd:element name="reputazioneRecensore" type="xsd:integer"/>
       <xsd:element name="segnalazione" type="xsd:integer"/>
       <xsd:element name="IDSegnalatore" type="xsd:integer"/>
-      <xsd:element name="votazione_recensione" minOccurs="0" maxOccurs="unbounded">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element ref="IDValutante"/>
-            <xsd:element ref="reputazione"/>
-            <xsd:element ref="utilita"/>
-            <xsd:element ref="supporto"/>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
+      <xsd:element ref="votazione_recensione" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
   </xsd:complexType>
 
-  <xsd:element name="IDValutante" type="xsd:integer"/>
-  <xsd:element name="reputazione" type="xsd:integer"/>
-  <xsd:element name="utilita" type="xsd:integer"/>
-  <xsd:element name="supporto" type="xsd:integer"/>
+  <xsd:element name="votazione_recensione">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="IDValutante" type="xsd:integer"/>
+        <xsd:element name="reputazione" type="xsd:integer"/>
+        <xsd:element name="utilita" type="xsd:integer"/>
+        <xsd:element name="supporto" type="xsd:integer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
 
 </xsd:schema>

@@ -259,5 +259,24 @@
       <R>0</R>
     </sconto>
     <bonus>0</bonus>
+    <recensione>
+      <IDRecensore>4</IDRecensore>
+      <testoRecensione>Per essere un prequel devo dire che l'ho davvero apprezzato, il retroscena sul maestro del protagonista è stato a dir poco emozionante!!</testoRecensione>
+      <reputazioneRecensore>3</reputazioneRecensore>
+      <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
+      <votazione_recensione>
+        <IDValutante>1</IDValutante>
+        <reputazione>12</reputazione>
+        <utilita>3</utilita>
+        <supporto>3</supporto>
+      </votazione_recensione>
+      <votazione_recensione>
+        <IDValutante>3</IDValutante>
+        <reputazione>2</reputazione>
+        <utilita>2</utilita>
+        <supporto>3</supporto>
+      </votazione_recensione>
+    </recensione>
   </fumetto>
 </manga>
