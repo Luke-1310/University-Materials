@@ -80,8 +80,8 @@
     <risposta>
       <IDRisp>7</IDRisp>
       <FAQ>-1</FAQ>
-      <segnalazione>-1</segnalazione>
-      <IDSegnalatore>4</IDSegnalatore>
+      <segnalazione>1</segnalazione>
+      <IDSegnalatore>3</IDSegnalatore>
       <dataRisp>2023-10-24T16:43:43</dataRisp>
       <testoRisp>*********!!! **** ****** *************** *****!</testoRisp>
     </risposta>

@@ -77,7 +77,7 @@ else if(isset($_GET['from']) && $_GET['from'] == "risposta"){
             if($IDRisp == $ID && $dataRisp == $data){
 
                 $rispostaNode->getElementsByTagName('segnalazione')->item(0)->nodeValue = 1;
-                $domanda_doc->getElementsByTagName('IDSegnalatore')->item(0)->nodeValue = $idSegn;
+                $rispostaNode->getElementsByTagName('IDSegnalatore')->item(0)->nodeValue = $idSegn;
                 break;
             }
         }
