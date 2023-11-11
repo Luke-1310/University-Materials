@@ -25,66 +25,96 @@ else{
     header('Location:../../homepage.php');
 }
 
-//bene, ora bisogna aggiornare il file XML 
-$xmlpath ="../XML/Q&A.xml";
-$xmlstring = "";
+//devo capire se la valutazione è di una recensione o di una domanda/risposta
+if($tipologia == "recensione"){
 
-foreach(file($xmlpath) as $nodo){   //Leggo il contenuto del file XML
+    //bene, ora bisogna aggiornare il file XML 
+    $xmlpath ="../XML/catalogo.xml";
+    $xmlstring = "";
 
-    $xmlstring.= trim($nodo); 
-}
+    foreach(file($xmlpath) as $nodo){   //Leggo il contenuto del file XML
 
-$document = new DOMDocument();
-$document->loadXML($xmlstring);
+        $xmlstring.= trim($nodo); 
+    }
 
-$elenco = $document->getElementsByTagName('domanda');
+    $document = new DOMDocument();
+    $document->loadXML($xmlstring);
 
-foreach($elenco as $domanda){
+    $manga = $document->getElementsByTagName('fumetto');
 
-    if($tipologia == "domanda"){
+    foreach($manga as $fumetto){
 
-        $ID_current = $domanda->getElementsByTagName('IDDom')->item(0)->nodeValue;
-        $date_current = $domanda->getElementsByTagName('dataDom')->item(0)->nodeValue;
+        $titolo = $fumetto->getElementsByTagName('titolo')->item(0)->nodeValue;
 
-        //condizione per trovare la giusta domanda nella quale mettere la valutazione
-        if($ID_current == $ID && $date_current == $data){
+        if($titolo == $_SESSION['info_titolo']){
+            $recensioni = $fumetto->getElementsByTagName('recensione');
+            
+            foreach($recensioni as $recensione){
 
-            $votazione = $document->createElement('votazione_domanda');
+                $ID_current = $recensione->getElementsByTagName('IDRecensore')->item(0)->nodeValue;
+                $date_current = $recensione->getElementsByTagName('dataRecensione')->item(0)->nodeValue;
 
-            $IDV = $document->createElement('IDValutante');
-            $rep = $document->createElement('reputazione');
-            $uti = $document->createElement('utilita');
-            $sup = $document->createElement('supporto');
+                if($ID_current == $ID && $date_current == $data){
 
-            $IDV->nodeValue = $IDValutante;
-            $votazione->appendChild($IDV);
+                    $votazione = $document->createElement('votazione_recensione');
 
-            $rep->nodeValue = $reputazione;
-            $votazione->appendChild($rep);
+                    $IDV = $document->createElement('IDValutante');
+                    $rep = $document->createElement('reputazione');
+                    $uti = $document->createElement('utilita');
+                    $sup = $document->createElement('supporto');
+    
+                    $IDV->nodeValue = $IDValutante;
+                    $votazione->appendChild($IDV);
+    
+                    $rep->nodeValue = $reputazione;
+                    $votazione->appendChild($rep);
+    
+                    $uti->nodeValue = $utilita;
+                    $votazione->appendChild($uti);
+    
+                    $sup->nodeValue = $supporto;
+                    $votazione->appendChild($sup);
+    
+                    $recensione->appendChild($votazione);
+                }
+            }
 
-            $uti->nodeValue = $utilita;
-            $votazione->appendChild($uti);
-
-            $sup->nodeValue = $supporto;
-            $votazione->appendChild($sup);
-
-            $domanda->appendChild($votazione);
         }
     }
 
-    $risposte = $domanda->getElementsByTagName('risposta');
+    $document->formatOutput = true; 
+    $xml = $document->saveXML();
 
-    if($tipologia == "risposta"){
+    file_put_contents($xmlpath, $xml); 
 
-        foreach($risposte as $risposta){
-            
-            $ID_current = $risposta->getElementsByTagName('IDRisp')->item(0)->nodeValue;
-            $date_current = $risposta->getElementsByTagName('dataRisp')->item(0)->nodeValue;
+}
+else{
 
-            //condizione per trovare la giusta risposta nella quale mettere la valutazione
+    //bene, ora bisogna aggiornare il file XML 
+    $xmlpath ="../XML/Q&A.xml";
+    $xmlstring = "";
+
+    foreach(file($xmlpath) as $nodo){   //Leggo il contenuto del file XML
+
+        $xmlstring.= trim($nodo); 
+    }
+
+    $document = new DOMDocument();
+    $document->loadXML($xmlstring);
+
+    $elenco = $document->getElementsByTagName('domanda');
+
+    foreach($elenco as $domanda){
+
+        if($tipologia == "domanda"){
+
+            $ID_current = $domanda->getElementsByTagName('IDDom')->item(0)->nodeValue;
+            $date_current = $domanda->getElementsByTagName('dataDom')->item(0)->nodeValue;
+
+            //condizione per trovare la giusta domanda nella quale mettere la valutazione
             if($ID_current == $ID && $date_current == $data){
 
-                $votazione = $document->createElement('votazione_risposta');
+                $votazione = $document->createElement('votazione_domanda');
 
                 $IDV = $document->createElement('IDValutante');
                 $rep = $document->createElement('reputazione');
@@ -103,25 +133,61 @@ foreach($elenco as $domanda){
                 $sup->nodeValue = $supporto;
                 $votazione->appendChild($sup);
 
-                $risposta->appendChild($votazione);
+                $domanda->appendChild($votazione);
+            }
+        }
+
+        $risposte = $domanda->getElementsByTagName('risposta');
+
+        if($tipologia == "risposta"){
+
+            foreach($risposte as $risposta){
+                
+                $ID_current = $risposta->getElementsByTagName('IDRisp')->item(0)->nodeValue;
+                $date_current = $risposta->getElementsByTagName('dataRisp')->item(0)->nodeValue;
+
+                //condizione per trovare la giusta risposta nella quale mettere la valutazione
+                if($ID_current == $ID && $date_current == $data){
+
+                    $votazione = $document->createElement('votazione_risposta');
+
+                    $IDV = $document->createElement('IDValutante');
+                    $rep = $document->createElement('reputazione');
+                    $uti = $document->createElement('utilita');
+                    $sup = $document->createElement('supporto');
+
+                    $IDV->nodeValue = $IDValutante;
+                    $votazione->appendChild($IDV);
+
+                    $rep->nodeValue = $reputazione;
+                    $votazione->appendChild($rep);
+
+                    $uti->nodeValue = $utilita;
+                    $votazione->appendChild($uti);
+
+                    $sup->nodeValue = $supporto;
+                    $votazione->appendChild($sup);
+
+                    $risposta->appendChild($votazione);
+                }
             }
         }
     }
+
+    $document->formatOutput = true; 
+    $xml = $document->saveXML();
+
+    file_put_contents($xmlpath, $xml); 
 }
-
-$document->formatOutput = true; 
-$xml = $document->saveXML();
-
-file_put_contents($xmlpath, $xml); 
 
 $_SESSION['richiesta_ok'] = true;
 
 if(isset($_SESSION['provenienza_valutazione']) && $_SESSION['provenienza_valutazione'] == "prodotti_info.php"){
+    unset($_SESSION['provenienza_valutazione']);
     header('Location: ../../prodotti_info.php');
 }
 else if(isset($_SESSION['provenienza_valutazione']) && $_SESSION['provenienza_valutazione'] == "mostra_domanda_specifica.php"){
+    unset($_SESSION['provenienza_valutazione']);
     header('Location: ../../mostra_domanda_specifica.php');
 }
-
-
 ?>
