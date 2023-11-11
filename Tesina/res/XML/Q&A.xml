@@ -94,6 +94,14 @@
     <IDDom>1</IDDom>
     <testoDom>Ma questo prodotto, che voi sappiate, ha una cartolina?</testoDom>
     <dataDom>2023-10-14T21:43:53</dataDom>
+    <risposta>
+      <IDRisp>5</IDRisp>
+      <FAQ>-1</FAQ>
+      <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
+      <dataRisp>2023-11-11T15:15:01</dataRisp>
+      <testoRisp>Guarda non sembra esserci</testoRisp>
+    </risposta>
   </domanda>
   <domanda>
     <ISBNProdotto>9788822632593</ISBNProdotto>
