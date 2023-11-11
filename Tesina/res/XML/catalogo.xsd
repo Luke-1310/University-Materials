@@ -21,6 +21,7 @@
         <xsd:element ref="quantita"/>
         <xsd:element ref="img"/>
         <xsd:element ref="editore"/>
+        <xsd:element ref="recensione" minOccurs="0" maxOccurs="unbounded"/>
         <xsd:element ref="sconto" minOccurs="0" maxOccurs="1"/>
         <xsd:element ref="bonus" minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
@@ -37,6 +38,7 @@
   <xsd:element name="quantita" type="xsd:integer"/>
   <xsd:element name="img" type="xsd:string"/>
   <xsd:element name="editore" type="xsd:string"/>
+  <xsd:element name="recensione" type="recensioneTipo"/>
   <xsd:element name="sconto" type="scontoParam"/>
   <xsd:element name="bonus" type="xsd:float"/>
 
@@ -47,11 +49,6 @@
     </xsd:sequence>
   </xsd:complexType>
 
-  <xsd:element name="utenteID" type="xsd:string" />
-  <xsd:element name="rec" type="xsd:string" />
-  <xsd:element name="dataRec" type="xsd:dateTime"/>
-  <xsd:element name="reputazionevotante" type="xsd:integer"/>
-
   <xsd:complexType name="scontoParam">
     <xsd:sequence>
       <xsd:element name="X" type="xsd:integer"/>
@@ -59,5 +56,30 @@
       <xsd:element name="R" type="xsd:integer"/>
     </xsd:sequence>
   </xsd:complexType>
+
+  <xsd:complexType name="recensioneTipo">
+    <xsd:sequence>
+      <xsd:element name="IDRecensore" type="xsd:integer"/>
+      <xsd:element name="testoRecensione" type="xsd:string"/>
+      <xsd:element name="reputazioneRecensore" type="xsd:integer"/>
+      <xsd:element name="segnalazione" type="xsd:integer"/>
+      <xsd:element name="IDSegnalatore" type="xsd:integer"/>
+      <xsd:element name="votazione_recensione" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="IDValutante"/>
+            <xsd:element ref="reputazione"/>
+            <xsd:element ref="utilita"/>
+            <xsd:element ref="supporto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="IDValutante" type="xsd:integer"/>
+  <xsd:element name="reputazione" type="xsd:integer"/>
+  <xsd:element name="utilita" type="xsd:integer"/>
+  <xsd:element name="supporto" type="xsd:integer"/>
 
 </xsd:schema>
