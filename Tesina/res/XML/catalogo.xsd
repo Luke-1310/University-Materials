@@ -38,9 +38,9 @@
   <xsd:element name="quantita" type="xsd:integer"/>
   <xsd:element name="img" type="xsd:string"/>
   <xsd:element name="editore" type="xsd:string"/>
-  <xsd:element name="recensione" type="recensioneTipo"/>
   <xsd:element name="sconto" type="scontoParam"/>
   <xsd:element name="bonus" type="xsd:float"/>
+  <xsd:element name="recensione" type="recensioneTipo"/>
 
   <xsd:complexType name="nomeCognome">
     <xsd:sequence>
