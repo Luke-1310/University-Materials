@@ -218,7 +218,7 @@ textarea{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.info-domanda, .info-risposta {
+.info-domanda, .info-risposta, .info-recensione{
     display: flex;
     justify-content: space-between;
 }
@@ -228,7 +228,7 @@ textarea{
     font-weight: bold;
 }
 
-.testo-domanda, .testo-risposta {
+.testo-domanda, .testo-risposta, .testo-recensione {
     margin: 10px 0;
 }
 
@@ -328,4 +328,17 @@ input[type="submit"] {
 #esito_positivo{
     color: #1DB954;
     text-align: center;
+}
+
+.recensione{
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: auto; 
+    height: auto; 
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
