@@ -45,6 +45,7 @@
             foreach($recensioneNodes as $recensioneNode){
 
                 $IDRecensore = $recensioneNode->getElementsByTagName('IDRecensore')->item(0)->nodeValue;
+                $dataRecensione = $recensioneNode->getElementsByTagName('dataRecensione')->item(0)->nodeValue;
                 $testoRecensione = $recensioneNode->getElementsByTagName('testoRecensione')->item(0)->nodeValue;
                 $reputazioneRecensore = $recensioneNode->getElementsByTagName('reputazioneRecensore')->item(0)->nodeValue;
                 $segnalazione_rec = $recensioneNode->getElementsByTagName('segnalazione')->item(0)->nodeValue;
@@ -71,6 +72,7 @@
 
                 $recensioni[] =[
                     'IDRecensore' => $IDRecensore,
+                    'dataRecensione' => $dataRecensione,
                     'testoRecensione' => $testoRecensione,
                     'reputazioneRecensore' => $reputazioneRecensore,
                     'segnalazione' => $segnalazione_rec,
@@ -720,5 +722,57 @@
         }
 
         return $reputazione_difetto_def;
+    }
+
+    //funzione per stampare le recensioni, in essa troviamo anche il form per inserirne una nuova
+    function mostraRecensioni($xmlPath){
+        
+        include('connection.php');
+
+        $connessione = new mysqli($host, $user, $password, $db);
+
+        $fumetti = getFumetti($xmlPath);
+
+        foreach($fumetti as $fumetto){
+            
+            if(isset($_SESSION['info_titolo']) && $_SESSION['info_titolo'] == $fumetto['titolo']){
+                
+                foreach($fumetto['recensione'] as $recensione){
+
+                    //dataRec
+                    $parti_rec = explode("T", $recensione['dataRecensione']);
+
+                    $data_rec = $parti_rec[0];
+                    $ora_rec = $parti_rec[1];
+                    
+                    //nome del recensore
+                    $query = "SELECT umn.username FROM utenteMangaNett umn WHERE umn.id = {$recensione['IDRecensore']}";
+                    $ris = $connessione->query($query);
+
+                    if ($ris) {
+                        $row = $ris->fetch_assoc();
+                        $username_recensore = $row['username']; 
+                    }
+                    else{
+                        exit(1);
+                    }
+
+                    echo "<div class=\"container_sp\">";
+
+                        echo "<div class=\"domanda\">";
+
+                        echo"<div class=\"info-domanda\">";
+                            echo"<p class=\"utente\">$username_recensore</p>";
+                            echo"<p class=\"data\">" . $data_rec . " ". $ora_rec ."</p>";
+                            echo "<p class=\"data\">RECENSIONE</p>";
+                        echo"</div>";
+
+                        echo"<p class=\"testo-domanda\">" . $recensione['testoRecensione'] . "</p>";
+
+                    echo "</div>";
+
+                }
+            }
+        }
     }
 ?>

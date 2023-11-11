@@ -35,8 +35,7 @@ include('res/PHP/funzioni.php');
     if (isset($_POST['titolo'])) {
         $titolo = $_POST["titolo"];
     }
-    //metto il titolo dentro una variabile di sessione perché se cambio il tema nella pagina delle info mi da errore
-    //preso il titolo stampo tutte le informazioni
+    //metto il titolo dentro una variabile di sessione perché se cambio il tema nella pagina delle info mi da errore, si perdono i dati passati col POST
     // Verifica se $titolo non è vuoto prima di aggiornare la variabile di sessione
     if (!empty($titolo)) {
         $_SESSION['info_titolo'] = $titolo;
@@ -67,7 +66,7 @@ include('res/PHP/funzioni.php');
     //itero attraverso gli elementi 'fumetto'
     foreach ($fumetti as $fumetto) {
 
-        if ($fumetto['titolo'] == $_SESSION['info_titolo']) {
+        if(isset($_SESSION['info_titolo']) && $_SESSION['info_titolo'] == $fumetto['titolo']){
 
             //ci troviamo nel fumetto corretto, mi prendo tutti i dati
             $autoreNome = $fumetto['nome_autore'];
@@ -209,6 +208,9 @@ include('res/PHP/funzioni.php');
         //variabile di sessione col fine di capire da dove proviene la richiesta
         $_SESSION['provenienza_valutazione'] = "prodotti_info.php";
         mostraDomande($ISBN, $xmlPath);
+
+        echo "<p class=\"titolo-review\">ECCO LE RECENSIONI RELATIVE A QUESTO PRODOTTO!</p>";
+        mostraRecensioni($pathXml);
     ?>
 
 </body>
