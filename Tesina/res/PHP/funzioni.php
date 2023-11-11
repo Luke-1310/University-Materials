@@ -814,7 +814,7 @@
                                 }
                                 else{
 
-                                    echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_recensione.php\" method=\"POST\">";
+                                    echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
 
                                         echo "<div class=\"form-row\">";
 
@@ -840,17 +840,16 @@
                                                 
                                             echo "</select>";
                                             
-                                            // echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
-                                            // echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] .">";
-                                            // echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] .">";
-                                            // echo"<input type=\"hidden\" name=\"tipo\" value=\"domanda\">";
+                                            echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
+                                            echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] .">";
+                                            echo"<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] .">";
+                                            echo"<input type=\"hidden\" name=\"tipo\" value=\"recensione\">";
 
                                         echo "</div>";
                                 
                                         echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
 
                                     echo "</form>";
-
                                 }
 
                                 //form AGGIUNGI RECENSIONE
