@@ -60,6 +60,7 @@
   <xsd:complexType name="recensioneTipo">
     <xsd:sequence>
       <xsd:element name="IDRecensore" type="xsd:integer"/>
+      <xsd:element name="dataRecensione" type="xsd:date"/>
       <xsd:element name="testoRecensione" type="xsd:string"/>
       <xsd:element name="reputazioneRecensore" type="xsd:integer"/>
       <xsd:element name="segnalazione" type="xsd:integer"/>
