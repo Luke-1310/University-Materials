@@ -29,7 +29,6 @@ else{
 }
 
 //bene ora che ho tutti i dati devo trovare la domanda corretta ed inserire la risposta
-
 $xmlfile = "../XML/catalogo.xml";  //Percorso del file XML
 
 $fumetti = getFumetti($xmlfile);
@@ -90,6 +89,7 @@ $xml = $document->saveXML();
 
 file_put_contents($xmlpath, $xml); 
 
-header('Location: ../../mostra_domanda_specifica.php');
+$_SESSION['richiesta_ok'] = true;
+header('Location:../../mostra_domande_prodotto.php');
 
 ?>
