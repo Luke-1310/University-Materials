@@ -759,18 +759,133 @@
 
                     echo "<div class=\"container_sp\">";
 
-                        echo "<div class=\"domanda\">";
+                        echo "<div class=\"recensione\">";
 
-                        echo"<div class=\"info-domanda\">";
+                        echo"<div class=\"info-recensione\">";
                             echo"<p class=\"utente\">$username_recensore</p>";
                             echo"<p class=\"data\">" . $data_rec . " ". $ora_rec ."</p>";
                             echo "<p class=\"data\">RECENSIONE</p>";
                         echo"</div>";
 
-                        echo"<p class=\"testo-domanda\">" . $recensione['testoRecensione'] . "</p>";
+                        echo"<p class=\"testo-recensione\">" . $recensione['testoRecensione'] . "</p>";
+
+                        if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                            
+                            $query = "SELECT umn.ban FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+                            $ris = $connessione->query($query);
+
+                            if ($ris) {
+
+                                $row = $ris->fetch_assoc();
+                                $ban = $row['ban'];
+                            }
+                            else{
+                                exit(1);
+                            }
+
+                            if($ban == 0){
+
+                                $query_v = "SELECT umn.id FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+                                $ris_v = $connessione->query($query_v);
+
+                                if ($ris_v) {
+                                    $row_v = $ris_v->fetch_assoc();
+                                    $id_valutante = $row_v['id']; 
+                                }
+                                else{
+                                    exit(1);
+                                }
+
+                                $ha_votato = false;
+
+                                if (isset($domanda['votazioni'])) {
+
+                                    foreach ($domanda['votazioni'] as $votazione) {
+
+                                        if ($votazione['IDValutante'] == $id_valutante) {
+                                            $ha_votato = true;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                if($ha_votato){
+                                    echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
+                                }
+                                else{
+
+                                    echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_recensione.php\" method=\"POST\">";
+
+                                        echo "<div class=\"form-row\">";
+
+                                            echo "<label for=\"utilita\">UTILITÀ:</label>";
+                                            echo "<select name=\"utilita\" id=\"utilita\">";
+                                        
+                                                for ($i = 1; $i <= 5; $i++) {
+                                                    echo "<option value=\"$i\">$i</option>";
+                                                }
+
+                                            echo "</select>";
+
+                                        echo "</div>";
+
+                                        echo "<div class=\"form-row\">";
+
+                                            echo "<label for=\"supporto\">SUPPORTO:</label>";
+                                            echo "<select name=\"supporto\" id=\"supporto\">";
+
+                                                for ($i = 1; $i <= 3; $i++) {
+                                                    echo "<option value=\"$i\">$i</option>";
+                                                }
+                                                
+                                            echo "</select>";
+                                            
+                                            // echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
+                                            // echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] .">";
+                                            // echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] .">";
+                                            // echo"<input type=\"hidden\" name=\"tipo\" value=\"domanda\">";
+
+                                        echo "</div>";
+                                
+                                        echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                                    echo "</form>";
+
+                                }
+
+                                //form AGGIUNGI RECENSIONE
+                                echo"<form id=\"rispostaForm\" action=\"res/PHP/aggiungi_recensione.php\" method=\"POST\" >";
+
+                                    echo"<div class=\"form-row\">";
+                                        echo"<label for=\"risposta\">AGGIUNGI UNA RECENSIONE...</label>";
+                                        echo "<textarea id=\"risposta\" name=\"risposta\" rows=\"10\" cols=\"40\" placeholder=\"Inserisci qui la tua recensione....\" required></textarea>";
+                                    echo"</div>";
+
+                                    // echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
+                                    // echo"<input type=\"hidden\" name=\"isbn\" value=$ISBN>";
+                                    echo "<span class =\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                                echo "</form>";
+
+                                echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=recensione\" method=\"POST\" >";
+
+                                    // echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
+                                    // echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] . ">";
+                                    echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
+                                
+                                echo "</form>";
+                            }
+
+                            else{
+                                echo"<p id=\"new_question\">OPS... RISULTI BANNATO!</p>";
+                            }
+                        
+                        }
+                        else{
+                            echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER INSERIRE UNA NUOVA RECENSIONE!</a></p>";
+                        }
 
                     echo "</div>";
-
                 }
             }
         }
