@@ -108,7 +108,7 @@ include('res/PHP/funzioni.php');
 
                 //faccio una query per controllare se l'utente è un GS o AM, se sì allora stampo il bottone
                 if (isset($_SESSION['nome'])) {
-                    $query = "SELECT um.ruolo FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}' AND (um.ruolo = 'AM' || um.ruolo = 'GS')";
+                    $query = "SELECT um.ruolo FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}' AND (um.ruolo = 'SA' || um.ruolo = 'AM' || um.ruolo = 'GS')";
                     $ris = mysqli_query($connessione, $query);
 
                     if (mysqli_num_rows($ris) == 1) {
