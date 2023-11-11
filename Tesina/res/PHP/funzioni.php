@@ -53,7 +53,7 @@
 
                 $votazioni_recensione = [];
 
-                $votazioniNodes = $recensioneNode->getElementsByTagName('votazione_recensore');
+                $votazioniNodes = $recensioneNode->getElementsByTagName('votazione_recensione');
 
                 foreach($votazioniNodes as $votazioneNode){
                     
@@ -739,13 +739,10 @@
                 
                 foreach($fumetto['recensione'] as $recensione){
 
-                    //dataRec
                     $parti_rec = explode("T", $recensione['dataRecensione']);
-
                     $data_rec = $parti_rec[0];
                     $ora_rec = $parti_rec[1];
                     
-                    //nome del recensore
                     $query = "SELECT umn.username FROM utenteMangaNett umn WHERE umn.id = {$recensione['IDRecensore']}";
                     $ris = $connessione->query($query);
 
@@ -798,11 +795,12 @@
 
                                 $ha_votato = false;
 
-                                if (isset($domanda['votazioni'])) {
-
-                                    foreach ($domanda['votazioni'] as $votazione) {
-
+                                if (isset($recensione['votazioni'])) {
+                                
+                                    foreach($recensione['votazioni'] as $votazione) {
+                                        
                                         if ($votazione['IDValutante'] == $id_valutante) {
+                                
                                             $ha_votato = true;
                                             break;
                                         }
@@ -815,7 +813,7 @@
                                 else{
 
                                     echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
-
+                                    
                                         echo "<div class=\"form-row\">";
 
                                             echo "<label for=\"utilita\">UTILITÀ:</label>";
