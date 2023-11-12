@@ -866,8 +866,8 @@
 
                                 echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=recensione\" method=\"POST\" >";
 
-                                    // echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
-                                    // echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] . ">";
+                                    echo"<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] . ">";
+                                    echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] . ">";
                                     echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
                                 
                                 echo "</form>";
