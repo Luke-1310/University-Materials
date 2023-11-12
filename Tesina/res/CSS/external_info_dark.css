@@ -194,7 +194,6 @@ textarea{
 }
 
 .domanda{
-    border: 1px solid #333;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -204,7 +203,6 @@ textarea{
 }
 
 .risposta{
-    border: 1px solid #333;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -213,7 +211,7 @@ textarea{
     height: auto; 
 }
 
-.info-domanda, .info-risposta {
+.info-domanda, .info-risposta, .info-recensione {
     display: flex;
     justify-content: space-between;
 }
@@ -223,7 +221,7 @@ textarea{
     font-weight: bold;
 }
 
-.testo-domanda, .testo-risposta {
+.testo-domanda, .testo-risposta, .testo-recensione {
     margin: 10px 0;
 }
 
@@ -326,4 +324,14 @@ input[type="submit"] {
 #esito_positivo{
     color: #1DB954;
     text-align: center;
+}
+
+.recensione{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    width: auto; 
+    height: auto; 
 }
