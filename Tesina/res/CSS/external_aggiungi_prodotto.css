@@ -3,7 +3,24 @@ h3 {
 }
 
 h4 {
+  margin-top: 50px;
   color: red;
+}
+
+.container_external{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 50px auto;
+
+  height: 175vh;
+  width: 90%;
+  max-width: 900px;
+
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .container_reg {
@@ -13,7 +30,6 @@ h4 {
   justify-content: center;
   height: 60vh;
   text-align: center;
-  margin: 410px auto 380px;
 }
 
 #prodottoForm {
@@ -26,7 +42,7 @@ h4 {
   color: #1a1a1a;
 }
 
-#loginForm a:hover {
+#prodottoForm a:hover {
   color: #1e8fffc5;
 }
 

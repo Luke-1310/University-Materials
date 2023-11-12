@@ -3,7 +3,23 @@ h3 {
 }
 
 h4 {
+  margin-top: 50px;
   color: red;
+}
+
+.container_external{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 50px auto;
+
+  height: 175vh;
+  width: 90%;
+  max-width: 900px;
+
+  background-color: #1a1a1a;
+  border-radius: 20px;
 }
 
 .container_reg {
@@ -13,7 +29,6 @@ h4 {
   justify-content: center;
   height: 60vh;
   text-align: center;
-  margin: 410px auto 380px;
 }
 
 #prodottoForm {
@@ -57,7 +72,7 @@ input {
 }
 
 input[type="submit"] {
-  background-color: #1a1a1a;
+  background-color: #0e0e0e;
   color: #f0f0f0;
   font-family: 'Roboto Mono', monospace;
   font-size: 20px;
