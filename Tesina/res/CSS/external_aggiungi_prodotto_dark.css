@@ -6,15 +6,6 @@ h4 {
   color: red;
 }
 
-.container-external{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 69vh;
-  margin: 0;
-  background-color: #f0f0f0;
-}
-
 .container_reg {
   display: flex;
   flex-direction: column;
@@ -22,7 +13,7 @@ h4 {
   justify-content: center;
   height: 60vh;
   text-align: center;
-  margin: 380px auto 340px;
+  margin: 410px auto 380px;
 }
 
 #prodottoForm {
