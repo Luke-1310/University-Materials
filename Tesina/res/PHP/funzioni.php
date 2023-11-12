@@ -647,13 +647,13 @@
     }    
 
     //funzione utile per calcolare la reputazione
-    function calcolaReputazione($id, $xmlpath){
+    function calcolaReputazione($id, $xmlpath, $xmlpath_fumetti){
 
         include("connection.php");
         $connessione = new mysqli($host, $user, $password, $db);
 
-        //ora dovrei prendere tutte le risposte di questo utente ed applicare la formula di ciascun voto
         $domande = getDomande($xmlpath);
+        $fumetti = getFumetti($xmlpath_fumetti);
 
         $temp_num = 0;  //Qui ci metto i calcoli da fare per il numeratore della formula
         $temp_den = 0;  //Qui ci metto i calcoli da fare per il denominatore della formula
@@ -687,6 +687,24 @@
                         $temp_num = $temp_num + (($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione']);
                         $temp_den = $temp_den + $votazione['reputazione'];
                     }
+                }
+            }
+        }
+
+        //infine valuto le valutazioni dei fumetti
+        foreach($fumetti as $fumetto){
+
+            foreach($fumetto['recensione'] as $recensione){
+
+                if($recensione['IDRecensore'] == $id){
+
+                    foreach($recensione['votazioni'] as $votazione){
+
+                        // Calcola la reputazione per questa risposta e la aggiunge al totale
+                        $temp_num = $temp_num + (($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione']);
+                        $temp_den = $temp_den + $votazione['reputazione'];
+                    }
+
                 }
             }
         }
