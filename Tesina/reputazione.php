@@ -73,7 +73,8 @@
         
         else{
             $xmlpath= "res/XML/Q&A.xml";
-            $reputazione = calcolaReputazione($id, $xmlpath);
+            $xmlfile= "res/XML/catalogo.xml";
+            $reputazione = calcolaReputazione($id, $xmlpath, $xmlfile);
             
             echo "<p id=\"titolo\"> IL TUO LIVELLO È: " . $reputazione. "</p>";
         }
