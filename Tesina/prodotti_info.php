@@ -78,7 +78,8 @@ include('res/PHP/funzioni.php');
             $editore = $fumetto['editore'];
             $ISBN = $fumetto['isbn'];
             $bonus = $fumetto['bonus'];
-                
+
+            //mancano parametri    
             $mesi = $fumetto['X'];
             $crediti = $fumetto['N'];
             $reputazione = $fumetto['R'];
@@ -173,20 +174,20 @@ include('res/PHP/funzioni.php');
                     echo "</div>";
                 }
 
-                if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                // if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
 
-                    //se TUTTI i parametri sono uguali a 0 allora questo prodotto non è soggetto a sconto
-                    if($mesi != 0 || $crediti != 0 || $reputazione != 0){
+                //     //se TUTTI i parametri sono uguali a 0 allora questo prodotto non è soggetto a sconto
+                //     if($mesi != 0 || $crediti != 0 || $reputazione != 0){
 
-                        //se l'utente fa rientra nei parametri dello sconto allora glielo faccio sapere
-                        if($mesi < $mesi_trascorsi && $crediti < $spesi_utente && $reputazione < $reputazione_utente){
-                            echo "<div class=\"info-field\">";
-                                echo "<span class=\"field-label\">SCONTO: </span>";
-                                echo "<span class=\"field-value\">SEI ELEGIBILE PER UNO SCONTO ADDIZIONALE!!</span>";
-                            echo "</div>";
-                        }
-                    }
-                }
+                //         //se l'utente fa rientra nei parametri dello sconto allora glielo faccio sapere
+                //         if($mesi < $mesi_trascorsi && $crediti < $spesi_utente && $reputazione < $reputazione_utente){
+                //             echo "<div class=\"info-field\">";
+                //                 echo "<span class=\"field-label\">SCONTO: </span>";
+                //                 echo "<span class=\"field-value\">SEI ELEGIBILE PER UNO SCONTO ADDIZIONALE!!</span>";
+                //             echo "</div>";
+                //         }
+                //     }
+                // }
                     
                 ?>
             </div>
