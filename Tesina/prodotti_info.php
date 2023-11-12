@@ -199,7 +199,7 @@ include('res/PHP/funzioni.php');
         </div>
     </div>
 
-    <p class="titolo-review">ECCO LE DOMANDE RELATIVE A QUESTO PRODOTTO!</p>
+    <p class="titolo-review">DOMANDE E RISPOSTE</p>
 
     <?php
 
@@ -209,7 +209,7 @@ include('res/PHP/funzioni.php');
         $_SESSION['provenienza_valutazione'] = "prodotti_info.php";
         mostraDomande($ISBN, $xmlPath);
 
-        echo "<p class=\"titolo-review\">ECCO LE RECENSIONI RELATIVE A QUESTO PRODOTTO!</p>";
+        echo "<p class=\"titolo-review\">RECENSIONI</p>";
         mostraRecensioni($pathXml);
     ?>
 
