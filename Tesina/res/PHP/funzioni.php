@@ -855,11 +855,10 @@
 
                                     echo"<div class=\"form-row\">";
                                         echo"<label for=\"risposta\">AGGIUNGI UNA RECENSIONE...</label>";
-                                        echo "<textarea id=\"risposta\" name=\"risposta\" rows=\"10\" cols=\"40\" placeholder=\"Inserisci qui la tua recensione....\" required></textarea>";
+                                        echo "<textarea id=\"risposta\" name=\"recensione\" rows=\"10\" cols=\"40\" placeholder=\"Inserisci qui la tua recensione....\" required></textarea>";
                                     echo"</div>";
 
-                                    // echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] . ">";
-                                    // echo"<input type=\"hidden\" name=\"isbn\" value=$ISBN>";
+                                    echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] . ">";
                                     echo "<span class =\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
 
                                 echo "</form>";
