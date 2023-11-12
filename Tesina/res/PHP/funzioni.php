@@ -751,11 +751,15 @@
 
         $fumetti = getFumetti($xmlPath);
 
+        $isRecensione = false;
+
         foreach($fumetti as $fumetto){
             
             if(isset($_SESSION['info_titolo']) && $_SESSION['info_titolo'] == $fumetto['titolo']){
                 
                 foreach($fumetto['recensione'] as $recensione){
+
+                    $isRecensione = true;
 
                     $parti_rec = explode("T", $recensione['dataRecensione']);
                     $data_rec = $parti_rec[0];
@@ -893,7 +897,6 @@
                             else{
                                 echo"<p id=\"new_question\">OPS... RISULTI BANNATO!</p>";
                             }
-                        
                         }
                         else{
                             echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER INSERIRE UNA NUOVA RECENSIONE!</a></p>";
@@ -902,6 +905,27 @@
                     echo "</div>";
                 }
             }
+        }
+
+        //controllo se c'è almeno una domanda
+        if(!$isRecensione){
+
+            echo "<div class=\"container_sp\">";
+
+                echo"<div class=\"domanda\">";
+
+                    echo"<p id=\"no_question\">NON SEMBRANO ESSERCI RECENSIONI QUI!</p>";
+
+                    if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                        echo"<p id=\"new_question\"><a href=\"aggiungi_domanda_prodotto.php\">CLICCAMI PER INSERIRE UNA NUOVA DOMANDA!</a></p>";
+                    }
+                    else{
+                        echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER INSERIRE UNA NUOVA RECENSIONE!</a></p>";
+                    }
+                    
+                echo "</div>";
+
+            echo "</div>";
         }
     }
 ?>
