@@ -28,7 +28,13 @@
 
 <body>
     <?php
-        
+
+        //gestione errore
+        if(isset($_SESSION['richiesta_ko']) && $_SESSION['richiesta_ko'] == true){
+            echo "<h4 id=\"esito_negativo\">SI È VERIFICATO UN ERRORE IMPREVISTO!</h4>";
+            unset($_SESSION['richiesta_ko']);
+        }
+
         echo "<p class=\"novita\"><a href=\"catalogo.php\">LE ULTIME NOVITÀ!</a></p>";
 
         echo "<div class=\"container\">";

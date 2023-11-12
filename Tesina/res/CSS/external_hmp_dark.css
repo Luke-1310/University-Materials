@@ -77,6 +77,11 @@
   color:#ffffff;
 }
 
-  .novita :hover{
+.novita :hover{
     color: #1e8fffc5;
-}  
+} 
+
+#esito_negativo{
+  color: red;
+  text-align: center;
+}
