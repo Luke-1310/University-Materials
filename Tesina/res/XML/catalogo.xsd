@@ -54,6 +54,8 @@
   <xsd:complexType name="scontoParam">
     <xsd:sequence>
       <xsd:element name="X" type="xsd:integer"/>
+      <xsd:element name="M" type="xsd:integer"/>
+      <xsd:element name="data_M" type="xsd:date"/>
       <xsd:element name="N" type="xsd:integer"/>
       <xsd:element name="R" type="xsd:integer"/>
     </xsd:sequence>
