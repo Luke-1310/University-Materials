@@ -163,11 +163,13 @@ textarea{
 .titolo-review{
     text-align: center;
 
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
+
+    color:#1e8fffc5;
 }
 
-.titolo-review a{
+/* .titolo-review a{
 
     text-decoration: none;
     color: #1a1a1a;
@@ -175,7 +177,7 @@ textarea{
 
 .titolo-review a:hover{
     color:#1e8fffc5;
-}
+} */
 
 
 /*CSS per domande, risposte e valutazioni del prodotto*/
