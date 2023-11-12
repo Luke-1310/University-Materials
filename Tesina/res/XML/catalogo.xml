@@ -348,4 +348,27 @@
     </sconto>
     <bonus>0</bonus>
   </fumetto>
+  <fumetto isbn="9781974710034">
+    <titolo>JUJUTSU KAISEN 2</titolo>
+    <autore>
+      <nome>Gege</nome>
+      <cognome>Akutami</cognome>
+    </autore>
+    <sinossi>NON CERCARE MAI DI RAGIONARE CON UN DEMONE… …Sempre che non ti piacciano le pessime sorprese! La prima missione di Yuji Itadori e dei suoi amici dell’Istituto di Arti Occulte ha una deriva incontrollabile e fa emergere il lato oscuro del mondo della stregoneria.</sinossi>
+    <lunghezza>190</lunghezza>
+    <prezzo>9.54</prezzo>
+    <data>2020-02-20</data>
+    <quantita>3</quantita>
+    <img>9781974710034</img>
+    <editore>Planet Manga</editore>
+    <sconto_generico>0</sconto_generico>
+    <sconto>
+      <X>0</X>
+      <M>0</M>
+      <data_M>2099-01-01</data_M>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+  </fumetto>
 </manga>
