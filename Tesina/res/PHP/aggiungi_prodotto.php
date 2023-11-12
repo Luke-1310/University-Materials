@@ -14,11 +14,14 @@ $date = $_POST['data'];
 $quantity = $_POST['quantita'];
 $publisher = $_POST['editrice'];
 
-$sc_bonus = $_POST['bonus'];
-
 $sc_X = $_POST['registrazione'];
+$sc_M = $_POST['crediti_data'];
+$sc_data_M = $_POST['da_data'];
 $sc_N = $_POST['crediti'];
 $sc_R = $_POST['reputazione'];
+
+$sc_bonus = $_POST['bonus'];
+$sc_generico = $_POST['generico'];
 
 //come prima cosa mi voglio ricavare il valore che andrà nel campo img del file XML
 //controllo se l'estensione del file è di tipo .jpg
@@ -85,6 +88,8 @@ $bonus = $documento->createElement('bonus');
 $sconto = $documento->createElement('sconto');
 
 $X = $documento->createElement('X');
+$M = $documento->createElement('M');
+$M_data = $documento->createElement('data_M');
 $N = $documento->createElement('N');
 $R = $documento->createElement('R');
 
@@ -179,6 +184,10 @@ $fumetto->appendChild($sconto_generico);
 
 $X->nodeValue = $sc_X;
 $sconto->appendChild($X);
+$M->nodeValue = $sc_M;
+$sconto->appendChild($M);
+$M_data->nodeValue = $sc_data_M;
+$sconto->appendChild($M_data);
 $N->nodeValue = $sc_N;
 $sconto->appendChild($N);
 $R->nodeValue = $sc_R;
