@@ -16,6 +16,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>3</X>
+      <Y>0</Y>
       <M>2</M>
       <data_M>2099-01-01</data_M>
       <N>50</N>
@@ -39,6 +40,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -62,6 +64,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>8</X>
+      <Y>0</Y>
       <M>2</M>
       <data_M>2023-01-01</data_M>
       <N>120</N>
@@ -85,6 +88,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -108,6 +112,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>2</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>131</N>
@@ -131,6 +136,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -154,6 +160,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -177,6 +184,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -200,6 +208,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -223,6 +232,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -246,6 +256,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -269,6 +280,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -292,6 +304,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -341,6 +354,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
@@ -364,6 +378,7 @@
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>
+      <Y>0</Y>
       <M>0</M>
       <data_M>2099-01-01</data_M>
       <N>0</N>
