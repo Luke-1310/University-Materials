@@ -21,6 +21,7 @@
         <xsd:element ref="quantita"/>
         <xsd:element ref="img"/>
         <xsd:element ref="editore"/>
+        <xsd:element ref="sconto_generico"/>
         <xsd:element ref="sconto" minOccurs="0" maxOccurs="1"/>
         <xsd:element ref="bonus" minOccurs="0" maxOccurs="1"/>
         <xsd:element ref="recensione" minOccurs="0" maxOccurs="unbounded"/>
@@ -38,6 +39,7 @@
   <xsd:element name="quantita" type="xsd:integer"/>
   <xsd:element name="img" type="xsd:string"/>
   <xsd:element name="editore" type="xsd:string"/>
+  <xsd:element name="sconto_generico" type="xsd:float"/>
   <xsd:element name="sconto" type="scontoParam"/>
   <xsd:element name="bonus" type="xsd:float"/>
   <xsd:element name="recensione" type="recensioneTipo"/>
@@ -60,7 +62,7 @@
   <xsd:complexType name="recensioneTipo">
     <xsd:sequence>
       <xsd:element name="IDRecensore" type="xsd:integer"/>
-      <xsd:element name="dataRecensione" type="xsd:date"/>
+      <xsd:element name="dataRecensione" type="xsd:dateTime"/>
       <xsd:element name="testoRecensione" type="xsd:string"/>
       <xsd:element name="reputazioneRecensore" type="xsd:integer"/>
       <xsd:element name="segnalazione" type="xsd:integer"/>
