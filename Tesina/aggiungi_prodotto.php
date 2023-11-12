@@ -111,7 +111,12 @@
                 <h3>SCONTO PARAMETRICO:</h3>
                 <div class="form-row">
                     <label for="registrazione">MINIMO MESI DI REGISTRAZIONE</label>
-                    <input type="integer" id="registrazione" name="registrazione" placeholder="1">
+                    <input type="integer" id="registrazione" name="registrazione_mesi" min="1" max="12" placeholder="1">
+                </div>
+
+                <div class="form-row">
+                    <label for="registrazione">MINIMO ANNI DI REGISTRAZIONE</label>
+                    <input type="integer" id="registrazione" name="registrazione_anni" min="0" max="20" placeholder="1">
                 </div>
                 
                 <div class="form-row">

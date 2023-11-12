@@ -30,6 +30,7 @@
             $sconto = $fumetto->getElementsByTagName('sconto')->item(0);
 
             $sconto_mesi = $sconto->getElementsByTagName('X')->item(0)->nodeValue;
+            $sconto_anni = $sconto->getElementsByTagName('Y')->item(0)->nodeValue;
             $sconto_cr_data = $sconto->getElementsByTagName('M')->item(0)->nodeValue;
             $sconto_da_data = $sconto->getElementsByTagName('data_M')->item(0)->nodeValue;
             $sconto_crediti = $sconto->getElementsByTagName('N')->item(0)->nodeValue;
@@ -99,6 +100,7 @@
                 'img' => $ISBN,
 
                 'X' => $sconto_mesi,
+                'Y' => $sconto_anni,
                 'M' => $sconto_cr_data,
                 'data_M' => $sconto_da_data,
                 'N' => $sconto_crediti,

@@ -14,7 +14,8 @@ $date = $_POST['data'];
 $quantity = $_POST['quantita'];
 $publisher = $_POST['editrice'];
 
-$sc_X = $_POST['registrazione'];
+$sc_X = $_POST['registrazione_mesi'];
+$sc_Y = $_POST['registrazione_anni'];
 $sc_M = $_POST['crediti_data'];
 $sc_data_M = $_POST['da_data'];
 $sc_N = $_POST['crediti'];
@@ -88,6 +89,7 @@ $bonus = $documento->createElement('bonus');
 $sconto = $documento->createElement('sconto');
 
 $X = $documento->createElement('X');
+$Y = $documento->createElement('Y');
 $M = $documento->createElement('M');
 $M_data = $documento->createElement('data_M');
 $N = $documento->createElement('N');
@@ -184,6 +186,8 @@ $fumetto->appendChild($sconto_generico);
 
 $X->nodeValue = $sc_X;
 $sconto->appendChild($X);
+$Y->nodeValue = $sc_Y;
+$sconto->appendChild($Y);
 $M->nodeValue = $sc_M;
 $sconto->appendChild($M);
 $M_data->nodeValue = $sc_data_M;
