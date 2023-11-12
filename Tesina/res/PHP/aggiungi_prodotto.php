@@ -78,6 +78,7 @@ $data = $documento->createElement('data');
 $quantita = $documento->createElement('quantita');
 $img = $documento->createElement('img');
 $editore = $documento->createElement('editore');
+$sconto_generico = $documento->createElement('sconto_generico');
 
 $bonus = $documento->createElement('bonus');
 
@@ -172,6 +173,9 @@ $fumetto->appendChild($img);
 
 $editore->nodeValue = $publisher;
 $fumetto->appendChild($editore);
+
+$sconto_generico->nodeValue = "0";
+$fumetto->appendChild($sconto_generico);
 
 $X->nodeValue = $sc_X;
 $sconto->appendChild($X);

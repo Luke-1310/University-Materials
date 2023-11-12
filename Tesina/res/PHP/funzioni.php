@@ -24,6 +24,7 @@
             $quantita = $fumetto->getElementsByTagName('quantita')->item(0)->nodeValue;
             $casaEditrice = $fumetto->getElementsByTagName('editore')->item(0)->nodeValue;            
             $bonus = $fumetto->getElementsByTagName('bonus')->item(0)->nodeValue;
+            $scontoGenerico = $fumetto->getElementsByTagName('sconto_generico')->item(0)->nodeValue;
             
             //mi prendo i parametri dello sconto
             $sconto = $fumetto->getElementsByTagName('sconto')->item(0);
@@ -90,6 +91,7 @@
                 'data' => $dataUscita,
                 'quantita' => $quantita,
                 'editore' => $casaEditrice,
+                'sconto_generico' => $scontoGenerico,
                 'bonus' => $bonus,
                 
                 'img' => $ISBN,
