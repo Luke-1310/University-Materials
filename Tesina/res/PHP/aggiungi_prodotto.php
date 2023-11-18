@@ -84,6 +84,7 @@ $M = $documento->createElement('M');
 $M_data = $documento->createElement('data_M');
 $N = $documento->createElement('N');
 $R = $documento->createElement('R');
+$ha_acquistato = $documento->createElement('ha_acquistato');
 
 $titolo->nodeValue = $title;//Assegno al nodo titolo il contenuto della variabile $title -> titolo preso dal form html 
 
@@ -186,6 +187,8 @@ $N->nodeValue = "0";
 $sconto->appendChild($N);
 $R->nodeValue = "0";
 $sconto->appendChild($R);
+$ha_acquistato->nodeValue = "0";
+$sconto->appendChild($ha_acquistato);
 $fumetto->appendChild($sconto);
 
 $bonus->nodeValue = "0";
