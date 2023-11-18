@@ -107,48 +107,6 @@
                     <label for="img">COPERTINA </label>
                     <input type="file" name="img" id="img">
                 </div>
-                
-                <!-- <h3>SCONTO PARAMETRICO:</h3>
-                <div class="form-row">
-                    <label for="registrazione">MINIMO MESI DI REGISTRAZIONE</label>
-                    <input type="integer" id="registrazione" name="registrazione_mesi" min="1" max="12" placeholder="1">
-                </div>
-
-                <div class="form-row">
-                    <label for="registrazione">MINIMO ANNI DI REGISTRAZIONE</label>
-                    <input type="integer" id="registrazione" name="registrazione_anni" min="0" max="20" placeholder="1">
-                </div>
-                
-                <div class="form-row">
-                    <label for="crediti_crediti_data">CREDITI SPESI DA UNA CERTA DATA</label>
-                    <input type="integer" id="crediti_data" name="crediti_data" placeholder="100">
-                </div>
-
-                <div class="form-row">
-                    <label for="crediti">DATA DA CUI PARTIRE PER LO SCONTO</label>
-                    <input type="text" id="data" name="da_data" placeholder="1999-01-01" required pattern="\d{4}-\d{2}-\d{2}">
-                </div>
-
-                <div class="form-row">
-                    <label for="crediti">MINIMO DI CREDITI SPESI IN TOTALE</label>
-                    <input type="integer" id="crediti" name="crediti" placeholder="100">
-                </div>
-
-                <div class="form-row">
-                    <label for="reputazione">MINIMO DI REPUTAZIONE</label>
-                    <input type="integer" id="reputazione" name="reputazione" placeholder="2">
-                </div>
-
-                <h3>INFORMAZIONI SCONTO:</h3>
-                <div class="form-row">
-                    <label for="generico">SCONTO GENERICO (%)</label>
-                    <input type="integer" id="generico" name="generico" placeholder="2">
-                </div>
-
-                <div class="form-row">
-                    <label for="bonus">BONUS CREDITI</label>
-                    <input type="integer" pattern="[0-9]{0,3}" maxlength="3" id="bonus" name="bonus" placeholder="28">
-                </div> -->
 
                 <span class ="bottone"><input type="submit" value="INVIA"></span>
             </form>
