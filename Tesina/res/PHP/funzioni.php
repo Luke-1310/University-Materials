@@ -35,6 +35,7 @@
             $sconto_da_data = $sconto->getElementsByTagName('data_M')->item(0)->nodeValue;
             $sconto_crediti = $sconto->getElementsByTagName('N')->item(0)->nodeValue;
             $sconto_reputazione = $sconto->getElementsByTagName('R')->item(0)->nodeValue;
+            $ha_acquistato = $sconto->getElementsByTagName('ha_acquistato')->item(0)->nodeValue;
 
             //mi prendo il nome e cognome dell'autore
             $autore = $fumetto->getElementsByTagName('autore')->item(0);
@@ -105,6 +106,7 @@
                 'data_M' => $sconto_da_data,
                 'N' => $sconto_crediti,
                 'R' => $sconto_reputazione,
+                'ha_acquistato' => $ha_acquistato,
 
                 'nome_autore' => $nome_autore,
                 'cognome_autore' => $cognome_autore,

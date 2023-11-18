@@ -21,6 +21,7 @@
       <data_M>2099-01-01</data_M>
       <N>50</N>
       <R>4</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>2</bonus>
   </fumetto>
@@ -45,6 +46,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -69,6 +71,7 @@
       <data_M>2023-01-01</data_M>
       <N>120</N>
       <R>4</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>1</bonus>
   </fumetto>
@@ -93,6 +96,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -117,6 +121,7 @@
       <data_M>2099-01-01</data_M>
       <N>131</N>
       <R>3</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>1</bonus>
   </fumetto>
@@ -141,6 +146,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>1</bonus>
   </fumetto>
@@ -165,6 +171,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -189,6 +196,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -213,6 +221,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -237,6 +246,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -261,6 +271,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -285,6 +296,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -309,6 +321,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
     <recensione>
@@ -359,6 +372,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -383,6 +397,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -407,6 +422,7 @@
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
@@ -433,6 +449,7 @@ Ha inizio la saga dell’uomo che divenne un kaiju!</sinossi>
       <data_M>2099-01-01</data_M>
       <N>0</N>
       <R>0</R>
+      <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
   </fumetto>
