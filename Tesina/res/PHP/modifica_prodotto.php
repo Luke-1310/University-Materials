@@ -14,11 +14,11 @@ $date = $_POST['data'];
 $quantity = $_POST['quantita'];
 $publisher = $_POST['editrice'];
 
-$sc_bonus = $_POST['bonus'];
+// $sc_bonus = $_POST['bonus'];
 
-$sc_X = $_POST['registrazione'];
-$sc_N = $_POST['crediti'];
-$sc_R = $_POST['reputazione'];
+// $sc_X = $_POST['registrazione'];
+// $sc_N = $_POST['crediti'];
+// $sc_R = $_POST['reputazione'];
 
 include('../PHP/funzioni.php');
 
@@ -75,13 +75,13 @@ foreach($fumetti as &$fumetto){
         $fumetto['data'] = $date;
         $fumetto['quantita'] = $quantity;
         $fumetto['editore'] = $publisher;
-        $fumetto['bonus'] = $sc_bonus;
+        // $fumetto['bonus'] = $sc_bonus;
 
         $fumetto['img'] = $ISBN;
 
-        $fumetto['X'] = $sc_X;
-        $fumetto['N'] = $sc_N;
-        $fumetto['R'] = $sc_R;
+        // $fumetto['X'] = $sc_X;
+        // $fumetto['N'] = $sc_N;
+        // $fumetto['R'] = $sc_R;
 
         break;
     }
@@ -115,13 +115,13 @@ $fumetti_doc = $document->getElementsByTagName('fumetto');
             $fumetto_doc->getElementsByTagName('data')->item(0)->nodeValue = $fumetto['data'];
             $fumetto_doc->getElementsByTagName('quantita')->item(0)->nodeValue = $fumetto['quantita'];
             $fumetto_doc->getElementsByTagName('editore')->item(0)->nodeValue = $fumetto['editore'];
-            $fumetto_doc->getElementsByTagName('bonus')->item(0)->nodeValue = $fumetto['bonus'];
+            // $fumetto_doc->getElementsByTagName('bonus')->item(0)->nodeValue = $fumetto['bonus'];
             $fumetto_doc->getElementsByTagName('img')->item(0)->nodeValue = $fumetto['img'];
 
-            $sconto = $fumetto_doc->getElementsByTagName('sconto')->item(0);
-            $sconto->getElementsByTagName('X')->item(0)->nodeValue = $fumetto['X'];
-            $sconto->getElementsByTagName('N')->item(0)->nodeValue = $fumetto['N'];
-            $sconto->getElementsByTagName('R')->item(0)->nodeValue = $fumetto['R'];
+            // $sconto = $fumetto_doc->getElementsByTagName('sconto')->item(0);
+            // $sconto->getElementsByTagName('X')->item(0)->nodeValue = $fumetto['X'];
+            // $sconto->getElementsByTagName('N')->item(0)->nodeValue = $fumetto['N'];
+            // $sconto->getElementsByTagName('R')->item(0)->nodeValue = $fumetto['R'];
 
             break; 
         }

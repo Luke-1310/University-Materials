@@ -128,28 +128,6 @@
                 <input type="file" name="img" id="img">
             </div>
 
-            <h3>INFORMAZIONI BONUS:</h3>
-            <div class="form-row">
-                <label for="bonus">BONUS CREDITI</label>
-                <input type="integer" pattern="[0-9]{0,3}" maxlength="3" id="bonus" name="bonus" value="<?php echo $fumetto_corrente['bonus']; ?>">
-            </div>
-            
-            <h3>INFORMAZIONI SCONTO :</h3>
-            <div class="form-row">
-                <label for="registrazione">MINIMO MESI DI REGISTRAZIONE</label>
-                <input type="number" id="registrazione" name="registrazione" value="<?php echo $fumetto_corrente['X']; ?>">
-            </div>
-
-            <div class="form-row">
-                <label for="crediti">MINIMO DI CREDITI SPESI</label>
-                <input type="number" id="crediti" name="crediti" value="<?php echo $fumetto_corrente['N']; ?>">
-            </div>
-
-            <div class="form-row">
-                <label for="reputazione">MINIMO DI REPUTAZIONE</label>
-                <input type="number" id="reputazione" name="reputazione" value="<?php echo $fumetto_corrente['R']; ?>">
-            </div>
-
             <span class ="bottone"><input type="submit" value="INVIA"></span>
         </form>
     </div>
