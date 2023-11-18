@@ -392,16 +392,39 @@
       <nome>Gege</nome>
       <cognome>Akutami</cognome>
     </autore>
-    <sinossi>Direttamente dalle pagine di Shonen Jump, un fumetto di cui non potrete&#13;
-più fare a meno. Un destino maledetto di scontri, misteri e stregoneria&#13;
-e un ragazzo con il coraggio di compiere una scelta sconvolgente. Lui&#13;
-è Yuji Itadori ed è iscritto al Club di Ricerca sull’Occulto…</sinossi>
+    <sinossi>Direttamente dalle pagine di Shonen Jump, un fumetto di cui non potrete&#13;più fare a meno. Un destino maledetto di scontri, misteri e stregoneria&#13;e un ragazzo con il coraggio di compiere una scelta sconvolgente. Lui&#13;è Yuji Itadori ed è iscritto al Club di Ricerca sull’Occulto…</sinossi>
     <lunghezza>192</lunghezza>
     <prezzo>4.90</prezzo>
     <data>2021-06-03</data>
     <quantita>65</quantita>
     <img>9788891298911</img>
     <editore>Planet Manga</editore>
+    <sconto_generico>0</sconto_generico>
+    <sconto>
+      <X>0</X>
+      <Y>0</Y>
+      <M>0</M>
+      <data_M>2099-01-01</data_M>
+      <N>0</N>
+      <R>0</R>
+    </sconto>
+    <bonus>0</bonus>
+  </fumetto>
+  <fumetto isbn="9788822631909">
+    <titolo>KAIJU NO. 8 1</titolo>
+    <autore>
+      <nome>Naoya</nome>
+      <cognome>Matsumoto</cognome>
+    </autore>
+    <sinossi>In Giappone il tasso di comparsa di kaiju è tra i più alti al mondo, tanto che enormi creature portatrici di distruzione lo invadono quasi quotidianamente. Kafka Hibino, che ora lavora per un’impresa specializzata nello smaltimento delle carcasse dei kaiju, un tempo aspirava a diventare un membro delle Forze di Difesa, le unità speciali incaricate di sopprimere i mostri e difendere il Paese. Un giorno, però, un misterioso organismo si introduce nel corpo di Kafka, trasformandolo in quello che le Forze di Difesa battezzeranno col nome in codice di “Kaiju No.8”...&#13;
+&#13;
+Ha inizio la saga dell’uomo che divenne un kaiju!</sinossi>
+    <lunghezza>208</lunghezza>
+    <prezzo>5.50</prezzo>
+    <data>2022-03-22</data>
+    <quantita>6</quantita>
+    <img>9788822631909</img>
+    <editore>Star Comics</editore>
     <sconto_generico>0</sconto_generico>
     <sconto>
       <X>0</X>

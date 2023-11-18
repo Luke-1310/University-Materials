@@ -14,15 +14,15 @@ $date = $_POST['data'];
 $quantity = $_POST['quantita'];
 $publisher = $_POST['editrice'];
 
-$sc_X = $_POST['registrazione_mesi'];
-$sc_Y = $_POST['registrazione_anni'];
-$sc_M = $_POST['crediti_data'];
-$sc_data_M = $_POST['da_data'];
-$sc_N = $_POST['crediti'];
-$sc_R = $_POST['reputazione'];
+// $sc_X = $_POST['registrazione_mesi'];
+// $sc_Y = $_POST['registrazione_anni'];
+// $sc_M = $_POST['crediti_data'];
+// $sc_data_M = $_POST['da_data'];
+// $sc_N = $_POST['crediti'];
+// $sc_R = $_POST['reputazione'];
 
-$sc_bonus = $_POST['bonus'];
-$sc_generico = $_POST['generico'];
+// $sc_bonus = $_POST['bonus'];
+// $sc_generico = $_POST['generico'];
 
 //come prima cosa mi voglio ricavare il valore che andrà nel campo img del file XML
 //controllo se l'estensione del file è di tipo .jpg
@@ -184,21 +184,21 @@ $fumetto->appendChild($editore);
 $sconto_generico->nodeValue = "0";
 $fumetto->appendChild($sconto_generico);
 
-$X->nodeValue = $sc_X;
+$X->nodeValue = "0";
 $sconto->appendChild($X);
-$Y->nodeValue = $sc_Y;
+$Y->nodeValue = "0";
 $sconto->appendChild($Y);
-$M->nodeValue = $sc_M;
+$M->nodeValue = "0";
 $sconto->appendChild($M);
-$M_data->nodeValue = $sc_data_M;
+$M_data->nodeValue = "2099-01-01";
 $sconto->appendChild($M_data);
-$N->nodeValue = $sc_N;
+$N->nodeValue = "0";
 $sconto->appendChild($N);
-$R->nodeValue = $sc_R;
+$R->nodeValue = "0";
 $sconto->appendChild($R);
 $fumetto->appendChild($sconto);
 
-$bonus->nodeValue = $sc_bonus;
+$bonus->nodeValue = "0";
 $fumetto->appendChild($bonus);
 
 $manga->appendChild($fumetto);  //Aggiungo il nodo, ora completo di tutti i campi

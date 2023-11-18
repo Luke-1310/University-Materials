@@ -2,10 +2,10 @@
     session_start();
 
     if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_aggiungi_prodotto_dark.css\" type=\"text/css\" />";
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_mod_prod_dark.css\" type=\"text/css\" />";
     }
     else{
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_aggiungi_prodotto.css\" type=\"text/css\" />";
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_mod_prod.css\" type=\"text/css\" />";
     }
 ?>
 <?php 
@@ -108,7 +108,7 @@
                     <input type="file" name="img" id="img">
                 </div>
                 
-                <h3>SCONTO PARAMETRICO:</h3>
+                <!-- <h3>SCONTO PARAMETRICO:</h3>
                 <div class="form-row">
                     <label for="registrazione">MINIMO MESI DI REGISTRAZIONE</label>
                     <input type="integer" id="registrazione" name="registrazione_mesi" min="1" max="12" placeholder="1">
@@ -148,7 +148,7 @@
                 <div class="form-row">
                     <label for="bonus">BONUS CREDITI</label>
                     <input type="integer" pattern="[0-9]{0,3}" maxlength="3" id="bonus" name="bonus" placeholder="28">
-                </div>
+                </div> -->
 
                 <span class ="bottone"><input type="submit" value="INVIA"></span>
             </form>
