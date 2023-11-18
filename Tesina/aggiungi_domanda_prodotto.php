@@ -27,46 +27,48 @@
 </head>
 
 <body>
-<div class="container_reg">
+    <div class="container_external">
 
-        <form id="prodottoForm" action = "res/PHP/aggiungi_domanda_prodotto.php" method="POST">
+        <div class="container_reg">
 
-            <?php
-                $xmlfile = "res/XML/catalogo.xml";
+            <form id="prodottoForm" action = "res/PHP/aggiungi_domanda_prodotto.php" method="POST">
 
-                $fumetti = getFumetti($xmlfile);
+                <?php
+                    $xmlfile = "res/XML/catalogo.xml";
 
-                //mi ordino i fumetti in base a A-Z
-                usort($fumetti, function ($a, $b) {                 //usort mi ordina i fumetti nell'array in base al titolo
-                    return strcmp($a['titolo'], $b['titolo']);      //strcmp mi compara le due stringhe e mi fornisce un valore negativo/postivo se la
-                });                                                 //prima stringa è minore/maggiore della seconda, zero se sono uguali
+                    $fumetti = getFumetti($xmlfile);
 
-                echo"<h3>COMPILA IL FORM!</h3>";
+                    //mi ordino i fumetti in base a A-Z
+                    usort($fumetti, function ($a, $b) {                 //usort mi ordina i fumetti nell'array in base al titolo
+                        return strcmp($a['titolo'], $b['titolo']);      //strcmp mi compara le due stringhe e mi fornisce un valore negativo/postivo se la
+                    });                                                 //prima stringa è minore/maggiore della seconda, zero se sono uguali
 
-                echo"<div class=\"form-row\">";
-                    
-                    echo"<label for=\"titolo\">SELEZIONA IL TITOLO: </label>";
-                    echo"<select name=\"titolo\" id=\"titolo\">";
-                    foreach ($fumetti as $fumetto) {
-                        echo "<option value='" .$fumetto['titolo'] . "'>" . $fumetto['titolo']. "</option>";
-                    }
-                    echo"</select>";
+                    echo"<h3>COMPILA IL FORM!</h3>";
 
-                    //mi invio la data in quel preciso momento
-                    $dataCorrente = date('Y-m-d\TH:i:s');
-                    echo"<input type=\"hidden\" name=\"data\" value=$dataCorrente>";
-                echo"</div>";
-            ?>
+                    echo"<div class=\"form-row\">";
+                        
+                        echo"<label for=\"titolo\">SELEZIONA IL TITOLO: </label>";
+                        echo"<select name=\"titolo\" id=\"titolo\">";
+                        foreach ($fumetti as $fumetto) {
+                            echo "<option value='" .$fumetto['titolo'] . "'>" . $fumetto['titolo']. "</option>";
+                        }
+                        echo"</select>";
 
-            <div class="form-row">
-                <label for="testo">TESTO:</label>
-                <textarea id="testo" name="testo" rows="10" cols="60" placeholder="Inserisci qui la domanda..." required></textarea>
-            </div>
+                        //mi invio la data in quel preciso momento
+                        $dataCorrente = date('Y-m-d\TH:i:s');
+                        echo"<input type=\"hidden\" name=\"data\" value=$dataCorrente>";
+                    echo"</div>";
+                ?>
 
-            <span class ="bottone"><input type="submit" value="INVIA"></span>
-        </form>
+                <div class="form-row">
+                    <label for="testo">TESTO:</label>
+                    <textarea id="testo" name="testo" rows="10" cols="60" placeholder="Inserisci qui la domanda..." required></textarea>
+                </div>
+
+                <span class ="bottone"><input type="submit" value="INVIA"></span>
+            </form>
+        </div>
     </div>
-
 </body>
 
 <?php include('res/PHP/footer.php'); ?>
