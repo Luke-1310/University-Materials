@@ -76,8 +76,8 @@
                     echo "</div>";
 
                     echo "<div class=\"cell\">";
-                        echo "<a href=\"aggiungi_prodotto.php\"><i id=\"offer\" class=\"material-icons\">payments</i></a>";
-                        echo "<a href=\"aggiungi_prodotto.php\">AGGIUNGI OFFERTA</a>";
+                        echo "<a href=\"modifica_offerta.php\"><i id=\"offer\" class=\"material-icons\">payments</i></a>";
+                        echo "<a href=\"modifica_offerta.php\">MODIFICA OFFERTA</a>";
                     echo "</div>";   
                     
                 }
@@ -135,7 +135,6 @@
                                 break;
                             }
                         }
-
                     }
 
                     echo "<div class=\"cell\">";
