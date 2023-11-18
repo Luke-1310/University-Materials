@@ -65,14 +65,20 @@
 
             <?php
                 //se l'utente è un gestore allora ha delle funzionalità in più
-                $sql = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND u.ruolo = 'GS'";
+                $sql = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND (u.ruolo = 'GS' OR u.ruolo = 'AM' OR u.ruolo = 'SA')";
                 $ris = mysqli_query($connessione, $sql);
 
                 if(mysqli_num_rows($ris) == 1){
+
                     echo "<div class=\"cell\">";
                         echo "<a href=\"aggiungi_prodotto.php\"><i id=\"product\" class=\"material-icons\">sell</i></a>";
                         echo "<a href=\"aggiungi_prodotto.php\">AGGIUNGI PRODOTTO</a>";
                     echo "</div>";
+
+                    echo "<div class=\"cell\">";
+                        echo "<a href=\"aggiungi_prodotto.php\"><i id=\"offer\" class=\"material-icons\">payments</i></a>";
+                        echo "<a href=\"aggiungi_prodotto.php\">AGGIUNGI OFFERTA</a>";
+                    echo "</div>";   
                     
                 }
 
@@ -81,10 +87,6 @@
                 $ris = mysqli_query($connessione, $sql);
 
                 if(mysqli_num_rows($ris) == 1){
-                    echo "<div class=\"cell\">";
-                        echo "<a href=\"aggiungi_prodotto.php\"><i id=\"product\" class=\"material-icons\">sell</i></a>";
-                        echo "<a href=\"aggiungi_prodotto.php\">AGGIUNGI PRODOTTO</a>";
-                    echo "</div>";
 
                     //controllo se ci sono richieste crediti pendenti, in caso affermativo stampo il "dot rosso"
                     $xmlpath = "res/XML/richieste_crediti.xml";
