@@ -67,7 +67,7 @@
                         <span class="tooltiptext">INFORMAZIONI UTILI:
                         <ul>
                             <li>NEL PARAMETRO "HA GIÀ ACQUISTATO" DEVI INSERIRE L'ISBN DI UN FUMETTO CHE L'UTENTE DEVE AVER ACQUISTATO PER FARSÌ CHE SI ATTIVI L'OFFERTA</li>
-                            <li>NEL CASO IN CUI QUALCHE PARAMETRO NON SIA UTILE AL FINE DELL'IMPLEMENTAZIONE DELLO SCONTO, INSERIRE SEMPLICEMENTE UNO 0</li>
+                            <li>NEL CASO IN CUI QUALCHE PARAMETRO NON SIA UTILE AL FINE DELL'IMPLEMENTAZIONE DELLO SCONTO, RIEMPIRE IL CAMPO CON UNO ZERO O PIÙ ZERI</li>
                             <li>NEL CASO IN CUI IL PARAMETRO "DATA DA CUI FAR PARTIRE LO SCONTO" NON VENGA UTILIZZATO INSERISCI UNA DATA NON COERENTE COME "2099-01-01"</li>
                             <li>LO SCONTO PARAMETRICO COMPORTA UNO SCONTO DEL 5% SUL TOTALE.</li>
                         </ul>    
@@ -112,7 +112,7 @@
 
                 <div class="form-row">
                     <label for="ha_acquistato">HA GIÀ ACQUISTATO</label>
-                    <input type="integer" id="ha_acquistato" name="ha_acquistato" placeholder="9798431410840" required>
+                    <input type="text" pattern="[0-9]{13}" maxlength="13" id="ISBN" name="ha_acquistato" placeholder="9798431410840" required>
                 </div>
                 
                 <h3>INFORMAZIONI SCONTO:</h3>
