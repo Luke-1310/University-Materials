@@ -1,97 +1,100 @@
 h3 {
-    margin-top: 5px;
-  }
-  
-  h4 {
-    color: red;
-  }
-  
-  .container-external{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 69vh;
-    margin: 0;
-    background-color: #f0f0f0;
-  }
-  
-  .container_reg {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60vh;
-    text-align: center;
-    margin: 380px auto 380px;
-  }
-  
-  #prodottoForm {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #prodottoForm a {
-    text-decoration: none;
-    color: #1a1a1a;
-  }
-  
-  #prodottoForm a:hover {
-    color: #f0f0f0;
-  }
-  
-  form label {
-    margin-bottom: 5px;
-  }
-  
-  input {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    margin-bottom: 10px;
-    padding: 10px 15px; /* Add padding for better input appearance */
-    border: none; /* Remove border for cleaner look */
-  }
-  
-  /* Form row layout */
-  .form-row {
-    margin-right: 100px;
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .form-row label {
-    margin-left: 20px;
-    margin-right: 10px;
-    flex: 1;
-    text-align: left;
-  }
-  
-  /* Submit button */
-  input[type="submit"] {
-    background-color: #1a1a1a;
-    color: #f0f0f0;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 20px;
-    text-decoration: none;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    width: 120px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    padding: 10px 0;
-  }
-  
-  .modify-text{
-    margin-bottom: 10px;
-  }
+  margin-top: 5px;
+}
 
-  textarea{
-    resize: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    margin-bottom: 10px;
-    padding: 10px 15px; 
-    border: none; 
-  }
+h4 {
+  margin-top: 50px;
+  color: red;
+}
+
+.container_external{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 50px auto;
+
+  height: 130vh;
+  width: 90%;
+  max-width: 900px;
+
+  background-color: #1a1a1a;
+  border-radius: 20px;
+}
+
+.container_reg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: center;
+}
+
+#prodottoForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#prodottoForm a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+#prodottoForm a:hover {
+  color: #f0f0f0;
+}
+
+form label {
+  margin-bottom: 5px;
+}
+
+input {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin-bottom: 10px;
+  padding: 10px 15px; 
+  border: none; 
+}
+
+.form-row {
+  margin-right: 100px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.form-row label {
+  margin-left: 20px;
+  margin-right: 10px;
+  flex: 1;
+  text-align: left;
+}
+
+input[type="submit"] {
+  background-color: #0e0e0e;
+  color: #f0f0f0;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  width: 120px;
+  margin: 20px auto;
+  padding: 10px 0;
+}
+
+.modify-text{
+  margin-bottom: 10px;
+}
+
+textarea{
+  resize: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin-bottom: 10px;
+  padding: 10px 15px; 
+  border: none; 
+}
