@@ -59,6 +59,7 @@
       <xsd:element name="data_M" type="xsd:date"/>
       <xsd:element name="N" type="xsd:integer"/>
       <xsd:element name="R" type="xsd:integer"/>
+      <xsd:element name="ha_acquistato" type="xsd:string" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
 
