@@ -34,7 +34,7 @@
             <form id="prodottoForm" action = "res/PHP/modifica_offerta.php" method="POST">
 
                 <?php
-                    $_SESSION['richiesta_ok'] = true;
+                    // $_SESSION['richiesta_ok'] = true;
                     if(isset($_SESSION['richiesta_ok']) && $_SESSION['richiesta_ok'] = true){
                         echo "<h4 id=\"esito_positivo\">L'OPERAZIONE È ANDATA A BUON FINE!</h4>";
                         unset($_SESSION['richiesta_ok']);
