@@ -73,7 +73,6 @@ if ($ris) {
             $stampaUtenti = true;
         }
 
-        //Estraggo il risultato come un array associativo
         while($row = $ris->fetch_assoc()){
         
             // Dopo che il ciclo ha eseguito le istruzioni, si torna all'inizio del ciclo (while) e si verifica se $ris->fetch_assoc() restituisce un altro record. 
@@ -94,6 +93,7 @@ if ($ris) {
                     if($row['ruolo'] != "SA"){
 
                         if($row['username'] != $_SESSION['nome']){
+
                             echo "<form action = \"res/PHP/promuovi_retrocedi.php\" method='POST'>";
 
                                 //mi invio anche l'id
@@ -134,6 +134,7 @@ if ($ris) {
                 else{
                     echo "<strong><p style=\"color: green;\">NO</p></strong>";
                 }
+
             echo "</div>";
 
             echo "<div class=\"column\">";
