@@ -145,7 +145,7 @@
         return $richieste;
     }
 
-    //funzione per caricare le domande e risposte su un certo prodotto da fixare
+    //funzione con lo scopo di caricare le domande e risposte su un certo prodotto da fixare
     function getDomande($xmlFile) {
         $domande = [];
     
