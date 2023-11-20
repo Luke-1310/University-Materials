@@ -179,6 +179,36 @@ textarea{
     color:#1e8fffc5;
 } */
 
+.bottone_carrello input[type="submit"]{
+    background-color: #1e8fffc5;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 17px;
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    width: 220px; /* Regola la larghezza del bottone*/
+  
+    padding: 10px;
+    margin-top: 0;
+}
+
+.bottone_carrello input[type="button"]{
+    background-color: red;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 17px;
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
+    cursor: not-allowed;
+    text-align: center;
+    width: 220px; /* Regola la larghezza del bottone*/
+  
+    padding: 10px;
+    margin-top: 0;
+}
+
 
 /*CSS per domande, risposte e valutazioni del prodotto*/
 
@@ -281,7 +311,7 @@ label{
     font-weight: bold;
 }
 
-input[type="submit"] {
+.bottone input[type="submit"] {
 
     display:flex;
     flex-direction: column;

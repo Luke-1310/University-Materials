@@ -76,6 +76,7 @@ include('res/PHP/funzioni.php');
             $prezzo = $fumetto['prezzo'];
             $uscita = $fumetto['data'];
             $editore = $fumetto['editore'];
+            $quantita = $fumetto['quantita'];
             $ISBN = $fumetto['isbn'];
             $bonus = $fumetto['bonus'];
 
@@ -113,11 +114,12 @@ include('res/PHP/funzioni.php');
 
                     if (mysqli_num_rows($ris) == 1) {
                         echo "<form id=\"modifica_prod\" action=\"modifica_prodotto.php\" method=\"POST\">";
-                        echo "<input type=\"hidden\" name=prodotto value='{$_SESSION['info_titolo']}'>";
-                        echo "<span class=\"bottone\"><button type=\"submit\" name=\"info\">MODIFICA PRODOTTO</button></span>";
+                            echo "<input type=\"hidden\" name=prodotto value='{$_SESSION['info_titolo']}'>";
+                            echo "<span class=\"bottone\"><button type=\"submit\" name=\"info\">MODIFICA PRODOTTO</button></span>";
                         echo "</form>";
                     }
                 }
+
             echo"</div>";
             ?>
 
@@ -156,6 +158,11 @@ include('res/PHP/funzioni.php');
                 <span class="field-value"><?php echo $editore; ?></span>
             </div>
 
+            <div class="descrizione-libro">
+                <h4>SINOSSI</h4>
+                <p><?php echo $sinossi; ?></p>
+            </div>
+
             <div class="info-prezzo">
 
                 <div class="info-field">
@@ -164,40 +171,37 @@ include('res/PHP/funzioni.php');
                 </div>
             </div>
 
-            <div class="info-sconto">
-                <?php
-                //se c'è il bonus, lo stampo
-                if ($bonus != "0") {
-                    echo "<div class=\"info-field\">";
-                        echo "<span class=\"field-label\">BONUS: </span>";
-                        echo "<span class=\"field-value\">" . $bonus . " CREDITI </span>";
-                    echo "</div>";
-                }
+            <?php
 
-                // if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                echo "<div class=\"info-sconto\">";
 
-                //     //se TUTTI i parametri sono uguali a 0 allora questo prodotto non è soggetto a sconto
-                //     if($mesi != 0 || $crediti != 0 || $reputazione != 0){
+                    //se c'è il bonus, lo stampo
+                    if ($bonus != "0") {
+                        echo "<div class=\"info-field\">";
+                            echo "<span class=\"field-label\">BONUS: </span>";
+                            echo "<span class=\"field-value\">" . $bonus . " CREDITI </span>";
+                        echo "</div>";
+                    }
 
-                //         //se l'utente fa rientra nei parametri dello sconto allora glielo faccio sapere
-                //         if($mesi < $mesi_trascorsi && $crediti < $spesi_utente && $reputazione < $reputazione_utente){
-                //             echo "<div class=\"info-field\">";
-                //                 echo "<span class=\"field-label\">SCONTO: </span>";
-                //                 echo "<span class=\"field-value\">SEI ELEGIBILE PER UNO SCONTO ADDIZIONALE!!</span>";
-                //             echo "</div>";
-                //         }
-                //     }
-                // }
-                    
-                ?>
-            </div>
+                echo "</div>";
+                
+                echo "<div class=\"info-bottone\">";
 
-            <div class="descrizione-libro">
-                <h4>SINOSSI</h4>
-                <p><?php echo $sinossi; ?></p>
-            </div>
+                    if($quantita != 0){
+
+                        echo "<form id=\"modifica_carrello\" action=\"carrello.php\" method=\"POST\">";
+                            echo "<span class=\"bottone_carrello\"><input type=\"submit\" value=\"AGGIUNGI AL CARRELLO\"></span>";
+                        echo "</form>";
+                    }
+                    else{
+                        echo "<span class=\"bottone_carrello\"><h5><input type=\"button\" name=\"info\" value=\"NON DISPONIBILE\"></h5></span>";
+                    }
+
+                echo "</div>";
+            ?>
 
         </div>
+
     </div>
 
     <p class="titolo-review">DOMANDE E RISPOSTE</p>
