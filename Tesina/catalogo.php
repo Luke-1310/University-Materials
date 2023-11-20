@@ -188,9 +188,15 @@
 
                 echo $prezzo . " CR";
 
-                echo "<form action=\"carrello.php\" method=\"POST\">";
-                echo "<span class=\"carrello\"><h5><input type=\"submit\" name=\"carrello\" value=\"AGGIUNGI AL CARRELLO\"></h5></span>";
-                echo "</form>";
+                if($fumetto['quantita'] != 0){
+
+                    echo "<form action=\"carrello.php\" method=\"POST\">";
+                    echo "<span class=\"carrello\"><h5><input type=\"submit\" name=\"Disponibile\" value=\"AGGIUNGI AL CARRELLO\"></h5></span>";
+                    echo "</form>";
+                }
+                else{
+                    echo "<span class=\"carrello\"><h5><input type=\"button\" name=\"nonDisponibile\" value=\"NON DISPONIBILE\"></h5></span>";
+                }
 
             echo "</div>";
         }
