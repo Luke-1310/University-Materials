@@ -8,3 +8,40 @@
     margin-top: 90px;
     margin-bottom: 90px;
 }
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.container img {
+    width: 200px;
+    height: 325px;
+    margin: 10px 50px 30px 30px; /*margine: sopra destra sotto sinistra */
+}
+
+.img-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.column {
+    flex: 1;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
