@@ -238,66 +238,6 @@
     
         return $domande;
     }
-    
-    //funzione per ricavare la reputazione dell'utente loggato
-    function getReputazioneCurr(){
-
-        include('connection.php');
-        $connessione = new mysqli($host, $user, $password, $db);
-
-        if (isset($_SESSION['nome'])) {
-            $query = "SELECT um.reputazione FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}'";
-            $ris = mysqli_query($connessione, $query);
-    
-            if (mysqli_num_rows($ris) == 1) {
-                $row = $ris->fetch_assoc();
-                $reputazione_utente = $row['reputazione'];
-            }
-
-            return $reputazione_utente;
-        }
-    }
-
-    //funzione per ricavare la data di registrazione dell'utente loggato
-    function getDataRegistrazioneCurr(){
-
-        include('connection.php');
-        $connessione = new mysqli($host, $user, $password, $db);
-
-        if (isset($_SESSION['nome'])) {
-
-            $query = "SELECT um.data_registrazione FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}'";
-            $ris = mysqli_query($connessione, $query);
-    
-            if (mysqli_num_rows($ris) == 1) {
-                $row = $ris->fetch_assoc();
-                $dataregistrazione_utente = $row['data_registrazione'];
-    
-                //ora mi devo fare la differenza
-                $data_corrente = date("Y-m-d");
-    
-                $differenza_data = date_diff(date_create($dataregistrazione_utente), date_create($data_corrente));
-    
-                //$differenza_data->y restituisce il numero di anni nella differenza tra le date.
-                //$differenza_data->m restituisce il numero di mesi nella differenza tra le date.
-                $mesi_trascorsi = $differenza_data->y * 12 + $differenza_data->m;
-            }    
-
-            return $mesi_trascorsi;
-        }
-    }
-
-    //funzione per ricavare la somma spesa dell'utente loggato
-    function getCreditiSpesiCurr(){
-
-        if (isset($_SESSION['nome'])) {
-
-            //mi devo controllare gli ordini e ricavarmi i crediti spesi, al momento lascio un valore standard di 100
-            $spesi_utente = 100;
-            
-            return $spesi_utente;
-        }
-    }
 
     //funzione per mostrare domande e risposte di un certo prodotto
     function mostraDomande($ISBN, $xmlPath){
@@ -654,107 +594,11 @@
             echo "</div>";
         }
 
-    }    
-
-    //funzione utile per calcolare la reputazione
-    function calcolaReputazione($id, $xmlpath, $xmlpath_fumetti){
-
-        include("connection.php");
-        $connessione = new mysqli($host, $user, $password, $db);
-
-        $domande = getDomande($xmlpath);
-        $fumetti = getFumetti($xmlpath_fumetti);
-
-        $temp_num = 0;  //Qui ci metto i calcoli da fare per il numeratore della formula
-        $temp_den = 0;  //Qui ci metto i calcoli da fare per il denominatore della formula
-        $temp_norm = 10/8; //Qui ci metto la costante per effettuare la normalizzazione
-
-        $reputazione_def = 0;
-
-        //prima controllo le valutazioni delle domande
-        foreach ($domande as $domanda) {
-
-            if($domanda['IDDom'] == $id){
-
-                foreach($domanda['votazioni'] as $votazione){
-
-                    $temp_num = $temp_num + (($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione']);
-                    $temp_den = $temp_den + $votazione['reputazione'];
-                }
-            }
-        }
-
-        //poi le valutazioni delle risposte
-        foreach($domande as $domanda){
-
-            foreach ($domanda['risposte'] as $risposta) {
-
-                if ($risposta['IDRisp'] == $id) {
-    
-                    foreach ($risposta['votazioni'] as $votazione) {
-    
-                        // Calcola la reputazione per questa risposta e la aggiunge al totale
-                        $temp_num = $temp_num + (($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione']);
-                        $temp_den = $temp_den + $votazione['reputazione'];
-                    }
-                }
-            }
-        }
-
-        //infine valuto le valutazioni dei fumetti
-        foreach($fumetti as $fumetto){
-
-            foreach($fumetto['recensione'] as $recensione){
-
-                if($recensione['IDRecensore'] == $id){
-
-                    foreach($recensione['votazioni'] as $votazione){
-
-                        // Calcola la reputazione per questa risposta e la aggiunge al totale
-                        $temp_num = $temp_num + (($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione']);
-                        $temp_den = $temp_den + $votazione['reputazione'];
-                    }
-
-                }
-            }
-        }
-
-        //devo controllare se $temp_den è diverso da 0 altrimenti darebbe errore in quanto si farebbe una divisone per 0
-        if($temp_den == 0){
-            $reputazione_def = 1;
-        }
-        else{
-            $reputazione_def = ($temp_norm * $temp_num)/$temp_den; //calcolo finale per la reputazione
-        }
-            
-
-        //faccio un controllo, se la reputazione supera 10 allora deve essere arrotondato a 10
-        if($reputazione_def > 10){
-            $reputazione_def = 10;
-        }
-
-        $reputazione_difetto_def = floor($reputazione_def); //arrotonda per difetto
-
-        // echo $reputazione_difetto_def;
-        //una volta calcolata devo aggiornare il campo corrispettivo nel DB
-        $query = "UPDATE utenteMangaNett 
-                        SET reputazione = '$reputazione_difetto_def'
-                                WHERE id IN (SELECT id FROM utenteMangaNett WHERE username = '{$_SESSION['nome']}')";
-
-        $result = $connessione->query($query);
-
-        //Verifico se la query ha restituito risultati
-        if (!$result) {
-            echo "Errore nella query: " . $connessione->error;
-            exit(1);
-        }
-
-        return $reputazione_difetto_def;
-    }
+    }   
 
     //funzione per stampare le recensioni, in essa troviamo anche il form per inserirne una nuova
     function mostraRecensioni($xmlPath){
-        
+    
         include('connection.php');
 
         $connessione = new mysqli($host, $user, $password, $db);
@@ -938,6 +782,174 @@
             echo "</div>";
         }
     }
+    
+    //funzione per ricavare la reputazione dell'utente loggato
+    function getReputazioneCurr(){
+
+        include('connection.php');
+        $connessione = new mysqli($host, $user, $password, $db);
+
+        if (isset($_SESSION['nome'])) {
+            $query = "SELECT um.reputazione FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}'";
+            $ris = mysqli_query($connessione, $query);
+    
+            if (mysqli_num_rows($ris) == 1) {
+                $row = $ris->fetch_assoc();
+                $reputazione_utente = $row['reputazione'];
+            }
+
+            return $reputazione_utente;
+        }
+    }
+
+    //funzione per ricavare la data di registrazione dell'utente loggato
+    function getDataRegistrazioneCurr(){
+
+        include('connection.php');
+        $connessione = new mysqli($host, $user, $password, $db);
+
+        if (isset($_SESSION['nome'])) {
+
+            $query = "SELECT um.data_registrazione FROM  utenteMangaNett um  WHERE um.username = '{$_SESSION['nome']}'";
+            $ris = mysqli_query($connessione, $query);
+    
+            if (mysqli_num_rows($ris) == 1) {
+                $row = $ris->fetch_assoc();
+                $dataregistrazione_utente = $row['data_registrazione'];
+    
+                //ora mi devo fare la differenza
+                $data_corrente = date("Y-m-d");
+    
+                $differenza_data = date_diff(date_create($dataregistrazione_utente), date_create($data_corrente));
+    
+                //$differenza_data->y restituisce il numero di anni nella differenza tra le date.
+                //$differenza_data->m restituisce il numero di mesi nella differenza tra le date.
+                $mesi_trascorsi = $differenza_data->y * 12 + $differenza_data->m;
+            }    
+
+            return $mesi_trascorsi;
+        }
+    }
+
+    //funzione per ricavare la somma spesa dell'utente loggato
+    function getCreditiSpesiTotCurr(){
+
+        if (isset($_SESSION['nome'])) {
+
+            //mi devo controllare gli ordini e ricavarmi i crediti spesi, al momento lascio un valore standard di 100
+            $spesi_utente = 100;
+            
+            return $spesi_utente;
+        }
+    }
+
+    //funzione per ricavare la somma spesa dall'utente loggato entro una certa data
+    function getCreditiSpesiCertaDataCurr($data){
+
+        if (isset($_SESSION['nome'])) {
+
+            //mi devo controllare gli ordini e ricavarmi i crediti spesi, al momento lascio un valore standard di 100
+            $spesi_utente = 100;
+            
+            return $spesi_utente;
+        }
+    } 
+
+    //funzione utile per calcolare la reputazione
+    function calcolaReputazione($id, $xmlpath, $xmlpath_fumetti){
+
+        include("connection.php");
+        $connessione = new mysqli($host, $user, $password, $db);
+
+        $domande = getDomande($xmlpath);
+        $fumetti = getFumetti($xmlpath_fumetti);
+
+        $temp_num = 0;  //Qui ci metto i calcoli da fare per il numeratore della formula
+        $temp_den = 0;  //Qui ci metto i calcoli da fare per il denominatore della formula
+        $temp_norm = 10/8; //Qui ci metto la costante per effettuare la normalizzazione
+
+        $reputazione_def = 0;
+
+        //prima controllo le valutazioni delle domande
+        foreach ($domande as $domanda) {
+
+            if($domanda['IDDom'] == $id){
+
+                foreach($domanda['votazioni'] as $votazione){
+
+                    $temp_num = $temp_num + (($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione']);
+                    $temp_den = $temp_den + $votazione['reputazione'];
+                }
+            }
+        }
+
+        //poi le valutazioni delle risposte
+        foreach($domande as $domanda){
+
+            foreach ($domanda['risposte'] as $risposta) {
+
+                if ($risposta['IDRisp'] == $id) {
+    
+                    foreach ($risposta['votazioni'] as $votazione) {
+    
+                        // Calcola la reputazione per questa risposta e la aggiunge al totale
+                        $temp_num = $temp_num + (($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione']);
+                        $temp_den = $temp_den + $votazione['reputazione'];
+                    }
+                }
+            }
+        }
+
+        //infine valuto le valutazioni dei fumetti
+        foreach($fumetti as $fumetto){
+
+            foreach($fumetto['recensione'] as $recensione){
+
+                if($recensione['IDRecensore'] == $id){
+
+                    foreach($recensione['votazioni'] as $votazione){
+
+                        // Calcola la reputazione per questa risposta e la aggiunge al totale
+                        $temp_num = $temp_num + (($votazione['supporto'] + $votazione['utilita']) * $votazione['reputazione']);
+                        $temp_den = $temp_den + $votazione['reputazione'];
+                    }
+
+                }
+            }
+        }
+
+        //devo controllare se $temp_den è diverso da 0 altrimenti darebbe errore in quanto si farebbe una divisone per 0
+        if($temp_den == 0){
+            $reputazione_def = 1;
+        }
+        else{
+            $reputazione_def = ($temp_norm * $temp_num)/$temp_den; //calcolo finale per la reputazione
+        }
+            
+
+        //faccio un controllo, se la reputazione supera 10 allora deve essere arrotondato a 10
+        if($reputazione_def > 10){
+            $reputazione_def = 10;
+        }
+
+        $reputazione_difetto_def = floor($reputazione_def); //arrotonda per difetto
+
+        // echo $reputazione_difetto_def;
+        //una volta calcolata devo aggiornare il campo corrispettivo nel DB
+        $query = "UPDATE utenteMangaNett 
+                        SET reputazione = '$reputazione_difetto_def'
+                                WHERE id IN (SELECT id FROM utenteMangaNett WHERE username = '{$_SESSION['nome']}')";
+
+        $result = $connessione->query($query);
+
+        //Verifico se la query ha restituito risultati
+        if (!$result) {
+            echo "Errore nella query: " . $connessione->error;
+            exit(1);
+        }
+
+        return $reputazione_difetto_def;
+    }
 
     //funzione per sommare la quantita di crediti bonus in caso di completamento dell'acquisto
     function calcolaBonusAcquisto(){
@@ -979,7 +991,7 @@
     }
 
     //funzione per sommare la quantita di crediti per completare l'acquisto, ma scontato
-    function calcolaSpesaSiSconto($xmlpath_fumetti){
+    function calcolaScontoFumetto($xmlpath_fumetti,$isbnFumetto){
 
         if (isset($_SESSION['carrello'])) {
 
@@ -987,27 +999,23 @@
 
             $somma_totale = 0;
             
-            foreach ($_SESSION['carrello'] as $fumetto_carrello) {
-                
-                foreach($fumetti_documento as $fumetto_documento){
-                    
-                    if($fumetto_carrello['isbn'] == $fumetto_documento['isbn']){
+            if($fumetto_documento['isbn'] == $isbnFumetto){
                         
-                        $sc_X = $fumetto_documento['X'];
-                        $sc_Y = $fumetto_documento['Y'];
-                        $sc_M = $fumetto_documento['M'];
-                        $sc_data_M = $fumetto_documento['data_M'];
-                        $sc_N = $fumetto_documento['N'];
-                        $sc_R = $fumetto_documento['R'];
-                        $sc_ha_acquistato = $fumetto_documento['ha_acquistato'];
+                $sc_X = $fumetto_documento['X'];
+                $sc_Y = $fumetto_documento['Y'];
+                $sc_M = $fumetto_documento['M'];
+                $sc_data_M = $fumetto_documento['data_M'];
+                $sc_N = $fumetto_documento['N'];
+                $sc_R = $fumetto_documento['R'];
+                $sc_ha_acquistato = $fumetto_documento['ha_acquistato'];
 
-                        $sc_generico = $fumetto_documento['generico'];
+                $sc_generico = $fumetto_documento['generico'];
 
-                        //bene, ora che ho tutti i parametri devo vedere se lo sconto parametrico è rispettato
-                        
+                //bene, ora che ho tutti i parametri devo vedere se lo sconto parametrico è rispettato
 
-                    }
-                }
+                //parto con i parametri X e Y, prima mi calcolo la data 
+                $dataAttuale = new DateTime();
+                $dataFutura = $dataAttuale->modify("+$anni years")->modify("+$mesi months");
 
 
             }
@@ -1015,6 +1023,47 @@
 
         //in questo modo non mi approssima i numeri => ex 19.13 in 19.1
         $somma_totale = number_format($somma_totale, 2, '.', '');
+
+        return $somma_totale;
+    }
+
+    //funzione per sommare la quantita di crediti per completare l'acquisto, ma scontato
+    function calcolaSpesaSiSconto($xmlpath_fumetti){
+
+        $somma_totale = 0;
+
+        // if (isset($_SESSION['carrello'])) {
+
+        //     $fumetti_documento = getFumetti($xmlpath_fumetti);
+ 
+        //     foreach ($_SESSION['carrello'] as $fumetto_carrello) {
+                
+        //         foreach($fumetti_documento as $fumetto_documento){
+                    
+        //             if($fumetto_carrello['isbn'] == $fumetto_documento['isbn']){
+                        
+        //                 $sc_X = $fumetto_documento['X'];
+        //                 $sc_Y = $fumetto_documento['Y'];
+        //                 $sc_M = $fumetto_documento['M'];
+        //                 $sc_data_M = $fumetto_documento['data_M'];
+        //                 $sc_N = $fumetto_documento['N'];
+        //                 $sc_R = $fumetto_documento['R'];
+        //                 $sc_ha_acquistato = $fumetto_documento['ha_acquistato'];
+
+        //                 $sc_generico = $fumetto_documento['generico'];
+
+        //                 //bene, ora che ho tutti i parametri devo vedere se lo sconto parametrico è rispettato
+
+
+        //             }
+        //         }
+
+
+        //     }
+        // }
+
+        // //in questo modo non mi approssima i numeri => ex 19.13 in 19.1
+        // $somma_totale = number_format($somma_totale, 2, '.', '');
 
         return $somma_totale;
     }
