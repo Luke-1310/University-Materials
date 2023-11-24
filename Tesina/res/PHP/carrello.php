@@ -6,22 +6,23 @@ $fumetto_isbn_POST = $_POST['isbn'];
 $isPresente = false;
 
 //controllo se è già stato aggiunto, in modo tale da non aggiungere un nuovo elemento ma aggiorno solo la quantità
-if(!empty($_SESSION['carrello'])){
+//$indice risulta essenziale per evitare che venga manipolata la copia dell'array e non quello originale
+if (!empty($_SESSION['carrello'])) {
 
-    echo 0;
+    foreach ($_SESSION['carrello'] as $indice => $fumetto_carrello) {
+        
+        if ($fumetto_carrello['isbn'] == $fumetto_isbn_POST) {
 
-    foreach($_SESSION['carrello'] as $fumetto_carrello){
+            if($_SESSION['carrello'][$indice]['quantita'] < 10){
+                $_SESSION['carrello'][$indice]['quantita'] += 1;
+                break;
+            }
 
-        echo $fumetto_carrello['isbn'];
-        echo $fumetto_isbn_POST;
-
-        if($fumetto_carrello['isbn'] == $fumetto_isbn_POST){
-            $fumetto_carrello['quantita'] += 1;
             $isPresente = true;
-            break;
         }
     }
 }
+
 
 if(!$isPresente){
 

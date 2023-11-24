@@ -85,8 +85,26 @@
                             echo"</div>";
 
                             echo "<div class=\"column\">";
-                                echo $fumetto_carrello['quantita'];
-                            echo"</div>";
+
+                                echo "<div class=\"bottoni_quantita\">";
+                                
+                                    echo "<form action=\"res/PHP/aggiorna_quantita_prodotto.php\" method=\"POST\">";
+                                        echo "<input type=\"hidden\" name=\"isbn\" value=\"" . $fumetto_carrello['isbn'] . "\">";
+                                        echo "<button name=\"bottone_aumenta\" type=\"submit\">";
+                                        echo "<i id=\"aumenta\" class=\"material-icons\">add</i></button>";
+                                    echo "</form>";
+                                    
+                                    echo $fumetto_carrello['quantita'];
+                                
+                                    echo "<form action=\"res/PHP/aggiorna_quantita_prodotto.php\" method=\"POST\">";
+                                        echo "<input type=\"hidden\" name=\"isbn\" value=\"" . $fumetto_carrello['isbn'] . "\">";
+                                        echo "<button name=\"bottone_decrementa\" type=\"submit\">";
+                                        echo "<i id=\"decrementa\" class=\"material-icons\">remove</i></button>";
+                                    echo "</form>";
+
+                                echo "</div>";
+
+                            echo "</div>";
 
                             echo "<div class=\"column\">";
                                 echo $fumetto['bonus'] . " CR";
