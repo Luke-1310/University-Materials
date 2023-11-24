@@ -126,6 +126,22 @@
                 echo "<div class=\"column\"></div>";
                 
                 echo "<div class=\"column\">";
+                    echo "<h4>CREDITI BONUS</h4>";
+                echo"</div>";
+
+                echo "<div class=\"column\">";
+                    echo "<h4>PREZZO TOTALE</h4>";
+                echo"</div>";
+
+                echo "<div class=\"column\">";
+                    echo "<h4>PREZZO FINALE</h4>";
+                echo"</div>";
+
+                echo "<div class=\"column\"></div>";
+                echo "<div class=\"column\"></div>";
+                echo "<div class=\"column\"></div>";
+                
+                echo "<div class=\"column\">";
                     $sommaTotaleBonus = calcolaBonusAcquisto();
                     echo $sommaTotaleBonus ." CR";
                 echo"</div>";
@@ -136,7 +152,7 @@
                 echo"</div>";
 
                 echo "<div class=\"column\">";
-                    echo "<h4>PREZZO SCONTATO</h4>";
+                    echo "-";
                 echo"</div>";
                 
 
