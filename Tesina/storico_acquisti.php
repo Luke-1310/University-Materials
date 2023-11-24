@@ -25,21 +25,122 @@
 <?php 
     $pagina_corrente = "storico_acquisti";
     include('res/PHP/navbar.php');
+    require('res/PHP/funzioni.php');
+    require('res/PHP/connection.php');
+
 ?>
 
 <body>
 
     <?php
+
+        $xmlpath = "res/XML/storico_acquisti.xml";
+        $acquisti = getAcquisti($xmlpath);
+
+        $connessione = new mysqli($host, $user, $password, $db);
+
+        $isAcquisti = false;
+
+        $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
+        $ext = ".jpg";
+
         echo "<p id=\"titolo\">STORICO ACQUISTI</p>";
+
+        //mi prendo l'id dell'utente corrente
+        $query ="SELECT umn.id FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+        $ris = $connessione->query($query);
+
+        if(mysqli_num_rows($ris) == 1){
+            $row = $ris->fetch_assoc();
+            $id = $row['id'];
+        }
+        else{
+            header('Location:../../homepage.php');
+        }
+
+        foreach($acquisti as $acquisto){
+
+            if($acquisto['IDUtente'] == $id){
+
+                $somma_pagata = 0;
+
+                echo "<div class=\"container\">";
+
+                    echo "<div class=\"column\">";
+                        echo "<h4>PRODOTTO</h4>";
+                    echo"</div>";
+
+                    echo "<div class=\"column\">";
+                        echo "<h4>TITOLO</h4>";
+                    echo"</div>";
+
+                    echo "<div class=\"column\">";
+                        echo "<h4>QUANTITÀ</h4>";
+                    echo"</div>";
+
+                    echo "<div class=\"column\">";
+                        echo "<h4>PAGATO</h4>";
+                    echo"</div>";
+
+                    foreach($acquisto['fumetti'] as $fumetto){
+
+                        $nomeImg = $fumetto['isbn'] . $ext;
+
+                        echo "<div class=\"column\">";
+                            echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\">";
+                        echo"</div>";
+                        
+                        echo "<div class=\"column\">";
+                            echo $fumetto['titolo'];
+                        echo"</div>";
+
+                        echo "<div class=\"column\">";
+                            echo $fumetto['quantita'];
+                        echo"</div>";
+
+                        echo "<div class=\"column\">";
+                            echo $fumetto['prezzo'] . " CR";
+                        echo"</div>";
+
+                        $somma_pagata += $fumetto['prezzo'];
+                    }
+                    
+                    $parti = explode("T", $acquisto['data']);
         
-        echo "<div class=\"container\">";
+                    //$parti[0] conterrà la data (parte prima di T) e $parti[1] conterrà l'ora (parte dopo di T)
+                    $data = $parti[0];
+                    $ora = $parti[1];
 
-           
+                    echo "<div class=\"column\">";
+                        echo "<h4>EFFETTUATO IL</h4>";
+                        echo $data . " ALLE " . $ora;
+                    echo"</div>";
+                    
+                    echo "<div class=\"column\">";
+                    echo"</div>";
 
-            
+                    echo "<div class=\"column\">";
+                        echo "<h4>BONUS</h4>";
+                        echo $acquisto['bonus'] . " CR";
+                    echo"</div>";
 
-        echo"</div>";
+                    echo "<div class=\"column\">";
+                        echo "<h4>TOTALE PAGATO</h4>";
+                        echo $somma_pagata . " CR";
+                    echo"</div>";
+
+                echo"</div>";
+
+                $isAcquisti = true;
+            }
+        }
+   
+        if(!$isAcquisti){
+            echo "<p id=\"no_response\">NESSUNA RICHIESTA DA ACCETTARE TROVATA... ¯\_(ツ)_/¯</p>";
+        }
+
     ?>
+
 </body>
 
 <?php include('res/PHP/footer.php')?>
