@@ -49,6 +49,11 @@
                         unset($_SESSION['errore_ag_titolo']);//la unsetto altrimenti rimarrebbe la scritta
                     }
 
+                    if(isset($_SESSION['errore_img_nonEsiste']) && $_SESSION['errore_img_nonEsiste'] == 'true'){//isset verifica se errore è settata
+                        echo "<h4>NON HO TROVATO L'IMMAGINE!</h4>";
+                        unset($_SESSION['errore_img_nonEsiste']);//la unsetto altrimenti rimarrebbe la scritta
+                    }
+
                     if(isset($_SESSION['errore_ag_isbn']) && $_SESSION['errore_ag_isbn'] == 'true'){//isset verifica se errore è settata
                         echo "<h4>L'ISBN GIÀ ESISTE!</h4>";
                         unset($_SESSION['errore_ag_isbn']);//la unsetto altrimenti rimarrebbe la scritta
@@ -81,6 +86,11 @@
                     <label for="ISBN">ISBN</label>
                     <input type="text" pattern="[0-9]{13}" maxlength="13" id="ISBN" name="ISBN" value="<?php echo $fumetto_corrente['isbn']; ?>" required>
                 </div>
+
+                <?php
+                    /*mi serve il vecchio ID per la situazione immagine al cambio ISBN =>*/ 
+                    $_SESSION['vecchio_isbn'] = $fumetto_corrente['isbn'];
+                ?>
 
                 <div class="form-row">
                     <label for="editrice">CASA EDITRICE</label>
