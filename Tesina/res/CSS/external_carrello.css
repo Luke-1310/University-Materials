@@ -45,3 +45,29 @@
     align-items: center;
     text-align: center;
 }
+
+.bottoni_quantita{
+    display: flex;
+    flex-direction: row;
+}
+
+.bottoni_quantita form{    
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.bottoni_quantita button{
+
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    background: none;
+}
+
+#aumenta{
+    color:#1DB954 ;
+}
+
+#decrementa{
+    color:red ;
+}
