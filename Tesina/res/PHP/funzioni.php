@@ -239,6 +239,52 @@
         return $domande;
     }
 
+    //funzione per caricare tutti gli acquisti salvati
+    function getAcquisti($xmlFile){
+
+        $acquisti = [];
+
+        $acquisti_doc = new DOMDocument();
+        $acquisti_doc->load($xmlFile);
+
+        $storico = $acquisti_doc->getElementsByTagName('acquisto');
+
+        foreach($storico as $acquisto){
+
+            $IDUtente = $acquisto->getElementsByTagName('IDUtente')->item(0)->nodeValue;
+            $data = $acquisto->getElementsByTagName('data')->item(0)->nodeValue;
+            $bonus = $acquisto->getElementsByTagName('bonus')->item(0)->nodeValue;
+
+            $fumetti = $acquisto->getElementsByTagName('fumetto');
+
+            $fumetti_acquistati = [];
+
+            foreach($fumetti as $fumetto){
+
+                $titolo = $fumetto->getElementsByTagName('titolo')->item(0)->nodeValue;
+                $isbn = $fumetto->getElementsByTagName('isbn')->item(0)->nodeValue;
+                $quantita = $fumetto->getElementsByTagName('quantita')->item(0)->nodeValue;
+                $prezzo = $fumetto->getElementsByTagName('prezzo')->item(0)->nodeValue;
+
+                $fumetti_acquistati[] = [
+                    'titolo' =>$titolo,
+                    'isbn' =>$isbn,
+                    'quantita' =>$quantita,
+                    'prezzo' =>$prezzo,
+                ];
+            }
+
+            $acquisti[] = [
+                'IDUtente' => $IDUtente,
+                'data' => $data,
+                'bonus' => $bonus,
+                'fumetti' => $fumetti_acquistati,
+            ];
+        }
+
+        return $acquisti;
+    }
+
     //funzione per mostrare domande e risposte di un certo prodotto
     function mostraDomande($ISBN, $xmlPath){
 
