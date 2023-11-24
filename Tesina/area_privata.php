@@ -44,8 +44,8 @@
             </div>
 
             <div class="cell">
-                <a href="area_privata.php"><i id="shop" class="material-icons">shopping_bag</i></a>
-                <a href="area_privata.php">STORICO ACQUISTI</a>
+                <a href="storico_acquisti.php"><i id="shop" class="material-icons">shopping_bag</i></a>
+                <a href="storico_acquisti.php">STORICO ACQUISTI</a>
             </div>
             
             <div class="cell">
