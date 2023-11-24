@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<storico xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nome_del_tuo_schema.xsd">
+<storico xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
   <richiesta>
     <IDUtente>1</IDUtente>
     <quantita>54</quantita>
