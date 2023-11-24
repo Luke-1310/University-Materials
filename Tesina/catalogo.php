@@ -196,8 +196,7 @@
                 if($fumetto['quantita'] != 0){
 
                     echo "<form action=\"res/PHP/carrello.php\" method=\"POST\">";
-                        echo"<input type=\"hidden\" name=\"isbn\" value=". $fumetto['isbn'] .">";
-                        // echo"<input type=\"hidden\" name=\"prezzo\" value=". $fumetto['prezzo'] .">";
+                        echo "<input type=\"hidden\" name=\"isbn\" value='" . $fumetto['isbn'] . "'>";
                         echo "<span class=\"carrello\"><h5><input type=\"submit\" name=\"Disponibile\" value=\"AGGIUNGI AL CARRELLO\"></h5></span>";
                     echo "</form>";
                 }
