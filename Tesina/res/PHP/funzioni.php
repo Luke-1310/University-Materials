@@ -939,6 +939,23 @@
         }
     }
 
+    //funzione per sommare la quantita di crediti bonus in caso di completamento dell'acquisto
+    function calcolaBonusAcquisto(){
+
+        if (isset($_SESSION['carrello'])) {
+
+            $somma_totale = 0;
+            
+            foreach ($_SESSION['carrello'] as $fumetto_carrello) {
+
+                $somma_totale += $fumetto_carrello['bonus'];
+
+            }
+        }
+
+        return $somma_totale;
+    }
+
     //funzione per sommare la quantita di crediti per completare l'acquisto
     function calcolaSpesaNoSconto(){
 
@@ -958,6 +975,29 @@
 
         //in questo modo non mi approssima i numeri => ex 19.13 in 19.1
         $somma_totale = number_format($somma_totale, 2, '.', '');
+        return $somma_totale;
+    }
+
+    //funzione per sommare la quantita di crediti per completare l'acquisto, ma scontato
+    function calcolaSpesaSiSconto(){
+
+        if (isset($_SESSION['carrello'])) {
+
+            $somma_totale = 0;
+            
+            foreach ($_SESSION['carrello'] as $fumetto_carrello) {
+        
+                $quantita = $fumetto_carrello['quantita'];
+                $prezzo = $fumetto_carrello['prezzo'];
+
+                $somma_totale += $prezzo * $quantita;
+
+            }
+        }
+
+        //in questo modo non mi approssima i numeri => ex 19.13 in 19.1
+        $somma_totale = number_format($somma_totale, 2, '.', '');
+
         return $somma_totale;
     }
     

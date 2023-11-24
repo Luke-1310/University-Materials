@@ -124,7 +124,11 @@
                 echo "<div class=\"column\"></div>";
                 echo "<div class=\"column\"></div>";
                 echo "<div class=\"column\"></div>";
-                echo "<div class=\"column\"></div>";
+                
+                echo "<div class=\"column\">";
+                    $sommaTotaleBonus = calcolaBonusAcquisto();
+                    echo $sommaTotaleBonus ." CR";
+                echo"</div>";
 
                 echo "<div class=\"column\">";
                     $prezzoTotaleNoSconto = calcolaSpesaNoSconto();

@@ -4,6 +4,7 @@ session_start();
 
 $fumetto_isbn_POST = $_POST['isbn'];
 $fumetto_prezzo_POST = $_POST['prezzo'];
+$fumetto_bonus_POST = $_POST['bonus'];
 $isPresente = false;
 
 //controllo se è già stato aggiunto, in modo tale da non aggiungere un nuovo elemento ma aggiorno solo la quantità
@@ -31,6 +32,7 @@ if(!$isPresente){
     $fumetto = array(
         'isbn' => $fumetto_isbn_POST,
         'prezzo' => $fumetto_prezzo_POST,
+        'bonus' => $fumetto_bonus_POST,
         'quantita' => 1
     );
 
