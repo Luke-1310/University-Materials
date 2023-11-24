@@ -15,12 +15,12 @@ if (!empty($_SESSION['carrello'])) {
         
         if ($fumetto_carrello['isbn'] == $fumetto_isbn_POST) {
 
+            $isPresente = true;
+            
             if($_SESSION['carrello'][$indice]['quantita'] < 10){
                 $_SESSION['carrello'][$indice]['quantita'] += 1;
                 break;
             }
-
-            $isPresente = true;
         }
     }
 }
