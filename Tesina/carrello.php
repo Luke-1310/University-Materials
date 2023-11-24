@@ -39,7 +39,7 @@
         $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
         $ext = ".jpg";
 
-        // unset($_SESSION['carrello']);
+        //unset($_SESSION['carrello']);
         if(isset($_SESSION['carrello']) && !empty($_SESSION['carrello'])){
 
             echo "<div class=\"container\">";
@@ -111,7 +111,7 @@
                             echo"</div>";
 
                             echo "<div class=\"column\">";
-                                echo $fumetto['prezzo'] ." CR";
+                                echo $fumetto_carrello['prezzo'] ." CR";
                             echo"</div>";
 
                             echo "<div class=\"column\">";
@@ -120,6 +120,21 @@
                         }
                     }
                 }
+
+                echo "<div class=\"column\"></div>";
+                echo "<div class=\"column\"></div>";
+                echo "<div class=\"column\"></div>";
+                echo "<div class=\"column\"></div>";
+
+                echo "<div class=\"column\">";
+                    $prezzoTotaleNoSconto = calcolaSpesaNoSconto();
+                    echo $prezzoTotaleNoSconto ." CR";
+                echo"</div>";
+
+                echo "<div class=\"column\">";
+                    echo "<h4>PREZZO SCONTATO</h4>";
+                echo"</div>";
+                
 
             echo "</div>";
         }

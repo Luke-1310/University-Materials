@@ -3,6 +3,7 @@
 session_start();
 
 $fumetto_isbn_POST = $_POST['isbn'];
+$fumetto_prezzo_POST = $_POST['prezzo'];
 $isPresente = false;
 
 //controllo se è già stato aggiunto, in modo tale da non aggiungere un nuovo elemento ma aggiorno solo la quantità
@@ -29,6 +30,7 @@ if(!$isPresente){
     //creo un array con i dati del POST, faccio perché voglio salvare diverse informazioni del fumetto
     $fumetto = array(
         'isbn' => $fumetto_isbn_POST,
+        'prezzo' => $fumetto_prezzo_POST,
         'quantita' => 1
     );
 
