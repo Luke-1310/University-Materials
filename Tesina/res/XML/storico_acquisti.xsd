@@ -13,7 +13,7 @@
     <xsd:complexType>
       <xsd:sequence>
         <xsd:element name="IDUtente" type="xsd:integer"/>
-        <xsd:element name="data" type="xsd:date"/>
+        <xsd:element name="data" type="xsd:dateTime"/>
         <xsd:element name="bonus" type="xsd:integer"/>
         <xsd:element ref="fumetto" minOccurs="1" maxOccurs="unbounded"/>
       </xsd:sequence>
