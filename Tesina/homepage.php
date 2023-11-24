@@ -156,98 +156,98 @@
             echo "</div>";
         }
 
-        $connessione = new mysqli($host, $user, $password, $db);
+        // $connessione = new mysqli($host, $user, $password, $db);
 
-        $reputazione_utente = getReputazioneCurr();
+        // $reputazione_utente = getReputazioneCurr();
     
-        $mesi_trascorsi = getDataRegistrazioneCurr();
+        // $mesi_trascorsi = getDataRegistrazioneCurr();
     
-        $spesi_utente = getCreditiSpesiCurr();
+        // $spesi_utente = getCreditiSpesiCurr();
 
-        //controllo se c'è almeno un fumetto con uno sconto con parametri adatti al cliente registrato
-        $scontoSi = false;
+        // //controllo se c'è almeno un fumetto con uno sconto con parametri adatti al cliente registrato
+        // $scontoSi = false;
 
-        $fumetti_scontati = [];
+        // $fumetti_scontati = [];
 
-        foreach($fumetti as $fumetto){
+        // foreach($fumetti as $fumetto){
             
-            $mesi = $fumetto['X'];
-            $crediti = $fumetto['N'];
-            $reputazione = $fumetto['R'];
+        //     $mesi = $fumetto['X'];
+        //     $crediti = $fumetto['N'];
+        //     $reputazione = $fumetto['R'];
 
-            //se TUTTI i parametri sono uguali a 0 allora questo prodotto non è soggetto a sconto
-            if($mesi != 0 || $crediti != 0 || $reputazione != 0){
+        //     //se TUTTI i parametri sono uguali a 0 allora questo prodotto non è soggetto a sconto
+        //     if($mesi != 0 || $crediti != 0 || $reputazione != 0){
                 
-                if($mesi < $mesi_trascorsi && $crediti < $spesi_utente && $reputazione < $reputazione_utente){
+        //         if($mesi < $mesi_trascorsi && $crediti < $spesi_utente && $reputazione < $reputazione_utente){
                     
-                    $scontoSi = true;
+        //             $scontoSi = true;
 
-                    $fumetti_scontati[] = [
-                        'isbn' => $fumetto['isbn'],
-                        'titolo' => $fumetto['titolo'],
-                        'sinossi' => $fumetto['sinossi'],
-                        'lunghezza' => $fumetto['lunghezza'],
-                        'prezzo' => $fumetto['prezzo'],
-                        'data' => $fumetto['data'],
-                        'quantita' => $fumetto['quantita'],
-                        'editore' => $fumetto['editore'],
-                        'bonus' => $fumetto['bonus'],
+        //             $fumetti_scontati[] = [
+        //                 'isbn' => $fumetto['isbn'],
+        //                 'titolo' => $fumetto['titolo'],
+        //                 'sinossi' => $fumetto['sinossi'],
+        //                 'lunghezza' => $fumetto['lunghezza'],
+        //                 'prezzo' => $fumetto['prezzo'],
+        //                 'data' => $fumetto['data'],
+        //                 'quantita' => $fumetto['quantita'],
+        //                 'editore' => $fumetto['editore'],
+        //                 'bonus' => $fumetto['bonus'],
                         
-                        'img' => $fumetto['img'],
+        //                 'img' => $fumetto['img'],
         
-                        'X' => $fumetto['X'],
-                        'N' => $fumetto['N'],
-                        'R' => $fumetto['R'],
+        //                 'X' => $fumetto['X'],
+        //                 'N' => $fumetto['N'],
+        //                 'R' => $fumetto['R'],
         
-                        'nome_autore' => $fumetto['nome_autore'],
-                        'cognome_autore' => $fumetto['cognome_autore'],
-                    ];
-                }
-            }
-        }
+        //                 'nome_autore' => $fumetto['nome_autore'],
+        //                 'cognome_autore' => $fumetto['cognome_autore'],
+        //             ];
+        //         }
+        //     }
+        // }
 
-        if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+        // if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
 
-            if($scontoSi){
-                echo "<p class=\"novita\"><a href=\"catalogo.php\">VOGLIA DI SCONTO!?</a></p>";
+        //     if($scontoSi){
+        //         echo "<p class=\"novita\"><a href=\"catalogo.php\">VOGLIA DI SCONTO!?</a></p>";
     
-                //apro un secondo container
-                echo "<div class=\"container\">";
+        //         //apro un secondo container
+        //         echo "<div class=\"container\">";
     
-                //$fumetto è una variabile temporanea
-                foreach ($fumetti_scontati as $fumetto_scontato) {
+        //         //$fumetto è una variabile temporanea
+        //         foreach ($fumetti_scontati as $fumetto_scontato) {
     
-                    // Estrai i dati del fumetto
-                    $ISBN = $fumetto_scontato['isbn'];
-                    $titolo = $fumetto_scontato['titolo'];
-                    $prezzo = $fumetto_scontato['prezzo'];
+        //             // Estrai i dati del fumetto
+        //             $ISBN = $fumetto_scontato['isbn'];
+        //             $titolo = $fumetto_scontato['titolo'];
+        //             $prezzo = $fumetto_scontato['prezzo'];
             
-                    echo "<div class=\"cell\">";
+        //             echo "<div class=\"cell\">";
         
-                        //Estensione dell'immagine (dovrebbe essere jpg)
-                        $ext = ".jpg";
+        //                 //Estensione dell'immagine (dovrebbe essere jpg)
+        //                 $ext = ".jpg";
         
-                        //Compongo il nome completo dell'immagine da stampare
-                        $nomeImg = $ISBN . $ext;
+        //                 //Compongo il nome completo dell'immagine da stampare
+        //                 $nomeImg = $ISBN . $ext;
         
-                        //Percorso dell'immagine
-                        $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
+        //                 //Percorso dell'immagine
+        //                 $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
         
-                        echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\" >";
+        //                 echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\" >";
         
-                        echo "<form id=\"prod_info\" action=\"prodotti_info.php\" method=\"POST\">";
-                        echo "<span class=\"bottone\"><h5><input type=\"submit\" name=\"titolo\" value=\"$titolo\"></h5></span>";
-                        echo "</form>";
+        //                 echo "<form id=\"prod_info\" action=\"prodotti_info.php\" method=\"POST\">";
+        //                 echo "<span class=\"bottone\"><h5><input type=\"submit\" name=\"titolo\" value=\"$titolo\"></h5></span>";
+        //                 echo "</form>";
         
-                        echo $prezzo . " CR";
+        //                 echo $prezzo . " CR";
         
-                    echo "</div>";
+        //             echo "</div>";
                     
-                }
+        //         }
     
-                echo "</div>";
-            }
-        }
+        //         echo "</div>";
+        //     }
+        // }
         
     ?>
 
