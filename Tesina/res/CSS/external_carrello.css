@@ -6,7 +6,7 @@
     text-align: center;
 
     margin-top: 90px;
-    margin-bottom: 90px;
+    margin-bottom: 350px;
 }
 
 .container {
@@ -46,22 +46,26 @@
     text-align: center;
 }
 
-.bottoni_quantita{
+.bottoni_quantita, .bottone_rimuovi{
     display: flex;
     flex-direction: row;
 }
 
-.bottoni_quantita form{    
+.bottoni_quantita form, .bottone_rimuovi{    
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.bottoni_quantita button{
+.bottoni_quantita button, .bottone_rimuovi button{
 
     cursor: pointer;
     border: none;
     text-decoration: none;
     background: none;
+}
+
+.bottone_rimuovi{
+    margin-top: 20px;
 }
 
 #aumenta{
@@ -71,3 +75,8 @@
 #decrementa{
     color:red ;
 }
+
+#esito_positivo{
+    color: #1DB954;
+    text-align: center;
+  }
