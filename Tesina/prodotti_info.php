@@ -91,11 +91,11 @@ include('res/PHP/funzioni.php');
     //ora mi devo prendere anche i parametri dell'utente per vedere se rientra nello sconto
     $connessione = new mysqli($host, $user, $password, $db);
 
-    $reputazione_utente = getReputazioneCurr();
+    // $reputazione_utente = getReputazioneCurr();
 
-    $mesi_trascorsi = getDataRegistrazioneCurr();
+    // $mesi_trascorsi = getDataRegistrazioneCurr();
 
-    $spesi_utente = getCreditiSpesiCurr();
+    // $spesi_utente = getCreditiSpesiCurr();
 
     //Compongo il nome completo dell'immagine da stampare
     $nomeImg = $ISBN . $ext;
@@ -175,13 +175,10 @@ include('res/PHP/funzioni.php');
 
                 echo "<div class=\"info-sconto\">";
 
-                    //se c'è il bonus, lo stampo
-                    if ($bonus != "0") {
-                        echo "<div class=\"info-field\">";
-                            echo "<span class=\"field-label\">BONUS: </span>";
-                            echo "<span class=\"field-value\">" . $bonus . " CREDITI </span>";
-                        echo "</div>";
-                    }
+                    echo "<div class=\"info-field\">";
+                        echo "<span class=\"field-label\">BONUS: </span>";
+                        echo "<span class=\"field-value\">" . $bonus . " CREDITI </span>";
+                    echo "</div>";
 
                 echo "</div>";
                 
@@ -189,12 +186,15 @@ include('res/PHP/funzioni.php');
 
                     if($quantita != 0){
 
-                        echo "<form id=\"modifica_carrello\" action=\"carrello.php\" method=\"POST\">";
-                            echo "<span class=\"bottone_carrello\"><input type=\"submit\" value=\"AGGIUNGI AL CARRELLO\"></span>";
+                        echo "<form action=\"res/PHP/carrello.php\" method=\"POST\">";
+                            echo "<input type=\"hidden\" name=\"isbn\" value='" . $ISBN . "'>";
+                            echo "<input type=\"hidden\" name=\"prezzo\" value='" . $prezzo . "'>";
+                            echo "<input type=\"hidden\" name=\"bonus\" value='" . $bonus . "'>";
+                            echo "<span class=\"bottone_carrello\"><h5><input type=\"submit\" name=\"Disponibile\" value=\"AGGIUNGI AL CARRELLO\"></h5></span>";
                         echo "</form>";
                     }
                     else{
-                        echo "<span class=\"bottone_carrello\"><h5><input type=\"button\" name=\"info\" value=\"NON DISPONIBILE\"></h5></span>";
+                        echo "<span class=\"bottone_carrello\"><h5><input type=\"button\" name=\"nonDisponibile\" value=\"NON DISPONIBILE\"></h5></span>";
                     }
 
                 echo "</div>";
