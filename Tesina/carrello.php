@@ -152,7 +152,9 @@
                 echo"</div>";
 
                 echo "<div class=\"column\">";
-                    echo "-";
+                    $xmlPathFumetti = "res/PHP/catalogo.xml";
+                    $prezzoTotaleNoSconto = calcolaSpesaNoSconto($xmlPathFumetti);
+                    echo $prezzoTotaleNoSconto ." CR";
                 echo"</div>";
                 
 

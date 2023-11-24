@@ -948,7 +948,7 @@
             
             foreach ($_SESSION['carrello'] as $fumetto_carrello) {
 
-                $somma_totale += $fumetto_carrello['bonus'];
+                $somma_totale += $fumetto_carrello['bonus']*$fumetto_carrello['quantita'];
 
             }
         }
@@ -979,18 +979,36 @@
     }
 
     //funzione per sommare la quantita di crediti per completare l'acquisto, ma scontato
-    function calcolaSpesaSiSconto(){
+    function calcolaSpesaSiSconto($xmlpath_fumetti){
 
         if (isset($_SESSION['carrello'])) {
+
+            $fumetti_documento = getFumetti($xmlpath_fumetti);
 
             $somma_totale = 0;
             
             foreach ($_SESSION['carrello'] as $fumetto_carrello) {
-        
-                $quantita = $fumetto_carrello['quantita'];
-                $prezzo = $fumetto_carrello['prezzo'];
+                
+                foreach($fumetti_documento as $fumetto_documento){
+                    
+                    if($fumetto_carrello['isbn'] == $fumetto_documento['isbn']){
+                        
+                        $sc_X = $fumetto_documento['X'];
+                        $sc_Y = $fumetto_documento['Y'];
+                        $sc_M = $fumetto_documento['M'];
+                        $sc_data_M = $fumetto_documento['data_M'];
+                        $sc_N = $fumetto_documento['N'];
+                        $sc_R = $fumetto_documento['R'];
+                        $sc_ha_acquistato = $fumetto_documento['ha_acquistato'];
 
-                $somma_totale += $prezzo * $quantita;
+                        $sc_generico = $fumetto_documento['generico'];
+
+                        //bene, ora che ho tutti i parametri devo vedere se lo sconto parametrico è rispettato
+                        
+
+                    }
+                }
+
 
             }
         }
