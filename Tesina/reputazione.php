@@ -39,7 +39,7 @@
 <?php
     echo "<div class=\"container\">";
 
-        echo "<p id=\"titolo\">VEDIAMO LA TUA REPUTAZIONE!</p>";
+        echo "<p id=\"titolo\">REPUTAZIONE</p>";
 
         //mi prendo anche l'ID che poi mi invio in res/PHP/reputazione.php
         $sql_id = "SELECT u.id FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}'";
