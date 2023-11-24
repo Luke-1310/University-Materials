@@ -126,7 +126,7 @@
                 echo "<div class=\"column\"></div>";
                 
                 echo "<div class=\"column\">";
-                    echo "<h4>CREDITI BONUS</h4>";
+                    echo "<h4>CREDITI TOTALI</h4>";
                 echo"</div>";
 
                 echo "<div class=\"column\">";
