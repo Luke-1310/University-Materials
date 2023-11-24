@@ -87,7 +87,7 @@
                         $nomeImg = $fumetto['isbn'] . $ext;
 
                         echo "<div class=\"column\">";
-                            echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\">";
+                            echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\" onerror=\"this.onerror=null; this.src='res/WEBSITE_MEDIA/PRODUCT_MEDIA/default.jpg';\" />";
                         echo"</div>";
                         
                         echo "<div class=\"column\">";
