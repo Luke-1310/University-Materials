@@ -23,6 +23,7 @@
   <xsd:element name="fumetto">
     <xsd:complexType>
       <xsd:sequence>
+        <xsd:element name="titolo" type="xsd:string"/>
         <xsd:element name="isbn" type="xsd:string"/>
         <xsd:element name="quantita" type="xsd:integer"/>
         <xsd:element name="prezzo" type="xsd:float"/>
