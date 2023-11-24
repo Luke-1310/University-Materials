@@ -107,7 +107,7 @@
                             echo "</div>";
 
                             echo "<div class=\"column\">";
-                                echo $fumetto['bonus'] . " CR";
+                                echo $fumetto_carrello['bonus'] . " CR";
                             echo"</div>";
 
                             echo "<div class=\"column\">";
