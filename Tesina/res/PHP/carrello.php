@@ -38,5 +38,5 @@ if(!$isPresente){
 
 $_SESSION['prodotto_aggiunto'] = true;
 
-// header('Location: ../../catalogo.php');
+header('Location: ../../catalogo.php');
 ?>
