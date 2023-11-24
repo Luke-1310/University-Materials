@@ -6,7 +6,7 @@
     text-align: center;
 
     margin-top: 90px;
-    margin-bottom: 90px;
+    margin-bottom: 350px;
 }
 
 #titolo{
@@ -21,7 +21,7 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     padding: 30px;
     background-color: #1a1a1a;
     border-radius: 20px;
