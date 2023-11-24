@@ -181,7 +181,7 @@ $Y->nodeValue = "0";
 $sconto->appendChild($Y);
 $M->nodeValue = "0";
 $sconto->appendChild($M);
-$M_data->nodeValue = "2099-01-01";
+$M_data->nodeValue = "1999-01-01";
 $sconto->appendChild($M_data);
 $N->nodeValue = "0";
 $sconto->appendChild($N);
