@@ -15,4 +15,19 @@
             <prezzo>5.99</prezzo>
         </fumetto>
     </acquisto>
+    <acquisto>
+        <IDUtente>1</IDUtente>
+        <data>2023-09-17T08:32:38</data>
+        <bonus>0</bonus>
+        <fumetto>
+            <isbn>9788891297952</isbn>
+            <quantita>1</quantita>
+            <prezzo>4.90</prezzo>
+        </fumetto>
+        <fumetto>
+            <isbn>9781974710034</isbn>
+            <quantita>1</quantita>
+            <prezzo>9.54</prezzo>
+        </fumetto>
+    </acquisto>
 </storico>
