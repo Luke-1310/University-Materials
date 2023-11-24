@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:element name="storico">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="acquisto" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  
+  <xsd:element name="acquisto">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="IDUtente" type="xsd:integer"/>
+        <xsd:element name="data" type="xsd:date"/>
+        <xsd:element name="bonus" type="xsd:integer"/>
+        <xsd:element ref="fumetto" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="fumetto">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="isbn" type="xsd:string"/>
+        <xsd:element name="quantita" type="xsd:integer"/>
+        <xsd:element name="prezzo" type="xsd:float"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>
