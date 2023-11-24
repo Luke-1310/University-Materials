@@ -39,6 +39,11 @@
         $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
         $ext = ".jpg";
 
+        if(isset($_SESSION['rimuovi_prodotto_carrello_ok']) && $_SESSION['rimuovi_prodotto_carrello_ok'] == true){
+            echo "<h4 id=\"esito_positivo\">IL PRODOTTO È STATO RIMOSSO DAL CARRELLO!</h4>";
+            unset($_SESSION['rimuovi_prodotto_carrello_ok']);
+        }
+
         //unset($_SESSION['carrello']);
         if(isset($_SESSION['carrello']) && !empty($_SESSION['carrello'])){
 
@@ -81,7 +86,19 @@
                             echo"</div>";
 
                             echo "<div class=\"column\">";
+
                                 echo $fumetto['titolo'];
+
+                                echo "<div class=\"bottone_rimuovi\">";
+                                
+                                    echo "<form id=\"form-delete\" action=\"res/PHP/rimuovi_prodotto_carrello.php\" method=\"POST\">";
+                                        echo "<input type=\"hidden\" name=\"isbn\" value=\"" . $fumetto_carrello['isbn'] . "\">";
+                                        echo "<button name=\"bottone_elimina\" type=\"submit\">";
+                                        echo "<i id=\"decrementa\" class=\"material-icons\">delete</i></button>";
+                                    echo "</form>";
+
+                                echo"</div>";
+
                             echo"</div>";
 
                             echo "<div class=\"column\">";
