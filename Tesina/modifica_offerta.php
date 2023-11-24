@@ -129,7 +129,7 @@
 
                 <div class="form-row">
                     <label for="bonus">BONUS CREDITI</label>
-                    <input type="integer" pattern="[0-9]{0,3}" maxlength="3" id="bonus" name="bonus" placeholder="28" required>
+                    <input type="integer" pattern="[0-9]{0,2}" maxlength="2" id="bonus" name="bonus" placeholder="2" required>
                 </div>
 
 
