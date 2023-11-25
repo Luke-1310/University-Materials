@@ -187,6 +187,7 @@ include('res/PHP/funzioni.php');
                     if($quantita != 0){
 
                         echo "<form action=\"res/PHP/carrello.php\" method=\"POST\">";
+                            echo "<input type=\"hidden\" name=\"titolo\" value='" . $_SESSION['info_titolo'] . "'>";
                             echo "<input type=\"hidden\" name=\"isbn\" value='" . $ISBN . "'>";
                             echo "<input type=\"hidden\" name=\"prezzo\" value='" . $prezzo . "'>";
                             echo "<input type=\"hidden\" name=\"bonus\" value='" . $bonus . "'>";
