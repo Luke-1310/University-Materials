@@ -1054,6 +1054,7 @@
         if (isset($_SESSION['carrello'])) {
 
             include('connection.php');
+
             $connessione = new mysqli($host, $user, $password, $db);
 
             $fumetti_documento = getFumetti($xmlpath_fumetti);
@@ -1076,9 +1077,11 @@
                     //parto con i parametri X e Y
                     
                     //1)inizio calcolandomi la data completa X mesi + Y anni 
-                    $dataAttuale = new DateTime();
-                    $data = $dataAttuale->modify("+$sc_Y years")->modify("+$sc_X months");
-    
+                    $XY = $sc_Y*12 + $sc_X;
+
+                    $dataMinimaRegistrazione = new DateTime(); 
+                    $dataMinimaRegistrazione->sub(new DateInterval("P{$XY}M"));
+
                     //2)ora devo prendermi la data di registrazione e controllare se la data di registrazione > di $data rispetto a quella attuale
                     $query ="SELECT umn.data_registrazione FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
                     $ris = $connessione->query($query);
@@ -1088,7 +1091,13 @@
                         $data_registrazione = $row['data_registrazione'];
                     }
                     
-                    if ($data_registrazione >= $data) {
+                    //converto la data in formato DataTime per poter fare la differenza
+                    $data_formattata_registrazione = DateTime::createFromFormat('Y-m-d', $data_registrazione);
+
+                    // echo $dataMinimaRegistrazione->format('Y-m-d');
+                    // echo $data_formattata_registrazione->format('Y-m-d');                  
+
+                    if ($data_formattata_registrazione <= $dataMinimaRegistrazione) {
                         $X_Y_check = true;
                     }
                     else{
@@ -1181,15 +1190,24 @@
     
                         if($acquisto['IDUtente'] == $id_loggato){
     
+                            if($sc_ha_acquistato == "0000000000000"){
+                                $ha_acquistato_check = true;
+                                break;
+                            }
+
                             foreach($acquisto['fumetti'] as $fumetto){
                                 
                                 if($sc_ha_acquistato == $fumetto['isbn']){
                                     $ha_acquistato_check = true;
+                                    break;
                                 }
                             }
                         }
                     }
-    
+                    
+                    // echo $row['data_registrazione'];
+                    // echo "X =>". $X_Y_check . "M =>". $M_data_da_M_check . "N =>". $N_check . "R => " . $R_check . "hacq =>". $ha_acquistato_check;
+                    
                     //ora ho controllato TUTTI i parametri, se tutte le variabili booleane sono a true aggiungo un 5% come sconto
                     if($X_Y_check && $M_data_da_M_check && $N_check && $R_check && $ha_acquistato_check){
                         $sconto_percentuale += 5;
