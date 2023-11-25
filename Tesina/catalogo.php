@@ -196,6 +196,7 @@
                 if($fumetto['quantita'] != 0){
 
                     echo "<form action=\"res/PHP/carrello.php\" method=\"POST\">";
+                        echo "<input type=\"hidden\" name=\"titolo\" value='" . $fumetto['titolo'] . "'>";
                         echo "<input type=\"hidden\" name=\"isbn\" value='" . $fumetto['isbn'] . "'>";
                         echo "<input type=\"hidden\" name=\"prezzo\" value='" . $fumetto['prezzo'] . "'>";
                         echo "<input type=\"hidden\" name=\"bonus\" value='" . $fumetto['bonus'] . "'>";
