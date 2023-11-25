@@ -157,12 +157,7 @@
 
                 echo "<div class=\"column\">";
                     echo "<h4>LEGGENDA</h4>";
-                    echo "<ul>";
-                        echo "<li>(I): SC. GENERICO</li>";
-                        echo "<li>(II): SC. PARAMETRICO</li>";
-                    echo "</ul>";
-                echo "</div>";
-                
+                echo"</div>";
 
                 echo "<div class=\"column\"></div>";
                 echo "<div class=\"column\"></div>";
@@ -179,7 +174,11 @@
                     echo "<h4>PREZZO FINALE</h4>";
                 echo"</div>";
 
-                echo "<div class=\"column\"></div>";
+                echo "<div class=\"column\">";
+                        echo "(I): SCONTO GENERICO   ";
+                        echo "(II): SC. PARAMETRICO";
+                echo "</div>";
+
                 echo "<div class=\"column\"></div>";
                 echo "<div class=\"column\"></div>";
                 
@@ -197,7 +196,8 @@
                     echo $prezzoFinale ." CR";
                 echo"</div>";
 
-                echo "<div class=\"column\"></div>";
+                
+                echo "<div class=\"column\"></div>";                
                 echo "<div class=\"column\"></div>";
                 echo "<div class=\"column\"></div>";
                 echo "<div class=\"column\"></div>";
