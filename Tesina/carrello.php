@@ -39,6 +39,8 @@
         $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
         $ext = ".jpg";
 
+        $prezzoFinale = 0;
+
         if(isset($_SESSION['rimuovi_prodotto_carrello_ok']) && $_SESSION['rimuovi_prodotto_carrello_ok'] == true){
             echo "<h4 id=\"esito_positivo\">IL PRODOTTO È STATO RIMOSSO DAL CARRELLO!</h4>";
             unset($_SESSION['rimuovi_prodotto_carrello_ok']);
@@ -76,7 +78,7 @@
                 foreach($_SESSION['carrello'] as $fumetto_carrello) {
                     
                     foreach($fumetti as $fumetto){
-                        
+
                         if($fumetto['isbn'] == $fumetto_carrello['isbn']){
 
                             $nomeImg = $fumetto_carrello['isbn'] . $ext;
@@ -131,8 +133,14 @@
                                 echo $fumetto_carrello['prezzo'] ." CR";
                             echo"</div>";
 
+                            $xmlPathFumetti = "res/XML/catalogo.xml";
+                            $prezzoScontato = calcolaScontoFumetto($xmlPathFumetti, $fumetto_carrello['isbn'], $fumetto_carrello['prezzo']);
+                            
+                            $fumetto_carrello['prezzo_scontato'] = $prezzoScontato;
+                            $prezzoFinale = $prezzoFinale + $prezzoScontato;
+
                             echo "<div class=\"column\">";
-                                echo "PREZZO SCONTATO";
+                                echo $fumetto_carrello['prezzo_scontato'];
                             echo"</div>";
                         }
                     }
@@ -169,9 +177,22 @@
                 echo"</div>";
 
                 echo "<div class=\"column\">";
-                    $xmlPathFumetti = "res/PHP/catalogo.xml";
-                    $prezzoTotaleNoSconto = calcolaSpesaNoSconto($xmlPathFumetti);
-                    echo $prezzoTotaleNoSconto ." CR";
+                    echo $prezzoFinale ." CR";
+                echo"</div>";
+
+                echo "<div class=\"column\"></div>";
+                echo "<div class=\"column\"></div>";
+                echo "<div class=\"column\"></div>";
+                echo "<div class=\"column\"></div>";
+                echo "<div class=\"column\"></div>";
+
+                echo "<div class=\"column\">";
+
+                    echo "<form action=\"res/PHP/conferma_ordine.php\" method=\"POST\">";
+                        // echo "<input type=\"hidden\" name=\"isbn\" value='" . $fumetto['isbn'] . "'>";
+                        echo "<span class=\"carrello\"><h5><input type=\"submit\" name=\"Disponibile\" value=\"CONFERMA ORDINE\"></h5></span>";
+                    echo "</form>";
+
                 echo"</div>";
                 
 

@@ -912,21 +912,6 @@
         }
     }
 
-    //funzione per ricavare la somma spesa dall'utente loggato entro una certa data
-    function getCreditiSpesiCertaDataCurr($data){
-
-        if (isset($_SESSION['nome'])){
-
-
-
-
-
-            $spesi_utente = 0;
-            
-            return $spesi_utente;
-        }
-    } 
-
     //funzione utile per calcolare la reputazione
     function calcolaReputazione($id, $xmlpath, $xmlpath_fumetti){
 
@@ -1053,7 +1038,6 @@
                 $prezzo = $fumetto_carrello['prezzo'];
 
                 $somma_totale += $prezzo * $quantita;
-
             }
         }
 
@@ -1062,82 +1046,174 @@
         return $somma_totale;
     }
 
-    //funzione per sommare la quantita di crediti per completare l'acquisto, ma scontato
-    function calcolaScontoFumetto($xmlpath_fumetti,$isbnFumetto){
+    //funzione per calcolare il prezzo di un fumetto scontato
+    function calcolaScontoFumetto($xmlpath_fumetti,$isbnFumetto, $prezzoFumetto){
+        
+        $prezzoFinale = 0;
 
         if (isset($_SESSION['carrello'])) {
 
+            include('connection.php');
+            $connessione = new mysqli($host, $user, $password, $db);
+
             $fumetti_documento = getFumetti($xmlpath_fumetti);
 
-            $somma_totale = 0;
+            $sconto_percentuale = 0;
             
-            if($fumetto_documento['isbn'] == $isbnFumetto){
+            foreach($fumetti_documento as $fumetto_documento){
+                if($fumetto_documento['isbn'] == $isbnFumetto){
                         
-                $sc_X = $fumetto_documento['X'];
-                $sc_Y = $fumetto_documento['Y'];
-                $sc_M = $fumetto_documento['M'];
-                $sc_data_M = $fumetto_documento['data_M'];
-                $sc_N = $fumetto_documento['N'];
-                $sc_R = $fumetto_documento['R'];
-                $sc_ha_acquistato = $fumetto_documento['ha_acquistato'];
-
-                $sc_generico = $fumetto_documento['generico'];
-
-                //bene, ora che ho tutti i parametri devo vedere se lo sconto parametrico è rispettato
-
-                //parto con i parametri X e Y, prima mi calcolo la data 
-                $dataAttuale = new DateTime();
-                $dataFutura = $dataAttuale->modify("+$anni years")->modify("+$mesi months");
-
-
+                    $sc_X = $fumetto_documento['X'];
+                    $sc_Y = $fumetto_documento['Y'];
+                    $sc_M = $fumetto_documento['M'];
+                    $sc_data_M = $fumetto_documento['data_M'];
+                    $sc_N = $fumetto_documento['N'];
+                    $sc_R = $fumetto_documento['R'];
+                    $sc_ha_acquistato = $fumetto_documento['ha_acquistato'];
+    
+                    $sc_generico = $fumetto_documento['sconto_generico'];
+    
+                    //parto con i parametri X e Y
+                    
+                    //1)inizio calcolandomi la data completa X mesi + Y anni 
+                    $dataAttuale = new DateTime();
+                    $data = $dataAttuale->modify("+$sc_Y years")->modify("+$sc_X months");
+    
+                    //2)ora devo prendermi la data di registrazione e controllare se la data di registrazione > di $data rispetto a quella attuale
+                    $query ="SELECT umn.data_registrazione FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+                    $ris = $connessione->query($query);
+    
+                    if(mysqli_num_rows($ris) == 1){
+                        $row = $ris->fetch_assoc();
+                        $data_registrazione = $row['data_registrazione'];
+                    }
+                    
+                    if ($data_registrazione >= $data) {
+                        $X_Y_check = true;
+                    }
+                    else{
+                        $X_Y_check = false;
+                    }
+    
+                    //ora devo gestirmi i parametri M e data_M
+    
+                    //1)mi preparo il necessario ovvero l'id dell'utente loggato e mi carico gli acquisti
+                    $xmlpath_acquisti = "res/XML/storico_acquisti.xml";
+                    $acquisti = getAcquisti($xmlpath_acquisti);
+    
+                    $query ="SELECT umn.id FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+                    $ris = $connessione->query($query);
+    
+                    if(mysqli_num_rows($ris) == 1){
+                        $row = $ris->fetch_assoc();
+                        $id_loggato = $row['id'];
+                    }
+    
+                    $spesa_totale_entro_data = 0;
+    
+                    //2)ora faccio il controllo se si è spesa un certo ammontare di crediti entro una certa data
+                    foreach($acquisti as $acquisto){
+    
+                        if($acquisto['IDUtente'] == $id_loggato){
+    
+                            //ora che mi trovo nell'ordine corretto, devo vedere se è stato fatto entro una certa data
+                            if($acquisto['data'] <= $sc_data_M){
+    
+                                foreach($acquisto['fumetti'] as $fumetto){
+                                    
+                                    $spesa_totale_entro_data += $fumetto['prezzo'];
+                                }
+                            }
+                        }
+                    }
+    
+                    //3)controllo se la quantita spesa entro una certa data è almeno uguale a quella dello sconto parametrico
+                    if($spesa_totale_entro_data >= $sc_M){
+                        $M_data_da_M_check = true;
+                    }
+                    else{
+                        $M_data_da_M_check = false;
+                    }
+    
+                    $spesa_totale = 0;
+    
+                    //ora mi devo occupare del parametro N, ovvero se sono stati spesi un certo ammontare di crediti in totale
+                    foreach($acquisti as $acquisto){
+    
+                        if($acquisto['IDUtente'] == $id_loggato){
+    
+                            foreach($acquisto['fumetti'] as $fumetto){
+                                
+                                $spesa_totale += $fumetto['prezzo'];
+                            }
+                        
+                        }
+                    }
+    
+                    if($spesa_totale >= $sc_N){
+                        $N_check = true;
+                    }
+                    else{
+                        $N_check = false;
+                    }
+    
+                    //ora controllo che il cliente loggato abbia una certa reputazione, ovvero il paramentro R
+                    $query ="SELECT umn.reputazione FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+                    $ris = $connessione->query($query);
+    
+                    if(mysqli_num_rows($ris) == 1){
+                        $row = $ris->fetch_assoc();
+                        $reputazione_loggato = $row['reputazione'];
+                    }
+    
+                    if($reputazione_loggato >= $sc_R){
+                        $R_check = true;
+                    }
+                    else{
+                        $R_check = false;
+                    }
+    
+                    //come ultimo controllo dello sconto parametrico devo vedere se l'utente ha già compranto un certo fumetto
+                    
+                    $ha_acquistato_check = false;
+                    
+                    foreach($acquisti as $acquisto){
+    
+                        if($acquisto['IDUtente'] == $id_loggato){
+    
+                            foreach($acquisto['fumetti'] as $fumetto){
+                                
+                                if($sc_ha_acquistato == $fumetto['isbn']){
+                                    $ha_acquistato_check = true;
+                                }
+                            }
+                        }
+                    }
+    
+                    //ora ho controllato TUTTI i parametri, se tutte le variabili booleane sono a true aggiungo un 5% come sconto
+                    if($X_Y_check && $M_data_da_M_check && $N_check && $R_check && $ha_acquistato_check){
+                        $sconto_percentuale += 5;
+                    }
+    
+                    //ora ci sommo anche lo sconto generico
+                    $sconto_percentuale += $sc_generico;
+                }
             }
         }
 
+        $quantitaPercentuale = $prezzoFumetto * ($sconto_percentuale / 100);
+
+        $prezzoFinale = $prezzoFumetto - $quantitaPercentuale;
+
         //in questo modo non mi approssima i numeri => ex 19.13 in 19.1
-        $somma_totale = number_format($somma_totale, 2, '.', '');
+        $prezzoFinale = number_format($prezzoFinale, 2, '.', '');
 
-        return $somma_totale;
-    }
+        //se non mi è stato modificato il prezzo con quello scontato metto quello originale
+        if($prezzoFinale == 0){
+            $prezzoFinale == $prezzoFumetto;
+        }
 
-    //funzione per sommare la quantita di crediti per completare l'acquisto, ma scontato
-    function calcolaSpesaSiSconto($xmlpath_fumetti){
-
-        $somma_totale = 0;
-
-        // if (isset($_SESSION['carrello'])) {
-
-        //     $fumetti_documento = getFumetti($xmlpath_fumetti);
- 
-        //     foreach ($_SESSION['carrello'] as $fumetto_carrello) {
-                
-        //         foreach($fumetti_documento as $fumetto_documento){
-                    
-        //             if($fumetto_carrello['isbn'] == $fumetto_documento['isbn']){
-                        
-        //                 $sc_X = $fumetto_documento['X'];
-        //                 $sc_Y = $fumetto_documento['Y'];
-        //                 $sc_M = $fumetto_documento['M'];
-        //                 $sc_data_M = $fumetto_documento['data_M'];
-        //                 $sc_N = $fumetto_documento['N'];
-        //                 $sc_R = $fumetto_documento['R'];
-        //                 $sc_ha_acquistato = $fumetto_documento['ha_acquistato'];
-
-        //                 $sc_generico = $fumetto_documento['generico'];
-
-        //                 //bene, ora che ho tutti i parametri devo vedere se lo sconto parametrico è rispettato
-
-
-        //             }
-        //         }
-
-
-        //     }
-        // }
-
-        // //in questo modo non mi approssima i numeri => ex 19.13 in 19.1
-        // $somma_totale = number_format($somma_totale, 2, '.', '');
-
-        return $somma_totale;
+        return $prezzoFinale;
     }
     
 
