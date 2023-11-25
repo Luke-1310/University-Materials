@@ -878,13 +878,36 @@
     }
 
     //funzione per ricavare la somma spesa dell'utente loggato
-    function getCreditiSpesiTotCurr(){
+    function getCreditiSpesiTotCurr($xmlPath){
 
         if (isset($_SESSION['nome'])) {
 
-            //mi devo controllare gli ordini e ricavarmi i crediti spesi, al momento lascio un valore standard di 100
-            $spesi_utente = 100;
-            
+            include("connection.php");
+            $connessione = new mysqli($host, $user, $password, $db);
+
+            $acquisti = getAcquisti($xmlPath);
+
+            $spesi_utente = 0;
+
+            $query = "SELECT umn.id FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.username = '{$_SESSION['nome']}'";
+            $result = $connessione->query($query);
+    
+            if ($result) {
+                $row = $result->fetch_assoc();
+                $id_loggato = $row['id'];
+            } 
+
+            foreach($acquisti as $acquisto){
+
+                if($id_loggato == $acquisto['IDUtente']){
+
+                    foreach($acquisto['fumetti'] as $fumetto){
+
+                        $spesi_utente += $fumetto['prezzo'];
+                    }
+                }
+            }
+
             return $spesi_utente;
         }
     }
@@ -892,10 +915,13 @@
     //funzione per ricavare la somma spesa dall'utente loggato entro una certa data
     function getCreditiSpesiCertaDataCurr($data){
 
-        if (isset($_SESSION['nome'])) {
+        if (isset($_SESSION['nome'])){
 
-            //mi devo controllare gli ordini e ricavarmi i crediti spesi, al momento lascio un valore standard di 100
-            $spesi_utente = 100;
+
+
+
+
+            $spesi_utente = 0;
             
             return $spesi_utente;
         }
