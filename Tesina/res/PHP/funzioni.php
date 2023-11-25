@@ -1213,8 +1213,10 @@
                         $sconto_percentuale += 5;
                     }
     
-                    //ora ci sommo anche lo sconto generico
-                    $sconto_percentuale += $sc_generico;
+                    //ora ci sommo anche lo sconto generico se diverso da 0
+                    if($sc_generico > 0){
+                        $sconto_percentuale += $sc_generico;
+                    }
                 }
             }
         }
