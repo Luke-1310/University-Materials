@@ -1062,6 +1062,7 @@
             $sconto_percentuale = 0;
             
             foreach($fumetti_documento as $fumetto_documento){
+
                 if($fumetto_documento['isbn'] == $isbnFumetto){
                         
                     $sc_X = $fumetto_documento['X'];
@@ -1211,11 +1212,13 @@
                     //ora ho controllato TUTTI i parametri, se tutte le variabili booleane sono a true aggiungo un 5% come sconto
                     if($X_Y_check && $M_data_da_M_check && $N_check && $R_check && $ha_acquistato_check){
                         $sconto_percentuale += 5;
+                        $_SESSION['sconto parametrico'] = true;
                     }
     
                     //ora ci sommo anche lo sconto generico se diverso da 0
                     if($sc_generico > 0){
                         $sconto_percentuale += $sc_generico;
+                        $_SESSION['sconto generico'] = true;
                     }
                 }
             }
