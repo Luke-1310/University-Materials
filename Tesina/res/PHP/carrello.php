@@ -32,6 +32,7 @@ if(!$isPresente){
     $fumetto = array(
         'isbn' => $fumetto_isbn_POST,
         'prezzo' => $fumetto_prezzo_POST,
+        'prezzo_scontato' => 0,
         'bonus' => $fumetto_bonus_POST,
         'quantita' => 1
     );
