@@ -143,6 +143,8 @@
                             echo "<div class=\"column\">";
                                 echo $fumetto_carrello['prezzo_scontato'] . " CR";
                             echo"</div>";
+
+                            
                         }
                     }
                 }
