@@ -177,7 +177,7 @@ $fumetto->appendChild($sconto_generico);
 
 $X->nodeValue = "0";
 $sconto->appendChild($X);
-$Y->nodeValue = "0";
+$Y->nodeValue = "10";
 $sconto->appendChild($Y);
 $M->nodeValue = "0";
 $sconto->appendChild($M);
