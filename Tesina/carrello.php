@@ -137,6 +137,7 @@
                             $prezzoScontato = calcolaScontoFumetto($xmlPathFumetti, $fumetto_carrello['isbn'], $fumetto_carrello['prezzo']);
                             
                             $fumetto_carrello['prezzo_scontato'] = $prezzoScontato;
+                            $prezzoScontato = $prezzoScontato * $fumetto_carrello['quantita'];
                             $prezzoFinale = $prezzoFinale + $prezzoScontato;
 
                             echo "<div class=\"column\">";
