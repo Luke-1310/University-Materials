@@ -2,6 +2,7 @@
 
 session_start();
 
+$fumetto_titolo_POST = $_POST['titolo'];
 $fumetto_isbn_POST = $_POST['isbn'];
 $fumetto_prezzo_POST = $_POST['prezzo'];
 $fumetto_bonus_POST = $_POST['bonus'];
@@ -30,6 +31,7 @@ if(!$isPresente){
 
     //creo un array con i dati del POST, faccio perché voglio salvare diverse informazioni del fumetto
     $fumetto = array(
+        'titolo' =>$fumetto_titolo_POST,
         'isbn' => $fumetto_isbn_POST,
         'prezzo' => $fumetto_prezzo_POST,
         'prezzo_scontato' => 0,
