@@ -42,7 +42,6 @@
 
         //mi prendo i crediti attuali del utente loggato
         $query = "SELECT umn.crediti FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.username = '{$_SESSION['nome']}'";
-
         $result = $connessione->query($query);
 
         //Verifico se la query ha restituito risultati
@@ -62,11 +61,12 @@
                 echo "<p>". $row['crediti'] ." CR</p>";
             echo "</div>";
 
-            $a = 0;
+            $xmlPath = "res/XML/storico_acquisti.xml";
+            $crediti_spesi = getCreditiSpesiTotCurr($xmlPath);
 
             echo "<div class=\"column\">";
                 echo "<h3>CREDITI SPESI:</h3>";
-                echo "<p>". $a ." CR</p>";
+                echo "<p>". $crediti_spesi ." CR</p>";
             echo "</div>";
 
             echo "<div class=\"column\">";
