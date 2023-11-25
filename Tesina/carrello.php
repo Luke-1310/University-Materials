@@ -45,6 +45,15 @@
             echo "<h4 id=\"esito_positivo\">IL PRODOTTO È STATO RIMOSSO DAL CARRELLO!</h4>";
             unset($_SESSION['rimuovi_prodotto_carrello_ok']);
         }
+        if(isset($_SESSION['crediti_insufficienti']) && $_SESSION['crediti_insufficienti'] == true){
+            echo "<h4 id=\"esito_negativo\">NON HAI ABBASTANZA CREDITI PER EFFETTUARE L'ORDINE!</h4>";
+            unset($_SESSION['crediti_insufficienti']);
+        }
+        if(isset($_SESSION['quantita_insufficienti'])){
+            echo "<h4 id=\"esito_negativo\">NON CI SONO ABBASTANZA FUMETTI!</h4>";
+            unset($_SESSION['quantita_insufficienti']);
+        }
+
 
         //unset($_SESSION['carrello']);
         if(isset($_SESSION['carrello']) && !empty($_SESSION['carrello'])){
@@ -74,6 +83,8 @@
                 echo "<div class=\"column\">";
                     echo "<h4>PREZZO SCONTATO</h4>";
                 echo"</div>";
+
+                $indice = 0;
 
                 foreach($_SESSION['carrello'] as $fumetto_carrello) {
                     
@@ -141,18 +152,21 @@
                             
                             $fumetto_carrello['prezzo_scontato'] = $prezzoScontato;
                             $prezzoScontato = $prezzoScontato * $fumetto_carrello['quantita'];
+
                             $prezzoFinale = $prezzoFinale + $prezzoScontato;
 
+                            $_SESSION['carrello'][$indice]['prezzo_scontato'] = $prezzoScontato;
+
                             echo "<div class=\"column\">";
-                                
                                 echo $fumetto_carrello['prezzo_scontato'] . " CR";
 
                                 if(isset($_SESSION['sconto generico']) && $_SESSION['sconto generico']){echo "(I)";}
                                 if(isset($_SESSION['sconto parametrico']) && $_SESSION['sconto parametrico']){echo "(II)";}
-
                             echo"</div>";
                         }
                     }
+
+                    $indice++;
                 }
 
                 echo "<div class=\"column\">";
