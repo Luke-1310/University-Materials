@@ -1,37 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <storico xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
-    <acquisto>
-        <IDUtente>1</IDUtente>
-        <data>2023-08-27T14:30:00</data>
-        <bonus>5</bonus>
-        <fumetto>
-            <titolo>SPY X FAMILY 1</titolo>
-            <isbn>9788418271236</isbn>
-            <quantita>2</quantita>
-            <prezzo>11.98</prezzo>
-        </fumetto>
-        <fumetto>
-            <titolo>SPY X FAMILY 6</titolo>
-            <isbn>9788828720232</isbn>
-            <quantita>1</quantita>
-            <prezzo>5.99</prezzo>
-        </fumetto>
-    </acquisto>
-    <acquisto>
-        <IDUtente>1</IDUtente>
-        <data>2023-09-17T08:32:38</data>
-        <bonus>0</bonus>
-        <fumetto>
-            <titolo>JUJUTSU KAISEN 3</titolo>    
-            <isbn>9788891297952</isbn>
-            <quantita>1</quantita>
-            <prezzo>4.90</prezzo>
-        </fumetto>
-        <fumetto>
-            <titolo>JUJUTSU KAISEN 2</titolo>
-            <isbn>9781974710034</isbn>
-            <quantita>1</quantita>
-            <prezzo>10.13</prezzo>
-        </fumetto>
-    </acquisto>
+  <acquisto>
+    <IDUtente>1</IDUtente>
+    <data>2023-08-27T14:30:00</data>
+    <bonus>5</bonus>
+    <fumetto>
+      <titolo>SPY X FAMILY 1</titolo>
+      <isbn>9788418271236</isbn>
+      <quantita>2</quantita>
+      <prezzo>11.98</prezzo>
+    </fumetto>
+    <fumetto>
+      <titolo>SPY X FAMILY 6</titolo>
+      <isbn>9788828720232</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.99</prezzo>
+    </fumetto>
+  </acquisto>
+  <acquisto>
+    <IDUtente>1</IDUtente>
+    <data>2023-09-17T08:32:38</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>JUJUTSU KAISEN 3</titolo>
+      <isbn>9788891297952</isbn>
+      <quantita>1</quantita>
+      <prezzo>4.90</prezzo>
+    </fumetto>
+    <fumetto>
+      <titolo>JUJUTSU KAISEN 2</titolo>
+      <isbn>9781974710034</isbn>
+      <quantita>1</quantita>
+      <prezzo>10.13</prezzo>
+    </fumetto>
+  </acquisto>
+  <acquisto>
+    <IDUtente>1</IDUtente>
+    <data>2023-11-25T22:57:53</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>JUJUTSU KAISEN 1</titolo>
+      <isbn>9788891298911</isbn>
+      <quantita>1</quantita>
+      <prezzo>4.90</prezzo>
+    </fumetto>
+    <fumetto>
+      <titolo>JUJUTSU KAISEN 0</titolo>
+      <isbn>9788891298362</isbn>
+      <quantita>1</quantita>
+      <prezzo>4.66</prezzo>
+    </fumetto>
+  </acquisto>
 </storico>
