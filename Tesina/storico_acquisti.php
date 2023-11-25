@@ -34,6 +34,11 @@
 
     <?php
 
+        if(isset($_SESSION['ordine completato']) && $_SESSION['ordine completato'] == true){
+            echo "<h4 id=\"esito_positivo\">L'ORDINE È STATO COMPLETATO!</h4>";
+            unset($_SESSION['ordine completato']);
+        }
+
         $xmlpath = "res/XML/storico_acquisti.xml";
         $acquisti = getAcquisti($xmlpath);
 
