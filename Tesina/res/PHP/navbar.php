@@ -35,7 +35,7 @@
                 }
                 echo "<a href=\"catalogo.php\"><i id=\"dark\" class=\"material-icons\">book</i></a>";
                 echo "<a href=\"catalogo.php\">CATALOGO</a>";
-                echo "<a href=\"carello.php\"><i id=\"dark\" class=\"material-icons\">shopping_cart</i></a>";
+                echo "<a href=\"carrello.php\"><i id=\"dark\" class=\"material-icons\">shopping_cart</i></a>";
                 echo "<a href=\"carrello.php\">CARRELLO</a>";
             }
             else
