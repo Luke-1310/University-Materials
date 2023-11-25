@@ -79,6 +79,9 @@
                     
                     foreach($fumetti as $fumetto){
 
+                        unset($_SESSION['sconto generico']);
+                        unset($_SESSION['sconto parametrico']);
+
                         if($fumetto['isbn'] == $fumetto_carrello['isbn']){
 
                             $nomeImg = $fumetto_carrello['isbn'] . $ext;
@@ -141,7 +144,12 @@
                             $prezzoFinale = $prezzoFinale + $prezzoScontato;
 
                             echo "<div class=\"column\">";
+                                
                                 echo $fumetto_carrello['prezzo_scontato'] . " CR";
+
+                                if(isset($_SESSION['sconto generico']) && $_SESSION['sconto generico']){echo "(I)";}
+                                if(isset($_SESSION['sconto parametrico']) && $_SESSION['sconto parametrico']){echo "(II)";}
+
                             echo"</div>";
 
                             
