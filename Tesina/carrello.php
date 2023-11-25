@@ -176,7 +176,7 @@
 
                 echo "<div class=\"column\">";
                         echo "(I): SCONTO GENERICO   ";
-                        echo "(II): SC. PARAMETRICO";
+                        echo "(II): SCONTO PARAMETRICO";
                 echo "</div>";
 
                 echo "<div class=\"column\"></div>";
