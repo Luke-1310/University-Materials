@@ -73,4 +73,15 @@
       <prezzo>4.90</prezzo>
     </fumetto>
   </acquisto>
+  <acquisto>
+    <IDUtente>4</IDUtente>
+    <data>2023-11-25T23:13:03</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>SPY X FAMILY 3</titolo>
+      <isbn>9786555129021</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.99</prezzo>
+    </fumetto>
+  </acquisto>
 </storico>
