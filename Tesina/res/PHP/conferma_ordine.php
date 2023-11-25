@@ -22,6 +22,7 @@ if ($result) {
 
 if($row['crediti'] < $importoDaPagare){
     $_SESSION['crediti_insufficienti'] = true;
+    header('Location: ../../carrello.php');
     exit(1);
 }
 else{
@@ -44,6 +45,7 @@ foreach($_SESSION['carrello'] as $fumetto_carrello){
         
         if($fumetto_carrello['isbn'] == $fumetto_isbn){
 
+            $fumetto_titolo = $fumetto_doc->getElementsByTagName('titolo')->item(0)->nodeValue;
             $fumetto_quantita = $fumetto_doc->getElementsByTagName('quantita')->item(0)->nodeValue;
 
             if($fumetto_carrello['quantita'] <= $fumetto_quantita){
@@ -53,7 +55,8 @@ foreach($_SESSION['carrello'] as $fumetto_carrello){
             }
             else{
                 $_SESSION['quantita_insufficienti'] = $fumetto_quantita;
-                // header('Location: ../../catalogo.php');
+                $_SESSION['quantita_insufficienti_titolo'] = $fumetto_titolo;
+                header('Location: ../../carrello.php');
                 exit(1);
             }
         }
@@ -117,7 +120,6 @@ $acquisto->appendChild($data);
 $bonus->nodeValue = $bonusDaAccreditare; 
 $acquisto->appendChild($bonus);
 
-
 foreach($_SESSION['carrello'] as $fumetto_carrello){
     
     $fumetto = $documento->createElement('fumetto');
@@ -156,5 +158,5 @@ unset($_SESSION['carrello']);
 
 $_SESSION['ordine completato'] = true;
 
-// header('Location: ../../catalogo.php');
+header('Location: ../../storico_acquisti.php');
 ?>
