@@ -140,7 +140,7 @@
                             $prezzoFinale = $prezzoFinale + $prezzoScontato;
 
                             echo "<div class=\"column\">";
-                                echo $fumetto_carrello['prezzo_scontato'];
+                                echo $fumetto_carrello['prezzo_scontato'] . " CR";
                             echo"</div>";
                         }
                     }
@@ -189,7 +189,8 @@
                 echo "<div class=\"column\">";
 
                     echo "<form action=\"res/PHP/conferma_ordine.php\" method=\"POST\">";
-                        // echo "<input type=\"hidden\" name=\"isbn\" value='" . $fumetto['isbn'] . "'>";
+                        echo "<input type=\"hidden\" name=\"daPagare\" value='" . $prezzoFinale . "'>";
+                        echo "<input type=\"hidden\" name=\"totaleBonus\" value='" . $sommaTotaleBonus . "'>";
                         echo "<span class=\"carrello\"><h5><input type=\"submit\" name=\"Disponibile\" value=\"CONFERMA ORDINE\"></h5></span>";
                     echo "</form>";
 
