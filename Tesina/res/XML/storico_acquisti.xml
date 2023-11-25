@@ -51,4 +51,26 @@
       <prezzo>4.66</prezzo>
     </fumetto>
   </acquisto>
+  <acquisto>
+    <IDUtente>4</IDUtente>
+    <data>2023-11-25T23:10:41</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>SPY X FAMILY 7</titolo>
+      <isbn>9786559609284</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.99</prezzo>
+    </fumetto>
+  </acquisto>
+  <acquisto>
+    <IDUtente>4</IDUtente>
+    <data>2023-11-25T23:10:56</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>JUJUTSU KAISEN 1</titolo>
+      <isbn>9788891298911</isbn>
+      <quantita>1</quantita>
+      <prezzo>4.90</prezzo>
+    </fumetto>
+  </acquisto>
 </storico>
