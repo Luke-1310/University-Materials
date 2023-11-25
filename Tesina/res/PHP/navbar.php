@@ -35,8 +35,16 @@
                 }
                 echo "<a href=\"catalogo.php\"><i id=\"dark\" class=\"material-icons\">book</i></a>";
                 echo "<a href=\"catalogo.php\">CATALOGO</a>";
-                echo "<a href=\"carrello.php\"><i id=\"dark\" class=\"material-icons\">shopping_cart</i></a>";
-                echo "<a href=\"carrello.php\">CARRELLO</a>";
+                
+                if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                    echo "<a href=\"carrello.php\"><i id=\"dark\" class=\"material-icons\">shopping_cart</i></a>";
+                    echo "<a href=\"carrello.php\">CARRELLO</a>";
+                }
+                else{
+                    echo "<a href=\"login.php\"><i id=\"dark\" class=\"material-icons\">shopping_cart</i></a>";
+                    echo "<a href=\"login.php\">REGISTRATI!</a>";
+                }
+
             }
             else
             {
@@ -67,8 +75,16 @@
                 }
                 echo "<a href=\"catalogo.php\"><i id=\"light\" class=\"material-icons\">book</i></a>";
                 echo "<a href=\"catalogo.php\">CATALOGO</a>";
-                echo "<a href=\"carrello.php\"><i id=\"light\" class=\"material-icons\">shopping_cart</i></a>";
-                echo "<a href=\"carrello.php\">CARRELLO</a>";
+
+                if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                    echo "<a href=\"carrello.php\"><i id=\"light\" class=\"material-icons\">shopping_cart</i></a>";
+                    echo "<a href=\"carrello.php\">CARRELLO</a>";
+                }
+                else{
+                    echo "<a href=\"login.php\"><i id=\"light\" class=\"material-icons\">shopping_cart</i></a>";
+                    echo "<a href=\"login.php\">REGISTRATI!</a>";
+                }
+
             }
         echo "</nav>";
 
