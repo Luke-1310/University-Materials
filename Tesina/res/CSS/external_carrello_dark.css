@@ -89,10 +89,10 @@
     border-radius: 20px;
     cursor: pointer;
     text-align: center;
-    width: 220px; /* Regola la larghezza del bottone*/
+    width: 170px; /* Regola la larghezza del bottone*/
   
     padding: 10px;
-    margin-top: 0;
+    margin-top: 20px;
 }
   
 .carrello input[type="submit"]:hover{
