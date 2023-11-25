@@ -80,6 +80,11 @@
     text-align: center;
 }
 
+#esito_positivo{
+    color: red;
+    text-align: center;
+}
+
 .carrello input[type="submit"]{
     background-color: #ffffff;
     font-family: 'Roboto Mono', monospace;
