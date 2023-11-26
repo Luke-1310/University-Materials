@@ -86,7 +86,7 @@ if ($result) {
     $id = $row['id'];
 } 
 else{
-    echo 3;
+    exit(1);
 }
 
 
