@@ -65,6 +65,12 @@
   margin-bottom: 10px;
 }
 
+#lista_acquisti{
+  color: #7FFFD4;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
 .container-external{
   display: flex;
   justify-content: center;
