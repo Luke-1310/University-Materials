@@ -1100,10 +1100,10 @@
                     //converto la data in formato DataTime per poter fare la differenza
                     $data_formattata_registrazione = DateTime::createFromFormat('Y-m-d', $data_registrazione);
 
-                    echo $dataMinimaRegistrazione->format('Y-m-d');
-                    echo "  ";
-                    echo $data_formattata_registrazione->format('Y-m-d');                  
-                    echo "         ";
+                    // echo $dataMinimaRegistrazione->format('Y-m-d');
+                    // echo "  ";
+                    // echo $data_formattata_registrazione->format('Y-m-d');                  
+                    // echo "         ";
 
                     if ($data_formattata_registrazione <= $dataMinimaRegistrazione) {
                         $X_Y_check = true;
@@ -1213,7 +1213,7 @@
                         }
                     }
                     
-                    echo "X =>". $X_Y_check . "M =>". $M_data_da_M_check . "N =>". $N_check . "R => " . $R_check . "hacq =>". $ha_acquistato_check;
+                    // echo "X =>". $X_Y_check . "M =>". $M_data_da_M_check . "N =>". $N_check . "R => " . $R_check . "hacq =>". $ha_acquistato_check;
                     
                     //ora ho controllato TUTTI i parametri, se tutte le variabili booleane sono a true aggiungo un 5% come sconto
                     if($X_Y_check && $M_data_da_M_check && $N_check && $R_check && $ha_acquistato_check){
