@@ -416,6 +416,7 @@
                                             echo "</select>";
                                             
                                             echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
+                                            echo"<input type=\"hidden\" name=\"isbn\" value=".  $ISBN .">";
                                             echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] .">";
                                             echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] .">";
                                             echo"<input type=\"hidden\" name=\"tipo\" value=\"domanda\">";
@@ -567,7 +568,7 @@
                                                 
                                                 //mi invio l'id del valutante
                                                 echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
-
+                                                echo"<input type=\"hidden\" name=\"isbn\" value=".  $ISBN .">";
                                                 echo"<input type=\"hidden\" name=\"ID\" value=". $risposta['IDRisp'] .">";
                                                 echo"<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] .">";
                                                 echo"<input type=\"hidden\" name=\"tipo\" value=\"risposta\">";
@@ -759,7 +760,7 @@
                                                 }
                                                 
                                             echo "</select>";
-                                            
+                                            echo"<input type=\"hidden\" name=\"isbn\" value=".  $fumetto['isbn'] .">";
                                             echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
                                             echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] .">";
                                             echo"<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] .">";
