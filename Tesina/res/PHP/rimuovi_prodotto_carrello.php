@@ -17,12 +17,16 @@ if (!empty($_SESSION['carrello'])) {
         
         if ($fumetto_carrello['isbn'] == $fumetto_isbn_POST) {
             unset($_SESSION['carrello'][$indice]);
+            
+            // Verifica se è l'ultimo elemento rimasto dopo la rimozione
+            if (count($_SESSION['carrello']) === 0) {
+                unset($_SESSION['carrello']); // Rimuovi completamente la variabile di sessione 'carrello'
+            }
         }
     }
 }
 
 $_SESSION['rimuovi_prodotto_carrello_ok'] = true;
 
-header('Location:../../carrello.php');
-
+header('Location: ../../carrello.php');
 ?>
