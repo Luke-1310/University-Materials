@@ -93,79 +93,82 @@
                         unset($_SESSION['sconto generico']);
                         unset($_SESSION['sconto parametrico']);
 
-                        if($fumetto['isbn'] == $fumetto_carrello['isbn']){
-
-                            $nomeImg = $fumetto_carrello['isbn'] . $ext;
-
-                            echo "<div class=\"column\">";
-                                echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\">";
-                            echo"</div>";
-
-                            echo "<div class=\"column\">";
-
-                                echo $fumetto['titolo'];
-
-                                echo "<div class=\"bottone_rimuovi\">";
-                                
-                                    echo "<form id=\"form-delete\" action=\"res/PHP/rimuovi_prodotto_carrello.php\" method=\"POST\">";
-                                        echo "<input type=\"hidden\" name=\"isbn\" value=\"" . $fumetto_carrello['isbn'] . "\">";
-                                        echo "<button name=\"bottone_elimina\" type=\"submit\">";
-                                        echo "<i id=\"decrementa\" class=\"material-icons\">delete</i></button>";
-                                    echo "</form>";
-
-                                echo"</div>";
-
-                            echo"</div>";
-
-                            echo "<div class=\"column\">";
-
-                                echo "<div class=\"bottoni_quantita\">";
-                                
-                                    echo "<form action=\"res/PHP/aggiorna_quantita_prodotto.php\" method=\"POST\">";
-                                        echo "<input type=\"hidden\" name=\"isbn\" value=\"" . $fumetto_carrello['isbn'] . "\">";
-                                        echo "<button name=\"bottone_aumenta\" type=\"submit\">";
-                                        echo "<i id=\"aumenta\" class=\"material-icons\">add</i></button>";
-                                    echo "</form>";
-                                    
-                                    echo $fumetto_carrello['quantita'];
-                                
-                                    echo "<form action=\"res/PHP/aggiorna_quantita_prodotto.php\" method=\"POST\">";
-                                        echo "<input type=\"hidden\" name=\"isbn\" value=\"" . $fumetto_carrello['isbn'] . "\">";
-                                        echo "<button name=\"bottone_decrementa\" type=\"submit\">";
-                                        echo "<i id=\"decrementa\" class=\"material-icons\">remove</i></button>";
-                                    echo "</form>";
-
-                                echo "</div>";
-
-                            echo "</div>";
-
-                            echo "<div class=\"column\">";
-                                echo $fumetto_carrello['bonus'] . " CR";
-                            echo"</div>";
-
-                            echo "<div class=\"column\">";
-                                echo $fumetto_carrello['prezzo'] ." CR";
-                            echo"</div>";
-
-                            $xmlPathFumetti = "res/XML/catalogo.xml";
-                            $prezzoScontato = calcolaScontoFumetto($xmlPathFumetti, $fumetto_carrello['isbn'], $fumetto_carrello['prezzo']);
+                        if(isset($fumetto_carrello['isbn']) && isset($fumetto_carrello['bonus']) && isset($fumetto_carrello['quantita']) && isset($fumetto_carrello['prezzo'])){
                             
-                            $fumetto_carrello['prezzo_scontato'] = $prezzoScontato;
-                            $prezzoScontato = $prezzoScontato * $fumetto_carrello['quantita'];
+                            if($fumetto['isbn'] == $fumetto_carrello['isbn']){
 
-                            $prezzoFinale = $prezzoFinale + $prezzoScontato;
-
-                            $_SESSION['carrello'][$indice]['prezzo_scontato'] = $prezzoScontato;
-
-                            echo "<div class=\"column\">";
-                                echo $fumetto_carrello['prezzo_scontato'] . " CR";
-
-                                if(isset($_SESSION['sconto generico']) && $_SESSION['sconto generico']){echo "(I)";}
-                                if(isset($_SESSION['sconto parametrico']) && $_SESSION['sconto parametrico']){echo "(II)";}
-                            echo"</div>";
-                        }
+                                $nomeImg = $fumetto_carrello['isbn'] . $ext;
+    
+                                echo "<div class=\"column\">";
+                                    echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\">";
+                                echo"</div>";
+    
+                                echo "<div class=\"column\">";
+    
+                                    echo $fumetto['titolo'];
+    
+                                    echo "<div class=\"bottone_rimuovi\">";
+                                    
+                                        echo "<form id=\"form-delete\" action=\"res/PHP/rimuovi_prodotto_carrello.php\" method=\"POST\">";
+                                            echo "<input type=\"hidden\" name=\"isbn\" value=\"" . $fumetto_carrello['isbn'] . "\">";
+                                            echo "<button name=\"bottone_elimina\" type=\"submit\">";
+                                            echo "<i id=\"decrementa\" class=\"material-icons\">delete</i></button>";
+                                        echo "</form>";
+    
+                                    echo"</div>";
+    
+                                echo"</div>";
+    
+                                echo "<div class=\"column\">";
+    
+                                    echo "<div class=\"bottoni_quantita\">";
+                                    
+                                        echo "<form action=\"res/PHP/aggiorna_quantita_prodotto.php\" method=\"POST\">";
+                                            echo "<input type=\"hidden\" name=\"isbn\" value=\"" . $fumetto_carrello['isbn'] . "\">";
+                                            echo "<button name=\"bottone_aumenta\" type=\"submit\">";
+                                            echo "<i id=\"aumenta\" class=\"material-icons\">add</i></button>";
+                                        echo "</form>";
+                                        
+                                        echo $fumetto_carrello['quantita'];
+                                    
+                                        echo "<form action=\"res/PHP/aggiorna_quantita_prodotto.php\" method=\"POST\">";
+                                            echo "<input type=\"hidden\" name=\"isbn\" value=\"" . $fumetto_carrello['isbn'] . "\">";
+                                            echo "<button name=\"bottone_decrementa\" type=\"submit\">";
+                                            echo "<i id=\"decrementa\" class=\"material-icons\">remove</i></button>";
+                                        echo "</form>";
+    
+                                    echo "</div>";
+    
+                                echo "</div>";
+    
+                                echo "<div class=\"column\">";
+                                    echo $fumetto_carrello['bonus'] . " CR";
+                                echo"</div>";
+    
+                                echo "<div class=\"column\">";
+                                    echo $fumetto_carrello['prezzo'] ." CR";
+                                echo"</div>";
+    
+                                $xmlPathFumetti = "res/XML/catalogo.xml";
+                                $prezzoScontato = calcolaScontoFumetto($xmlPathFumetti, $fumetto_carrello['isbn'], $fumetto_carrello['prezzo']);
+                                
+                                $fumetto_carrello['prezzo_scontato'] = $prezzoScontato;
+                                $prezzoScontato = $prezzoScontato * $fumetto_carrello['quantita'];
+    
+                                $prezzoFinale = $prezzoFinale + $prezzoScontato;
+    
+                                $_SESSION['carrello'][$indice]['prezzo_scontato'] = $prezzoScontato;
+    
+                                echo "<div class=\"column\">";
+                                    echo $fumetto_carrello['prezzo_scontato'] . " CR";
+    
+                                    if(isset($_SESSION['sconto generico']) && $_SESSION['sconto generico']){echo "(I)";}
+                                    if(isset($_SESSION['sconto parametrico']) && $_SESSION['sconto parametrico']){echo "(II)";}
+                                echo"</div>";
+                            }
+                        }   
                     }
-
+                    
                     $indice++;
                 }
 

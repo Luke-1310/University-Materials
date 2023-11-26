@@ -1017,7 +1017,9 @@
             
             foreach ($_SESSION['carrello'] as $fumetto_carrello) {
 
-                $somma_totale += $fumetto_carrello['bonus']*$fumetto_carrello['quantita'];
+                if(isset($fumetto_carrello) && isset($fumetto_carrello['bonus']) && isset($fumetto_carrello['quantita']) && isset($fumetto_carrello['prezzo'])){
+                    $somma_totale += $fumetto_carrello['bonus']*$fumetto_carrello['quantita'];
+                }
 
             }
         }
@@ -1033,11 +1035,14 @@
             $somma_totale = 0;
             
             foreach ($_SESSION['carrello'] as $fumetto_carrello) {
+                
+                if(isset($fumetto_carrello) && isset($fumetto_carrello['bonus']) && isset($fumetto_carrello['quantita']) && isset($fumetto_carrello['prezzo'])){
         
-                $quantita = $fumetto_carrello['quantita'];
-                $prezzo = $fumetto_carrello['prezzo'];
+                    $quantita = $fumetto_carrello['quantita'];
+                    $prezzo = $fumetto_carrello['prezzo'];
 
-                $somma_totale += $prezzo * $quantita;
+                    $somma_totale += $prezzo * $quantita;
+                }
             }
         }
 
@@ -1095,8 +1100,10 @@
                     //converto la data in formato DataTime per poter fare la differenza
                     $data_formattata_registrazione = DateTime::createFromFormat('Y-m-d', $data_registrazione);
 
-                    // echo $dataMinimaRegistrazione->format('Y-m-d');
-                    // echo $data_formattata_registrazione->format('Y-m-d');                  
+                    echo $dataMinimaRegistrazione->format('Y-m-d');
+                    echo "  ";
+                    echo $data_formattata_registrazione->format('Y-m-d');                  
+                    echo "         ";
 
                     if ($data_formattata_registrazione <= $dataMinimaRegistrazione) {
                         $X_Y_check = true;
@@ -1206,8 +1213,7 @@
                         }
                     }
                     
-                    // echo $row['data_registrazione'];
-                    // echo "X =>". $X_Y_check . "M =>". $M_data_da_M_check . "N =>". $N_check . "R => " . $R_check . "hacq =>". $ha_acquistato_check;
+                    echo "X =>". $X_Y_check . "M =>". $M_data_da_M_check . "N =>". $N_check . "R => " . $R_check . "hacq =>". $ha_acquistato_check;
                     
                     //ora ho controllato TUTTI i parametri, se tutte le variabili booleane sono a true aggiungo un 5% come sconto
                     if($X_Y_check && $M_data_da_M_check && $N_check && $R_check && $ha_acquistato_check){
