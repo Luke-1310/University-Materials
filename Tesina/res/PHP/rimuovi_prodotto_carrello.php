@@ -6,7 +6,14 @@ $fumetto_isbn_POST = $_POST['isbn'];
 
 if (!empty($_SESSION['carrello'])) {
 
-    foreach ($_SESSION['carrello'] as $indice => $fumetto_carrello) {
+    $carrello = $_SESSION['carrello'];
+    $keys = array_keys($carrello);
+    $count = count($keys);
+    
+    for ($i = 0; $i < $count; $i++) {
+        
+        $indice = $keys[$i];
+        $fumetto_carrello = $carrello[$indice];
         
         if ($fumetto_carrello['isbn'] == $fumetto_isbn_POST) {
             unset($_SESSION['carrello'][$indice]);
