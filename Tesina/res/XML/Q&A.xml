@@ -221,7 +221,7 @@
   </domanda>
   <domanda>
     <ISBNProdotto>9786555129021</ISBNProdotto>
-    <FAQ>-1</FAQ>
+    <FAQ>1</FAQ>
     <segnalazione>-1</segnalazione>
     <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>3</IDDom>
@@ -229,7 +229,7 @@
     <dataDom>2023-11-26T11:21:51</dataDom>
     <risposta>
       <IDRisp>4</IDRisp>
-      <FAQ>-1</FAQ>
+      <FAQ>1</FAQ>
       <segnalazione>-1</segnalazione>
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-11-26T17:40:14</dataRisp>
