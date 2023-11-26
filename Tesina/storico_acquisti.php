@@ -145,7 +145,7 @@
         }
    
         if(!$isAcquisti){
-            echo "<p id=\"no_response\">NESSUNA RICHIESTA DA ACCETTARE TROVATA... ¯\_(ツ)_/¯</p>";
+            echo "<p id=\"no_response\">NESSUN ACQUISTO TROVATO... ¯\_(ツ)_/¯</p>";
         }
 
     ?>
