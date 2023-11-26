@@ -219,4 +219,13 @@
     <testoDom>*********** ***** **********!!!! *****!!!!</testoDom>
     <dataDom>2023-10-24T15:19:35</dataDom>
   </domanda>
+  <domanda>
+    <ISBNProdotto>9786555129021</ISBNProdotto>
+    <FAQ>-1</FAQ>
+    <segnalazione>-1</segnalazione>
+    <IDSegnalatore>-1</IDSegnalatore>
+    <IDDom>3</IDDom>
+    <testoDom>Quando tornerà disponibile questo prodotto! Lo sto aspettando! :(</testoDom>
+    <dataDom>2023-11-26T11:21:51</dataDom>
+  </domanda>
 </elenco>
