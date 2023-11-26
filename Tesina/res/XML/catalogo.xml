@@ -24,6 +24,14 @@
       <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>2</bonus>
+    <recensione>
+      <IDRecensore>6</IDRecensore>
+      <dataRecensione>2023-11-26T19:40:11</dataRecensione>
+      <testoRecensione>Ho letto l'anteprima nel sito ufficiale, non vedo l'ora di far spazio nella libreria per poterlo comprare!</testoRecensione>
+      <reputazioneRecensore>1</reputazioneRecensore>
+      <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
+    </recensione>
   </fumetto>
   <fumetto isbn="9788822632593">
     <titolo>KAIJU NO.8 3</titolo>
@@ -432,9 +440,7 @@
       <nome>Naoya</nome>
       <cognome>Matsumoto</cognome>
     </autore>
-    <sinossi>In Giappone il tasso di comparsa di kaiju è tra i più alti al mondo, tanto che enormi creature portatrici di distruzione lo invadono quasi quotidianamente. Kafka Hibino, che ora lavora per un’impresa specializzata nello smaltimento delle carcasse dei kaiju, un tempo aspirava a diventare un membro delle Forze di Difesa, le unità speciali incaricate di sopprimere i mostri e difendere il Paese. Un giorno, però, un misterioso organismo si introduce nel corpo di Kafka, trasformandolo in quello che le Forze di Difesa battezzeranno col nome in codice di “Kaiju No.8”...&#13;
-&#13;
-Ha inizio la saga dell’uomo che divenne un kaiju!</sinossi>
+    <sinossi>In Giappone il tasso di comparsa di kaiju è tra i più alti al mondo, tanto che enormi creature portatrici di distruzione lo invadono quasi quotidianamente. Kafka Hibino, che ora lavora per un’impresa specializzata nello smaltimento delle carcasse dei kaiju, un tempo aspirava a diventare un membro delle Forze di Difesa, le unità speciali incaricate di sopprimere i mostri e difendere il Paese. Un giorno, però, un misterioso organismo si introduce nel corpo di Kafka, trasformandolo in quello che le Forze di Difesa battezzeranno col nome in codice di “Kaiju No.8”...&#13;&#13;Ha inizio la saga dell’uomo che divenne un kaiju!</sinossi>
     <lunghezza>208</lunghezza>
     <prezzo>5.50</prezzo>
     <data>2022-03-22</data>

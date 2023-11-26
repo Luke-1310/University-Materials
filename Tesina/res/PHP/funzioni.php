@@ -808,7 +808,7 @@
             }
         }
 
-        //controllo se c'è almeno una domanda
+        //controllo se c'è almeno una recensione
         if(!$isRecensione){
 
             echo "<div class=\"container_sp\">";
@@ -818,7 +818,50 @@
                     echo"<p id=\"no_question\">NON SEMBRANO ESSERCI RECENSIONI QUI!</p>";
 
                     if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
-                        echo"<p id=\"new_question\"><a href=\"aggiungi_domanda_prodotto.php\">CLICCAMI PER INSERIRE UNA NUOVA DOMANDA!</a></p>";
+                        
+                        $query = "SELECT umn.ban FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+                        $ris = $connessione->query($query);
+
+                        if ($ris) {
+                            $row = $ris->fetch_assoc();
+                            $ban = $row['ban'];
+                        }
+                        else{
+                            exit(1);
+                        }
+
+                        if($ban == 0){
+
+                            $query_v = "SELECT umn.id FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+                            $ris_v = $connessione->query($query_v);
+
+                            if ($ris_v) {
+                                $row_v = $ris_v->fetch_assoc();
+                                $IDValutante = $row_v['id']; 
+                            }
+                            else{
+                                exit(1);
+                            }
+
+                            //form AGGIUNGI RECENSIONE
+                            echo"<form id=\"rispostaForm\" action=\"res/PHP/aggiungi_recensione.php\" method=\"POST\" >";
+
+                                echo"<div class=\"form-row\">";
+                                    echo"<label for=\"risposta\">AGGIUNGI UNA RECENSIONE...</label>";
+                                    echo "<textarea id=\"risposta\" name=\"recensione\" rows=\"10\" cols=\"40\" placeholder=\"Inserisci qui la tua recensione....\" required></textarea>";
+                                echo"</div>";
+
+                                echo"<input type=\"hidden\" name=\"ID\" value=". $IDValutante . ">";
+                                echo "<span class =\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                            echo "</form>";
+
+
+                        }
+                        else{
+                            echo"<p id=\"new_question\">OPS... RISULTI BANNATO!</p>";
+                        }
+
                     }
                     else{
                         echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER INSERIRE UNA NUOVA RECENSIONE!</a></p>";
