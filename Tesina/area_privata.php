@@ -45,7 +45,7 @@
 
             <div class="cell">
                 <a href="storico_acquisti.php"><i id="shop" class="material-icons">shopping_bag</i></a>
-                <a href="storico_acquisti.php">STORICO ACQUISTI</a>
+                <a href="storico_acquisti.php">STORICO DEI TUOI ACQUISTI</a>
             </div>
             
             <div class="cell">
