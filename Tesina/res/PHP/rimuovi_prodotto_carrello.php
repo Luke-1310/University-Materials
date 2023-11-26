@@ -5,28 +5,22 @@ session_start();
 $fumetto_isbn_POST = $_POST['isbn'];
 
 if (!empty($_SESSION['carrello'])) {
-
-    $carrello = $_SESSION['carrello'];
-    $keys = array_keys($carrello);
-    $count = count($keys);
-    
-    for ($i = 0; $i < $count; $i++) {
-        
-        $indice = $keys[$i];
-        $fumetto_carrello = $carrello[$indice];
-        
+    foreach ($_SESSION['carrello'] as $indice => $fumetto_carrello) {
         if ($fumetto_carrello['isbn'] == $fumetto_isbn_POST) {
             unset($_SESSION['carrello'][$indice]);
-            
-            // Verifica se è l'ultimo elemento rimasto dopo la rimozione
-            if (count($_SESSION['carrello']) === 0) {
-                unset($_SESSION['carrello']); // Rimuovi completamente la variabile di sessione 'carrello'
-            }
         }
+    }
+
+    //array_values mi riorganizza gli indici dell'array per prevenire errori quando cancello un elemento che non è l'ultimo nel carrello 
+    $_SESSION['carrello'] = array_values($_SESSION['carrello']);
+
+    if (empty($_SESSION['carrello'])) {
+        unset($_SESSION['carrello']); // Rimuovi completamente la variabile di sessione 'carrello'
     }
 }
 
 $_SESSION['rimuovi_prodotto_carrello_ok'] = true;
 
 header('Location: ../../carrello.php');
+
 ?>
