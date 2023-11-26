@@ -186,4 +186,10 @@
     <dataRichiesta>2023-11-25T23:12:07</dataRichiesta>
     <risposta>1</risposta>
   </richiesta>
+  <richiesta>
+    <IDUtente>1</IDUtente>
+    <quantita>100</quantita>
+    <dataRichiesta>2023-11-26T11:06:14</dataRichiesta>
+    <risposta>1</risposta>
+  </richiesta>
 </storico>
