@@ -84,4 +84,15 @@
       <prezzo>5.99</prezzo>
     </fumetto>
   </acquisto>
+  <acquisto>
+    <IDUtente>1</IDUtente>
+    <data>2023-11-26T09:19:12</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>KAIJU NO. 8 1</titolo>
+      <isbn>9788822631909</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.5</prezzo>
+    </fumetto>
+  </acquisto>
 </storico>
