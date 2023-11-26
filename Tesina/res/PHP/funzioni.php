@@ -1228,7 +1228,7 @@
 
         $prezzoFinale = $prezzoFumetto - $quantitaPercentuale;
 
-        //in questo modo non mi approssima i numeri => ex 19.13 in 19.1
+        //in questo modo non mi approssima i numeri => ex 19.1 in 19.13
         $prezzoFinale = number_format($prezzoFinale, 2, '.', '');
 
         //se non mi è stato modificato il prezzo con quello scontato metto quello originale

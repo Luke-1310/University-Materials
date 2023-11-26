@@ -206,6 +206,8 @@
                     echo $prezzoTotaleNoSconto ." CR";
                 echo"</div>";
 
+                $prezzoFinale = number_format($prezzoFinale, 2, '.', '');
+
                 echo "<div class=\"column\">";
                     echo $prezzoFinale ." CR";
                 echo"</div>";

@@ -54,11 +54,14 @@
         else {
             echo "Errore nella query: " . $connessione->error;
         }
+
+        $creditiAttuali = number_format($row['crediti'], 2, '.', '');
+
         echo "<div class=\"columns-container\">";
 
             echo "<div class=\"column\">";
                 echo "<h3>CREDITI ATTUALI:</h3>";
-                echo "<p>". $row['crediti'] ." CR</p>";
+                echo "<p>". $creditiAttuali ." CR</p>";
             echo "</div>";
 
             $xmlPath = "res/XML/storico_acquisti.xml";

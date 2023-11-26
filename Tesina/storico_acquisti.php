@@ -103,8 +103,10 @@
                             echo $fumetto['quantita'];
                         echo"</div>";
 
+                        $prezzoArrotondato = number_format($fumetto['prezzo'], 2, '.', '');
+
                         echo "<div class=\"column\">";
-                            echo $fumetto['prezzo'] . " CR";
+                            echo $prezzoArrotondato . " CR";
                         echo"</div>";
 
                         $somma_pagata += $fumetto['prezzo'];
@@ -128,6 +130,8 @@
                         echo "<h4>BONUS</h4>";
                         echo $acquisto['bonus'] . " CR";
                     echo"</div>";
+                    
+                    $somma_pagata = number_format($somma_pagata, 2, '.', '');
 
                     echo "<div class=\"column\">";
                         echo "<h4>TOTALE PAGATO</h4>";
