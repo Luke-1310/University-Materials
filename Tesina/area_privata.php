@@ -78,7 +78,13 @@
                     echo "<div class=\"cell\">";
                         echo "<a href=\"modifica_offerta.php\"><i id=\"offer\" class=\"material-icons\">payments</i></a>";
                         echo "<a href=\"modifica_offerta.php\">MODIFICA OFFERTA</a>";
-                    echo "</div>";   
+                    echo "</div>";
+
+                    //pagina per permettere al gestore di vedere gli acquisti (e la reputazione) degli utenti
+                    echo "<div class=\"cell\">";
+                        echo "<a href=\"lista_acquisti_utenti.php\"><i id=\"lista_acquisti\" class=\"material-icons\">price_check</i></a>";
+                        echo "<a href=\"lista_acquisti_utenti.php\">LISTA ACQUISTI UTENTI</a>";
+                    echo "</div>";  
                     
                 }
 
