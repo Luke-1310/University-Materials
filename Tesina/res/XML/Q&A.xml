@@ -227,5 +227,13 @@
     <IDDom>3</IDDom>
     <testoDom>Quando tornerà disponibile questo prodotto! Lo sto aspettando! :(</testoDom>
     <dataDom>2023-11-26T11:21:51</dataDom>
+    <risposta>
+      <IDRisp>4</IDRisp>
+      <FAQ>-1</FAQ>
+      <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
+      <dataRisp>2023-11-26T17:40:14</dataRisp>
+      <testoRisp>Basta che dai un'occhiata al catalogo, appena sarà disponibile potrai aggiungerlo al carrello ed acquistarlo.</testoRisp>
+    </risposta>
   </domanda>
 </elenco>
