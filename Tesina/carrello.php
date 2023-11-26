@@ -93,7 +93,7 @@
                         unset($_SESSION['sconto generico']);
                         unset($_SESSION['sconto parametrico']);
 
-                        if(isset($fumetto_carrello['isbn']) && isset($fumetto_carrello['bonus']) && isset($fumetto_carrello['quantita']) && isset($fumetto_carrello['prezzo'])){
+                        if(isset($fumetto_carrello['isbn']) && isset($fumetto_carrello['bonus']) && isset($fumetto_carrello['quantita']) && isset($fumetto_carrello['prezzo']) && isset($fumetto_carrello['prezzo_scontato'])){
                             
                             if($fumetto['isbn'] == $fumetto_carrello['isbn']){
 
