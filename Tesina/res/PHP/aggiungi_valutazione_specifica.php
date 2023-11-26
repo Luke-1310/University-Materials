@@ -4,12 +4,30 @@ session_start();
 
 $IDValutante = $_POST['IDValutante'];
 $ID = $_POST['ID'];
+$isbn = $_POST['isbn'];
 $data = $_POST['data'];
 $tipologia = $_POST['tipo'];
 $utilita = $_POST['utilita'];
 $supporto = $_POST['supporto'];
 
 include('connection.php');
+include('funzioni.php');
+
+//siccome se il valutante ha acquistato il prodotto avrà un peso maggiore, posso aggiungerci un +1 sia ad utilità che supporto se risulta vero l'acquisto
+$xmlFile = "../XML/storico_acquisti.xml";
+$acquisti = getAcquisti($xmlFile);
+
+foreach($acquisti as $acquisto){
+
+    foreach($acquisto['fumetti'] as $fumetto){
+
+        if($fumetto['isbn'] == $isbn){
+            $utilita = $utilita + 1;
+            $supporto = $supporto + 1;
+        }
+    }
+}
+
 
 $connessione = new mysqli($host, $user, $password, $db);
 
