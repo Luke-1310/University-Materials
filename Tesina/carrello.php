@@ -49,9 +49,10 @@
             echo "<h4 id=\"esito_negativo\">NON HAI ABBASTANZA CREDITI PER EFFETTUARE L'ORDINE!</h4>";
             unset($_SESSION['crediti_insufficienti']);
         }
-        if(isset($_SESSION['quantita_insufficienti'])){
-            echo "<h4 id=\"esito_negativo\">NON CI SONO ABBASTANZA FUMETTI!</h4>";
+        if(isset($_SESSION['quantita_insufficienti']) && isset($_SESSION['quantita_insufficienti_titolo'])){
+            echo "<h4 id=\"esito_negativo\">IL NUMERO MASSIMO DI COPIE DISPONIBILI PER ". $_SESSION['quantita_insufficienti_titolo']. " È PARI A ". $_SESSION['quantita_insufficienti'] . "!</h4>";
             unset($_SESSION['quantita_insufficienti']);
+            unset($_SESSION['quantita_insufficienti_titolo']);
         }
 
 
