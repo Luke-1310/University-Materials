@@ -27,6 +27,11 @@ foreach($domande_doc as $domanda_doc){
         if($IDRisp == $ID_POST && $dataRisp == $data_POST){
 
             $risposta->getElementsByTagName('FAQ')->item(0)->nodeValue = 1;
+
+            //Quello che voglio fare è mettere il campo FAQ della domanda a 1, perché se per caso si eleva una risposta a FAQ mi voglio ancorare anche la domanda
+            $domandaPadre = $risposta->parentNode;
+            $FAQDomanda = $domandaPadre->getElementsByTagName('FAQ')->item(0)->nodeValue = 1;
+        
             break;
         }
     }
