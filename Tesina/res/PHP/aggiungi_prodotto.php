@@ -14,6 +14,18 @@ $date = $_POST['data'];
 $quantity = $_POST['quantita'];
 $publisher = $_POST['editrice'];
 
+//mi salvo tutto in delle variabili di sessione per poter ricompilare il form
+$_SESSION['form_titolo_prodotto'] = $title;
+$_SESSION['form_ISBN_prodotto'] = $ISBN;
+$_SESSION['form_nome_autore'] = $name;
+$_SESSION['form_cognome_autore'] = $surname;
+$_SESSION['form_sinossi_prodotto'] = $description;
+$_SESSION['form_lunghezza_prodotto'] = $lenght;
+$_SESSION['form_prezzo_prodotto'] = $price;
+$_SESSION['form_data_prodotto'] = $date;
+$_SESSION['form_quantita_prodotto'] = $quantity;
+$_SESSION['form_editrice_prodotto'] = $publisher;
+
 //come prima cosa mi voglio ricavare il valore che andrà nel campo img del file XML
 //controllo se l'estensione del file è di tipo .jpg
 $dirDestinazione = "../WEBSITE_MEDIA/PRODUCT_MEDIA/"; //Assegna la cartella di destinazione delle immagini
@@ -200,6 +212,18 @@ $documento->formatOutput = true;    //Formatta il documento XML per renderlo pi�
 $xml = $documento->saveXML();   //saveXML è un metodo che restituisce il documento XML come una stringa di testo (formattata)
 
 file_put_contents($xmlfile, $xml);  //sovrascrive il contenuto del vecchio file XML con quello nuovo
+
+//ora unsetto le variabili di sessione utilizzate per la permanenza
+unset($_SESSION['form_titolo_prodotto']);
+unset($_SESSION['form_ISBN_prodotto']);
+unset($_SESSION['form_nome_autore']);
+unset($_SESSION['form_cognome_autore']);
+unset($_SESSION['form_sinossi_prodotto']);
+unset($_SESSION['form_lunghezza_prodotto']);    
+unset($_SESSION['form_prezzo_prodotto']);
+unset($_SESSION['form_data_prodotto']);
+unset($_SESSION['form_quantita_prodotto']);
+unset($_SESSION['form_editrice_prodotto']);
 
 $_SESSION['nuovoprodotto_ok'] = 'true';
 

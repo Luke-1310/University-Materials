@@ -54,53 +54,62 @@
                 <h3>INFORMAZIONI PRODOTTO:</h3>
                 <div class="form-row">
                     <label for="titolo">TITOLO</label>
-                    <input type="text" id="titolo" name="titolo" placeholder="SPY X FAMILY 1" required>   <!--Se settata (regist non corretta, la stampo)-->
+                    <input type="text" id="titolo" name="titolo" placeholder="SPY X FAMILY 1" 
+                        value="<?php  if(isset($_SESSION['form_titolo_prodotto'])) echo $_SESSION['form_titolo_prodotto']; ?>" required>   <!--Se settata (aggiungi prodotto non corretto, la stampo)-->
                 </div>
                 
                 <div class="form-row">
                     <label for="ISBN">ISBN</label>
-                    <input type="text" pattern="[0-9]{13}" maxlength="13" id="ISBN" name="ISBN" placeholder="9798431410840" required>
+                    <input type="text" pattern="[0-9]{13}" maxlength="13" id="ISBN" name="ISBN" placeholder="9798431410840"
+                        value="<?php  if(isset($_SESSION['form_ISBN_prodotto'])) echo $_SESSION['form_ISBN_prodotto']; ?>" required>
                 </div>
 
                 <div class="form-row">
                     <label for="editrice">CASA EDITRICE</label>
-                    <input type="text" id="editrice" name="editrice" placeholder="Planet Manga" required>
+                    <input type="text" id="editrice" name="editrice" placeholder="Planet Manga"
+                        value="<?php  if(isset($_SESSION['form_editrice_prodotto'])) echo $_SESSION['form_editrice_prodotto']; ?>" required>
                 </div>
 
                 <div class="form-row">
                     <label for="nome">NOME AUTORE</label>
-                    <input type="text" id="nome" name="nome" placeholder="Tastuya" required>
+                    <input type="text" id="nome" name="nome" placeholder="Tastuya"
+                        value="<?php  if(isset($_SESSION['form_nome_autore'])) echo $_SESSION['form_nome_autore']; ?>" required>
                 </div>
 
                 <div class="form-row">
                     <label for="cognome">COGNOME AUTORE</label>
-                    <input type="text" id="cognome" name="cognome" placeholder="Endo" required>
+                    <input type="text" id="cognome" name="cognome" placeholder="Endo" 
+                        value="<?php  if(isset($_SESSION['form_cognome_autore'])) echo $_SESSION['form_cognome_autore']; ?>" required>
                 </div>
                 
                 <div class="form-row">
                     <label for="sinossi">SINOSSI</label>
-                    <textarea id="sinossi" name="sinossi" rows="10" cols="60" placeholder="Questa storia parla di Twilight una spia che per compiere la sua missione..." required></textarea>
+                    <textarea id="sinossi" name="sinossi" rows="10" cols="60" placeholder="Questa storia parla di Twilight una spia che per compiere la sua missione..." required><?php if(isset($_SESSION['form_sinossi_prodotto'])) echo trim($_SESSION['form_sinossi_prodotto']);?></textarea>
                 </div>
 
                 <div class="form-row">
                     <label for="pagine">NR DI PAGINE</label>
-                    <input type="integer" pattern="[0-9]{1,4}" maxlength="4" name="lunghezza" id="lunghezza" placeholder="276" required>
+                    <input type="integer" pattern="[0-9]{1,4}" maxlength="4" name="lunghezza" id="lunghezza" placeholder="276"
+                        value="<?php  if(isset($_SESSION['form_lunghezza_prodotto'])) echo $_SESSION['form_lunghezza_prodotto']; ?>" required>
                 </div>
 
                 <div class="form-row">
                     <label for="prezzo">PREZZO</label>
-                    <input type="number" step="0.01" min="0" name="prezzo" id="prezzo" required placeholder="5.99">
+                    <input type="number" step="0.01" min="0" name="prezzo" id="prezzo" placeholder="5.99"
+                        value="<?php  if(isset($_SESSION['form_prezzo_prodotto'])) echo $_SESSION['form_prezzo_prodotto']; ?>" required>
                 </div>
 
 
                 <div class="form-row">
                     <label for="quantita">QUANTITÀ</label>
-                    <input type="integer" pattern="[0-9]{1,3}" maxlength="3" id="quantita" name="quantita" placeholder="12" required>
+                    <input type="integer" pattern="[0-9]{1,3}" maxlength="3" id="quantita" name="quantita" placeholder="12"
+                        value="<?php  if(isset($_SESSION['form_quantita_prodotto'])) echo $_SESSION['form_quantita_prodotto']; ?>" required>
                 </div>
                 
                 <div class="form-row">
                     <label for="data">DATA DI USCITA</label>
-                    <input type="text" id="data" name="data" placeholder="1999-01-01" required pattern="\d{4}-\d{2}-\d{2}">
+                    <input type="text" id="data" name="data" placeholder="1999-01-01" required pattern="\d{4}-\d{2}-\d{2}"
+                        value="<?php  if(isset($_SESSION['form_data_prodotto'])) echo $_SESSION['form_data_prodotto']; ?>" required>
                 </div>
 
                 <div class="form-row">
