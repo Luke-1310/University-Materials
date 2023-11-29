@@ -26,15 +26,34 @@ if($password !== $password2){
     exit(1);
 }
 
-// Aggiornamento della tabella utenteMangaNett
+//faccio un check tra quella presa dal form e quella già presente nel db
+//in caso affermativo voglio un errore perché si sta modificando la password con una password uguale alla precedente!
+$username = $_SESSION['nome'];
+
+$controllo = "SELECT* FROM utentedati ud, utentemanganett um  WHERE um.username = '$username' AND ud.id = um.id";
+if($ris = $connessione->query($controllo)){
+
+    if(mysqli_num_rows($ris) == 1){
+
+        $row = $ris->fetch_array(MYSQLI_ASSOC); //prendiamo la password hashata
+        
+        if(password_verify($password, $row['password'])){
+
+            $_SESSION['errore_psw_precedente'] = 'true';
+            header('Location: ../../modifica_password.php');
+            exit(1);   
+        }
+    }
+}
+
 $sql = "UPDATE utenteDati 
         SET password = '$hashed_password'
         WHERE id IN (SELECT id FROM utenteMangaNett WHERE username = '{$_SESSION['nome']}')";
 
-// Esegui le query di aggiornamento e gestisci gli eventuali errori
 if ($connessione->query($sql)) {
     header('Location:../../profilo.php');
-} else {
+} 
+else{
     $_SESSION['errore_query'] = 'true';
     header('Location:../../modifica_password.php');
     exit(1);

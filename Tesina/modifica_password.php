@@ -46,6 +46,11 @@
                 unset($_SESSION['errore_preg']);
             }
 
+            if(isset($_SESSION['errore_psw_precedente']) && $_SESSION['errore_psw_precedente'] == 'true'){
+                echo "<h4>LA NUOVA PASSWORD È UGUALE ALLA PRECEDENTE!</h4>";
+                unset($_SESSION['errore_psw_precedente']);
+            }
+
         ?>
 
         <div class="titoletto">
