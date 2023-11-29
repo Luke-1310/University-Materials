@@ -43,6 +43,11 @@
 
         $connessione = new mysqli($host, $user, $password, $db);
 
+        if(isset($_SESSION['FAQ_rimozione_ok']) && $_SESSION['FAQ_rimozione_ok'] = true){
+            echo "<h4 id=\"esito_positivo\">LA FAQ È STATA RIMOSSA!</h4>";
+            unset($_SESSION['FAQ_rimozione_ok']);
+        }
+
         echo "<p class=\"titolo\">ECCO LE DOMANDE PIÙ RICHIESTE!</p>";
 
         //una volta prese le domande, stampo tutte le domande con l'elemento FAQ a 1 e la risposta meglio valutata
@@ -87,7 +92,7 @@
                         }
                     }
 
-                    if(isset($_SESSION['loggato']) && $_SESSION['loggato'] = true){
+                    if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
 
                         //se l'utente è un GS/AM/SA allora ha delle funzionalità in più
                         $sql = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND (u.ruolo = 'GS' OR u.ruolo = 'AM' OR u.ruolo = 'SA')";
