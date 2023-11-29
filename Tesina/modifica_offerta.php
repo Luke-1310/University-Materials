@@ -124,13 +124,14 @@
                 <h3>INFORMAZIONI SCONTO:</h3>
                 <div class="form-row">
                     <label for="generico">SCONTO GENERICO (%)</label>
-                    <input type="integer" id="generico" name="generico" placeholder="2" required>
+                    <input type="number" id="generico" name="generico" placeholder="2" min="0" max="30" required>
                 </div>
 
                 <div class="form-row">
                     <label for="bonus">BONUS CREDITI</label>
-                    <input type="integer" pattern="[0-9]{0,2}" maxlength="2" id="bonus" name="bonus" placeholder="2" required>
+                    <input type="number" id="bonus" name="bonus" placeholder="2" min="0" max="5" required>
                 </div>
+
 
 
                 <span class ="bottone"><input type="submit" value="INVIA"></span>
