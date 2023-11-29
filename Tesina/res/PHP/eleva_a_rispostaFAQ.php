@@ -10,7 +10,6 @@ $data_POST = $_POST['dataRisp'];
 
 $xmlpath = "../XML/Q&A.xml";
 
-//ora che ho tutto mi preparo all'inserimento della domanda nel xml
 $document = new DOMDocument();
 $document->load($xmlpath);
 
