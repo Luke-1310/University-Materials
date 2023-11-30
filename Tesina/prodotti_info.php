@@ -173,6 +173,9 @@ include('res/PHP/funzioni.php');
 
             <?php
 
+                $xmlPathFumetti = "res/XML/catalogo.xml";
+                $prezzoScontato = calcolaScontoFumetto($xmlPathFumetti, $ISBN, $prezzo);
+
                 echo "<div class=\"info-sconto\">";
 
                     echo "<div class=\"info-field\">";
@@ -180,6 +183,14 @@ include('res/PHP/funzioni.php');
                         echo "<span class=\"field-value\">" . $bonus . " CREDITI </span>";
                     echo "</div>";
 
+                    if(isset($_SESSION['sconto parametrico']) && $_SESSION['sconto parametrico'] = true){
+                        echo "<div class=\"info-field\">";
+                            echo "<span class=\"field-label\">SCONTO PARAMETRICO ATTIVATO => PREZZO FINALE: </span>";
+                            echo "<span class=\"field-value\">" . $prezzoScontato . " CREDITI </span>";
+                        echo "</div>";
+
+                        unset($_SESSION['sconto parametrico']);
+                    }
                 echo "</div>";
                 
                 echo "<div class=\"info-bottone\">";
