@@ -1100,7 +1100,7 @@
         
         $prezzoFinale = 0;
 
-        if (isset($_SESSION['carrello'])) {
+        if (isset($_SESSION['loggato']) && $_SESSION['loggato'] == true) {
 
             include('connection.php');
 
@@ -1272,18 +1272,19 @@
                     }
                 }
             }
-        }
 
-        $quantitaPercentuale = $prezzoFumetto * ($sconto_percentuale / 100);
+            $quantitaPercentuale = $prezzoFumetto * ($sconto_percentuale / 100);
 
-        $prezzoFinale = $prezzoFumetto - $quantitaPercentuale;
-
-        //in questo modo non mi approssima i numeri => ex 19.1 in 19.13
-        $prezzoFinale = number_format($prezzoFinale, 2, '.', '');
-
-        //se non mi è stato modificato il prezzo con quello scontato metto quello originale
-        if($prezzoFinale == 0){
-            $prezzoFinale == $prezzoFumetto;
+            $prezzoFinale = $prezzoFumetto - $quantitaPercentuale;
+    
+            //in questo modo non mi approssima i numeri => ex 19.1 in 19.13
+            $prezzoFinale = number_format($prezzoFinale, 2, '.', '');
+    
+            //se non mi è stato modificato il prezzo con quello scontato metto quello originale
+            if($prezzoFinale == 0){
+                $prezzoFinale == $prezzoFumetto;
+            }
+            
         }
 
         return $prezzoFinale;

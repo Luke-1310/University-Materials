@@ -174,7 +174,10 @@ include('res/PHP/funzioni.php');
             <?php
 
                 $xmlPathFumetti = "res/XML/catalogo.xml";
-                $prezzoScontato = calcolaScontoFumetto($xmlPathFumetti, $ISBN, $prezzo);
+
+                if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                    $prezzoScontato = calcolaScontoFumetto($xmlPathFumetti, $ISBN, $prezzo);
+                }
 
                 echo "<div class=\"info-sconto\">";
 
