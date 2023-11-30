@@ -623,14 +623,33 @@
         //controllo se c'è almeno una domanda
         if(!$isDomanda){
 
+            if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                            
+                //se l'utente corrente è bannato allora devo impedirgli di commentare
+                $query = "SELECT umn.ban FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+
+                $ris = $connessione->query($query);
+
+                if ($ris) {
+                    $row = $ris->fetch_assoc();
+                    $ban = $row['ban'];
+                }
+                else{
+                    exit(1);
+                }
+            }
+
             echo "<div class=\"container_sp\">";
 
                 echo"<div class=\"domanda\">";
 
                     echo"<p id=\"no_question\">NON SEMBRANO ESSERCI DOMANDE QUI!</p>";
 
-                    if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                    if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true && $ban == 0){
                         echo"<p id=\"new_question\"><a href=\"aggiungi_domanda_prodotto.php\">CLICCAMI PER INSERIRE UNA NUOVA DOMANDA!</a></p>";
+                    }
+                    else if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true && $ban == 1){
+                        echo"<p id=\"new_question\">OPS... RISULTI BANNATO!</p>";
                     }
                     else{
                         echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER INSERIRE UNA NUOVA DOMANDA!</a></p>";

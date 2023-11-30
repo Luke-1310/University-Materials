@@ -15,7 +15,24 @@
         <li><a href="FAQ.php">FAQ</a></li>
         <?php
             if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
-                echo "<li><a href=\"aggiungi_domanda_prodotto.php\">HAI UNA DOMANDA SU PRODOTTO?</a></li>";
+                
+                include('connection.php');
+                $connessione = new mysqli($host, $user, $password, $db);
+
+                $query = "SELECT umn.ban FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+                $ris = $connessione->query($query);
+
+                if ($ris) {
+                    $row = $ris->fetch_assoc();
+                    $ban = $row['ban'];
+                }
+                else{
+                    exit(1);
+                }
+                
+                if($ban == 0){
+                    echo "<li><a href=\"aggiungi_domanda_prodotto.php\">HAI UNA DOMANDA SU PRODOTTO?</a></li>";
+                }  
             }
         ?>
         <li><a href="mostra_domande_prodotto.php">DOMANDE SUI PRODOTTI</a></li>
