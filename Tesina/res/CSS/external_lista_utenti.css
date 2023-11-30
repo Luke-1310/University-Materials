@@ -54,6 +54,11 @@
     margin-top: 20px;
 }
 
+#esito_positivo{
+    color: #1DB954;
+    text-align: center;
+}
+
 #info{
     color:#0088CC ;
     margin-top: 20px;
