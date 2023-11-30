@@ -82,7 +82,7 @@ $ins_utManga = "INSERT INTO `utenteMangaNett` (`id`, `username`, `data_registraz
 ('4', 'MarioBros', '2023-08-29', 'CL', '20', '5',  '0'),
 ('5', 'LuigiBros', '2023-10-18', 'CL', '0', '1',  '0'),
 ('6', 'Luca_88', '2023-10-19', 'CL', '0', '1',  '0'),
-('7', 'utente_gentile', '2023-10-21', 'CL', '6', '1',  '0')";
+('7', 'utente_gentile', '2023-10-21', 'CL', '6', '1',  '1')";
 
 if ($conn->query($ins_utManga) === FALSE) {
     echo "Errore nell'inserimento degli utenti " . $conn->error;
