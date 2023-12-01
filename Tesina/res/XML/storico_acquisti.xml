@@ -106,4 +106,15 @@
       <prezzo>9.7</prezzo>
     </fumetto>
   </acquisto>
+  <acquisto>
+    <IDUtente>1</IDUtente>
+    <data>2023-12-01T22:33:41</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>ONE PIECE 2</titolo>
+      <isbn>9788864201887</isbn>
+      <quantita>1</quantita>
+      <prezzo>4.94</prezzo>
+    </fumetto>
+  </acquisto>
 </storico>
