@@ -32,6 +32,10 @@
         echo "<h4 id=\"esito_positivo\">IL PRODOTTO È STATO AGGIUNTO AL CARRELLO!</h4>";
         unset($_SESSION['prodotto_aggiunto']);
     }
+    if(isset($_SESSION['prodotto_eliminato']) && $_SESSION['prodotto_eliminato'] = true){
+        echo "<h4 id=\"esito_positivo\">IL PRODOTTO È STATO ELIMINATO!</h4>";
+        unset($_SESSION['prodotto_eliminato']);
+    }
     
     //includo il file funzioni.php contenente la funzione per caricare i fumetti dal file xml
     include('res/PHP/funzioni.php');
