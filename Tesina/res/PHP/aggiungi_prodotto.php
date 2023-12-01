@@ -122,7 +122,7 @@ foreach ($manga->getElementsByTagName('fumetto') as $existingComics) {
 if ($titleExists) {
 
     $_SESSION['errore_ag_titolo'] = true;
-    header('Location: ../../aggiungi prodotto.php');
+    header('Location: ../../aggiungi_prodotto.php');
     exit();     //buon accorgimento per evitare che il resto del codice venga eseguito
 } 
 
