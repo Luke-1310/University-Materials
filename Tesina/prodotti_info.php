@@ -109,7 +109,7 @@ include('res/PHP/funzioni.php');
                         echo "</form>";
 
                         echo "<form id=\"modifica_prod\" action=\"res/PHP/elimina_prodotto.php\" method=\"POST\">";
-                            echo "<input type=\"hidden\" name=isbn value='{$_SESSION['info_titolo']}'>";
+                        echo "<input type=\"hidden\" name=\"isbn\" value=\"" . $ISBN . "\">";
                             echo "<span class=\"bottone\"><button type=\"submit\" name=\"info\">ELIMINA PRODOTTO</button></span>";
                         echo "</form>";
                     }
