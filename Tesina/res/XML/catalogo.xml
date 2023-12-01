@@ -369,10 +369,10 @@
     <lunghezza>192</lunghezza>
     <prezzo>4.90</prezzo>
     <data>2021-01-28</data>
-    <quantita>2</quantita>
+    <quantita>1</quantita>
     <img>9788891297952</img>
     <editore>Planet Manga</editore>
-    <sconto_generico>0</sconto_generico>
+    <sconto_generico>1</sconto_generico>
     <sconto>
       <X>0</X>
       <Y>10</Y>

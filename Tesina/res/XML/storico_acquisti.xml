@@ -95,4 +95,15 @@
       <prezzo>5.5</prezzo>
     </fumetto>
   </acquisto>
+  <acquisto>
+    <IDUtente>6</IDUtente>
+    <data>2023-12-01T17:14:45</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>JUJUTSU KAISEN 3</titolo>
+      <isbn>9788891297952</isbn>
+      <quantita>2</quantita>
+      <prezzo>9.7</prezzo>
+    </fumetto>
+  </acquisto>
 </storico>
