@@ -19,14 +19,14 @@ foreach ($fumetti_doc as $fumetto_doc) {
 
     if ($ISBN_prodotto === $fumetto_isbn){
 
-        // $fumettoDaRimuovere = $fumetto_doc;
-        // $fumettoDaRimuovere->parentNode->removeChild($fumettoDaRimuovere);
+        $fumettoDaRimuovere = $fumetto_doc;
+        $fumettoDaRimuovere->parentNode->removeChild($fumettoDaRimuovere);
 
         $immagineDaEliminare = "../WEBSITE_MEDIA/PRODUCT_MEDIA/{$ISBN_prodotto}.jpg";
 
-        // if (file_exists($immagineDaEliminare)) {
-        //     unlink($immagineDaEliminare);
-        // }
+        if (file_exists($immagineDaEliminare)) {
+            unlink($immagineDaEliminare);
+        }
 
         break;
     }
@@ -46,12 +46,12 @@ $domande_doc = $document->getElementsByTagName('domanda');
 
 foreach ($domande_doc as $domanda_doc) {
 
-    $domanda_isbn = $domanda_doc->getElementsByTagName('ISBNProdotto');
+    $domanda_isbn = $domanda_doc->getElementsByTagName('ISBNProdotto')->item(0)->nodeValue;
 
     if ($ISBN_prodotto === $domanda_isbn){
 
-        // $domandaDaRimuovere = $domanda_doc;
-        // $domandaDaRimuovere->parentNode->removeChild($domandaDaRimuovere);
+        $domandaDaRimuovere = $domanda_doc;
+        $domandaDaRimuovere->parentNode->removeChild($domandaDaRimuovere);
     }
 }
 
