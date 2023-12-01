@@ -21,6 +21,49 @@ $pathXml = "../XML/catalogo.xml";
 $fumetti = getFumetti($pathXml);
 
 //devo fare dei controlli, titolo e sul isbn
+//Controllo sul titolo
+
+//Faccio la verifica solo se il titolo inserito è diverso dal titolo originale
+if ($title !== $_SESSION['info_titolo']) {
+
+    $titleExists = false;
+
+    foreach ($fumetti as $fumetto) {
+
+        
+        if ($title === $fumetto['titolo']) {
+            $titleExists = true;
+            break;
+        }
+    }
+
+    if ($titleExists) {
+        $_SESSION['errore_ag_titolo'] = true;
+        header('Location: ../../modifica_prodotto.php');
+        exit(1);
+    }
+}
+
+//Controllo se l'ISBN inserito già esiste
+// Verifica solo se l'ISBN inserito è diverso dall'ISBN originale
+if ($ISBN !== $_SESSION['vecchio_isbn']) {
+    $isbnExists = false;
+
+    foreach ($fumetti as $fumetto) {
+
+        if ($fumetto['isbn'] === $ISBN) {
+            $isbnExists = true;
+            break;
+        }
+    }
+
+    if ($isbnExists) {
+        
+        $_SESSION['errore_ag_isbn'] = true;
+        header('Location: ../../modifica_prodotto.php');
+        exit(1);
+    }
+}
 
 // Controllo se l'utente ha inserito un'immagine
 if ($_FILES["img"]["size"] > 0) {
@@ -68,7 +111,6 @@ else{
         $_SESSION['errore_img_nonEsiste'] = true;
     }
 }
-
 
 //i controlli sono andati a buon fine e per tale motivo procedo a modificare i dati del fumetto nell'array fumetti e poi sovrascrivo
 foreach($fumetti as &$fumetto){
