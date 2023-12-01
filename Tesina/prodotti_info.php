@@ -80,22 +80,12 @@ include('res/PHP/funzioni.php');
             $ISBN = $fumetto['isbn'];
             $bonus = $fumetto['bonus'];
 
-            //mancano parametri    
-            $mesi = $fumetto['X'];
-            $crediti = $fumetto['N'];
-            $reputazione = $fumetto['R'];
-        
+            $_SESSION['vecchio_isbn'] = $ISBN;
         }
     }
 
     //ora mi devo prendere anche i parametri dell'utente per vedere se rientra nello sconto
     $connessione = new mysqli($host, $user, $password, $db);
-
-    // $reputazione_utente = getReputazioneCurr();
-
-    // $mesi_trascorsi = getDataRegistrazioneCurr();
-
-    // $spesi_utente = getCreditiSpesiCurr();
 
     //Compongo il nome completo dell'immagine da stampare
     $nomeImg = $ISBN . $ext;
