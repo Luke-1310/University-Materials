@@ -483,5 +483,13 @@
       <ha_acquistato>0</ha_acquistato>
     </sconto>
     <bonus>0</bonus>
+    <recensione>
+      <IDRecensore>1</IDRecensore>
+      <dataRecensione>2023-12-01T22:32:58</dataRecensione>
+      <testoRecensione>f</testoRecensione>
+      <reputazioneRecensore>12</reputazioneRecensore>
+      <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
+    </recensione>
   </fumetto>
 </manga>

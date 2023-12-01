@@ -236,4 +236,33 @@
       <testoRisp>Basta che dai un'occhiata al catalogo, appena sarà disponibile potrai aggiungerlo al carrello ed acquistarlo.</testoRisp>
     </risposta>
   </domanda>
+  <domanda>
+    <ISBNProdotto>9788864201887</ISBNProdotto>
+    <FAQ>-1</FAQ>
+    <segnalazione>-1</segnalazione>
+    <IDSegnalatore>-1</IDSegnalatore>
+    <IDDom>1</IDDom>
+    <testoDom>d</testoDom>
+    <dataDom>2023-12-01T22:32:22</dataDom>
+    <votazione_domanda>
+      <IDValutante>1</IDValutante>
+      <reputazione>12</reputazione>
+      <utilita>4</utilita>
+      <supporto>2</supporto>
+    </votazione_domanda>
+    <risposta>
+      <IDRisp>1</IDRisp>
+      <FAQ>-1</FAQ>
+      <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
+      <dataRisp>2023-12-01T22:32:37</dataRisp>
+      <testoRisp>d</testoRisp>
+      <votazione_risposta>
+        <IDValutante>1</IDValutante>
+        <reputazione>12</reputazione>
+        <utilita>1</utilita>
+        <supporto>1</supporto>
+      </votazione_risposta>
+    </risposta>
+  </domanda>
 </elenco>
