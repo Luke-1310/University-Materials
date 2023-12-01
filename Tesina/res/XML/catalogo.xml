@@ -459,4 +459,29 @@
     </sconto>
     <bonus>0</bonus>
   </fumetto>
+  <fumetto isbn="9788864201887">
+    <titolo>ONE PIECE 2</titolo>
+    <autore>
+      <nome>Eiichiro</nome>
+      <cognome>Oda</cognome>
+    </autore>
+    <sinossi>In un piccolo villaggio di pescatori vive un bambino con un grande sogno: diventare il re dei pirati! Il suo nome è Monkey D. Rufy, simpatico e scavezzacollo Rufy passa il suo tempo allenandosi a fare il pirata e cercando di convincere il capitano Shanky, un vero pirata, a prenderlo nel suo equipaggio. Un giorno Rufy mangia per errore il frutto di gom gom, l'albero del diavolo, che trasforma il corpo in una struttura di gomma superelastica, e da quel giorno la sua vita cambia completamente... Passati dieci anni, il giovane Rufy lascia il suo villaggio per mettere insieme una ciurma con cui andare alla ricerca del tesoro del leggendario pirata Gold Roger. Il suo primo compagno sarà Zoro, uno scontroso e ribelle cacciatore di pirati. Ecco il secondo episodio della serie di "One piece"!</sinossi>
+    <lunghezza>192</lunghezza>
+    <prezzo>4.94</prezzo>
+    <data>2008-03-21</data>
+    <quantita>91</quantita>
+    <img>9788864201887</img>
+    <editore>Star Comics</editore>
+    <sconto_generico>0</sconto_generico>
+    <sconto>
+      <X>0</X>
+      <Y>10</Y>
+      <M>0</M>
+      <data_M>1999-01-01</data_M>
+      <N>0</N>
+      <R>0</R>
+      <ha_acquistato>0</ha_acquistato>
+    </sconto>
+    <bonus>0</bonus>
+  </fumetto>
 </manga>
