@@ -242,7 +242,7 @@
     <segnalazione>-1</segnalazione>
     <IDSegnalatore>-1</IDSegnalatore>
     <IDDom>1</IDDom>
-    <testoDom>d</testoDom>
+    <testoDom>domanda da eliminare</testoDom>
     <dataDom>2023-12-01T22:32:22</dataDom>
     <votazione_domanda>
       <IDValutante>1</IDValutante>
@@ -256,7 +256,7 @@
       <segnalazione>-1</segnalazione>
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-12-01T22:32:37</dataRisp>
-      <testoRisp>d</testoRisp>
+      <testoRisp>risposta da eliminare</testoRisp>
       <votazione_risposta>
         <IDValutante>1</IDValutante>
         <reputazione>12</reputazione>

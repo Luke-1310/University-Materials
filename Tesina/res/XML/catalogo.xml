@@ -486,7 +486,7 @@
     <recensione>
       <IDRecensore>1</IDRecensore>
       <dataRecensione>2023-12-01T22:32:58</dataRecensione>
-      <testoRecensione>f</testoRecensione>
+      <testoRecensione>recensione da eliminare</testoRecensione>
       <reputazioneRecensore>12</reputazioneRecensore>
       <segnalazione>-1</segnalazione>
       <IDSegnalatore>-1</IDSegnalatore>
