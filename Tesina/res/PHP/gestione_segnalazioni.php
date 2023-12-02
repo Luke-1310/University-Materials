@@ -219,7 +219,7 @@ if(isset($_POST['bottone_ban_ko']) && isset($_GET['from']) && $_GET['from'] == "
     $document->save($xmlpath);
 
     $_SESSION['noban_ok'] = true;
-    // header('Location:../../gestione_segnalazioni.php');
+    header('Location:../../gestione_segnalazioni.php');
     exit(1);
 }
 
