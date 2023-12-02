@@ -132,6 +132,14 @@
       <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>1</bonus>
+    <recensione>
+      <IDRecensore>5</IDRecensore>
+      <dataRecensione>2023-12-02T13:33:58</dataRecensione>
+      <testoRecensione>Inizio confusionario, non l'ho proprio capito sinceramente!</testoRecensione>
+      <reputazioneRecensore>2</reputazioneRecensore>
+      <segnalazione>1</segnalazione>
+      <IDSegnalatore>6</IDSegnalatore>
+    </recensione>
   </fumetto>
   <fumetto isbn="9783455000955">
     <titolo>SPY X FAMILY 2</titolo>
