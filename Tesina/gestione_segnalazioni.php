@@ -33,7 +33,10 @@
 <?php   
 
 $xmlpath = "res/XML/Q&A.xml";
+$xmlpathfumetti = "res/XML/catalogo.xml";
+
 $domande = getDomande($xmlpath);
+$fumetti = getFumetti($xmlpathfumetti);
 
 $connessione = new mysqli($host, $user, $password, $db);
 
@@ -46,7 +49,7 @@ if(isset($_SESSION['errore_query']) && $_SESSION['errore_query'] == 'true'){
 }
 
 if(isset($_SESSION['ban_ok']) && $_SESSION['ban_ok'] == 'true'){
-    echo "<h4 id=\"esito_positivo\">L'UTENTE È STATO BANNATO E IL COMMENTO NON È PIÙ VISIBILE!</h4>";
+    echo "<h4 id=\"esito_positivo\">L'UTENTE È STATO BANNATO E IL CONTRIBUTO NON È PIÙ VISIBILE!</h4>";
     unset($_SESSION['ban_ok']);
 }
 
@@ -64,6 +67,16 @@ foreach($domande as $domanda){
     foreach($domanda['risposte'] as $risposta){
 
         if($risposta['segnalazione'] == 1){
+            $iSSegnalazioni = true;
+        }
+    }
+}
+
+foreach($fumetti as $fumetto){
+
+    foreach($fumetto['recensione'] as $recensione){
+        
+        if($recensione['segnalazione'] == 1){
             $iSSegnalazioni = true;
         }
     }
@@ -253,6 +266,91 @@ if($iSSegnalazioni){
                         echo "</div>";
 
                     echo"</div>"; 
+                }
+            }
+        }
+
+        foreach($fumetti as $fumetto){
+
+            foreach($fumetto['recensione'] as $recensione){
+
+                if($recensione['segnalazione'] == 1){
+
+                    echo "<div class=\"column\">";
+                        echo "RECENSIONE";
+                    echo"</div>"; 
+
+                    echo "<div class=\"column\">";
+                        echo $fumetto['isbn'];
+                    echo"</div>"; 
+
+                    echo "<div class=\"column-text\">";
+                        echo $recensione['testoRecensione'];
+                    echo"</div>"; 
+
+                    $query= "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$recensione['IDRecensore']}'";
+                    $result = $connessione->query($query);
+            
+                    //Verifico se la query ha restituito risultati
+                    if ($result){
+            
+                        $row = $result->fetch_assoc();
+                        $usernameRec = $row['username'];
+                    } 
+                    
+                    else {
+                        echo "Errore nella query: " . $connessione->error;
+                    }
+
+                    echo "<div class=\"column\">";
+                        echo $usernameRec;
+                    echo"</div>"; 
+
+                    //mi prendo l'ID del segnalatore
+                    $query = "SELECT umn.username FROM utenteDati ud  INNER JOIN utenteMangaNett umn ON ud.id = umn.id  WHERE umn.id = '{$recensione['IDSegnalatore']}'";
+                    $result = $connessione->query($query);
+            
+                    //Verifico se la query ha restituito risultati
+                    if ($result) {
+            
+                        $row = $result->fetch_assoc();
+                        $usernameSign_Rec = $row['username'];
+                    } 
+                    
+                    else {
+                        echo "Errore nella query: " . $connessione->error;
+                    }
+
+                    echo "<div class=\"column\">";
+                        echo $usernameSign_Rec;
+                    echo"</div>"; 
+
+                    echo "<div class=\"column\">";
+
+                        echo "<div class=\"conferma\">";
+
+                            echo "<form action = \"res/PHP/gestione_segnalazioni.php?from=recensione\" method='POST'>";
+
+                                echo "<input type=\"hidden\" name=\"username\" value=". $usernameRec .">";
+                                echo "<input type=\"hidden\" name=\"id\" value=". $recensione['IDRecensore'] .">";
+                                echo "<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] .">";
+
+                                echo "<button name=\"bottone_ban_ok\" type=\"submit\">";
+                                echo "<i id=\"check\" class=\"material-icons\">check</i></button>";
+
+                                echo "<input type=\"hidden\" name=\"username\" value=". $usernameRec .">";
+                                echo "<input type=\"hidden\" name=\"id\" value=". $recensione['IDRecensore'] .">";
+                                echo "<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] .">";
+
+                                echo "<button name=\"bottone_ban_ko\" type=\"submit\">";
+                                echo "<i id=\"block\" class=\"material-icons\">close</i></button>";
+
+                            echo "</form>";
+
+                        echo "</div>";
+
+                    echo"</div>"; 
+
                 }
             }
         }
