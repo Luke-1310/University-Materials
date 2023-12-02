@@ -298,7 +298,7 @@
 
         foreach($domande as $domanda){
 
-            if($domanda['ISBNProdotto'] == $ISBN){
+            if($domanda['ISBNProdotto'] == $ISBN && $domanda['segnalazione'] != 0){
                 
                 $isDomanda = true;
 
@@ -483,137 +483,139 @@
 
                     //ora devo stampare le risposte se ci sono
                     foreach($domanda['risposte'] as $risposta){
-                        
-                        //mi devo prendere il nome utente corrispettivo del domandante
-                        $query_r = "SELECT umn.username FROM utenteMangaNett umn WHERE umn.id = {$risposta['IDRisp']}";
 
-                        $ris_r = $connessione->query($query_r);
+                        if($risposta['segnalazione'] != 0){
+                            //mi devo prendere il nome utente corrispettivo del domandante
+                            $query_r = "SELECT umn.username FROM utenteMangaNett umn WHERE umn.id = {$risposta['IDRisp']}";
 
-                        //Verifico se la query ha restituito risultati
-                        if ($ris_r) {
+                            $ris_r = $connessione->query($query_r);
 
-                            //Estraggo il risultato come un array associativo
-                            $row_r = $ris_r->fetch_assoc();
-                            $username_r = $row_r['username']; 
-                        }
-                        else{
-                            exit(1);
-                        }
+                            //Verifico se la query ha restituito risultati
+                            if ($ris_r) {
 
-                        $parti_r = explode("T", $risposta['dataRisp']);
-
-                        $data_r = $parti_r[0];
-                        $ora_r = $parti_r[1];
-
-                        echo "<div class=\"risposta\">";
-
-                            echo"<div class=\"info-risposta\">";
-
-                                echo "<p class=\"utente\">$username_r</p>";
-                                echo "<p class=\"data\">" . $data_r . " ". $ora_r . "</p>";
-                                echo "<p class=\"data\">RISPOSTA</p>";
-                            
-                            echo "</div>";
-                            
-                            echo "<p class=\"testo-risposta\">" . $risposta['testoRisp'] . "</p>";
-                            
-                            //se l'utente ha già votato allora devo impedirgli di votare ancora
-                            if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
-
-                                //se l'utente è bannato devo impedirgli di votare e segnalare
-                                if($ban == 0){
-                                
-                                    $ha_votato = false;
-
-                                    if (isset($risposta['votazioni'])) {
-
-                                        foreach ($risposta['votazioni'] as $votazione) {
-
-                                            if ($votazione['IDValutante'] == $id_valutante) {
-                                                $ha_votato = true;
-                                                break;
-                                            }
-                                        }
-                                    }
-
-                                    if($ha_votato){
-                                        echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
-                                    }
-                                    else{
-
-                                        //form valutazione UTILITÀ e SUPPORTO
-                                        echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
-
-                                            echo "<div class=\"form-row\">";
-                                                echo "<label for=\"utilita\">UTILITÀ:</label>";
-                                                echo "<select name=\"utilita\" id=\"utilita\">";
-                                            
-                                                    for ($i = 1; $i <= 5; $i++) {
-                                                        echo "<option value=\"$i\">$i</option>";
-                                                    }
-
-                                                echo "</select>";
-                                            echo "</div>";
-
-                                            echo "<div class=\"form-row\">";
-
-                                                echo "<label for=\"supporto\">SUPPORTO:</label>";
-                                                echo "<select name=\"supporto\" id=\"supporto\">";
-
-                                                    for ($i = 1; $i <= 3; $i++) {
-                                                        echo "<option value=\"$i\">$i</option>";
-                                                    }
-                                                    
-                                                echo "</select>";
-                                                
-                                                //mi invio l'id del valutante
-                                                echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
-                                                echo"<input type=\"hidden\" name=\"isbn\" value=".  $ISBN .">";
-                                                echo"<input type=\"hidden\" name=\"ID\" value=". $risposta['IDRisp'] .">";
-                                                echo"<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] .">";
-                                                echo"<input type=\"hidden\" name=\"tipo\" value=\"risposta\">";
-
-                                            echo "</div>";
-                                            
-                                            echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
-
-                                        echo "</form>";
-                                    }
-
-                                    $sql_am = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND (u.ruolo = 'AM' OR u.ruolo = 'SA')";
-                                    $ris_am = mysqli_query($connessione, $sql_am);
-
-                                    if(mysqli_num_rows($ris_am) == 1){
-
-                                        echo"<form id=\"rispostaForm\" action = \"res/PHP/eleva_a_rispostaFAQ.php\" method=\"POST\" >";
-
-                                            echo"<input type=\"hidden\" name=\"dataRisp\" value=". $risposta['dataRisp'] . ">";
-                                            echo"<input type=\"hidden\" name=\"IDRisp\" value=". $risposta['IDRisp'] . ">";
-                                            echo "<span class =\"bottone\"><input type=\"submit\" value=\"ELEVA A FAQ\"></span>";
-                                        
-                                        echo "</form>";
-                                    }
-
-                                    echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=risposta\" method=\"POST\" >";
-
-                                        //mi invio la data della risposta
-                                        echo"<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] . ">";
-
-                                        //mi invio l'id del rispondente
-                                        echo"<input type=\"hidden\" name=\"ID\" value=". $risposta['IDRisp'] . ">";
-                                        echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
-                                
-                                    echo "</form>";
-                                }
-                                else{
-                                    echo"<p id=\"new_question\">OPS... RISULTI BANNATO!</p>";
-                                }        
+                                //Estraggo il risultato come un array associativo
+                                $row_r = $ris_r->fetch_assoc();
+                                $username_r = $row_r['username']; 
                             }
                             else{
-                                echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER VALUTARE LA RISPOSTA!</a></p>";
+                                exit(1);
                             }
 
-                        echo "</div>";                           
+                            $parti_r = explode("T", $risposta['dataRisp']);
+
+                            $data_r = $parti_r[0];
+                            $ora_r = $parti_r[1];
+
+                            echo "<div class=\"risposta\">";
+
+                                echo"<div class=\"info-risposta\">";
+
+                                    echo "<p class=\"utente\">$username_r</p>";
+                                    echo "<p class=\"data\">" . $data_r . " ". $ora_r . "</p>";
+                                    echo "<p class=\"data\">RISPOSTA</p>";
+                                
+                                echo "</div>";
+                                
+                                echo "<p class=\"testo-risposta\">" . $risposta['testoRisp'] . "</p>";
+                                
+                                //se l'utente ha già votato allora devo impedirgli di votare ancora
+                                if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+
+                                    //se l'utente è bannato devo impedirgli di votare e segnalare
+                                    if($ban == 0){
+                                    
+                                        $ha_votato = false;
+
+                                        if (isset($risposta['votazioni'])) {
+
+                                            foreach ($risposta['votazioni'] as $votazione) {
+
+                                                if ($votazione['IDValutante'] == $id_valutante) {
+                                                    $ha_votato = true;
+                                                    break;
+                                                }
+                                            }
+                                        }
+
+                                        if($ha_votato){
+                                            echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
+                                        }
+                                        else{
+
+                                            //form valutazione UTILITÀ e SUPPORTO
+                                            echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
+
+                                                echo "<div class=\"form-row\">";
+                                                    echo "<label for=\"utilita\">UTILITÀ:</label>";
+                                                    echo "<select name=\"utilita\" id=\"utilita\">";
+                                                
+                                                        for ($i = 1; $i <= 5; $i++) {
+                                                            echo "<option value=\"$i\">$i</option>";
+                                                        }
+
+                                                    echo "</select>";
+                                                echo "</div>";
+
+                                                echo "<div class=\"form-row\">";
+
+                                                    echo "<label for=\"supporto\">SUPPORTO:</label>";
+                                                    echo "<select name=\"supporto\" id=\"supporto\">";
+
+                                                        for ($i = 1; $i <= 3; $i++) {
+                                                            echo "<option value=\"$i\">$i</option>";
+                                                        }
+                                                        
+                                                    echo "</select>";
+                                                    
+                                                    //mi invio l'id del valutante
+                                                    echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
+                                                    echo"<input type=\"hidden\" name=\"isbn\" value=".  $ISBN .">";
+                                                    echo"<input type=\"hidden\" name=\"ID\" value=". $risposta['IDRisp'] .">";
+                                                    echo"<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] .">";
+                                                    echo"<input type=\"hidden\" name=\"tipo\" value=\"risposta\">";
+
+                                                echo "</div>";
+                                                
+                                                echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                                            echo "</form>";
+                                        }
+
+                                        $sql_am = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND (u.ruolo = 'AM' OR u.ruolo = 'SA')";
+                                        $ris_am = mysqli_query($connessione, $sql_am);
+
+                                        if(mysqli_num_rows($ris_am) == 1){
+
+                                            echo"<form id=\"rispostaForm\" action = \"res/PHP/eleva_a_rispostaFAQ.php\" method=\"POST\" >";
+
+                                                echo"<input type=\"hidden\" name=\"dataRisp\" value=". $risposta['dataRisp'] . ">";
+                                                echo"<input type=\"hidden\" name=\"IDRisp\" value=". $risposta['IDRisp'] . ">";
+                                                echo "<span class =\"bottone\"><input type=\"submit\" value=\"ELEVA A FAQ\"></span>";
+                                            
+                                            echo "</form>";
+                                        }
+
+                                        echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=risposta\" method=\"POST\" >";
+
+                                            //mi invio la data della risposta
+                                            echo"<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] . ">";
+
+                                            //mi invio l'id del rispondente
+                                            echo"<input type=\"hidden\" name=\"ID\" value=". $risposta['IDRisp'] . ">";
+                                            echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
+                                    
+                                        echo "</form>";
+                                    }
+                                    else{
+                                        echo"<p id=\"new_question\">OPS... RISULTI BANNATO!</p>";
+                                    }        
+                                }
+                                else{
+                                    echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER VALUTARE LA RISPOSTA!</a></p>";
+                                }
+
+                            echo "</div>";
+                        }                   
                     }
                     
                 echo "</div>";
@@ -679,150 +681,154 @@
                 
                 foreach($fumetto['recensione'] as $recensione){
 
-                    $isRecensione = true;
+                    if($recensione['segnalazione'] != 0){
 
-                    $parti_rec = explode("T", $recensione['dataRecensione']);
-                    $data_rec = $parti_rec[0];
-                    $ora_rec = $parti_rec[1];
-                    
-                    $query = "SELECT umn.username FROM utenteMangaNett umn WHERE umn.id = {$recensione['IDRecensore']}";
-                    $ris = $connessione->query($query);
+                        $isRecensione = true;
 
-                    if ($ris) {
-                        $row = $ris->fetch_assoc();
-                        $username_recensore = $row['username']; 
-                    }
-                    else{
-                        exit(1);
-                    }
+                        $parti_rec = explode("T", $recensione['dataRecensione']);
+                        $data_rec = $parti_rec[0];
+                        $ora_rec = $parti_rec[1];
+                        
+                        $query = "SELECT umn.username FROM utenteMangaNett umn WHERE umn.id = {$recensione['IDRecensore']}";
+                        $ris = $connessione->query($query);
 
-                    echo "<div class=\"container_sp\">";
+                        if ($ris) {
+                            $row = $ris->fetch_assoc();
+                            $username_recensore = $row['username']; 
+                        }
+                        else{
+                            exit(1);
+                        }
 
-                        echo "<div class=\"recensione\">";
+                        echo "<div class=\"container_sp\">";
 
-                        echo"<div class=\"info-recensione\">";
-                            echo"<p class=\"utente\">$username_recensore</p>";
-                            echo"<p class=\"data\">" . $data_rec . " ". $ora_rec ."</p>";
-                            echo "<p class=\"data\">RECENSIONE</p>";
-                        echo"</div>";
+                            echo "<div class=\"recensione\">";
 
-                        echo"<p class=\"testo-recensione\">" . $recensione['testoRecensione'] . "</p>";
+                            echo"<div class=\"info-recensione\">";
+                                echo"<p class=\"utente\">$username_recensore</p>";
+                                echo"<p class=\"data\">" . $data_rec . " ". $ora_rec ."</p>";
+                                echo "<p class=\"data\">RECENSIONE</p>";
+                            echo"</div>";
 
-                        if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
-                            
-                            $query = "SELECT umn.ban FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
-                            $ris = $connessione->query($query);
+                            echo"<p class=\"testo-recensione\">" . $recensione['testoRecensione'] . "</p>";
 
-                            if ($ris) {
+                            if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                                
+                                $query = "SELECT umn.ban FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+                                $ris = $connessione->query($query);
 
-                                $row = $ris->fetch_assoc();
-                                $ban = $row['ban'];
-                            }
-                            else{
-                                exit(1);
-                            }
+                                if ($ris) {
 
-                            if($ban == 0){
-
-                                $query_v = "SELECT umn.id FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
-                                $ris_v = $connessione->query($query_v);
-
-                                if ($ris_v) {
-                                    $row_v = $ris_v->fetch_assoc();
-                                    $id_valutante = $row_v['id']; 
+                                    $row = $ris->fetch_assoc();
+                                    $ban = $row['ban'];
                                 }
                                 else{
                                     exit(1);
                                 }
 
-                                $ha_votato = false;
+                                if($ban == 0){
 
-                                if (isset($recensione['votazioni'])) {
-                                
-                                    foreach($recensione['votazioni'] as $votazione) {
-                                        
-                                        if ($votazione['IDValutante'] == $id_valutante) {
-                                
-                                            $ha_votato = true;
-                                            break;
+                                    $query_v = "SELECT umn.id FROM utenteMangaNett umn WHERE umn.username = '{$_SESSION['nome']}'";
+                                    $ris_v = $connessione->query($query_v);
+
+                                    if ($ris_v) {
+                                        $row_v = $ris_v->fetch_assoc();
+                                        $id_valutante = $row_v['id']; 
+                                    }
+                                    else{
+                                        exit(1);
+                                    }
+
+                                    $ha_votato = false;
+
+                                    if (isset($recensione['votazioni'])) {
+                                    
+                                        foreach($recensione['votazioni'] as $votazione) {
+                                            
+                                            if ($votazione['IDValutante'] == $id_valutante) {
+                                    
+                                                $ha_votato = true;
+                                                break;
+                                            }
                                         }
                                     }
-                                }
 
-                                if($ha_votato){
-                                    echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
-                                }
-                                else{
+                                    if($ha_votato){
+                                        echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
+                                    }
+                                    else{
 
-                                    echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
-                                    
-                                        echo "<div class=\"form-row\">";
-
-                                            echo "<label for=\"utilita\">UTILITÀ:</label>";
-                                            echo "<select name=\"utilita\" id=\"utilita\">";
+                                        echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
                                         
-                                                for ($i = 1; $i <= 5; $i++) {
-                                                    echo "<option value=\"$i\">$i</option>";
-                                                }
+                                            echo "<div class=\"form-row\">";
 
-                                            echo "</select>";
+                                                echo "<label for=\"utilita\">UTILITÀ:</label>";
+                                                echo "<select name=\"utilita\" id=\"utilita\">";
+                                            
+                                                    for ($i = 1; $i <= 5; $i++) {
+                                                        echo "<option value=\"$i\">$i</option>";
+                                                    }
 
-                                        echo "</div>";
+                                                echo "</select>";
 
-                                        echo "<div class=\"form-row\">";
+                                            echo "</div>";
 
-                                            echo "<label for=\"supporto\">SUPPORTO:</label>";
-                                            echo "<select name=\"supporto\" id=\"supporto\">";
+                                            echo "<div class=\"form-row\">";
 
-                                                for ($i = 1; $i <= 3; $i++) {
-                                                    echo "<option value=\"$i\">$i</option>";
-                                                }
-                                                
-                                            echo "</select>";
-                                            echo"<input type=\"hidden\" name=\"isbn\" value=".  $fumetto['isbn'] .">";
-                                            echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
-                                            echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] .">";
-                                            echo"<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] .">";
-                                            echo"<input type=\"hidden\" name=\"tipo\" value=\"recensione\">";
+                                                echo "<label for=\"supporto\">SUPPORTO:</label>";
+                                                echo "<select name=\"supporto\" id=\"supporto\">";
 
-                                        echo "</div>";
-                                
-                                        echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+                                                    for ($i = 1; $i <= 3; $i++) {
+                                                        echo "<option value=\"$i\">$i</option>";
+                                                    }
+                                                    
+                                                echo "</select>";
+                                                echo"<input type=\"hidden\" name=\"isbn\" value=".  $fumetto['isbn'] .">";
+                                                echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
+                                                echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] .">";
+                                                echo"<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] .">";
+                                                echo"<input type=\"hidden\" name=\"tipo\" value=\"recensione\">";
 
+                                            echo "</div>";
+                                    
+                                            echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                                        echo "</form>";
+                                    }
+
+                                    //form AGGIUNGI RECENSIONE
+                                    echo"<form id=\"rispostaForm\" action=\"res/PHP/aggiungi_recensione.php\" method=\"POST\" >";
+
+                                        echo"<div class=\"form-row\">";
+                                            echo"<label for=\"risposta\">AGGIUNGI UNA RECENSIONE...</label>";
+                                            echo "<textarea id=\"risposta\" name=\"recensione\" rows=\"10\" cols=\"40\" placeholder=\"Inserisci qui la tua recensione....\" required></textarea>";
+                                        echo"</div>";
+
+                                        echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] . ">";
+                                        echo "<span class =\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                                    echo "</form>";
+
+                                    echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=recensione\" method=\"POST\" >";
+
+                                        echo"<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] . ">";
+                                        echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] . ">";
+                                        echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
+                                    
                                     echo "</form>";
                                 }
 
-                                //form AGGIUNGI RECENSIONE
-                                echo"<form id=\"rispostaForm\" action=\"res/PHP/aggiungi_recensione.php\" method=\"POST\" >";
-
-                                    echo"<div class=\"form-row\">";
-                                        echo"<label for=\"risposta\">AGGIUNGI UNA RECENSIONE...</label>";
-                                        echo "<textarea id=\"risposta\" name=\"recensione\" rows=\"10\" cols=\"40\" placeholder=\"Inserisci qui la tua recensione....\" required></textarea>";
-                                    echo"</div>";
-
-                                    echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] . ">";
-                                    echo "<span class =\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
-
-                                echo "</form>";
-
-                                echo"<form id=\"bottoniForm\" action = \"res/PHP/segnala_contributo.php?from=recensione\" method=\"POST\" >";
-
-                                    echo"<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] . ">";
-                                    echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] . ">";
-                                    echo "<span class =\"bottone\"><input type=\"submit\" value=\"SEGNALA\"></span>";
-                                
-                                echo "</form>";
+                                else{
+                                    echo"<p id=\"new_question\">OPS... RISULTI BANNATO!</p>";
+                                }
                             }
-
                             else{
-                                echo"<p id=\"new_question\">OPS... RISULTI BANNATO!</p>";
+                                echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER INSERIRE UNA NUOVA RECENSIONE!</a></p>";
                             }
-                        }
-                        else{
-                            echo"<p id=\"new_question\"><a href=\"login.php\">LOGGATI PER INSERIRE UNA NUOVA RECENSIONE!</a></p>";
-                        }
 
-                    echo "</div>";
+                        echo "</div>";
+
+                    }
                 }
             }
         }

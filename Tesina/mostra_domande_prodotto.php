@@ -48,14 +48,14 @@
 
         echo "<p class=\"titoletto\">PRODOTTI CHE HANNO GIÀ DELLE DOMANDE!</p>";
 
-        //in questo modo stampo tutti i fumetti che hanno almeno una domanda
+        //in questo modo stampo tutti i fumetti che hanno almeno una domanda VISIBILE
         foreach($fumetti as $fumetto){
 
             $contatore = 0;
 
             foreach($domande as $domanda){
 
-                if($contatore == 0 && $domanda['ISBNProdotto'] == $fumetto['isbn']){
+                if($contatore == 0 && $domanda['ISBNProdotto'] == $fumetto['isbn'] && $domanda['segnalazione'] != 0){
 
                     echo "<div class='titolo-fumetto'>"; 
                         echo "<form id=\"prod_info\" action=\"mostra_domanda_specifica.php\" method=\"POST\">";
