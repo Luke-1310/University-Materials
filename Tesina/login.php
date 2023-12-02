@@ -47,7 +47,7 @@
             }
 
             if(isset($_SESSION['registrazione_ok']) && $_SESSION['registrazione_ok'] == 'true'){//isset verifica se errore è settata
-                echo "<h3>LA REGISTRAZIONE È ANDATA A BUON FINE!</h3>";
+                echo "<h3 id=\"esito_positivo\">LA REGISTRAZIONE È ANDATA A BUON FINE!</h3>";
                 unset($_SESSION['registrazione_ok']);
             }
         ?>
