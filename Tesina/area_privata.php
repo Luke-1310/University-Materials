@@ -84,7 +84,39 @@
                     echo "<div class=\"cell\">";
                         echo "<a href=\"lista_acquisti_utenti.php\"><i id=\"lista_acquisti\" class=\"material-icons\">price_check</i></a>";
                         echo "<a href=\"lista_acquisti_utenti.php\">LISTA ACQUISTI UTENTI</a>";
-                    echo "</div>";  
+                    echo "</div>";
+
+                     //controllo se ci sono segnalazioni pendenti, ovvero poste a 1
+                     $isSegnalazione = false;
+
+                     $xmlpath_dom = "res/XML/Q&A.xml";
+                     $domande = getDomande($xmlpath_dom);
+ 
+                     foreach($domande as $domanda){
+ 
+                         if($domanda['segnalazione'] == 1){
+                             $isSegnalazione = true;
+                             break;
+                         }
+ 
+                         foreach($domanda['risposte'] as $risposta){
+ 
+                             if($risposta['segnalazione'] == 1){
+                                 $isSegnalazione=true;
+                                 break;
+                             }
+                         }
+                     }
+ 
+                     echo "<div class=\"cell\">";
+                         echo "<a href=\"gestione_segnalazioni.php\"><i id=\"segnalazioni\" class=\"material-icons\">report</i></a>";
+                         echo "<div class=\"row\">";
+                             echo "<a href=\"gestione_segnalazioni.php\">SEGNALAZIONI</a>";
+                             if($isSegnalazione){
+                                 echo "<i id=\"allert\" class=\"material-icons\">fiber_manual_record</i>";
+                             }
+                         echo "</div>";
+                     echo "</div>";
                     
                 }
 
@@ -119,38 +151,6 @@
                     echo "<div class=\"cell\">";
                         echo "<a href=\"lista_utenti.php\"><i id=\"lista_utenti\" class=\"material-icons\">list</i></a>";
                         echo "<a href=\"lista_utenti.php\">LISTA UTENTI</a>";
-                    echo "</div>";
-
-                    //controllo se ci sono segnalazioni pendenti, ovvero poste a 1
-                    $isSegnalazione = false;
-
-                    $xmlpath_dom = "res/XML/Q&A.xml";
-                    $domande = getDomande($xmlpath_dom);
-
-                    foreach($domande as $domanda){
-
-                        if($domanda['segnalazione'] == 1){
-                            $isSegnalazione = true;
-                            break;
-                        }
-
-                        foreach($domanda['risposte'] as $risposta){
-
-                            if($risposta['segnalazione'] == 1){
-                                $isSegnalazione=true;
-                                break;
-                            }
-                        }
-                    }
-
-                    echo "<div class=\"cell\">";
-                        echo "<a href=\"gestione_segnalazioni.php\"><i id=\"segnalazioni\" class=\"material-icons\">report</i></a>";
-                        echo "<div class=\"row\">";
-                            echo "<a href=\"gestione_segnalazioni.php\">SEGNALAZIONI</a>";
-                            if($isSegnalazione){
-                                echo "<i id=\"allert\" class=\"material-icons\">fiber_manual_record</i>";
-                            }
-                        echo "</div>";
                     echo "</div>";
                 }
             ?>
