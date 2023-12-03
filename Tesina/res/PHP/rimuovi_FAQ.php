@@ -26,12 +26,12 @@ foreach($domande_doc as $domanda_doc){
 
     if($domanda_IDDom == $IDDom && $domanda_dataDom == $dataDom){
 
-        $domanda_doc->getElementsByTagName('FAQ')->item(0)->nodeValue = 0;
+        $domanda_doc->getElementsByTagName('FAQ')->item(0)->nodeValue = -1;
 
         $risposte = $domanda_doc->getElementsByTagName('risposta');
 
         foreach($risposte as $risposta){
-            $risposta->getElementsByTagName('FAQ')->item(0)->nodeValue = 0;
+            $risposta->getElementsByTagName('FAQ')->item(0)->nodeValue = -1;
         }
         
         $_SESSION['FAQ_rimozione_ok'] = true;
