@@ -42,6 +42,14 @@
         $xmlpath = "res/XML/storico_acquisti.xml";
         $acquisti = getAcquisti($xmlpath);
 
+        // Funzione di confronto per ordinare gli acquisti in base alla data dal più recente al più vecchio
+        function confrontoData($acquistoA, $acquistoB) {
+            return strtotime($acquistoB['data']) - strtotime($acquistoA['data']);
+        }
+
+        // Ordinamento degli acquisti utilizzando la funzione di confronto
+        usort($acquisti, 'confrontoData');
+
         $connessione = new mysqli($host, $user, $password, $db);
 
         $isAcquisti = false;
