@@ -143,10 +143,27 @@ if ($ris) {
 
                     echo "<form action = \"vedi_informazioni.php\" method='POST'>";
 
-                        echo "<input type=\"hidden\" name=\"username\" value=\"". $row['username'] ."\">";
+                        if($row['username'] == $_SESSION['nome']){
 
-                        echo "<button name=\"bottone_promuovi\" type=\"submit\">";
-                        echo "<i id=\"info\" class=\"material-icons\">info</i></button>";
+                            $url = "profilo.php";
+                            echo '<a href="' . $url . '">';
+                                echo '<i id="info" class="material-icons">info</i>';
+                            echo '</a>';
+                        }
+                        else{
+
+                            if($row['ruolo'] != "SA"){
+                                echo "<input type=\"hidden\" name=\"username\" value=\"". $row['username'] ."\">";
+                                echo "<button name=\"bottone_promuovi\" type=\"submit\">";
+                                echo "<i id=\"info\" class=\"material-icons\">info</i></button>";
+                            }
+                            else{
+                                echo "UTENTE SUPERAMMINISTRATORE!";
+                            }
+                                
+                        }
+                        
+
                     echo "</form>";
 
                 echo "</div>";
