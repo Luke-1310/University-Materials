@@ -117,4 +117,15 @@
       <prezzo>4.94</prezzo>
     </fumetto>
   </acquisto>
+  <acquisto>
+    <IDUtente>1</IDUtente>
+    <data>2023-12-14T17:40:17</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>SPY X FAMILY 7</titolo>
+      <isbn>9786559609284</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.99</prezzo>
+    </fumetto>
+  </acquisto>
 </storico>
