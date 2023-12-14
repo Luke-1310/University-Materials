@@ -1203,7 +1203,7 @@
                         if($acquisto['IDUtente'] == $id_loggato){
     
                             //ora che mi trovo nell'ordine corretto, devo vedere se è stato fatto entro una certa data
-                            if($acquisto['data'] <= $sc_data_M){
+                            if($acquisto['data'] >= $sc_data_M){
     
                                 foreach($acquisto['fumetti'] as $fumetto){
                                     
@@ -1212,7 +1212,9 @@
                             }
                         }
                     }
-    
+                    
+                    //echo $spesa_totale_entro_data;
+
                     //3)controllo se la quantita spesa entro una certa data è almeno uguale a quella dello sconto parametrico
                     if($spesa_totale_entro_data >= $sc_M){
                         $M_data_da_M_check = true;
@@ -1282,7 +1284,7 @@
                         }
                     }
                     
-                    // echo "X =>". $X_Y_check . "M =>". $M_data_da_M_check . "N =>". $N_check . "R => " . $R_check . "hacq =>". $ha_acquistato_check;
+                    //echo "X =>". $X_Y_check . "M =>". $M_data_da_M_check . "N =>". $N_check . "R => " . $R_check . "hacq =>". $ha_acquistato_check;
                     
                     //ora ho controllato TUTTI i parametri, se tutte le variabili booleane sono a true aggiungo un 5% come sconto
                     if($X_Y_check && $M_data_da_M_check && $N_check && $R_check && $ha_acquistato_check){

@@ -123,15 +123,15 @@
     <editore>Star Comics</editore>
     <sconto_generico>0</sconto_generico>
     <sconto>
-      <X>2</X>
+      <X>3</X>
       <Y>0</Y>
-      <M>0</M>
-      <data_M>1999-01-01</data_M>
-      <N>131</N>
-      <R>3</R>
+      <M>10</M>
+      <data_M>2023-07-06</data_M>
+      <N>10</N>
+      <R>2</R>
       <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
-    <bonus>1</bonus>
+    <bonus>0</bonus>
     <recensione>
       <IDRecensore>5</IDRecensore>
       <dataRecensione>2023-12-02T13:33:58</dataRecensione>
