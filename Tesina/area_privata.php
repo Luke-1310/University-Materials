@@ -50,7 +50,7 @@
             
             <div class="cell">
                 <a href="storico_crediti.php"><i id="credit" class="material-icons">savings</i></a>
-                <a href="storico_crediti.php">STORICO CREDITI</a>
+                <a href="storico_crediti.php">GESTIONE CREDITI</a>
             </div>
 
             <div class="cell">
