@@ -26,6 +26,13 @@
     ?>
 </head>
 
+<script>
+    //reindirizza il browser e codifica l'invio del titolo attraverso l'URL per gestire i parametri speciali etc...
+    function inviaTitolo(titolo) {
+        window.location.href = "res/PHP/gestione_titolo_offerta.php?titolo=" + encodeURIComponent(titolo);
+    }
+</script>
+
 <body>
     <div class="container_external">
 
@@ -54,14 +61,16 @@
                     echo"<div class=\"form-row\">";
                         
                         echo"<label for=\"titolo\">SELEZIONA IL TITOLO: </label>";
-                        echo"<select name=\"titolo\" id=\"titolo\">";
+                        echo"<select name=\"titolo\" id=\"titolo\" onchange=\"inviaTitolo(this.value)\">";
 
-                            foreach ($fumetti as $fumetto) {
-                                echo "<option value='" .$fumetto['titolo'] . "'>" . $fumetto['titolo']. "</option>";
-                            }
+                        foreach ($fumetti as $fumetto) {
+                            $titolo_select = $fumetto['titolo'];
+                            $isSelected = ($_SESSION['titolo_selezionato'] === $titolo_select) ? 'selected' : '';
+                            echo "<option value='$titolo_select' $isSelected>$titolo_select</option>";
+                        }
 
                         echo"</select>";
-
+                        ewfuibebiufwebui
                         $dataCorrente = date('Y-m-d\TH:i:s');
                         echo"<input type=\"hidden\" name=\"data\" value=$dataCorrente>";
                     echo"</div>";
@@ -88,48 +97,57 @@
                 <!-- per non inserire troppi campi, suppongo che lo sconto parametrico sia sempre pari al 5%, se attivato in base ai parametri-->
                 <div class="form-row">
                     <label for="registrazione">MINIMO MESI DI REGISTRAZIONE</label>
-                    <input type="integer" id="registrazione" name="registrazione_mesi" min="1" max="12" placeholder="1" required>
+                    <input type="integer" id="registrazione" name="registrazione_mesi" min="1" max="12" placeholder="1" 
+                        value="<?php  if(isset($_SESSION['form_off_X'])) echo $_SESSION['form_off_X']; ?>" required>
                 </div>
 
                 <div class="form-row">
                     <label for="registrazione">MINIMO ANNI DI REGISTRAZIONE</label>
-                    <input type="integer" id="registrazione" name="registrazione_anni" min="0" max="20" placeholder="1" required>
+                    <input type="integer" id="registrazione" name="registrazione_anni" min="0" max="20" placeholder="1" 
+                        value="<?php  if(isset($_SESSION['form_off_Y'])) echo $_SESSION['form_off_Y']; ?>" required>
                 </div>
                 
                 <div class="form-row">
                     <label for="crediti_crediti_data">CREDITI SPESI DA UNA CERTA DATA</label>
-                    <input type="integer" id="crediti_data" name="crediti_data" placeholder="100" required>
+                    <input type="integer" id="crediti_data" name="crediti_data" placeholder="100" 
+                        value="<?php  if(isset($_SESSION['form_off_M'])) echo $_SESSION['form_off_M']; ?>" required>
                 </div>
 
                 <div class="form-row">
                     <label for="crediti">DATA DA CUI PARTIRE PER LO SCONTO</label>
-                    <input type="text" id="data" name="da_data" placeholder="1999-01-01" required pattern="\d{4}-\d{2}-\d{2}">
+                    <input type="text" id="data" name="da_data" placeholder="1999-01-01" 
+                        value="<?php  if(isset($_SESSION['form_off_data_M'])) echo $_SESSION['form_off_data_M']; ?>" required pattern="\d{4}-\d{2}-\d{2}">
                 </div>
 
                 <div class="form-row">
                     <label for="crediti">MINIMO DI CREDITI SPESI IN TOTALE</label>
-                    <input type="integer" id="crediti" name="crediti" placeholder="100" required>
+                    <input type="integer" id="crediti" name="crediti" placeholder="100" 
+                        value="<?php  if(isset($_SESSION['form_off_N'])) echo $_SESSION['form_off_N']; ?>" required>
                 </div>
 
                 <div class="form-row">
                     <label for="reputazione">MINIMO DI REPUTAZIONE</label>
-                    <input type="integer" id="reputazione" name="reputazione" placeholder="2" required>
+                    <input type="integer" id="reputazione" name="reputazione" placeholder="2" 
+                        value="<?php  if(isset($_SESSION['form_off_R'])) echo $_SESSION['form_off_R']; ?>" required>
                 </div>
 
                 <div class="form-row">
                     <label for="ha_acquistato">HA GIÀ ACQUISTATO</label>
-                    <input type="text" pattern="[0-9]{13}" maxlength="13" id="ISBN" name="ha_acquistato" placeholder="9798431410840" required>
+                    <input type="text" pattern="[0-9]{13}" maxlength="13" id="ISBN" name="ha_acquistato" placeholder="9798431410840" 
+                        value="<?php  if(isset($_SESSION['form_off_ha_acquistato'])) echo $_SESSION['form_off_ha_acquistato']; ?>" required>
                 </div>
                 
                 <h3>INFORMAZIONI SCONTO:</h3>
                 <div class="form-row">
                     <label for="generico">SCONTO GENERICO (%)</label>
-                    <input type="number" id="generico" name="generico" placeholder="2" min="0" max="30" required>
+                    <input type="number" id="generico" name="generico" placeholder="2" min="0" max="30" 
+                        value="<?php  if(isset($_SESSION['form_off_generico'])) echo $_SESSION['form_off_generico']; ?>" required>
                 </div>
 
                 <div class="form-row">
                     <label for="bonus">BONUS CREDITI</label>
-                    <input type="number" id="bonus" name="bonus" placeholder="2" min="0" max="5" required>
+                    <input type="number" id="bonus" name="bonus" placeholder="2" min="0" max="5"
+                        value="<?php  if(isset($_SESSION['form_off_bonus'])) echo $_SESSION['form_off_bonus']; ?>" required>
                 </div>
 
                 <span class ="bottone"><input type="submit" value="INVIA"></span>
