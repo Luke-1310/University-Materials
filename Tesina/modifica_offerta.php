@@ -16,7 +16,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>Inserisci una nuova domanda</title>
+    <title>Modifica offerta</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <?php 
         $pagina_corrente = "modifica_offerta";
@@ -131,8 +131,6 @@
                     <label for="bonus">BONUS CREDITI</label>
                     <input type="number" id="bonus" name="bonus" placeholder="2" min="0" max="5" required>
                 </div>
-
-
 
                 <span class ="bottone"><input type="submit" value="INVIA"></span>
             </form>
