@@ -128,4 +128,26 @@
       <prezzo>5.99</prezzo>
     </fumetto>
   </acquisto>
+  <acquisto>
+    <IDUtente>3</IDUtente>
+    <data>2023-12-19T21:01:12</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>KAIJU NO.8 2</titolo>
+      <isbn>9788822632050</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.5</prezzo>
+    </fumetto>
+  </acquisto>
+  <acquisto>
+    <IDUtente>3</IDUtente>
+    <data>2023-12-19T21:02:04</data>
+    <bonus>1</bonus>
+    <fumetto>
+      <titolo>SPY X FAMILY 6</titolo>
+      <isbn>9788828720232</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.99</prezzo>
+    </fumetto>
+  </acquisto>
 </storico>

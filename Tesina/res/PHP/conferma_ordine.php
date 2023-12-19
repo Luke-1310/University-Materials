@@ -63,9 +63,12 @@ foreach($_SESSION['carrello'] as $fumetto_carrello){
     }
 }
 
+$sommmario_crediti = 0;
+$sommmario_crediti = $crediti_rimanenti + $bonusDaAccreditare;
+
 //query per aggiornare i crediti dell'utente
 $query = "UPDATE utenteMangaNett 
-SET crediti = '$crediti_rimanenti' 
+SET crediti = '$sommmario_crediti' 
 WHERE username = '{$_SESSION['nome']}'";
 
 $result = $connessione->query($query);
