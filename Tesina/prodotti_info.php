@@ -79,6 +79,7 @@ include('res/PHP/funzioni.php');
             $quantita = $fumetto['quantita'];
             $ISBN = $fumetto['isbn'];
             $bonus = $fumetto['bonus'];
+            $sconto_generico = $fumetto['sconto_generico'];
 
             $_SESSION['vecchio_isbn'] = $ISBN;
         }
@@ -181,6 +182,11 @@ include('res/PHP/funzioni.php');
                         echo "<span class=\"field-value\">" . $bonus . " CREDITI </span>";
                     echo "</div>";
 
+                    echo "<div class=\"info-field\">";
+                        echo "<span class=\"field-label\">SCONTO GENERICO: </span>";
+                        echo "<span class=\"field-value\">" . $sconto_generico . "&#37; </span>";
+                    echo "</div>";
+
                     if(isset($_SESSION['sconto parametrico']) && $_SESSION['sconto parametrico'] = true){
                         echo "<div class=\"info-field\">";
                             echo "<span class=\"field-label\">SCONTO PARAMETRICO ATTIVATO => PREZZO FINALE: </span>";
@@ -189,6 +195,7 @@ include('res/PHP/funzioni.php');
 
                         unset($_SESSION['sconto parametrico']);
                     }
+
                 echo "</div>";
                 
                 echo "<div class=\"info-bottone\">";
