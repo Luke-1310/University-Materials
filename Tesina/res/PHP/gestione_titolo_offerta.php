@@ -31,13 +31,18 @@ if(isset($_GET['titolo'])) {
             $_SESSION['form_off_bonus'] = $fumetto['bonus'];
 
             header('Location:../../modifica_offerta.php');
+
+            exit(0);
         }
     }
 
 } 
 else {
-    // Gestione degli errori nel caso il titolo non sia ricevuto correttamente
-    
+    $_SESSION['titolo_non_ricevuto'] = true;
+
+    header('Location:../../modifica_offerta.php');
+
+    exit(0);
 }
 
 ?>

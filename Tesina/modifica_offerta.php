@@ -42,9 +42,15 @@
 
                 <?php
                     // $_SESSION['richiesta_ok'] = true;
+                    // $_SESSION['titolo_non_ricevuto'] = true;
+                    
                     if(isset($_SESSION['richiesta_ok']) && $_SESSION['richiesta_ok'] = true){
                         echo "<h4 id=\"esito_positivo\">L'OPERAZIONE È ANDATA A BUON FINE!</h4>";
                         unset($_SESSION['richiesta_ok']);
+                    }
+                    if(isset($_SESSION['titolo_non_ricevuto']) && $_SESSION['titolo_non_ricevuto'] = true){
+                        echo "<h4 id=\"esito_negativo\">SEMBRA CHE IL TITOLO NON SIA STATO INOLTRATO CORRETTAMENTE!</h4>";
+                        unset($_SESSION['titolo_non_ricevuto']);
                     }
                     
                     $xmlfile = "res/XML/catalogo.xml";
@@ -63,16 +69,24 @@
                         echo"<label for=\"titolo\">SELEZIONA IL TITOLO: </label>";
                         echo"<select name=\"titolo\" id=\"titolo\" onchange=\"inviaTitolo(this.value)\">";
 
-                        foreach ($fumetti as $fumetto) {
-                            $titolo_select = $fumetto['titolo'];
-                            $isSelected = ($_SESSION['titolo_selezionato'] === $titolo_select) ? 'selected' : '';
-                            echo "<option value='$titolo_select' $isSelected>$titolo_select</option>";
-                        }
+                            foreach ($fumetti as $fumetto) {
+
+                                $titolo_select = $fumetto['titolo'];    //salvando il titolo che sta venendo iterato per poi fare un controllo 
+                                
+                                //Se c'è una corrispondenza, la variabile $isSelected viene impostata a 'selected', altrimenti rimane vuota (''). 
+                                //Questo determina se l'opzione sarà preselezionata nella select.
+
+                                $isSelected = ($_SESSION['titolo_selezionato'] === $titolo_select) ? 'selected' : '';
+
+                                echo "<option value='$titolo_select' $isSelected>$titolo_select</option>";
+                            }
 
                         echo"</select>";
-                        ewfuibebiufwebui
+
                         $dataCorrente = date('Y-m-d\TH:i:s');
+
                         echo"<input type=\"hidden\" name=\"data\" value=$dataCorrente>";
+                        
                     echo"</div>";
                 ?>
 
