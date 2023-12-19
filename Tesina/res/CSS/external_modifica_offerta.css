@@ -14,6 +14,11 @@ h4 {
     margin-bottom: 10px;
 }
 
+#esito_negativo{
+    color: red;
+    text-align: center;
+}
+
 .container_external{
     display: flex;
     justify-content: center;
