@@ -50,6 +50,19 @@ $document->save($xmlPath);
 
 $_SESSION['richiesta_ok'] = true;
 
+//aggiorno tutte le variabili di sessione utilizzati prima visto che il form è andato a buon fine
+
+$_SESSION['form_off_X'] = $sc_X;
+$_SESSION['form_off_Y'] = $sc_Y;
+$_SESSION['form_off_M'] = $sc_M;
+$_SESSION['form_off_data_M'] = $sc_data_M;
+$_SESSION['form_off_N'] = $sc_N;
+$_SESSION['form_off_R'] = $sc_R;
+$_SESSION['form_off_ha_acquistato'] = $sc_ha_acquistato;
+
+$_SESSION['form_off_generico'] = $sc_generico;
+$_SESSION['form_off_bonus'] = $sc_bonus;
+
 header('Location:../../modifica_offerta.php');
 
 
