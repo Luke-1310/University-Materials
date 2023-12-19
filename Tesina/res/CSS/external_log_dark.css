@@ -43,13 +43,13 @@ input {
 
 .account a{
   text-decoration: none;
-  color: black;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
 .account a:hover{
   text-decoration: none;
-  color: #ffffff;
+  color: gray;
 }
 
 
