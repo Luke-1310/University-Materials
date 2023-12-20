@@ -391,6 +391,14 @@
       <ha_acquistato>0000000000000</ha_acquistato>
     </sconto>
     <bonus>1</bonus>
+    <recensione>
+      <IDRecensore>1</IDRecensore>
+      <dataRecensione>2023-12-20T20:42:59</dataRecensione>
+      <testoRecensione>Lo sviluppo del personaggio di Nobara, la quale è presente sulla copertina, è a dir poco splendido!</testoRecensione>
+      <reputazioneRecensore>12</reputazioneRecensore>
+      <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
+    </recensione>
   </fumetto>
   <fumetto isbn="9781974710034">
     <titolo>JUJUTSU KAISEN 2</titolo>
