@@ -492,10 +492,10 @@
     </sconto>
     <bonus>0</bonus>
     <recensione>
-      <IDRecensore>1</IDRecensore>
-      <dataRecensione>2023-12-01T22:32:58</dataRecensione>
-      <testoRecensione>recensione da eliminare</testoRecensione>
-      <reputazioneRecensore>12</reputazioneRecensore>
+      <IDRecensore>7</IDRecensore>
+      <dataRecensione>2023-12-20T20:26:03</dataRecensione>
+      <testoRecensione>Non ci credo, ma l'autore cosa stava pensando mentre scriveva questo volume! È ********* *** ************!!!!???</testoRecensione>
+      <reputazioneRecensore>1</reputazioneRecensore>
       <segnalazione>-1</segnalazione>
       <IDSegnalatore>-1</IDSegnalatore>
     </recensione>
