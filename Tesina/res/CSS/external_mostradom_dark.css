@@ -6,6 +6,15 @@
   font-weight: bold;
 }
 
+.titoletto_noFumetti{
+  text-align: center;
+    
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-bottom: 400px;
+}
+
 .titolo-fumetto {
   display: flex;
   flex-direction: column;
