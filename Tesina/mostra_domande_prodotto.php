@@ -46,23 +46,31 @@
         $domande = getDomande($xmlFile);
         $fumetti = getFumetti($xmlFile2);
 
-        echo "<p class=\"titoletto\">PRODOTTI CHE HANNO GIÀ DELLE DOMANDE!</p>";
+        //in questo modo stampo tutti i fumetti che hanno almeno una domanda VISIBILE, qualora ci fossero
+        
+        if(empty($domande)){
 
-        //in questo modo stampo tutti i fumetti che hanno almeno una domanda VISIBILE
-        foreach($fumetti as $fumetto){
+            echo "<p class=\"titoletto_noFumetti\">SEMBRA CHE NON CI SIANO DOMANDE!</p>";
+        }
+        else{
 
-            $contatore = 0;
+            echo "<p class=\"titoletto\">PRODOTTI CHE HANNO GIÀ DELLE DOMANDE!</p>";
+            
+            foreach($fumetti as $fumetto){
 
-            foreach($domande as $domanda){
-
-                if($contatore == 0 && $domanda['ISBNProdotto'] == $fumetto['isbn'] && $domanda['segnalazione'] != 0){
-
-                    echo "<div class='titolo-fumetto'>"; 
-                        echo "<form id=\"prod_info\" action=\"mostra_domanda_specifica.php\" method=\"POST\">";
-                        echo "<span class=\"bottone\"><h5><input type=\"submit\" name=\"titolo\" value= '" .$fumetto['titolo'] . "'></h5></span>";
-                        echo "</form>";
-                    echo "</div>";
-                    $contatore++;
+                $contatore = 0;
+    
+                foreach($domande as $domanda){
+    
+                    if($contatore == 0 && $domanda['ISBNProdotto'] == $fumetto['isbn'] && $domanda['segnalazione'] != 0){
+    
+                        echo "<div class='titolo-fumetto'>"; 
+                            echo "<form id=\"prod_info\" action=\"mostra_domanda_specifica.php\" method=\"POST\">";
+                            echo "<span class=\"bottone\"><h5><input type=\"submit\" name=\"titolo\" value= '" .$fumetto['titolo'] . "'></h5></span>";
+                            echo "</form>";
+                        echo "</div>";
+                        $contatore++;
+                    }
                 }
             }
         }
