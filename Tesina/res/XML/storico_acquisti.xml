@@ -29,4 +29,56 @@
       <prezzo>4.9</prezzo>
     </fumetto>
   </acquisto>
+  <acquisto>
+    <IDUtente>2</IDUtente>
+    <data>2023-12-20T16:39:21</data>
+    <bonus>3</bonus>
+    <fumetto>
+      <titolo>SPY X FAMILY 1</titolo>
+      <isbn>9788418271236</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.99</prezzo>
+    </fumetto>
+    <fumetto>
+      <titolo>SPY X FAMILY 2</titolo>
+      <isbn>9783455000955</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.99</prezzo>
+    </fumetto>
+    <fumetto>
+      <titolo>SPY X FAMILY 4</titolo>
+      <isbn>9788828766018</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.99</prezzo>
+    </fumetto>
+    <fumetto>
+      <titolo>SPY X FAMILY 5</titolo>
+      <isbn>9788828720447</isbn>
+      <quantita>1</quantita>
+      <prezzo>5.99</prezzo>
+    </fumetto>
+  </acquisto>
+  <acquisto>
+    <IDUtente>4</IDUtente>
+    <data>2023-12-20T16:43:05</data>
+    <bonus>0</bonus>
+    <fumetto>
+      <titolo>KAIJU NO. 8 1</titolo>
+      <isbn>9788822631909</isbn>
+      <quantita>2</quantita>
+      <prezzo>11</prezzo>
+    </fumetto>
+    <fumetto>
+      <titolo>KAIJU NO.8 2</titolo>
+      <isbn>9788822632050</isbn>
+      <quantita>2</quantita>
+      <prezzo>11</prezzo>
+    </fumetto>
+    <fumetto>
+      <titolo>KAIJU NO.8 3</titolo>
+      <isbn>9788822632593</isbn>
+      <quantita>2</quantita>
+      <prezzo>15.98</prezzo>
+    </fumetto>
+  </acquisto>
 </storico>

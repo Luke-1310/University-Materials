@@ -18,4 +18,28 @@
     <dataRichiesta>2023-12-20T16:13:15</dataRichiesta>
     <risposta>0</risposta>
   </richiesta>
+  <richiesta>
+    <IDUtente>2</IDUtente>
+    <quantita>50</quantita>
+    <dataRichiesta>2023-12-20T16:38:11</dataRichiesta>
+    <risposta>1</risposta>
+  </richiesta>
+  <richiesta>
+    <IDUtente>2</IDUtente>
+    <quantita>1000</quantita>
+    <dataRichiesta>2023-12-20T16:38:17</dataRichiesta>
+    <risposta>-1</risposta>
+  </richiesta>
+  <richiesta>
+    <IDUtente>4</IDUtente>
+    <quantita>40</quantita>
+    <dataRichiesta>2023-12-20T16:41:40</dataRichiesta>
+    <risposta>1</risposta>
+  </richiesta>
+  <richiesta>
+    <IDUtente>4</IDUtente>
+    <quantita>10</quantita>
+    <dataRichiesta>2023-12-20T16:41:43</dataRichiesta>
+    <risposta>0</risposta>
+  </richiesta>
 </storico>
