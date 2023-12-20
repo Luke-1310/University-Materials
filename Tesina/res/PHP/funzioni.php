@@ -1064,7 +1064,7 @@
         //una volta calcolata devo aggiornare il campo corrispettivo nel DB
         $query = "UPDATE utenteMangaNett 
                         SET reputazione = '$reputazione_difetto_def'
-                                WHERE id IN (SELECT id FROM utenteMangaNett WHERE username = '{$_SESSION['nome']}')";
+                                WHERE id IN (SELECT id FROM utenteMangaNett WHERE username = '$id')";
 
         $result = $connessione->query($query);
 
