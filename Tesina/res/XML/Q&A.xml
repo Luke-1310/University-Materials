@@ -1,61 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <elenco xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
   <domanda>
-    <ISBNProdotto>9788418271236</ISBNProdotto>
-    <FAQ>-1</FAQ>
-    <segnalazione>-1</segnalazione>
-    <IDSegnalatore>3</IDSegnalatore>
-    <IDDom>1</IDDom>
-    <testoDom>Questa è una domanda di esempio</testoDom>
-    <dataDom>2023-10-06T12:00:00</dataDom>
-    <risposta>
-      <IDRisp>2</IDRisp>
-      <FAQ>-1</FAQ>
-      <segnalazione>-1</segnalazione>
-      <IDSegnalatore>-1</IDSegnalatore>
-      <dataRisp>2023-10-06T12:30:00</dataRisp>
-      <testoRisp>Ecco una risposta di esempio</testoRisp>
-      <votazione_risposta>
-        <IDValutante>1</IDValutante>
-        <reputazione>1</reputazione>
-        <utilita>2</utilita>
-        <supporto>4</supporto>
-      </votazione_risposta>
-      <votazione_risposta>
-        <IDValutante>4</IDValutante>
-        <reputazione>1</reputazione>
-        <utilita>1</utilita>
-        <supporto>1</supporto>
-      </votazione_risposta>
-    </risposta>
-    <risposta>
-      <IDRisp>4</IDRisp>
-      <FAQ>-1</FAQ>
-      <segnalazione>-1</segnalazione>
-      <IDSegnalatore>-1</IDSegnalatore>
-      <dataRisp>2023-10-06T12:31:00</dataRisp>
-      <testoRisp>Ecco un altra risposta di esempio</testoRisp>
-      <votazione_risposta>
-        <IDValutante>4</IDValutante>
-        <reputazione>1</reputazione>
-        <utilita>5</utilita>
-        <supporto>3</supporto>
-      </votazione_risposta>
-      <votazione_risposta>
-        <IDValutante>1</IDValutante>
-        <reputazione>12</reputazione>
-        <utilita>1</utilita>
-        <supporto>2</supporto>
-      </votazione_risposta>
-      <votazione_risposta>
-        <IDValutante>2</IDValutante>
-        <reputazione>12</reputazione>
-        <utilita>3</utilita>
-        <supporto>2</supporto>
-      </votazione_risposta>
-    </risposta>
-  </domanda>
-  <domanda>
     <ISBNProdotto>9788828720447</ISBNProdotto>
     <FAQ>1</FAQ>
     <segnalazione>-1</segnalazione>
@@ -102,35 +47,6 @@
       <dataRisp>2023-11-11T15:15:01</dataRisp>
       <testoRisp>Guarda non sembra esserci</testoRisp>
     </risposta>
-  </domanda>
-  <domanda>
-    <ISBNProdotto>9788822632593</ISBNProdotto>
-    <FAQ>-1</FAQ>
-    <segnalazione>1</segnalazione>
-    <IDSegnalatore>3</IDSegnalatore>
-    <IDDom>1</IDDom>
-    <testoDom>Prova con nuovo campo "FAQ"</testoDom>
-    <dataDom>2023-10-16T10:18:35</dataDom>
-    <risposta>
-      <IDRisp>4</IDRisp>
-      <FAQ>-1</FAQ>
-      <segnalazione>-1</segnalazione>
-      <IDSegnalatore>-1</IDSegnalatore>
-      <dataRisp>2023-10-16T13:46:55</dataRisp>
-      <testoRisp>Prova </testoRisp>
-      <votazione_risposta>
-        <IDValutante>4</IDValutante>
-        <reputazione>5</reputazione>
-        <utilita>4</utilita>
-        <supporto>1</supporto>
-      </votazione_risposta>
-    </risposta>
-    <votazione_domanda>
-      <IDValutante>4</IDValutante>
-      <reputazione>5</reputazione>
-      <utilita>3</utilita>
-      <supporto>2</supporto>
-    </votazione_domanda>
   </domanda>
   <domanda>
     <ISBNProdotto>9785216892214</ISBNProdotto>
