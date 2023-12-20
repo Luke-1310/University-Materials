@@ -1265,14 +1265,13 @@
                     
                     $ha_acquistato_check = false;
                     
+                    if($sc_ha_acquistato == "0000000000000"){
+                        $ha_acquistato_check = true;
+                    }
+
                     foreach($acquisti as $acquisto){
     
                         if($acquisto['IDUtente'] == $id_loggato){
-    
-                            if($sc_ha_acquistato == "0000000000000"){
-                                $ha_acquistato_check = true;
-                                break;
-                            }
 
                             foreach($acquisto['fumetti'] as $fumetto){
                                 

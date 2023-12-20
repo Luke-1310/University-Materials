@@ -2,47 +2,19 @@
 <storico xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
   <acquisto>
     <IDUtente>1</IDUtente>
-    <data>2023-08-27T14:30:00</data>
-    <bonus>5</bonus>
-    <fumetto>
-      <titolo>SPY X FAMILY 1</titolo>
-      <isbn>9788418271236</isbn>
-      <quantita>2</quantita>
-      <prezzo>11.98</prezzo>
-    </fumetto>
-    <fumetto>
-      <titolo>SPY X FAMILY 6</titolo>
-      <isbn>9788828720232</isbn>
-      <quantita>1</quantita>
-      <prezzo>5.99</prezzo>
-    </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>1</IDUtente>
-    <data>2023-09-17T08:32:38</data>
-    <bonus>0</bonus>
+    <data>2023-12-20T16:23:14</data>
+    <bonus>1</bonus>
     <fumetto>
       <titolo>JUJUTSU KAISEN 3</titolo>
       <isbn>9788891297952</isbn>
       <quantita>1</quantita>
-      <prezzo>4.90</prezzo>
+      <prezzo>4.41</prezzo>
     </fumetto>
     <fumetto>
       <titolo>JUJUTSU KAISEN 2</titolo>
       <isbn>9781974710034</isbn>
       <quantita>1</quantita>
-      <prezzo>10.13</prezzo>
-    </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>1</IDUtente>
-    <data>2023-11-25T22:57:53</data>
-    <bonus>0</bonus>
-    <fumetto>
-      <titolo>JUJUTSU KAISEN 1</titolo>
-      <isbn>9788891298911</isbn>
-      <quantita>1</quantita>
-      <prezzo>4.90</prezzo>
+      <prezzo>9.06</prezzo>
     </fumetto>
     <fumetto>
       <titolo>JUJUTSU KAISEN 0</titolo>
@@ -50,104 +22,11 @@
       <quantita>1</quantita>
       <prezzo>4.66</prezzo>
     </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>4</IDUtente>
-    <data>2023-11-25T23:10:41</data>
-    <bonus>0</bonus>
-    <fumetto>
-      <titolo>SPY X FAMILY 7</titolo>
-      <isbn>9786559609284</isbn>
-      <quantita>1</quantita>
-      <prezzo>5.99</prezzo>
-    </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>4</IDUtente>
-    <data>2023-11-25T23:10:56</data>
-    <bonus>0</bonus>
     <fumetto>
       <titolo>JUJUTSU KAISEN 1</titolo>
       <isbn>9788891298911</isbn>
       <quantita>1</quantita>
-      <prezzo>4.90</prezzo>
-    </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>4</IDUtente>
-    <data>2023-11-25T23:13:03</data>
-    <bonus>0</bonus>
-    <fumetto>
-      <titolo>SPY X FAMILY 3</titolo>
-      <isbn>9786555129021</isbn>
-      <quantita>1</quantita>
-      <prezzo>5.99</prezzo>
-    </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>1</IDUtente>
-    <data>2023-11-26T09:19:12</data>
-    <bonus>0</bonus>
-    <fumetto>
-      <titolo>KAIJU NO. 8 1</titolo>
-      <isbn>9788822631909</isbn>
-      <quantita>1</quantita>
-      <prezzo>5.5</prezzo>
-    </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>6</IDUtente>
-    <data>2023-12-01T17:14:45</data>
-    <bonus>0</bonus>
-    <fumetto>
-      <titolo>JUJUTSU KAISEN 3</titolo>
-      <isbn>9788891297952</isbn>
-      <quantita>2</quantita>
-      <prezzo>9.7</prezzo>
-    </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>1</IDUtente>
-    <data>2023-12-01T22:33:41</data>
-    <bonus>0</bonus>
-    <fumetto>
-      <titolo>ONE PIECE 2</titolo>
-      <isbn>9788864201887</isbn>
-      <quantita>1</quantita>
-      <prezzo>4.94</prezzo>
-    </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>1</IDUtente>
-    <data>2023-12-14T17:40:17</data>
-    <bonus>0</bonus>
-    <fumetto>
-      <titolo>SPY X FAMILY 7</titolo>
-      <isbn>9786559609284</isbn>
-      <quantita>1</quantita>
-      <prezzo>5.99</prezzo>
-    </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>3</IDUtente>
-    <data>2023-12-19T21:01:12</data>
-    <bonus>0</bonus>
-    <fumetto>
-      <titolo>KAIJU NO.8 2</titolo>
-      <isbn>9788822632050</isbn>
-      <quantita>1</quantita>
-      <prezzo>5.5</prezzo>
-    </fumetto>
-  </acquisto>
-  <acquisto>
-    <IDUtente>3</IDUtente>
-    <data>2023-12-19T21:02:04</data>
-    <bonus>1</bonus>
-    <fumetto>
-      <titolo>SPY X FAMILY 6</titolo>
-      <isbn>9788828720232</isbn>
-      <quantita>1</quantita>
-      <prezzo>5.99</prezzo>
+      <prezzo>4.9</prezzo>
     </fumetto>
   </acquisto>
 </storico>
