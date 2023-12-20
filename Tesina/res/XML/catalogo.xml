@@ -398,6 +398,12 @@
       <reputazioneRecensore>12</reputazioneRecensore>
       <segnalazione>-1</segnalazione>
       <IDSegnalatore>-1</IDSegnalatore>
+      <votazione_recensione>
+        <IDValutante>5</IDValutante>
+        <reputazione>1</reputazione>
+        <utilita>6</utilita>
+        <supporto>4</supporto>
+      </votazione_recensione>
     </recensione>
   </fumetto>
   <fumetto isbn="9781974710034">

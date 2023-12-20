@@ -19,11 +19,15 @@ $acquisti = getAcquisti($xmlFile);
 
 foreach($acquisti as $acquisto){
 
-    foreach($acquisto['fumetti'] as $fumetto){
+    //devo controllare che l'utente che sta valutando abbia acquistato quel prodotto
+    if($acquisto['IDUtente'] == $IDValutante){
 
-        if($fumetto['isbn'] == $isbn){
-            $utilita = $utilita + 1;
-            $supporto = $supporto + 1;
+        foreach($acquisto['fumetti'] as $fumetto){
+
+            if($fumetto['isbn'] == $isbn){
+                $utilita = $utilita + 1;
+                $supporto = $supporto + 1;
+            }
         }
     }
 }
