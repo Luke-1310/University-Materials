@@ -9,7 +9,7 @@
     <testoDom>Ma questo volume è l'ultimo della serie?</testoDom>
     <dataDom>2023-10-14T18:53:17</dataDom>
     <risposta>
-      <IDRisp>1</IDRisp>
+      <IDRisp>2</IDRisp>
       <FAQ>1</FAQ>
       <segnalazione>1</segnalazione>
       <IDSegnalatore>2</IDSegnalatore>
@@ -47,29 +47,6 @@
       <dataRisp>2023-11-11T15:15:01</dataRisp>
       <testoRisp>Guarda non sembra esserci</testoRisp>
     </risposta>
-  </domanda>
-  <domanda>
-    <ISBNProdotto>9785216892214</ISBNProdotto>
-    <FAQ>-1</FAQ>
-    <segnalazione>-1</segnalazione>
-    <IDSegnalatore>-1</IDSegnalatore>
-    <IDDom>4</IDDom>
-    <testoDom>Prova definitva 1</testoDom>
-    <dataDom>2023-10-16T16:30:19</dataDom>
-    <risposta>
-      <IDRisp>1</IDRisp>
-      <FAQ>-1</FAQ>
-      <segnalazione>-1</segnalazione>
-      <IDSegnalatore>-1</IDSegnalatore>
-      <dataRisp>2023-10-16T16:44:07</dataRisp>
-      <testoRisp>Risposta definitiva</testoRisp>
-    </risposta>
-    <votazione_domanda>
-      <IDValutante>2</IDValutante>
-      <reputazione>12</reputazione>
-      <utilita>3</utilita>
-      <supporto>2</supporto>
-    </votazione_domanda>
   </domanda>
   <domanda>
     <ISBNProdotto>9788891298362</ISBNProdotto>
@@ -150,35 +127,6 @@
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-11-26T17:40:14</dataRisp>
       <testoRisp>Basta che dai un'occhiata al catalogo, appena sarà disponibile potrai aggiungerlo al carrello ed acquistarlo.</testoRisp>
-    </risposta>
-  </domanda>
-  <domanda>
-    <ISBNProdotto>9788864201887</ISBNProdotto>
-    <FAQ>-1</FAQ>
-    <segnalazione>-1</segnalazione>
-    <IDSegnalatore>-1</IDSegnalatore>
-    <IDDom>1</IDDom>
-    <testoDom>domanda da eliminare</testoDom>
-    <dataDom>2023-12-01T22:32:22</dataDom>
-    <votazione_domanda>
-      <IDValutante>1</IDValutante>
-      <reputazione>12</reputazione>
-      <utilita>4</utilita>
-      <supporto>2</supporto>
-    </votazione_domanda>
-    <risposta>
-      <IDRisp>1</IDRisp>
-      <FAQ>-1</FAQ>
-      <segnalazione>-1</segnalazione>
-      <IDSegnalatore>-1</IDSegnalatore>
-      <dataRisp>2023-12-01T22:32:37</dataRisp>
-      <testoRisp>risposta da eliminare</testoRisp>
-      <votazione_risposta>
-        <IDValutante>1</IDValutante>
-        <reputazione>12</reputazione>
-        <utilita>1</utilita>
-        <supporto>1</supporto>
-      </votazione_risposta>
     </risposta>
   </domanda>
 </elenco>
