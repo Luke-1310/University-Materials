@@ -42,4 +42,10 @@
     <dataRichiesta>2023-12-20T16:41:43</dataRichiesta>
     <risposta>0</risposta>
   </richiesta>
+  <richiesta>
+    <IDUtente>5</IDUtente>
+    <quantita>30</quantita>
+    <dataRichiesta>2023-12-20T20:41:35</dataRichiesta>
+    <risposta>1</risposta>
+  </richiesta>
 </storico>
