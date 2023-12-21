@@ -146,13 +146,4 @@
     <testoDom>Non ci siamo!! *************** *****!! *****!!!</testoDom>
     <dataDom>2023-12-20T20:23:21</dataDom>
   </domanda>
-  <domanda>
-    <ISBNProdotto>9788828720232</ISBNProdotto>
-    <FAQ>-1</FAQ>
-    <segnalazione>-1</segnalazione>
-    <IDSegnalatore>-1</IDSegnalatore>
-    <IDDom>1</IDDom>
-    <testoDom>k</testoDom>
-    <dataDom>2023-12-21T15:46:11</dataDom>
-  </domanda>
 </elenco>
