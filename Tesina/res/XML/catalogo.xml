@@ -154,15 +154,15 @@
     <quantita>5</quantita>
     <img>9783455000955</img>
     <editore>Planet Manga</editore>
-    <sconto_generico>0</sconto_generico>
+    <sconto_generico>5</sconto_generico>
     <sconto>
       <X>0</X>
-      <Y>10</Y>
+      <Y>0</Y>
       <M>0</M>
       <data_M>1999-01-01</data_M>
       <N>0</N>
       <R>0</R>
-      <ha_acquistato>0000000000000</ha_acquistato>
+      <ha_acquistato>9788418271236</ha_acquistato>
     </sconto>
     <bonus>1</bonus>
   </fumetto>
