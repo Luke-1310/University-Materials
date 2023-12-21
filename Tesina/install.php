@@ -76,11 +76,11 @@ if ($conn->query($tab_utenteMangaNett) === FALSE) {
 
 
 $ins_utManga = "INSERT INTO `utenteMangaNett` (`id`, `username`, `data_registrazione`, `ruolo`, `crediti`, `reputazione`, `ban`) VALUES
-('1', 'Luke88', '2023-08-08', 'SA', '100', '12', '0'),
-('2', 'alexdm02192', '2023-08-08', 'AM', '0', '12', '0'),
+('1', 'Luke88', '2023-08-08', 'SA', '77.97', '12', '0'),
+('2', 'alexdm02192', '2023-08-08', 'AM', '29.04', '12', '0'),
 ('3', 'WarioBros', '2023-08-09', 'CL', '0', '1', '0'),
-('4', 'MarioBros', '2023-08-29', 'GS', '0', '12',  '0'),
-('5', 'LuigiBros', '2023-10-18', 'CL', '0', '1',  '0'),
+('4', 'MarioBros', '2023-08-29', 'GS', '2.02', '12',  '0'),
+('5', 'LuigiBros', '2023-10-18', 'CL', '26.59', '1',  '0'),
 ('6', 'Luca_88', '2023-10-19', 'CL', '0', '1',  '0'),
 ('7', 'utente_gentile', '2023-10-21', 'CL', '0', '1',  '1')";
 
