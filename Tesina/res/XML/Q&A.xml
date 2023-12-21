@@ -136,6 +136,12 @@
       <dataRisp>2023-12-21T11:01:49</dataRisp>
       <testoRisp>Dovrebbe tornare disponibile entro fine anno!</testoRisp>
     </risposta>
+    <votazione_domanda>
+      <IDValutante>1</IDValutante>
+      <reputazione>12</reputazione>
+      <utilita>4</utilita>
+      <supporto>3</supporto>
+    </votazione_domanda>
   </domanda>
   <domanda>
     <ISBNProdotto>9781634429405</ISBNProdotto>
