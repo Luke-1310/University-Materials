@@ -62,7 +62,7 @@
       <segnalazione>-1</segnalazione>
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-10-18T12:21:28</dataRisp>
-      <testoRisp>Allora, per poter comprare un prodotto devi prima fare una richiesta crediti nella sezione "storico crediti" della tua area privata, poi, eventualmente, un admin te la accetterà e così potrai effettuare l'acquisto!</testoRisp>
+      <testoRisp>Allora, per poter comprare un prodotto devi prima fare una richiesta crediti nella sezione "Gestione Crediti" della tua area privata, poi, eventualmente, un admin te la accetterà e così potrai effettuare l'acquisto!</testoRisp>
       <votazione_risposta>
         <IDValutante>1</IDValutante>
         <reputazione>12</reputazione>
@@ -127,6 +127,14 @@
       <IDSegnalatore>-1</IDSegnalatore>
       <dataRisp>2023-11-26T17:40:14</dataRisp>
       <testoRisp>Basta che dai un'occhiata al catalogo, appena sarà disponibile potrai aggiungerlo al carrello ed acquistarlo.</testoRisp>
+    </risposta>
+    <risposta>
+      <IDRisp>1</IDRisp>
+      <FAQ>-1</FAQ>
+      <segnalazione>-1</segnalazione>
+      <IDSegnalatore>-1</IDSegnalatore>
+      <dataRisp>2023-12-21T11:01:49</dataRisp>
+      <testoRisp>Dovrebbe tornare disponibile entro fine anno!</testoRisp>
     </risposta>
   </domanda>
   <domanda>
