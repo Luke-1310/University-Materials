@@ -384,49 +384,54 @@
                                     }
                                 }
 
-                                if($ha_votato){
-                                    echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
+                                if($id_valutante == $domanda['IDDom']){
+                                    echo "<p id=\"ha_votato\">NON PUOI VALUTARE UN TUO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
                                 }
                                 else{
+                                    if($ha_votato){
+                                        echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
+                                    }
+                                    else{
 
-                                    echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
+                                        echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
 
-                                        echo "<div class=\"form-row\">";
+                                            echo "<div class=\"form-row\">";
 
-                                            echo "<label for=\"utilita\">UTILITÀ:</label>";
-                                            echo "<select name=\"utilita\" id=\"utilita\">";
-                                        
-                                                for ($i = 1; $i <= 5; $i++) {
-                                                    echo "<option value=\"$i\">$i</option>";
-                                                }
-
-                                            echo "</select>";
-
-                                        echo "</div>";
-
-                                        echo "<div class=\"form-row\">";
-
-                                            echo "<label for=\"supporto\">SUPPORTO:</label>";
-                                            echo "<select name=\"supporto\" id=\"supporto\">";
-
-                                                for ($i = 1; $i <= 3; $i++) {
-                                                    echo "<option value=\"$i\">$i</option>";
-                                                }
-                                                
-                                            echo "</select>";
+                                                echo "<label for=\"utilita\">UTILITÀ:</label>";
+                                                echo "<select name=\"utilita\" id=\"utilita\">";
                                             
-                                            echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
-                                            echo"<input type=\"hidden\" name=\"isbn\" value=".  $ISBN .">";
-                                            echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] .">";
-                                            echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] .">";
-                                            echo"<input type=\"hidden\" name=\"tipo\" value=\"domanda\">";
+                                                    for ($i = 1; $i <= 5; $i++) {
+                                                        echo "<option value=\"$i\">$i</option>";
+                                                    }
 
-                                        echo "</div>";
-                                
-                                        echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+                                                echo "</select>";
 
-                                    echo "</form>";
+                                            echo "</div>";
 
+                                            echo "<div class=\"form-row\">";
+
+                                                echo "<label for=\"supporto\">SUPPORTO:</label>";
+                                                echo "<select name=\"supporto\" id=\"supporto\">";
+
+                                                    for ($i = 1; $i <= 3; $i++) {
+                                                        echo "<option value=\"$i\">$i</option>";
+                                                    }
+                                                    
+                                                echo "</select>";
+                                                
+                                                echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
+                                                echo"<input type=\"hidden\" name=\"isbn\" value=".  $ISBN .">";
+                                                echo"<input type=\"hidden\" name=\"ID\" value=". $domanda['IDDom'] .">";
+                                                echo"<input type=\"hidden\" name=\"data\" value=". $domanda['dataDom'] .">";
+                                                echo"<input type=\"hidden\" name=\"tipo\" value=\"domanda\">";
+
+                                            echo "</div>";
+                                    
+                                            echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                                        echo "</form>";
+
+                                    }
                                 }
 
                                 //form AGGIUNGI RISPOSTA
@@ -537,49 +542,54 @@
                                             }
                                         }
 
-                                        if($ha_votato){
-                                            echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
+                                        if($id_valutante == $risposta['IDRisp']){
+                                            echo "<p id=\"ha_votato\">NON PUOI VALUTARE UN TUO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
                                         }
                                         else{
 
-                                            //form valutazione UTILITÀ e SUPPORTO
-                                            echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
+                                            if($ha_votato){
+                                                echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
+                                            }
+                                            else{
+                                                echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
 
-                                                echo "<div class=\"form-row\">";
-                                                    echo "<label for=\"utilita\">UTILITÀ:</label>";
-                                                    echo "<select name=\"utilita\" id=\"utilita\">";
-                                                
-                                                        for ($i = 1; $i <= 5; $i++) {
-                                                            echo "<option value=\"$i\">$i</option>";
-                                                        }
-
-                                                    echo "</select>";
-                                                echo "</div>";
-
-                                                echo "<div class=\"form-row\">";
-
-                                                    echo "<label for=\"supporto\">SUPPORTO:</label>";
-                                                    echo "<select name=\"supporto\" id=\"supporto\">";
-
-                                                        for ($i = 1; $i <= 3; $i++) {
-                                                            echo "<option value=\"$i\">$i</option>";
-                                                        }
-                                                        
-                                                    echo "</select>";
+                                                    echo "<div class=\"form-row\">";
+                                                        echo "<label for=\"utilita\">UTILITÀ:</label>";
+                                                        echo "<select name=\"utilita\" id=\"utilita\">";
                                                     
-                                                    //mi invio l'id del valutante
-                                                    echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
-                                                    echo"<input type=\"hidden\" name=\"isbn\" value=".  $ISBN .">";
-                                                    echo"<input type=\"hidden\" name=\"ID\" value=". $risposta['IDRisp'] .">";
-                                                    echo"<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] .">";
-                                                    echo"<input type=\"hidden\" name=\"tipo\" value=\"risposta\">";
+                                                            for ($i = 1; $i <= 5; $i++) {
+                                                                echo "<option value=\"$i\">$i</option>";
+                                                            }
 
-                                                echo "</div>";
-                                                
-                                                echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+                                                        echo "</select>";
+                                                    echo "</div>";
 
-                                            echo "</form>";
+                                                    echo "<div class=\"form-row\">";
+
+                                                        echo "<label for=\"supporto\">SUPPORTO:</label>";
+                                                        echo "<select name=\"supporto\" id=\"supporto\">";
+
+                                                            for ($i = 1; $i <= 3; $i++) {
+                                                                echo "<option value=\"$i\">$i</option>";
+                                                            }
+                                                            
+                                                        echo "</select>";
+                                                        
+                                                        //mi invio l'id del valutante
+                                                        echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
+                                                        echo"<input type=\"hidden\" name=\"isbn\" value=".  $ISBN .">";
+                                                        echo"<input type=\"hidden\" name=\"ID\" value=". $risposta['IDRisp'] .">";
+                                                        echo"<input type=\"hidden\" name=\"data\" value=". $risposta['dataRisp'] .">";
+                                                        echo"<input type=\"hidden\" name=\"tipo\" value=\"risposta\">";
+
+                                                    echo "</div>";
+                                                    
+                                                    echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                                                echo "</form>";
+                                            }
                                         }
+
 
                                         $sql_am = "SELECT u.ruolo FROM utentemanganett u WHERE u.username = '{$_SESSION['nome']}' AND (u.ruolo = 'AM' OR u.ruolo = 'SA')";
                                         $ris_am = mysqli_query($connessione, $sql_am);
