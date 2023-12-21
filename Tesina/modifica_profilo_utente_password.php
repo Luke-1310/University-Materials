@@ -54,7 +54,7 @@
                     <li>DEVE ESSERE LUNGA ALMENO 8 CARATTERI.</li>
                     <li>DEVE CONTENERE ALMENO UNA LETTERA MAIUSCOLA E UNA MINUSCOLA</li>
                     <li>DEVE CONTENERE ALMENO UN NUMERO.</li>
-                    <li>DEVE CONTENERE ALMENO UN SIMBOLO SPECIALE.</li>
+                    <li>DEVE CONTENERE ALMENO UN SIMBOLO SPECIALE (!@#$%^&*).</li>
                 </ul>       
             </span>
             <i id="info" class="material-icons">info</i>
