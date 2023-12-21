@@ -77,6 +77,19 @@
             $reputazione = calcolaReputazione($id, $xmlpath, $xmlfile);
             
             echo "<p id=\"titolo\"> IL TUO LIVELLO È: " . $reputazione. "</p>";
+
+            //aggiorno il livello di reputazione nel DB
+            $query_repu = "UPDATE utenteMangaNett 
+            SET reputazione = '$reputazione'
+            WHERE id  = '$id'";
+
+            $result_repu = $connessione->query($query_repu);
+
+            //Verifico se la query ha restituito risultati
+            if (!$result_repu) {
+                echo "Errore nella query: " . $connessione->error;
+                exit(1);
+            }
         }
 
         echo "<button onclick=\"aggiornaPagina()\" id=\"aggiorna_rep\">AGGIORNA REPUTAZIONE</button>";

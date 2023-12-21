@@ -1076,18 +1076,6 @@
         $reputazione_difetto_def = floor($reputazione_def); //arrotonda per difetto
 
         // echo $reputazione_difetto_def;
-        //una volta calcolata devo aggiornare il campo corrispettivo nel DB
-        $query = "UPDATE utenteMangaNett 
-                        SET reputazione = '$reputazione_difetto_def'
-                                WHERE id IN (SELECT id FROM utenteMangaNett WHERE username = '$id')";
-
-        $result = $connessione->query($query);
-
-        //Verifico se la query ha restituito risultati
-        if (!$result) {
-            echo "Errore nella query: " . $connessione->error;
-            exit(1);
-        }
 
         return $reputazione_difetto_def;
     }
