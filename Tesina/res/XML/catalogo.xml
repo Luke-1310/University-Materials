@@ -291,7 +291,7 @@
     </sconto>
     <bonus>0</bonus>
   </fumetto>
-  <fumetto isbn="9786559609284">
+  <fumetto isbn="9786559609285">
     <titolo>SPY X FAMILY 7</titolo>
     <autore>
       <nome>Tastuya </nome>
@@ -302,7 +302,7 @@
     <prezzo>5.99</prezzo>
     <data>2021-11-04</data>
     <quantita>42</quantita>
-    <img>9786559609284</img>
+    <img>9786559609285</img>
     <editore>Planet Manga</editore>
     <sconto_generico>0</sconto_generico>
     <sconto>
