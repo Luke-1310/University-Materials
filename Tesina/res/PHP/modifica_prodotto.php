@@ -17,8 +17,10 @@ $publisher = $_POST['editrice'];
 include('../PHP/funzioni.php');
 
 $pathXml = "../XML/catalogo.xml";
+$pathDomande = "../XML/Q&A.xml";
 
 $fumetti = getFumetti($pathXml);
+$domande = getDomande($pathDomande);
 
 //devo fare dei controlli, titolo e sul isbn
 //Controllo sul titolo
@@ -121,6 +123,9 @@ foreach($fumetti as &$fumetto){
     if($fumetto['titolo'] == $_SESSION['info_titolo']){
         
         $fumetto['titolo'] = $title;
+        
+        $vecchioISBN = $fumetto['isbn']; // mi serve questo isbn per poi poter sovrascivere le domande associate ad esso
+
         $fumetto['isbn'] = $ISBN;
         $fumetto['nome_autore'] = $name;
         $fumetto['cognome_autore'] = $surname;
@@ -178,6 +183,29 @@ $document->save($pathXml);
 
 //La variabile di sessione va aggiornata per far si che non si crei un errore se si aggiorna il titolo del fumetto
 $_SESSION['info_titolo'] = $title;
+
+//bene, come ultima cosa ma non meno importante, devo modificare l'ISBN nelle domande
+//ciò risulta importante perché se io cambiassi l'ISBN di un prodotto perderei le domande ad esso associate in quanto è proprio l'ISBN a fare a da chiave
+$document = new DOMDocument();
+$document->load($pathDomande);
+
+//Mi prendo tutti gli elementi 'fumetto' nel documento
+$domande_doc = $document->getElementsByTagName('domanda');
+
+    foreach ($domande_doc as $domanda_doc) {
+
+        $domanda_ISBN = $domanda_doc->getElementsByTagName('ISBNProdotto')->item(0)->nodeValue;
+
+        if ($vecchioISBN === $domanda_ISBN) {
+
+            $domanda_doc->getElementsByTagName('ISBNProdotto')->item(0)->nodeValue = $ISBN;
+            break; 
+        }
+    }
+
+
+// Salva il documento XML aggiornato nel file
+$document->save($pathDomande);
 
 header('Location:../../prodotti_info.php');
 
