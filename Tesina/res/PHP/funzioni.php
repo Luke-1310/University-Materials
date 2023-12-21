@@ -753,49 +753,54 @@
                                         }
                                     }
 
-                                    if($ha_votato){
-                                        echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
+                                    if($id_valutante == $recensione['IDRecensore']){
+                                        echo "<p id=\"ha_votato\">NON PUOI VALUTARE UN TUO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
                                     }
                                     else{
 
-                                        echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
-                                        
-                                            echo "<div class=\"form-row\">";
+                                        if($ha_votato){
+                                            echo "<p id=\"ha_votato\">HAI GIÀ VOTATO QUESTO CONTRIBUTO... ¯\_(ツ)_/¯</p>";
+                                        }
+                                        else{
 
-                                                echo "<label for=\"utilita\">UTILITÀ:</label>";
-                                                echo "<select name=\"utilita\" id=\"utilita\">";
+                                            echo "<form id=\"valutazioneForm\" action=\"res/PHP/aggiungi_valutazione_specifica.php\" method=\"POST\">";
                                             
-                                                    for ($i = 1; $i <= 5; $i++) {
-                                                        echo "<option value=\"$i\">$i</option>";
-                                                    }
+                                                echo "<div class=\"form-row\">";
 
-                                                echo "</select>";
+                                                    echo "<label for=\"utilita\">UTILITÀ:</label>";
+                                                    echo "<select name=\"utilita\" id=\"utilita\">";
+                                                
+                                                        for ($i = 1; $i <= 5; $i++) {
+                                                            echo "<option value=\"$i\">$i</option>";
+                                                        }
 
-                                            echo "</div>";
+                                                    echo "</select>";
 
-                                            echo "<div class=\"form-row\">";
+                                                echo "</div>";
 
-                                                echo "<label for=\"supporto\">SUPPORTO:</label>";
-                                                echo "<select name=\"supporto\" id=\"supporto\">";
+                                                echo "<div class=\"form-row\">";
 
-                                                    for ($i = 1; $i <= 3; $i++) {
-                                                        echo "<option value=\"$i\">$i</option>";
-                                                    }
-                                                    
-                                                echo "</select>";
-                                                echo"<input type=\"hidden\" name=\"isbn\" value=".  $fumetto['isbn'] .">";
-                                                echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
-                                                echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] .">";
-                                                echo"<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] .">";
-                                                echo"<input type=\"hidden\" name=\"tipo\" value=\"recensione\">";
+                                                    echo "<label for=\"supporto\">SUPPORTO:</label>";
+                                                    echo "<select name=\"supporto\" id=\"supporto\">";
 
-                                            echo "</div>";
-                                    
-                                            echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+                                                        for ($i = 1; $i <= 3; $i++) {
+                                                            echo "<option value=\"$i\">$i</option>";
+                                                        }
+                                                        
+                                                    echo "</select>";
+                                                    echo"<input type=\"hidden\" name=\"isbn\" value=".  $fumetto['isbn'] .">";
+                                                    echo"<input type=\"hidden\" name=\"IDValutante\" value=".  $id_valutante .">";
+                                                    echo"<input type=\"hidden\" name=\"ID\" value=". $recensione['IDRecensore'] .">";
+                                                    echo"<input type=\"hidden\" name=\"data\" value=". $recensione['dataRecensione'] .">";
+                                                    echo"<input type=\"hidden\" name=\"tipo\" value=\"recensione\">";
 
-                                        echo "</form>";
+                                                echo "</div>";
+                                        
+                                                echo "<span class=\"bottone\"><input type=\"submit\" value=\"INVIA\"></span>";
+
+                                            echo "</form>";
+                                        }
                                     }
-
                                     //form AGGIUNGI RECENSIONE
                                     echo"<form id=\"rispostaForm\" action=\"res/PHP/aggiungi_recensione.php\" method=\"POST\" >";
 
