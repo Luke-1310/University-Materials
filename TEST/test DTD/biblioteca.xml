@@ -19,31 +19,4 @@
     <anno>2022</anno>
     <editore>Altro Editore</editore>
   </book>
-  <book book="1" rating="sufficiente">
-    <autore>
-      <nome>2</nome>
-      <cognome>3</cognome>
-    </autore>
-    <titolo>4</titolo>
-    <anno>5</anno>
-    <editore>6</editore>
-  </book>
-  <book book="1" rating="sufficiente">
-    <autore>
-      <nome>2</nome>
-      <cognome>3</cognome>
-    </autore>
-    <titolo>4</titolo>
-    <anno>5</anno>
-    <editore>6</editore>
-  </book>
-  <book book="1" rating="sufficiente">
-    <autore>
-      <nome>2</nome>
-      <cognome>3</cognome>
-    </autore>
-    <titolo>4</titolo>
-    <anno>5</anno>
-    <editore>6</editore>
-  </book>
 </libri>
