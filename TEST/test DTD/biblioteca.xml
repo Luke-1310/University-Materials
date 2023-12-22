@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE libri SYSTEM "biblioteca.dtd">
+<libri>
+    <book isbn="9780123456789" rating="ottimo">
+        <autore>
+            <nome>John</nome>
+            <cognome>Doe</cognome>
+        </autore>
+        <titolo>Il grande libro</titolo>
+        <anno>2023</anno>
+        <editore>Casa Editrice</editore>
+    </book>
+    <book isbn="9789876543210" rating="buono">
+        <autore>
+            <nome>Jane</nome>
+            <cognome>Smith</cognome>
+        </autore>
+        <titolo>Un altro libro</titolo>
+        <anno>2022</anno>
+        <editore>Altro Editore</editore>
+    </book>
+</libri>
