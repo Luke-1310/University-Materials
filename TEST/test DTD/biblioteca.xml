@@ -1,22 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE libri SYSTEM "biblioteca.dtd">
 <libri>
-    <book isbn="9780123456789" rating="ottimo">
-        <autore>
-            <nome>John</nome>
-            <cognome>Doe</cognome>
-        </autore>
-        <titolo>Il grande libro</titolo>
-        <anno>2023</anno>
-        <editore>Casa Editrice</editore>
-    </book>
-    <book isbn="9789876543210" rating="buono">
-        <autore>
-            <nome>Jane</nome>
-            <cognome>Smith</cognome>
-        </autore>
-        <titolo>Un altro libro</titolo>
-        <anno>2022</anno>
-        <editore>Altro Editore</editore>
-    </book>
+  <book isbn="9780123456789" rating="ottimo">
+    <autore>
+      <nome>John</nome>
+      <cognome>Doe</cognome>
+    </autore>
+    <titolo>Il grande libro</titolo>
+    <anno>2023</anno>
+    <editore>Casa Editrice</editore>
+  </book>
+  <book isbn="9789876543210" rating="buono">
+    <autore>
+      <nome>Jane</nome>
+      <cognome>Smith</cognome>
+    </autore>
+    <titolo>Un altro libro</titolo>
+    <anno>2022</anno>
+    <editore>Altro Editore</editore>
+  </book>
+  <book book="1" rating="sufficiente">
+    <autore>
+      <nome>2</nome>
+      <cognome>3</cognome>
+    </autore>
+    <titolo>4</titolo>
+    <anno>5</anno>
+    <editore>6</editore>
+  </book>
+  <book book="1" rating="sufficiente">
+    <autore>
+      <nome>2</nome>
+      <cognome>3</cognome>
+    </autore>
+    <titolo>4</titolo>
+    <anno>5</anno>
+    <editore>6</editore>
+  </book>
+  <book book="1" rating="sufficiente">
+    <autore>
+      <nome>2</nome>
+      <cognome>3</cognome>
+    </autore>
+    <titolo>4</titolo>
+    <anno>5</anno>
+    <editore>6</editore>
+  </book>
 </libri>
