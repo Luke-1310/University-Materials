@@ -57,4 +57,6 @@
         </fieldset>
     </form>
 
+    <a href="lista_libri.php">LISTA LIBRI</a>
+
 </body>
