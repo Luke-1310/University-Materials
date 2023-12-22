@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT libri(book*)>
+<!ELEMENT book (autore+, titolo, anno?, editore)>
+
+<!ATTLIST book
+    isbn CDATA #REQUIRED
+    rating (sufficiente | buono | ottimo) "sufficiente">
+
+<!ELEMENT titolo (#PCDATA)>
+<!ELEMENT autore (nome, cognome)>
+<!ELEMENT anno (#PCDATA)>
+<!ELEMENT editore (#PCDATA)>
+<!ELEMENT nome (#PCDATA)>
+<!ELEMENT cognome (#PCDATA)>
