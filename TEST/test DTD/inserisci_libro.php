@@ -23,7 +23,7 @@ $libri = $documento->documentElement;   //Nodo radice del documento XML
 
 $book = $documento->createElement('book'); 
 
-$book->setAttribute('book', $isbn);    
+$book->setAttribute('isbn', $isbn);    
 $book->setAttribute('rating', $rating);    
 
 $autore = $documento->createElement('autore');
@@ -41,6 +41,9 @@ $book->appendChild($titoloElem);
 
 if (!empty($anno)) {
     $book->appendChild($annoElem);
+}
+else{
+    $book->appendChild("NON INSERITO");
 }
 
 $book->appendChild($editoreElem);
