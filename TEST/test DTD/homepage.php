@@ -7,7 +7,7 @@
 
 <body>
 
-    <form action="processa_dati.php" method="post">
+    <form action="inserisci_libro.php" method="post">
         
         <fieldset>
             <legend>Libro</legend>
