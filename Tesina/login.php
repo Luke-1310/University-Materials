@@ -14,8 +14,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 
 <!-- titolo della scheda -->
 <head>
@@ -53,12 +53,12 @@
         ?>
 
         <label for="username">USERNAME</label>
-        <input type="text" name="username" id="username" placeholder="MarioBros" required>
+        <input type="text" name="username" id="username" placeholder="MarioBros" required/>
 
         <label for="password">PASSWORD</label>
-        <input type="password" name="password" id="password" placeholder="Password123!" required>
+        <input type="password" name="password" id="password" placeholder="Password123!" required/>
 
-        <input type="submit" value="ACCEDI">
+        <input type="submit" value="ACCEDI"/>
     
         <div class ="account">
             <a href="register.php">CREA UN ACCOUNT!</a>
