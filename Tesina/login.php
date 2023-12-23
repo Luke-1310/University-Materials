@@ -14,7 +14,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"/>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 
 <!-- titolo della scheda -->
@@ -33,7 +33,7 @@
 
 <img src="res/WEBSITE_MEDIA/doorbell_login.gif" alt="login_GIF" width="18%">
 
-    <form id="loginForm" action="res/PHP/login.php" method="POST">
+    <form id="loginForm" action="res/PHP/login.php" method="post">
 
         <?php
             if(isset($_SESSION['errore']) && $_SESSION['errore'] == 'true'){//isset verifica se errore è settata
@@ -52,18 +52,22 @@
             }
         ?>
 
-        <label for="username">USERNAME</label>
-        <input type="text" name="username" id="username" placeholder="MarioBros" required/>
+        <p>
+            <label for="username">USERNAME</label>
+            <input type="text" name="username" id="username" placeholder="MarioBros" required/>  
+        </p>
 
-        <label for="password">PASSWORD</label>
-        <input type="password" name="password" id="password" placeholder="Password123!" required/>
-
-        <input type="submit" value="ACCEDI"/>
-    
-        <div class ="account">
-            <a href="register.php">CREA UN ACCOUNT!</a>
-        </div>
-
+        <p>
+            <label for="password">PASSWORD</label>
+            <input type="password" name="password" id="password" placeholder="Password123!" required/>
+        </p>
+        <p>
+            <input type="submit" value="ACCEDI"/>
+        </p>
+            <div class ="account">
+                <a href="register.php">CREA UN ACCOUNT!</a>
+            </div>
+        </p>
     </form>
 </div>
 
