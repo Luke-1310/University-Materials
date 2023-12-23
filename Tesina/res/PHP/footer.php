@@ -7,7 +7,7 @@
     }
 ?>
 
-<footer>
+<div class = "footer">
     <ul>
         <li><a href="chi_siamo.php">CHI SIAMO</a></li>
         <li><a href="https://www.google.com/maps/dir//Viale+Andrea+Doria,+5,+04100+Latina+LT/@41.4714065,12.9077018,18.5z/data=!4m9!4m8!1m0!1m5!1m1!1s0x13250c863f296777:0x1a9a2ce6fa96fe1a!2m2!1d12.9077336!2d41.4714773!3e0?hl=it&entry=ttu">DOVE SIAMO</a></li>
@@ -38,4 +38,4 @@
         <li><a href="mostra_domande_prodotto.php">DOMANDE SUI PRODOTTI</a></li>
     </ul>
     <p>TUTTI I DIRITTI RISERVATI &copy; <span id="current-year">2023</span></p>
-</footer>
+</div>

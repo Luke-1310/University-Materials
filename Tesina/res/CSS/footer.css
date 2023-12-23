@@ -1,26 +1,26 @@
-footer {
+.footer {
     background-color: #1e8fffc5;
     text-align: center;
     padding: 10px;
     border-radius: 10px;
 }
 
-footer ul {
+.footer ul {
     list-style: none; /*Rimuove i punti elenco predefiniti*/
     padding: 0;
     display: flex;
     justify-content: center; 
 }
 
-footer li {
+.footer li {
     margin: 0 15px; /*Aggiunge spazi tra le voci*/
 }
 
-footer a {
+.footer a {
     text-decoration: none;
     color: #1a1a1a;
 }
 
-footer ul :hover{
+.footer ul :hover{
     color:#ffffff;
 }

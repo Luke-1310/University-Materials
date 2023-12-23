@@ -8,29 +8,29 @@ html {
 }
 
 
-header {
+.header {
     background-color: #1e8fffc5;
     padding: 10px;
     border-radius: 10px;
 }
 
 
-nav {
+.nav {
     display: flex;
     align-items: center;
 }
 
-nav a {
+.nav a {
     text-decoration: none;
     color: black;
 }
 
-nav a i{
+.nav a i{
     margin-left: 30px;
 }
 
 
-nav form {
+.nav form {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -38,7 +38,7 @@ nav form {
     align-items: center; 
 }
 
-nav form button {
+.nav form button {
     background: none;
     border: none;
     cursor: pointer;
