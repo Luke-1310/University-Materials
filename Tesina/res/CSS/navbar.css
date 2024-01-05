@@ -7,6 +7,10 @@ html {
     color: #1a1a1a;
 }
 
+.sole_luna{
+    display: flex;
+    flex-direction: row;
+}
 
 .header {
     background-color: #1e8fffc5;

@@ -9,6 +9,11 @@ html {
     color: #ffffff;
 }
 
+.sole_luna{
+    display: flex;
+    flex-direction: row;
+}
+
 .header {
     background-color: #1a1a1a;
     padding: 10px;
