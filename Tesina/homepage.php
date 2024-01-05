@@ -18,16 +18,15 @@
 <head>
     <title>MangaNett: manga & fumetti</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <?php 
+</head>
+
+<body>
+
+    <?php
         $pagina_corrente = "homepage";
         include('res/PHP/navbar.php');
         include('res/PHP/funzioni.php');
         include('res/PHP/connection.php');
-    ?>
-</head>
-
-<body>
-    <?php
 
         //gestione errore
         if(isset($_SESSION['richiesta_ko']) && $_SESSION['richiesta_ko'] == true){
@@ -80,7 +79,7 @@
                     //Percorso dell'immagine
                     $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
     
-                    echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\" >";
+                    echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\" />";
 
                     echo "<div class=\"prod_info\">";
                         echo "<form action=\"prodotti_info.php\" method=\"post\">";
@@ -138,7 +137,7 @@
                             //Percorso dell'immagine
                             $pathImg = "res/WEBSITE_MEDIA/PRODUCT_MEDIA/";
             
-                            echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\" >";
+                            echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\" />";
             
                             echo "<div class=\"prod_info\">";
                                 echo "<form action=\"prodotti_info.php\" method=\"post\">";
