@@ -1,9 +1,9 @@
 <?php
     // header
-    echo "<div class= \"header\">";
+    echo "<header>";
         
         // barra superiore di navigazione
-        echo "<div class = \"nav\">";
+        echo "<nav>";
 
             if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
 
@@ -86,7 +86,7 @@
                 }
 
             }
-        echo "</div>";
+        echo "</nav>";
 
-    echo "</div>";
+    echo "</header>";
 ?>
