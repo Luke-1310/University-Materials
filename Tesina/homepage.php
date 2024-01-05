@@ -83,9 +83,11 @@
 
                     echo "<div class=\"prod_info\">";
                         echo "<form action=\"prodotti_info.php\" method=\"post\">";
-                            echo "<span class=\"bottone\">";
-                                echo "<label><input type=\"submit\" name=\"titolo\" value=\"$titolo\" /></label>";
-                            echo "</span>"; 
+                            echo "<div>";
+                                echo "<span class=\"bottone\">";
+                                    echo "<label><input type=\"submit\" name=\"titolo\" value=\"$titolo\" /></label>";
+                                echo "</span>"; 
+                            echo "</div>";
                         echo "</form>";
                     echo "</div>";
 
@@ -143,9 +145,11 @@
             
                             echo "<div class=\"prod_info\">";
                                 echo "<form action=\"prodotti_info.php\" method=\"post\">";
-                                    echo "<span class=\"bottone\">";
-                                        echo "<label><input type=\"submit\" name=\"titolo\" value=\"$titolo\" /></label>";
-                                    echo "</span>"; 
+                                    echo "<div>";
+                                        echo "<span class=\"bottone\">";
+                                            echo "<label><input type=\"submit\" name=\"titolo\" value=\"$titolo\" /></label>";
+                                        echo "</span>"; 
+                                    echo "</div>";
                                 echo "</form>";
                             echo "</div>";
             
