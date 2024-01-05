@@ -82,7 +82,7 @@
     
                     echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\" >";
     
-                    echo "<form id=\"prod_info\" action=\"prodotti_info.php\" method=\"POST\">";
+                    echo "<form id=\"prod_info\" action=\"prodotti_info.php\" method=\"post\">";
                     echo "<span class=\"bottone\"><h5><input type=\"submit\" name=\"titolo\" value=\"$titolo\"></h5></span>";
                     echo "</form>";
     
@@ -138,7 +138,7 @@
             
                             echo "<img src='" . $pathImg . $nomeImg . "' alt=\"Copertina.jpg\" >";
             
-                            echo "<form id=\"prod_info\" action=\"prodotti_info.php\" method=\"POST\">";
+                            echo "<form id=\"prod_info_bonus\" action=\"prodotti_info.php\" method=\"post\">";
                             echo "<span class=\"bottone\"><h5><input type=\"submit\" name=\"titolo\" value=\"$titolo\"></h5></span>";
                             echo "</form>";
             
