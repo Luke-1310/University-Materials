@@ -83,7 +83,9 @@
 
                     echo "<div class=\"prod_info\">";
                         echo "<form action=\"prodotti_info.php\" method=\"post\">";
-                            echo "<span class=\"bottone\"><h5><input type=\"submit\" name=\"titolo\" value=\"$titolo\"></h5></span>";
+                            echo "<span class=\"bottone\">";
+                                echo "<label><input type=\"submit\" name=\"titolo\" value=\"$titolo\" /></label>";
+                            echo "</span>"; 
                         echo "</form>";
                     echo "</div>";
 
