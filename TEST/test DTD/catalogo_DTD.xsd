@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!ELEMENT manga(fumetto*)>
+<!ELEMENT fumetto(titolo, autore, sinossi, lunghezza, prezzo, data, quantita, img, editore, sconto_generico, sconto, bonus)>
+
+<!ATTLIST fumetto
+	  isbn CDATA #REQUIRED
+	  lunghezza CDATA #REQUIRED>
+
+<!ELEMENT titolo (#PCDATA)>
+<!ELEMENT autore (nome, cognome)>
+
+<!ELEMENT nome (#PCDATA)>
+<!ELEMENT cognome (#PCDATA)>
+
+<!ELEMENT sinossi (#PCDATA)>
+<!ELEMENT prezzo (#PCDATA)>
+<!ELEMENT data (#PCDATA)>
+<!ELEMENT quantita (#PCDATA)>
+<!ELEMENT img (#PCDATA)>
+<!ELEMENT editore (#PCDATA)>
+<!ELEMENT sconto_generico (#PCDATA)>
+<!ELEMENT sconto (X,Y,M,data_M,N,R,ha_acquistato)>
+
+<!ELEMENT X (#PCDATA)>
+<!ELEMENT Y (#PCDATA)>
+<!ELEMENT M (#PCDATA)>
+<!ELEMENT data_M (#PCDATA)>
+<!ELEMENT N (#PCDATA)>
+<!ELEMENT R (#PCDATA)>
+<!ELEMENT ha_acquistato (#PCDATA)>
+
+<!ELEMENT bonus(#PCDATA)>
