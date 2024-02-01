@@ -36,7 +36,7 @@
                 if(isset($_SESSION['errore_e']) && $_SESSION['errore_e'] == 'true'){//isset verifica se errore è settata
                     echo "<h4>EMAIL GIÀ ESISTENTE!</h4>";
                     unset($_SESSION['errore_e']);//la unsetto altrimenti rimarrebbe la scritta
-                    unset($_SESSION['form_mail']);//pulisco il form del campo email perché è errato
+                    unset($_SESSION['form_email']);//pulisco il form del campo email perché è errato
                 }
 
                 if(isset($_SESSION['errore_preg']) && $_SESSION['errore_preg'] == 'true'){
