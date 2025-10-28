@@ -1,0 +1,1 @@
+In questa cartella sono presenti diversi assignment realizzati con linguaggi differenti. Ad esempio, nel primo assignment sono stati utilizzati XHTML e CSS. All’interno della directory “Tesina” si trova invece il progetto finale del corso, che raccoglie tutte le conoscenze acquisite nei precedenti assignment. 📚
