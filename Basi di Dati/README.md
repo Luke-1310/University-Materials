@@ -1,3 +1,5 @@
+## Breve sintesi del progetto
+
 **L'architettura del sistema** per la gestione della base di dati si articola su più livelli interconnessi. 
 
 Il cuore del sistema è il **DBMS (Database Management System) MariaDB** , adibito alla gestione e all'archiviazione dei dati. **L'accesso al database** avviene tramite due interfacce principali: da un lato, l'amministrazione grafica e la gestione tramite GUI (Graphical User Interface) è garantita da **phpMyAdmin**, che si collega direttamente a MariaDB ; dall'altro, il Client designato per l'utente finale è **Microsoft Access**. La comunicazione tra il client Microsoft Access e il DBMS MariaDB è abilitata da un Connector/ODBC, un componente software che agisce come ODBC Driver per stabilire una connessione standardizzata e assicurare il flusso di informazioni tra l'applicazione front-end e il database back-end.
