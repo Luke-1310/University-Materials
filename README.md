@@ -1,1 +1,1 @@
-In questa repository ho caricato i materiali di alcuni corsi della laurea triennale. 📖
+In questa repository ho caricato i progetti di due corsi della laurea triennale. 📖
